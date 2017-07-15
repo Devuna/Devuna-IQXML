@@ -3,19 +3,24 @@
 Clarion IQXML library and templates
 
 ## Getting Started ##
+A setup program, iqxml_c10.exe for IQXML is included in the repository setup folder. This program installs the iQXML library, templates, and examples.
 
-1. Move the LIB to your accessory lib
-2. Move the DLL to your accessory bin
-3. Move the INC to your accessory libsrc (if changed)
+To modify the IQXML library you will need to  
 
-To start, drop these into your \apps folder…..and then find the LIB/DLL/INC for each and put them in the Accessory directory (above).
+1. Copy the repository libsrc\win folder to your clarion10\accessory\libsrc\win folder
+2. Copy the repository application\iqxml folder to your \apps folder
 
-I’ve also included templates.
 
-The iqxml.exp should stay as “READ ONLY” so that they can compile.   Rick Martin knows about this if you need additional help but they stay as Read Only.  If you add any NEW FUNCTIONS, you will have to:
+#### «« Make sure the iqxml.exp is flagged as “READ ONLY” »» ####
 
-1. Delete the .exp
-2. Compile the app
-3. Edit the EXP with notepad and delete all lines at the bottom that are ABC or CLARION related 4. Set the EXP back to READ ONLY 5. Recompile the app a second time
+This is so that applications that utilize the library can compile without "duplicate symbol" errors.
 
-This is ONLY if you ADD a new function.  If you change an existing function - then you don’t have to do any of this.
+If you add any NEW FUNCTIONS or experience "duplicate symbol" compiler errors, you will have to:
+
+1. Delete the iqxml.exp
+2. Compile the iqxml.app
+3. Edit the EXP with notepad and delete all lines at the bottom that are ABC or CLARION related 
+4. Set the EXP back to READ ONLY
+5. Recompile the app a second time
+
+This is ONLY if you ADD a new function or experience "duplicate symbol" compiler errors.  If you change an existing function - then you don’t have to do any of this.

@@ -1,0 +1,198 @@
+! //////////////////////////////////////////////////////////////////////////////////////////////////
+! //
+! // Notice : Copyright (C) 2017, Paresi
+! //          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+! //
+! //    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+! //
+! //    Devuna-IQXML is free software: you can redistribute it and/or modify
+! //    it under the terms of the GNU General Public License as published by
+! //    the Free Software Foundation, either version 3 of the License, or
+! //    (at your option) any later version.
+! //
+! //    Devuna-IQXML is distributed in the hope that it will be useful,
+! //    but WITHOUT ANY WARRANTY; without even the implied warranty of
+! //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+! //    GNU General Public License for more details.
+! //
+! //    You should have received a copy of the GNU General Public License
+! //    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! //
+! //////////////////////////////////////////////////////////////////////////////////////////////////
+! //
+! //   SSSS S  BBBBBB
+! //  S    SS   B    B
+! //  S     S   B    B
+! //  S         B    B
+! //   SSS      BBBBB         SetupBuilder 10 Install Project Script
+! //      SS    B    B
+! //        S   B    B        Created with build: 10.0.5452
+! //  S     S   B    B
+! //  SS    S   B    B
+! //  S SSSS   BBBBBB
+! //
+! //////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma MINVER = "5.3.1407"
+  
+[ Support Files ]
+! --- Required temporary installation files ---
+  
+  
+[ Billboards ]
+! --- Billboard files ---
+  
+  
+[ Initialize Setup ]
+! --- Define commonly used constants ---
+#include script "Common Definitions.sbi"
+  
+! --- Define standard installer variables ---
+Set Variable %WINVER% to "{WINVER}"
+Set Variable %CURLNG% to "{CURLNG}"
+Set Variable %SRCDRV% to "{SRCDRV}"
+Set Variable %CURDIR% to "{CURDIR}"
+Set Variable %TMPDIR% to "{TMPDIR}"
+Set Variable %WINDIR% to "{WINDIR}"
+Set Variable %SYSDIR% to "{SYSDIR}"
+Set Variable %PROGRAMFILESDIR% to "{PROGRAMFILESDIR}"
+Set Variable %COMMONFILESDIR% to "{COMMONFILESDIR}"
+Set Variable %PRIVILEGES% to "{PRIVILEGES}"
+  
+! If destination system is running ME/98/95, the built-in variable {SYS32DIR} automatically points to {SYSDIR}
+Set Variable %SYS32DIR% to "{SYS32DIR}"
+  
+! If destination system does not have a writable Windows\System folder, system files will be written to the Windows\ folder
+If %SYS32DIR% "Folder is not writable" Then
+   Set Variable %SYS32DIR% to "%WINDIR%"
+End
+  
+! Important: Initialize default install folder and program group variables
+Set Variable %_SB_INSTALLDIR% to "[INSTALLDIR]"
+Set Variable %_SB_PROGRAMGROUP% to "[PRODUCTNAME]"
+  
+! %SB_BACKUPDIR% holds the path that all backup files will be copied to when overwritten
+Set Variable %_SB_BACKUPDIR% to "%_SB_INSTALLDIR%\BACKUP"
+Set Variable %_SB_INSTALLDIR% to FUNCTION:Get Registry Key Value ("root") from "HKEY_LOCAL_MACHINE\SOFTWARE\SoftVelocity\Clarion10"
+  
+  
+[ Features ]
+! If features are enabled, %SB_FEATURESID% holds all selections separated by a vertical bar "|"
+! Warning: It is not recommended to manually modify the %SB_FEATURESID% variable!
+  
+  
+[ Setup Types ]
+! If setup types are enabled, %SB_SETUPTYPEID% holds the selected type
+! Warning: It is not recommended to manually modify the %SB_SETUPTYPEID% variable!
+  
+::Define Setup Type ("Typical")
+::Define Setup Type ("Minimal")
+::Define Setup Type ("Custom") [Custom Type]
+  
+[ User Interface ]
+! Wizard dialog definition(s)
+Define Wizard Dialog "#1" (Welcome)
+Define Wizard Dialog "#2" (License Agreement)
+Define Wizard Dialog "#3" (Select Install Folder) (%_SB_INSTALLDIR%)
+Define Wizard Dialog "#4" (Ready to Install) ()
+  
+! The Wizard Loop displays the dialog screens that the user sees in the installation
+Loop Wizard (Abort Dialog Active)
+End
+  
+! Display progress dialog
+Progress Dialog: Display ()
+  
+! Create installation .log
+Create Installation App & Log ("[UNINSTALL_LOG]")
+  
+[ Create Folders ]
+  
+::Create Folder "%_SB_INSTALLDIR%\accessory\bin" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\template" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\template\win" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\lib" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\libsrc" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\libsrc\win" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\images" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent" [Feature:Always Install]
+::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\documents" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\documents\iQXML" [Feature:Always Install]
+  
+[ Install Files ]
+Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXmlGrp.tpw" to "%_SB_INSTALLDIR%\accessory\template\win\iQXmlGrp.tpw" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXmlPar.tpw" to "%_SB_INSTALLDIR%\accessory\template\win\iQXmlPar.tpw" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXmlWrt.tpw" to "%_SB_INSTALLDIR%\accessory\template\win\iQXmlWrt.tpw" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\libsrc\win\iQXML.inc" to "%_SB_INSTALLDIR%\accessory\libsrc\win\iQXML.inc" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\bin\iqxml.dll" to "%_SB_INSTALLDIR%\accessory\bin\iqxml.dll" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\lib\iqxml.lib" to "%_SB_INSTALLDIR%\accessory\lib\iqxml.lib" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\lib\version.lib" to "%_SB_INSTALLDIR%\accessory\lib\version.lib" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\application\iqxml\cal16.ico" to "%_SB_INSTALLDIR%\accessory\images\cal16.ico" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\application\iqxml\rtfDateTime.ico" to "%_SB_INSTALLDIR%\accessory\images\rtfDateTime.ico" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXml.tpl" to "%_SB_INSTALLDIR%\accessory\template\win\iQXml.tpl" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\abc.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\abc.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\AddressExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\AddressExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\BankInformation.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\BankInformation.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\cal16.ico" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\cal16.ico" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\ExamplesForIQXml.app" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\ExamplesForIQXml.app" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\ExamplesForIQXml.cwproj" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\ExamplesForIQXml.cwproj" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\ExamplesForIQXml.sln" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\ExamplesForIQXml.sln" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\Internal.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\Internal.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\InvoiceExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\InvoiceExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\PrimaryKeyExtended.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\PrimaryKeyExtended.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\PrimaryKeySet.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\PrimaryKeySet.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\RawContent.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\RawContent.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\rtfDateTime.ico" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\rtfDateTime.ico" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\SoapExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\SoapExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\Softball.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\Softball.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\UTF8.XML" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\UTF8.XML" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\Work.XML" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\Work.XML" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQRecent\IQRecent.app" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent\IQRecent.app" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQRecent\IQRecent.cwproj" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent\IQRecent.cwproj" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQRecent\IQRecent.sln" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent\IQRecent.sln" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\InvoiceExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\InvoiceExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTemplateExample.app" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\IQXMLTemplateExample.app" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTemplateExample.cwproj" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\IQXMLTemplateExample.cwproj" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTemplateExample.sln" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\IQXMLTemplateExample.sln" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\OutputExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\OutputExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\help\iqxml.chm" to "%_SB_INSTALLDIR%\accessory\documents\iQXML\iqxml.chm" [Feature:Always Install]
+  
+[ Create Shortcuts ]
+  
+::Create Program Folder "iQ-XML for Clarion 10" in "Programs\iQ-XML for Clarion 10" [Feature:Always Install]
+::Create Shortcut "iQ-XML Help" in "Programs\iQ-XML for Clarion 10\iQ-XML Help" [Feature:Always Install]
+  
+[ Edit Registry ]
+  
+  
+[ Edit INI Files ]
+  
+  
+[ Modify System ]
+  
+  
+[ Execute Programs ]
+  
+  
+[ Finalize Setup ]
+! Register all queued OCX/DLL/EXE/TLB files
+Register all pending file operations ()
+  
+! Register all queued Clarion Template files
+Register all pending Clarion Templates ()
+  
+[ Final User Interface ]
+! Final wizard dialog definition(s)
+Define Wizard Dialog "#1" (Finish) ()
+  
+! The Wizard Loop displays the dialog screens that the user sees in the installation
+Loop Wizard (Abort Dialog Active)
+End
