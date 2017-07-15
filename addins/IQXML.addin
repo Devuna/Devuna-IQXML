@@ -1,0 +1,19 @@
+<AddIn name    = "iQ-XML"
+   author      = ""
+   url         = ""
+   copyright   = ""
+   description = "iQ-XML">
+	<Manifest>
+		<Identity name="IQXML.Addin" version="1.0"/>
+		<Dependency addin = "SharpDevelop" version = "2.1"/>
+    <Dependency addin = "AccessoryMenu.Addin"/>
+	</Manifest>
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Help/Accessory">
+		<MenuItem id = "IQXML" label = "IQ-XML" type = "Menu">
+      <MenuItem id = "iQ-XML Help"
+				  label = "iQ-XML"
+				  icon = "Icons.16x16.HelpIcon"
+				  link = "home://accessory/Documents/iQXML/iqxml.chm"/>
+			</MenuItem>
+	</Path>
+</AddIn>

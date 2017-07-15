@@ -124,6 +124,7 @@ Create Installation App & Log ("[UNINSTALL_LOG]")
 ::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml" [Feature:Always Install]
 ::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent" [Feature:Always Install]
 ::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\addins" [Feature:Always Install]
 ::Create Folder "%_SB_INSTALLDIR%\accessory\documents" [Feature:Always Install]
 ::Create Folder "%_SB_INSTALLDIR%\accessory\documents\iQXML" [Feature:Always Install]
   
@@ -137,7 +138,7 @@ Install File(s) "C:\GitHub\Devuna-IQXML\lib\iqxml.lib" to "%_SB_INSTALLDIR%\acce
 Install File(s) "C:\GitHub\Devuna-IQXML\lib\version.lib" to "%_SB_INSTALLDIR%\accessory\lib\version.lib" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\application\iqxml\cal16.ico" to "%_SB_INSTALLDIR%\accessory\images\cal16.ico" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\application\iqxml\rtfDateTime.ico" to "%_SB_INSTALLDIR%\accessory\images\rtfDateTime.ico" [Feature:Always Install]
-Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXml.tpl" to "%_SB_INSTALLDIR%\accessory\template\win\iQXml.tpl" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\template\win\iQXml.tpl" to "%_SB_INSTALLDIR%\accessory\template\win\iQXml.tpl" [Feature:Always Install] [ClarionTpl]
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\abc.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\abc.xml" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\AddressExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\AddressExample.xml" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\ExamplesForIQXml\BankInformation.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\ExamplesForIQXml\BankInformation.xml" [Feature:Always Install]
@@ -163,6 +164,7 @@ Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTempl
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTemplateExample.cwproj" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\IQXMLTemplateExample.cwproj" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTemplateExample.sln" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\IQXMLTemplateExample.sln" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\OutputExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\OutputExample.xml" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\addins\IQXML.addin" to "%_SB_INSTALLDIR%\accessory\addins\IQXML.addin" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\help\iqxml.chm" to "%_SB_INSTALLDIR%\accessory\documents\iQXML\iqxml.chm" [Feature:Always Install]
   
 [ Create Shortcuts ]
@@ -187,7 +189,7 @@ Install File(s) "C:\GitHub\Devuna-IQXML\help\iqxml.chm" to "%_SB_INSTALLDIR%\acc
 Register all pending file operations ()
   
 ! Register all queued Clarion Template files
-Register all pending Clarion Templates ()
+Register all pending Clarion Templates in "%_SB_INSTALLDIR%\bin\Clarion.exe"
   
 [ Final User Interface ]
 ! Final wizard dialog definition(s)
