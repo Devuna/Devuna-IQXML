@@ -1,0 +1,117 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:ParseBreak</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:ParseBreak</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>String to Parse</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Delimator</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>What is on the left</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>What is on the right</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">(None)</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Simple single parse, and splits a string that is separated by a character such as , or | and then simply passes back what is on the left of it and what is on the right of it.</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span></p>
+<p><span class="f_CourierFixed">cstrLeft &nbsp; &nbsp; &nbsp; &nbsp;cstring(65)</span></p>
+<p><span class="f_CourierFixed">cstrRight &nbsp; &nbsp; &nbsp; &nbsp;cstring(65)</span></p>
+<p><span class="f_CourierFixed">mystring &nbsp; &nbsp; &nbsp; &nbsp;cstring(65)</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">mystring = 'This is on the left|This is on the right'</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #0000ff;">xml:ParseBreak</span><span class="f_CourierFixed">(mystring,'|',cstrLeft,cstrRight)</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

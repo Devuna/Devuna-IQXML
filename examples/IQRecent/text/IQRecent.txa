@@ -1,0 +1,2072 @@
+[APPLICATION]
+VERSION 34
+TODO Clarion ToDo
+PROCEDURE Main
+[COMMON]
+FROM Clarion
+MODIFIED '2014/01/22' '18:37:49'
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('ClientSideTriggers:')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ProgramAuthor DEFAULT  ('')
+%Repository DEFAULT  ('')
+%ProgramIcon DEFAULT  ('')
+%MessageDescription LONG  (0)
+%GlobalExternal LONG  (0)
+%ExternalSource DEFAULT  ('Statically Linked Library (LIB)')
+%GenerateEmbedComments LONG  (0)
+%INIType DEFAULT  ('NVD_INI')
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%INIProgramIniLocation DEFAULT  ('APPDIR')
+%INICSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%CSIDLCompanyDir DEFAULT  ('')
+%CSIDLProductDir DEFAULT  ('')
+%CSIDLCreate LONG  (0)
+%INIInAppDirectory LONG  (0)
+%REGRoot DEFAULT  ('REG_CLASSES_ROOT')
+%DisableINISaveWindow LONG  (0)
+%PreserveVars MULTI LONG  ()
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 0
+
+%EnableRunTimeTranslator LONG  (0)
+%FuzzyMatchingEnabled LONG  (1)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%ButtonMarginsCompatibility LONG  (0)
+%UseDefaultXPManifest LONG  (1)
+%GenerateXPManifest LONG  (0)
+%LinkGenerateXPManifest LONG  (0)
+%AddVistaXPManifest LONG  (0)
+%VistaManifestExecutionLevel DEFAULT  ('asInvoker')
+%VistaManifestUIAccess LONG  (0)
+%NoThemedControlsDependency LONG  (0)
+%VistaManifestdpiAware LONG  (1)
+%VistaManifestDependentAssembly MULTI LONG  ()
+%VistaManifestDependentAssemblyName DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyVersion DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyType DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyPublicKeyToken DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyLanguage DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyProcessorArchitecture DEPEND %VistaManifestDependentAssembly LONG TIMES 0
+
+%W7ManifestVista LONG  (1)
+%W7ManifestW7 LONG  (1)
+%W7ManifestW8 LONG  (1)
+%W7ManifestW81 LONG  (1)
+%W7ManifestW10 LONG  (1)
+%ForceMakeTransparentXPManifest LONG  (1)
+%ForceMakeColorXPManifest LONG  (0)
+%ForceSHEETNoTheme LONG  (0)
+%ExtUIXPMenuEnableGlobal LONG  (0)
+%ExtUIXPMenuColorTypeGlobal DEFAULT  ('OFF')
+%ExtUIXPMenuDisableImageBar LONG  (1)
+%ExtUIXPMenuEnableRuntime LONG  (0)
+%ExtUIXPMenuRuntimeVar DEFAULT  ('')
+%ExtUIXPMenuColorLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorRightGlobal LONG  (12560039)
+%ExtUIXPMenuColorSelectionBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectionBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuSelVertical LONG  (1)
+%ExtUIXPMenuColorSelectionBorderGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorItemBackgroundGlobal LONG  (-2147483644)
+%ExtUIXPMenuColorNormalText LONG  (0)
+%ExtUIXPMenuColorSelectedText LONG  (0)
+%ExtUIXPMenuColorHotText LONG  (0)
+%ExtUIXPMenuFlat LONG  (1)
+%ExtUIXPMenuShowImageBar LONG  (0)
+%ExtUIXPMenuSeparator3D LONG  (1)
+%ExtUIXPMenuSeparatorFull LONG  (0)
+%ExtUIXPMenuVerticalLine LONG  (1)
+%ExtUIMDITabGlobal DEFAULT  ('DISABLE')
+%ExtUIMDITabStyleGlobal DEFAULT  ('Default')
+%ExtUITabStyleGlobal DEFAULT  ('Boxed')
+%WindowEnableEnhanceFocus LONG  (0)
+%SelectedText LONG  (1)
+%SelectedRadio LONG  (1)
+%SelectedSpin LONG  (1)
+%SelectedCheck LONG  (1)
+%SelectedDropList LONG  (1)
+%SelectedList LONG  (1)
+%SelectedDisplayChangeColor LONG  (1)
+%SelectedColor LONG  (65535)
+%SelectedStyle LONG  (1)
+%SelectedRequired LONG  (0)
+%SelectedRequiredColor LONG  (65535)
+%SelectedDisplayBox LONG  (1)
+%SelectedDisplayBoxFillColor LONG  (65535)
+%SelectedDisplayBoxBorderColor LONG  (0)
+%SelectedDisplayBoxBorderSize DEFAULT  ('2')
+%SelectedRequiredBox LONG  (0)
+%SelectedRequiredDisplayBoxFillColor LONG  (255)
+%SelectedRequiredDisplayBoxBorderColor LONG  (0)
+%SelectedCaret LONG  (1)
+%SelectedCaretColor LONG  (8421504)
+%SelectedCaretCharacter DEFAULT  ('»')
+%SelectedCaretCharacterSeparation DEFAULT  ('8')
+%ExcludeSelectedDropList LONG  (0)
+%EnableOSK DEFAULT  ('OFF')
+%GlobalUseEnterInsteadTab LONG  (0)
+%GlobalUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalUseEnterInsteadTabEnable DEFAULT  ('Enable')
+%GlobalUseEnterInsteadTabEnableValue DEFAULT  ('True')
+%GlobalInterLine DEFAULT  ('11')
+%GlobalEnableAutoSizeColumn LONG  (0)
+%GlobalEnableListFormatManager LONG  (0)
+%GlobalUserFieldListFormatManager DEFAULT  ('1')
+%TableOrigin DEFAULT  ('Application')
+%FileEquate DEFAULT  ('LFM_CFile')
+%ConfigFilePRE DEFAULT  ('CFG')
+%ConfigFileOEM LONG  (0)
+%ConfigFileTHREAD LONG  (1)
+%ConfigFileENCRYPT LONG  (0)
+%ConfigFilePASSWORD DEFAULT  ('')
+%FormatNameSize DEFAULT  ('30')
+%FormatBufferSize DEFAULT  ('5120')
+%VariableBufferSize DEFAULT  ('2048')
+%ConfigFilePath DEFAULT  ('')
+%UseConfigFileName DEFAULT  ('Default')
+%ConfigFileNAME DEFAULT  ('Formats.FDB')
+%ColonCounter DEFAULT  ('')
+%WrongSymbol DEFAULT  ('')
+%DictionaryTableOrigin FILE  ()
+%GlobalLFMSortOrderMenuText DEFAULT  ('SortOrder')
+%GlobalEnableRebase LONG  (0)
+%RBDMethod DEFAULT  ('Specify manually')
+%RBDImageBase DEFAULT  ('10000000')
+%DefaultGenerate LONG  (0)
+%DefaultRILogout LONG  (1)
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('None External')
+%DefaultLocalExternal LONG  (0)
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (1)
+%GeneratePropDataPath LONG  (0)
+%PropDataPathLocation DEFAULT  ('CSIDLLIKEINI')
+%DataPathCSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%DataPathCSIDLCompanyDir DEFAULT  ('')
+%DataPathCSIDLProductDir DEFAULT  ('')
+%DataPathCSIDLCreate LONG  (0)
+%DataPathOtherDirectory DEFAULT  ('')
+%DataPathOtherDirectoryCreate LONG  (0)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 0
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLocalExternal DEPEND %File LONG TIMES 0
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationType DEPEND %File LONG TIMES 0
+
+%FileDeclarationThread DEPEND %File LONG TIMES 0
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 0
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 0
+
+%OverrideDoNotAssertOnCloseMisuse DEPEND %File LONG TIMES 0
+
+%StandardExternalModule DEPEND %Module LONG TIMES 1
+WHEN  ('IQRecent.clw') (1)
+
+%NoGenerateGlobals LONG  (0)
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%AutoRefresh LONG  (1)
+%ImageClass DEFAULT  ('ImageManager')
+%ErrorStatusManagerType DEFAULT  ('ErrorStatusClass')
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%AllowSelectCopy LONG  (0)
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (1)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%CalendarManagerType DEFAULT  ('CalendarClass')
+%GlobalChangeColor LONG  (0)
+%GlobalColorSunday LONG  (255)
+%GlobalColorSaturday LONG  (255)
+%GlobalColorHoliday LONG  (32768)
+%GlobalColorOther LONG  (0)
+%GlobalSelectOnClose DEFAULT  ('Select and Close')
+%GlobalUseABCClasess LONG  (0)
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%FormVCRManagerType DEFAULT  ('FormVCRClass')
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%EditInPlaceInterface DEFAULT  ('Detailed')
+%EditInPlaceType DEFAULT  ('EditEntryClass')
+%EditInPlaceEntryType DEFAULT  ('EditEntryClass')
+%EditInPlaceTextType DEFAULT  ('EditTextClass')
+%EditInPlaceCheckType DEFAULT  ('EditCheckClass')
+%EditInPlaceSpinType DEFAULT  ('EditSpinClass')
+%EditInPlaceDropListType DEFAULT  ('EditDropListClass')
+%EditInPlaceDropComboType DEFAULT  ('EditDropComboClass')
+%EditInPlaceColorType DEFAULT  ('EditColorClass')
+%EditInPlaceFileType DEFAULT  ('EditFileClass')
+%EditInPlaceFontType DEFAULT  ('EditFontClass')
+%EditInPlaceMultiSelectType DEFAULT  ('EditMultiSelectClass')
+%EditInPlaceCalendarType DEFAULT  ('EditCalendarClass')
+%EditInPlaceLookupType DEFAULT  ('EditLookupClass')
+%EditInPlaceOtherType DEFAULT  ('EditEntryClass')
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%ReportTargetSelectorManagerType DEFAULT  ('ReportTargetSelectorClass')
+%BreakManagerType DEFAULT  ('BreakManagerClass')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%ToolbarFormVCRType DEFAULT  ('ToolbarFormVCRClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%AppTemplateFamily DEFAULT  ('CLARION')
+%CWTemplateVersion DEFAULT  ('v10.0')
+%ABCVersion DEFAULT  ('10000')
+%INIActive LONG  (1)
+%EnableExceptionMessage LONG  (0)
+%WindowFrameDragging LONG  (0)
+%GlobalReportPreviewMode DEFAULT  ('Procedure')
+%GlobalReportPreview DEFAULT  ('ReportPreview')
+%GlobalBrowseActiveInvisible LONG  (0)
+%DefaultCloseFile DEFAULT  ('Close the File')
+%WarnOnLogoutError LONG  (1)
+%TriggersSupportEnableGlobal LONG  (0)
+%TriggersManagerType DEFAULT  ('TriggerManager')
+%OverrideCloseFile DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%CWBrowseEIPManagerType DEFAULT  ('CWEIPManager')
+[ADDITION]
+NAME iQXML_Parser_Writer iQXML_Global
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%iQNoGlobals LONG  (0)
+%iQIncludeError LONG  (0)
+%IQDLL LONG  (0)
+%iQErrorCheckOptions DEFAULT  ('Use Standard Clarion Message Box')
+%IOErrorMessageText DEFAULT  ('')
+%IOErrorMessageTitle DEFAULT  ('')
+[PERSIST]
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 2
+WHEN  ('IQRecent.clw') ('1')
+WHEN  ('IQRecent001.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('EXE')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('')
+[PROJECT]
+#system win32 exe
+#model clarion dll
+#compile "IQRecent.clw" -- GENERATED
+#compile "IQRecent001.clw" -- GENERATED
+#compile "IQRec_RD.CLW" -- GENERATED
+#compile "IQRec_RU.CLW" -- GENERATED
+#compile "IQRec_SF.CLW" -- GENERATED
+#pragma link("C%V%dos%X%%L%.lib") -- GENERATED
+#link "IQRecent.EXE"
+[PROGRAM]
+[COMMON]
+FROM Clarion Clarion
+MODIFIED '2010/08/25' '13:22:34'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('testing:'),USE(?testing:Prompt)
+! ENTRY(@s20),USE(testing)
+[REPORTCONTROLS]
+! STRING(@s20),USE(testing)
+testing                  STRING(20)
+!!> GUID('34bdcd43-1b2c-4e8a-a28f-52914a64d397'),PROMPT('testing:'),HEADER('testing'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('glo : filename 1:'),USE(?glo:filename1:Prompt)
+! ENTRY(@s254),USE(glo:filename1)
+[REPORTCONTROLS]
+! STRING(@s254),USE(glo:filename1)
+glo:filename1            CSTRING(255)
+!!> GUID('4ddd1d2e-aacc-4f7f-a1f8-84fbfa9b4066'),PROMPT('glo : filename 1:'),HEADER('glo : filename 1'),PICTURE(@s254),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('glo : filename 2:'),USE(?glo:filename2:Prompt)
+! ENTRY(@s254),USE(glo:filename2)
+[REPORTCONTROLS]
+! STRING(@s254),USE(glo:filename2)
+glo:filename2            CSTRING(255)
+!!> GUID('20aa6025-1ff7-4871-ae5d-2c7321c03467'),PROMPT('glo : filename 2:'),HEADER('glo : filename 2'),PICTURE(@s254),TYPEMODE(INS)
+[EMBED]
+EMBED %BeforeGlobalIncludes
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3500
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+EMBED %AfterFileDeclarations
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+TEXTFILE1            FILE,DRIVER('ASCII', '/TAB=-100'),NAME(GLO:FILENAME1),PRE(TXT1),CREATE
+Record                   RECORD,PRE()
+TEXTLINE                    STRING(4000)
+                         END
+                     END
+TEXTFILE2            FILE,DRIVER('ASCII', '/TAB=-100'),NAME(GLO:FILENAME2),PRE(TXT2),CREATE
+Record                   RECORD,PRE()
+TEXTLINE                    STRING(4000)
+                         END
+                     END
+[END]
+EMBED %AfterClosingExports
+[INSTANCES]
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+[EMBED]
+EMBED %StartOfModule
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 1300
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+[END]
+[PROCEDURE]
+NAME Main
+[COMMON]
+FROM Clarion Window
+MODIFIED '2017/07/15' ' 9:37:59'
+[DATA]
+LocalRequest             LONG
+!!> GUID('4ebeea0e-aa44-4db5-9d9c-34d7e76ddfbf')
+OriginalRequest          LONG
+!!> GUID('a5941eb7-8f08-4d1c-b723-36916b914897')
+LocalResponse            LONG
+!!> GUID('5266d00a-81e0-4ea5-ae79-7a563eda9173')
+FilesOpened              LONG
+!!> GUID('7d2c7f4f-96e7-4725-a22b-54074e39129a')
+WindowOpened             LONG
+!!> GUID('f8f3b986-bcd1-4d12-b536-c3405fa79ad7')
+WindowInitialized        LONG
+!!> GUID('eeaf3a87-67cd-47d5-ab3f-a8b6b31d7d7d')
+ForceRefresh             LONG
+!!> GUID('96501c41-5fe2-4059-bf90-7b3c98cf8703')
+[SCREENCONTROLS]
+! PROMPT('Recs:'),USE(?Recs:Prompt),RIGHT
+! ENTRY(@n-14),USE(Recs),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(Recs),RIGHT(1)
+Recs                     LONG
+!!> GUID('b46c635d-84ef-41d2-9507-ac486bc437ef'),PROMPT('Recs:'),HEADER('Recs'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Path Name:'),USE(?PathName:Prompt)
+! ENTRY(@s254),USE(PathName)
+[REPORTCONTROLS]
+! STRING(@s254),USE(PathName)
+PathName                 CSTRING(255)
+!!> GUID('98c141d5-0e89-401c-87d7-210a0b82bd3f'),PROMPT('Path Name:'),HEADER('Path Name'),PICTURE(@s254),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?FileName:Prompt)
+! ENTRY(@s20),USE(FileName)
+[REPORTCONTROLS]
+! STRING(@s20),USE(FileName)
+FileName                 CSTRING(21)
+!!> GUID('e4293ca7-520d-4efc-933c-584d3f545e81'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Full Name:'),USE(?FullName:Prompt)
+! ENTRY(@s254),USE(FullName)
+[REPORTCONTROLS]
+! STRING(@s254),USE(FullName)
+FullName                 CSTRING(255)
+!!> GUID('99c13dee-b3bd-42c0-b7e6-846a91c1a8a3'),PROMPT('Full Name:'),HEADER('Full Name'),PICTURE(@s254),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Start Ndx:'),USE(?StartNdx:Prompt),RIGHT
+! ENTRY(@n-14),USE(StartNdx),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(StartNdx),RIGHT(1)
+StartNdx                 LONG
+!!> GUID('b72c2853-be47-4957-8f62-392969eb7001'),PROMPT('Start Ndx:'),HEADER('Start Ndx'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt),RIGHT
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('1a893942-d62b-4354-aa8e-ec469116f78a'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Final Value:'),USE(?FinalValue:Prompt)
+! ENTRY(@s255),USE(FinalValue)
+[REPORTCONTROLS]
+! STRING(@s255),USE(FinalValue)
+FinalValue               CSTRING(10240)
+!!> GUID('0e85df3f-e02e-442f-ae11-022275c363ce'),PROMPT('Final Value:'),HEADER('Final Value'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Align Menu:'),USE(?Tweak_AlignMenu:Prompt)
+! ENTRY(@s20),USE(Tweak_AlignMenu)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Tweak_AlignMenu)
+Tweak_AlignMenu          BYTE
+!!> GUID('01398b98-3939-46d9-b391-0db394001aa1'),PROMPT('Tweak Align Menu:'),HEADER('Tweak Align Menu'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Use Align:'),USE(?Tweak_UseAlign:Prompt)
+! ENTRY(@s20),USE(Tweak_UseAlign)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Tweak_UseAlign)
+Tweak_UseAlign           BYTE
+!!> GUID('5d25848a-a873-4e03-a5c5-8f6a2f86f3a3'),PROMPT('Tweak Use Align:'),HEADER('Tweak Use Align'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak New:'),USE(?Tweak_New:Prompt)
+! ENTRY(@n3),USE(Tweak_New)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Tweak_New)
+Tweak_New                BYTE
+!!> GUID('876d557b-1de3-41c7-a1aa-81e079748434'),PROMPT('Tweak New:'),HEADER('Tweak New'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Close:'),USE(?Tweak_Close:Prompt)
+! ENTRY(@s20),USE(Tweak_Close)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Tweak_Close)
+Tweak_Close              BYTE
+!!> GUID('4b05ec93-bda4-485d-94eb-017d78efc8cb'),PROMPT('Tweak Close:'),HEADER('Tweak Close'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Sep:'),USE(?Tweak_Sep:Prompt)
+! ENTRY(@n3),USE(Tweak_Sep)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Tweak_Sep)
+Tweak_Sep                BYTE
+!!> GUID('c1477137-ccc3-478b-bd5d-21fe686095d4'),PROMPT('Tweak Sep:'),HEADER('Tweak Sep'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Caps Errors:'),USE(?Tweak_CapsErrors:Prompt)
+! ENTRY(@n3),USE(Tweak_CapsErrors)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Tweak_CapsErrors)
+Tweak_CapsErrors         BYTE
+!!> GUID('36de20da-fc4b-4274-9e13-817ff204bcc7'),PROMPT('Tweak Caps Errors:'),HEADER('Tweak Caps Errors'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Tweak Templates:'),USE(?Tweak_Templates:Prompt)
+! ENTRY(@n3),USE(Tweak_Templates)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Tweak_Templates)
+Tweak_Templates          BYTE
+!!> GUID('38021c84-1191-48b7-b194-29a5a5ed05b2'),PROMPT('Tweak Templates:'),HEADER('Tweak Templates'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('In Menu Item:'),USE(?InMenuItem:Prompt)
+! ENTRY(@n3),USE(InMenuItem)
+[REPORTCONTROLS]
+! STRING(@n3),USE(InMenuItem)
+InMenuItem               BYTE
+!!> GUID('726da37d-a0a4-42d3-ab3d-9ff2c86bf599'),PROMPT('In Menu Item:'),HEADER('In Menu Item'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('In File Item:'),USE(?InFileItem:Prompt)
+! ENTRY(@n3),USE(InFileItem)
+[REPORTCONTROLS]
+! STRING(@n3),USE(InFileItem)
+InFileItem               BYTE
+!!> GUID('7700bc98-9208-4717-9b4a-ec3bcc7be97b'),PROMPT('In File Item:'),HEADER('In File Item'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('In New Menu Item:'),USE(?InNewMenuItem:Prompt)
+! ENTRY(@n3),USE(InNewMenuItem)
+[REPORTCONTROLS]
+! STRING(@n3),USE(InNewMenuItem)
+InNewMenuItem            BYTE
+!!> GUID('617918b4-0487-4390-8ec6-f5e108f8acbc'),PROMPT('In New Menu Item:'),HEADER('In New Menu Item'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('In Close Menuitem:'),USE(?InCloseMenuitem:Prompt)
+! ENTRY(@n3),USE(InCloseMenuitem)
+[REPORTCONTROLS]
+! STRING(@n3),USE(InCloseMenuitem)
+InCloseMenuitem          BYTE
+!!> GUID('ae205c75-e1a0-416e-8fde-7c6edd2ce335'),PROMPT('In Close Menuitem:'),HEADER('In Close Menuitem'),PICTURE(@n3),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Recent Queue:'),USE(?RecentQueue:Prompt)
+! ENTRY(@s20),USE(RecentQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(RecentQueue)
+RecentQueue              QUEUE,PRE()
+!!> GUID('7868e575-e509-4561-8f28-440072b81850'),PROMPT('Recent Queue:'),HEADER('Recent Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Project Value:'),USE(?ProjectValue:Prompt),CENTER
+! ENTRY(@s255),USE(ProjectValue),DECIMAL
+[REPORTCONTROLS]
+! STRING(@s255),USE(ProjectValue),DECIMAL
+ProjectValue               STRING(10240)
+!!> GUID('6f01c25f-91a3-4eee-8616-c84d91e944b3'),PROMPT('Project Value:'),HEADER('Project Value'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Dictionary Value:'),USE(?DictionaryValue:Prompt)
+! ENTRY(@s255),USE(DictionaryValue)
+[REPORTCONTROLS]
+! STRING(@s255),USE(DictionaryValue)
+DictionaryValue            STRING(10240)
+!!> GUID('20c7c624-28ee-4cf5-b9f1-54ac40e668ea'),PROMPT('Dictionary Value:'),HEADER('Dictionary Value'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Diagram Value:'),USE(?DiagramValue:Prompt)
+! ENTRY(@s255),USE(DiagramValue)
+[REPORTCONTROLS]
+! STRING(@s255),USE(DiagramValue)
+DiagramValue               STRING(10240)
+!!> GUID('6e059096-aa64-48bc-a22c-4ef1df458d5c'),PROMPT('Diagram Value:'),HEADER('Diagram Value'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Value:'),USE(?FileValue:Prompt)
+! ENTRY(@s255),USE(FileValue)
+[REPORTCONTROLS]
+! STRING(@s255),USE(FileValue)
+FileValue                  STRING(10240)
+!!> GUID('27a00504-28b4-48fe-88fe-304192ae396c'),PROMPT('File Value:'),HEADER('File Value'),PICTURE(@s255),TYPEMODE(INS)
+                         END
+!!> GUID('bb0bdbf4-f3dc-4802-8d30-57bdade550fa')
+[SCREENCONTROLS]
+! PROMPT('File Queue:'),USE(?FileQueue:Prompt)
+! ENTRY(@s20),USE(FileQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(FileQueue)
+FileQueue                QUEUE,PRE(FQ)
+!!> GUID('24a5f981-195a-4229-a90b-57f5e462fdc9'),PROMPT('File Queue:'),HEADER('File Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Properties Name:'),USE(?FQ:PropertiesName:Prompt)
+! ENTRY(@s20),USE(FQ:PropertiesName)
+[REPORTCONTROLS]
+! STRING(@s20),USE(FQ:PropertiesName)
+PropertiesName             STRING(64)
+!!> GUID('fefb6c12-9c07-433b-866f-05ddf5573355'),PROMPT('Properties Name:'),HEADER('Properties Name'),PICTURE(@s64),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Has UID value:'),USE(?FQ:HasUIDvalue:Prompt)
+! ENTRY(@s64),USE(FQ:HasUIDvalue)
+[REPORTCONTROLS]
+! STRING(@s64),USE(FQ:HasUIDvalue)
+HasUIDvalue                STRING(64)
+!!> GUID('748cac34-b9b8-42e7-8d9a-7edf9196b10a'),PROMPT('Has UID value:'),HEADER('Has UID value'),PICTURE(@s64),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Has PWD value:'),USE(?FQ:HasPWDvalue:Prompt)
+! ENTRY(@s64),USE(FQ:HasPWDvalue)
+[REPORTCONTROLS]
+! STRING(@s64),USE(FQ:HasPWDvalue)
+HasPWDvalue                STRING(64)
+!!> GUID('24762be0-fc29-431f-baaf-d98be85a2717'),PROMPT('Has PWD value:'),HEADER('Has PWD value'),PICTURE(@s64),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Drivervalue:'),USE(?FQ:FileDrivervalue:Prompt)
+! ENTRY(@s64),USE(FQ:FileDrivervalue)
+[REPORTCONTROLS]
+! STRING(@s64),USE(FQ:FileDrivervalue)
+FileDrivervalue            STRING(64)
+!!> GUID('07ab0214-8f80-496d-894c-ad1e923f8170'),PROMPT('File Drivervalue:'),HEADER('File Drivervalue'),PICTURE(@s64),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Driver String Value:'),USE(?FQ:DriverStringValue:Prompt)
+! ENTRY(@s64),USE(FQ:DriverStringValue)
+[REPORTCONTROLS]
+! STRING(@s64),USE(FQ:DriverStringValue)
+DriverStringValue          STRING(64)
+!!> GUID('f81f6f78-64d0-4f26-8f94-a0a8fabf2114'),PROMPT('Driver String Value:'),HEADER('Driver String Value'),PICTURE(@s64),TYPEMODE(INS)
+                         END
+!!> GUID('b761f131-dced-40d7-bd81-7ff0e886ae18')
+[SCREENCONTROLS]
+! PROMPT('End File Queue:'),USE(?EndFileQueue:Prompt)
+! ENTRY(@s20),USE(EndFileQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EndFileQueue)
+EndFileQueue             QUEUE,PRE(efq)
+!!> GUID('63229c23-92bc-4549-a8b5-8c8eb6a7c0af'),PROMPT('End File Queue:'),HEADER('End File Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?efq:FileName:Prompt)
+! ENTRY(@s255),USE(efq:FileName)
+[REPORTCONTROLS]
+! STRING(@s255),USE(efq:FileName)
+FileName                   STRING(255)
+!!> GUID('64db1412-2926-4a92-b250-6d4d1e93ae24'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s255),TYPEMODE(INS)
+                         END
+!!> GUID('3e2d6ced-6d4a-4c95-8289-3e97f7797af2')
+[SCREENCONTROLS]
+! PROMPT('End File Queue:'),USE(?EndDictQueue:Prompt)
+! ENTRY(@s20),USE(EndDictQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EndDictQueue)
+EndDictQueue             QUEUE,PRE(dfq)
+!!> GUID('97c1d86a-5990-490a-b7c6-4a66a1b5fbef'),PROMPT('End File Queue:'),HEADER('End File Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?efq:FileName:Prompt)
+! ENTRY(@s255),USE(efq:FileName)
+[REPORTCONTROLS]
+! STRING(@s255),USE(efq:FileName)
+FileName                   STRING(255)
+!!> GUID('569008ea-7f2a-46ee-9606-cbed47187aae'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s255),TYPEMODE(INS)
+                         END
+!!> GUID('8de426a6-03f5-4d0f-81aa-fe834db3b62c')
+[SCREENCONTROLS]
+! PROMPT('End File Queue:'),USE(?EndDiagQueue:Prompt)
+! ENTRY(@s20),USE(EndDiagQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EndDiagQueue)
+EndDiagQueue             QUEUE,PRE(aeq)
+!!> GUID('b63154bd-e061-4cd1-ab6e-df60e91d73a9'),PROMPT('End File Queue:'),HEADER('End File Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?aeq:FileName:Prompt)
+! ENTRY(@s255),USE(aeq:FileName)
+[REPORTCONTROLS]
+! STRING(@s255),USE(aeq:FileName)
+FileName                   STRING(255)
+!!> GUID('842494d0-9886-4f7e-ba20-50a78af7633c'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s255),TYPEMODE(INS)
+                         END
+!!> GUID('9bd73817-0c52-4b3d-909a-c1d1c40e4c68')
+[SCREENCONTROLS]
+! PROMPT('End File Queue:'),USE(?EndSrcQueue:Prompt)
+! ENTRY(@s20),USE(EndSrcQueue)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EndSrcQueue)
+EndSrcQueue              QUEUE,PRE(sfq)
+!!> GUID('6c13c09e-19a4-4e08-bc3c-6ccd02d720ab'),PROMPT('End File Queue:'),HEADER('End File Queue'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?efq:FileName:Prompt)
+! ENTRY(@s255),USE(efq:FileName)
+[REPORTCONTROLS]
+! STRING(@s255),USE(efq:FileName)
+FileName                   STRING(255)
+!!> GUID('9eff59b4-e9ae-4565-b862-452a188c0c1b'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s255),TYPEMODE(INS)
+                         END
+!!> GUID('ab83ef70-1622-4eba-8d6f-b681bea2348a')
+[PROMPTS]
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (1)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ButtonAction DEPEND %Control DEFAULT TIMES 19
+WHEN  ('') ('No Special Action')
+WHEN  ('?BUTTON1') ('No Special Action')
+WHEN  ('?BUTTON1:2') ('No Special Action')
+WHEN  ('?BUTTON2') ('No Special Action')
+WHEN  ('?BUTTON3') ('No Special Action')
+WHEN  ('?BUTTON4') ('No Special Action')
+WHEN  ('?BUTTON5') ('No Special Action')
+WHEN  ('?BUTTON6') ('No Special Action')
+WHEN  ('?BUTTON6:2') ('No Special Action')
+WHEN  ('?BUTTON7') ('No Special Action')
+WHEN  ('?BUTTON8') ('No Special Action')
+WHEN  ('?CancelButton') ('No Special Action')
+WHEN  ('?DiagButton') ('No Special Action')
+WHEN  ('?DicButton') ('No Special Action')
+WHEN  ('?LIST1') ('No Special Action')
+WHEN  ('?LoadXML') ('No Special Action')
+WHEN  ('?SaveXML') ('No Special Action')
+WHEN  ('?SolDelete') ('No Special Action')
+WHEN  ('?SrcButton') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 0
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 19
+WHEN  ('') ('25000')
+WHEN  ('?BUTTON1') ('25000')
+WHEN  ('?BUTTON1:2') ('25000')
+WHEN  ('?BUTTON2') ('25000')
+WHEN  ('?BUTTON3') ('25000')
+WHEN  ('?BUTTON4') ('25000')
+WHEN  ('?BUTTON5') ('25000')
+WHEN  ('?BUTTON6') ('25000')
+WHEN  ('?BUTTON6:2') ('25000')
+WHEN  ('?BUTTON7') ('25000')
+WHEN  ('?BUTTON8') ('25000')
+WHEN  ('?CancelButton') ('25000')
+WHEN  ('?DiagButton') ('25000')
+WHEN  ('?DicButton') ('25000')
+WHEN  ('?LIST1') ('25000')
+WHEN  ('?LoadXML') ('25000')
+WHEN  ('?SaveXML') ('25000')
+WHEN  ('?SolDelete') ('25000')
+WHEN  ('?SrcButton') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 0
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 19
+WHEN  ('') ('None')
+WHEN  ('?BUTTON1') ('None')
+WHEN  ('?BUTTON1:2') ('None')
+WHEN  ('?BUTTON2') ('None')
+WHEN  ('?BUTTON3') ('None')
+WHEN  ('?BUTTON4') ('None')
+WHEN  ('?BUTTON5') ('None')
+WHEN  ('?BUTTON6') ('None')
+WHEN  ('?BUTTON6:2') ('None')
+WHEN  ('?BUTTON7') ('None')
+WHEN  ('?BUTTON8') ('None')
+WHEN  ('?CancelButton') ('None')
+WHEN  ('?DiagButton') ('None')
+WHEN  ('?DicButton') ('None')
+WHEN  ('?LIST1') ('None')
+WHEN  ('?LoadXML') ('None')
+WHEN  ('?SaveXML') ('None')
+WHEN  ('?SolDelete') ('None')
+WHEN  ('?SrcButton') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 2
+WHEN  ('') (1)
+WHEN  ('?LIST1') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?LIST1')TIMES 0
+
+%CheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedDisableControl DEPEND %CheckedDisables DEFAULT TIMES 0
+
+%CheckedDisableControlAction DEPEND %CheckedDisables DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?LIST1')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?LIST1')TIMES 0
+
+%UnCheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedDisableControl DEPEND %UnCheckedDisables DEFAULT TIMES 0
+
+%UnCheckedDisableControlAction DEPEND %UnCheckedDisables DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?LIST1')TIMES 0
+
+%ExtUITabIcon DEPEND %Control DEFAULT TIMES 0
+
+%ExtUITabStyleOverrideGlobal DEPEND %Control LONG TIMES 0
+
+%ExtUITabStyle DEPEND %Control DEFAULT TIMES 3
+WHEN  ('') ('Default')
+WHEN  ('?LIST1') ('Default')
+WHEN  ('?SHEET1') ('Default')
+
+%FieldGradientColorType DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('Off')
+
+%FieldGradientColorTypeVariable DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('')
+
+%FieldGradientColorTypeIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%FieldGradientColorFrom DEPEND %Control LONG TIMES 1
+WHEN  ('') (-1)
+
+%FieldGradientColorFromVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorFromIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%FieldGradientColorTo DEPEND %Control LONG TIMES 1
+WHEN  ('') (-1)
+
+%FieldGradientColorToVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorToIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%ActiveImageEnable DEPEND %Control LONG TIMES 0
+
+%AIObjectName DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('AIBtn0')
+
+%AIEnableMimicControl DEPEND %Control LONG TIMES 1
+WHEN  ('') (1)
+
+%AIMimicControl DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('?CancelButton')
+
+%AIImgRound DEPEND %Control LONG TIMES 0
+
+%AIOverrideImg DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIDisableImg DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIHotImg DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIPressedImg DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+[EMBED]
+EMBED %DataSection
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 50
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+EMBED %ProcedureRoutines
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+LoadRecent  ROUTINE
+
+  FREE(EndFileQueue)
+  FREE(FileQueue)
+  FREE(RecentQueue)
+  FREE(EndDictQueue)
+  FREE(EndDiagQueue)
+  FREE(EndSrcQueue)
+  CLEAR(EndFileQueue)
+  CLEAR(FileQueue)
+  CLEAR(RecentQueue)
+
+  PathName = GETREG( REG_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders','AppData')
+  PathName = PathName & '\SoftVelocity\Clarion\10.0'
+  FileName = 'RecentOpen.xml'
+  FullName = PathName & '\' & FileName
+
+  if not xml:LoadFromFile(FullName)
+    xml:QualifyFieldSet('value')
+    Recs = XML:LoadQueue(RecentQueue,True,True)
+  END
+
+  xml:GotoTop
+  if not xml:FindNextNode('Properties','Properties')
+     if not xml:GotoChild()
+        xml:QualifyFieldSet('Name')
+        Recs = XML:LoadQueue(FileQueue,True,True)
+     end
+  end
+
+  XML:FREE()
+
+  GET(RecentQueue,1)
+
+  do ProjectLoad
+  do DictionaryLoad
+  do DiagramLoad
+  do FileLoad
+
+  ?list1{prop:selected} = 1
+  ?list2{prop:selected} = 1
+  ?list3{prop:selected} = 1
+  ?list4{prop:selected} = 1
+  ?list5{prop:selected} = 1
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ProjectLoad ROUTINE
+
+  StartNdx=1
+  LOOP
+    I = INSTRING(',',ProjectValue,1,StartNdx)
+    if I
+       efq:FileName = ProjectValue[startndx : i-1]
+       if efq:FileName
+          add(EndFileQueue)
+       end
+       StartNdx = i+1
+    else
+       efq:FileName = ProjectValue[startndx : 10240]
+       if efq:FileName
+          add(EndFileQueue)
+       end
+       BREAK
+    end
+ end
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+DictionaryLoad  ROUTINE
+
+  StartNdx=1
+  LOOP
+    I = INSTRING(',',DictionaryValue,1,StartNdx)
+    if I
+       dfq:FileName = DictionaryValue[startndx : i-1]
+       if dfq:FileName
+          add(EndDictQueue)
+       end
+       StartNdx = i+1
+    else
+       dfq:FileName = DictionaryValue[startndx : 10240]
+       if dfq:FileName
+          add(EndDictQueue)
+       end
+       BREAK
+    end
+ end
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+DiagramLoad ROUTINE
+
+  StartNdx=1
+  LOOP
+    I = INSTRING(',',DiagramValue,1,StartNdx)
+    if I
+       aeq:FileName = DiagramValue[startndx : i-1]
+       if aeq:FileName
+          add(EndDiagQueue)
+       end
+       StartNdx = i+1
+    else
+       aeq:FileName = DiagramValue[startndx : 10240]
+       if aeq:FileName
+          add(EndDiagQueue)
+       end
+       BREAK
+    end
+ end
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FileLoad ROUTINE
+
+  StartNdx=1
+  LOOP
+    I = INSTRING(',',FileValue,1,StartNdx)
+    if I
+       sfq:FileName = FileValue[startndx : i-1]
+       if sfq:FileName
+          add(EndSrcQueue)
+       end
+       StartNdx = i+1
+    else
+       sfq:FileName = FileValue[startndx : 10240]
+       if sfq:FileName
+          add(EndSrcQueue)
+       end
+       BREAK
+    end
+ end
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FileSave    ROUTINE
+
+   REMOVE(FullName)
+   if errorcode()
+      MESSAGE('The Recent List file could not be written at this time.||Error: ' & ERROR(),'Error',ICON:Exclamation)
+      EXIT
+   END
+
+   IF XML:CreateXMLFILE(FullName,'')
+      MESSAGE('Error occurred creating file.||Error: ' & XML:GetError())
+   ELSE
+      XML:CreateParent('Properties');xml:AddParent()
+      xml:CreateParent('Project')
+      FinalValue = ''
+      LOOP I = 1 TO RECORDS(EndFileQueue)
+        GET(EndFileQueue,I)
+        FinalValue = FinalValue & clip(endfilequeue.FileName) & ','
+      END
+      xml:CreateAttribute('Value',FinalValue)
+      xml:AddParent(True)
+
+      xml:CreateParent('Dictionary')
+      FinalValue = ''
+      LOOP I = 1 TO RECORDS(EndDictQueue)
+        GET(EndDictQueue,I)
+        FinalValue = FinalValue & clip(EndDictQueue.FileName) & ','
+      END
+      xml:CreateAttribute('Value',FinalValue)
+      xml:AddParent(True)
+
+      xml:CreateParent('Diagram')
+      FinalValue = ''
+      LOOP I = 1 TO RECORDS(EndDiagQueue)
+        GET(EndDiagQueue,I)
+        FinalValue = FinalValue & clip(EndDiagQueue.FileName) & ','
+      END
+      xml:CreateAttribute('Value',FinalValue)
+      xml:AddParent(True)
+
+      XML:CreateParent('Properties')
+      XML:CreateAttribute('name','Table')
+      XML:AddParent()
+      LOOP I = 1 TO RECORDS(FileQueue)
+         GET(FileQueue,I)
+         XML:CreateParent('Properties')
+         xml:CreateAttribute('name',FQ:PropertiesName)
+         xml:AddParent()
+         xml:AddElement('HasUID',clip(FQ:HasUIDvalue))
+         xml:AddElement('HasPWD',clip(FQ:HasPWDvalue))
+         xml:AddElement('FileDriver',clip(FQ:FileDrivervalue))
+         xml:AddElement('DriverString',clip(FQ:DriverStringValue))
+         xml:CloseParent()
+      end
+      XML:CloseParent()
+
+      xml:CreateParent('File')
+      FinalValue = ''
+      LOOP I = 1 TO RECORDS(EndSrcQueue)
+        GET(EndSrcQueue,I)
+        FinalValue = FinalValue & clip(EndSrcQueue.FileName) & ','
+      END
+      xml:CreateAttribute('Value',FinalValue)
+      xml:AddParent(True)
+
+      xml:CloseXMLFile(True)
+  END
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ApplyTweaks  ROUTINE
+
+    Do Tweaker1
+    Do Tweaker2
+    Do Tweaker3
+    Do Tweaker4
+
+    ! IF you have an "original.css" (Style sheet for start page) - copy it in
+    ! -----------------------------------------------------------------------
+    PathName = GETREG( REG_LOCAL_MACHINE,'SOFTWARE\SoftVelocity\Clarion10','root')
+    if EXISTS( pathName & '\data\resources\startpage\Layout\original.css')
+       COPY(pathName & '\data\resources\startpage\Layout\original.css',pathName & '\data\resources\startpage\Layout\default.css' )
+    END
+    ! -----------------------------------------------------------------------
+
+    Do Tweaker5
+
+    MESSAGE('Tweaks now applied!||You need to close down your Clarion 10 IDE and Restart it for changes to take effect.','Clarion 10 Tweaks',icon:asterisk)
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Tweaker1    ROUTINE
+
+  if Tweak_AlignMenu=false then exit.
+
+  PathName = GETREG( REG_LOCAL_MACHINE,'SOFTWARE\SoftVelocity\Clarion10','root')
+  Glo:filename1 = CLIP(PathName) & '\bin\addins\backendbindings\Clarionbinding\Common\CommonAddin.addin'
+  Glo:filename2 = 'CommonAddIn.addin'
+
+  InMenuItem = False
+
+  OPEN(TextFile1)
+  IF ERRORCODE()
+        MESSAGE('Could not open the ' & glo:filename1 & ' file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  REMOVE(TEXTFILE2)
+  CREATE(TEXTFILE2)
+  OPEN(TEXTFILE2)
+  if errorcode()
+        MESSAGE('Could not open the work file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  SET(TEXTFILE1)
+  LOOP
+    NEXT(TEXTFILE1)
+    IF ERRORCODE() THEN BREAK.
+
+    TXT2:TEXTLINE = TXT1:TEXTLINE
+
+    IF INSTRING('<MenuItem id = "AlignMenu" label',TXT1:TEXTLINE,1,1)
+       IF INSTRING('<!--',TXT1:TEXTLINE,1,1) = 0
+           TXT2:TEXTLINE = '<!-- (IQ)' & LEFT(CLIP(TXT1:TEXTLINE)) & ' -->'
+           InMenuItem = True
+       END
+    ELSE
+       if InMenuItem = True
+          if Tweak_UseAlign = True and instring('label',txt1:textline,1,1)
+             i = instring('= "',txt1:textline,1,1)
+             if i
+                txt2:textline = sub(txt1:textline,1,i+2) & 'Align ' & clip(sub(txt1:textline,i+3,1000))
+             end
+          else
+            IF INSTRING('</MenuItem>',TXT1:TEXTLINE,1,1)
+               IF INSTRING('<!--',TXT1:TEXTLINE,1,1) = 0
+                   Do AddSep
+                   TXT2:TEXTLINE = '<!-- (IQ)' & LEFT(CLIP(TXT1:TEXTLINE)) & ' -->'
+                   InMenuItem = False
+               end
+            END
+          END
+        END
+    END
+    APPEND(TEXTFILE2)
+  end
+
+  CLOSE(TEXTFILE1)
+  CLOSE(TEXTFILE2)
+
+  REMOVE(CLIP(PATHNAME) & '\CommonAddin.Addin.Old')    ! remove old file
+  RENAME(TEXTFILE1,'CommonAddin.AddIn.Old')             ! make backup of current
+  COPY(glo:filename2,glo:filename1)               ! copy in new file
+
+
+
+
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Tweaker2    ROUTINE
+
+  if Tweak_New=false and Tweak_Close=false then exit.
+
+  PathName = GETREG( REG_LOCAL_MACHINE,'SOFTWARE\SoftVelocity\Clarion10','root')
+  Glo:filename1 = CLIP(PathName) & '\bin\addins\Clarion.addin'
+  Glo:filename2 = 'Clarion.addin'
+
+  InFileItem = False
+  InNewMenuItem = False
+  InCloseMenuitem = False
+
+  OPEN(TextFile1)
+  IF ERRORCODE()
+        MESSAGE('Could not open the ' & glo:filename1 & ' file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  REMOVE(TEXTFILE2)
+  CREATE(TEXTFILE2)
+  OPEN(TEXTFILE2)
+  if errorcode()
+        MESSAGE('Could not open the work file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  SET(TEXTFILE1)
+  LOOP
+    NEXT(TEXTFILE1)
+    IF ERRORCODE() THEN BREAK.
+
+    TXT2:TEXTLINE = TXT1:TEXTLINE
+
+    IF INSTRING('<!-- Main Menu -->',TXT1:TEXTLINE,1,1)
+       InFileItem = True
+    end
+
+    if InFileItem = True
+       if instring('(IQ)',txt1:textline,1,1)        ! skip all already changed
+       else
+           if Tweak_New=True and instring('<MenuItem id = "New" ',txt1:textline,1,1) > 0
+              txt2:textline = '<!-- (IQ)' & CLIP(txt1:textline) & ' -->'
+              InNewMenuItem = True
+           else
+              if Tweak_Close=True and instring('<MenuItem id = "Close" ',txt1:textline,1,1)
+                 !Do AddSep
+                 txt2:textline = '<!-- (IQ)' & CLIP(txt1:textline) & ' -->'
+                 InCloseMenuItem = True
+              else
+                   if InNewMenuItem = True
+                      if instring('label',txt1:textline,1,1)
+                         i = instring('= "',txt1:textline,1,1)
+                         if i
+                             txt2:textline = sub(txt1:textline,1,i+2) & 'New ' & clip(sub(txt1:textline,i+3,1000))
+                         end
+                      end
+                      if instring('</MenuItem>',txt1:textline,1,1)
+                         Do AddSep
+                         txt2:textline = '<!-- (IQ)' & CLIP(txt1:textline) & ' -->'
+                         InNewMenuItem = False
+                      end
+                   end
+                   if InCloseMenuItem = True
+                      if instring('label',txt1:textline,1,1)
+                         i = instring('= "',txt1:textline,1,1)
+                         if i
+                             txt2:textline = sub(txt1:textline,1,i+2) & 'Close ' & clip(sub(txt1:textline,i+3,1000))
+                         end
+                      end
+                      if instring('<MenuItem id = "CloseFile"',txt1:textline,1,1)
+                          txt2:textline = chr(9) & chr(9) & '<MenuItem id = "Close"'
+                      else
+                          if instring('</MenuItem>',txt1:textline,1,1)
+                            txt2:textline = '<!-- (IQ)' & CLIP(txt1:textline) & ' -->'
+                            InCloseMenuItem = False
+                        end
+                      end
+                   end
+               end
+            end
+        end
+    end
+
+    APPEND(TEXTFILE2)
+  end
+
+  CLOSE(TEXTFILE1)
+  CLOSE(TEXTFILE2)
+
+  REMOVE(CLIP(PATHNAME) & '\Clarion.Addin.Old')    ! remove old file
+  RENAME(TEXTFILE1,'Clarion.Addin.Old')             ! make backup of current
+  COPY(glo:filename2,glo:filename1)               ! copy in new file
+
+
+
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Tweaker3    ROUTINE
+
+  if Tweak_Sep = false then exit.
+
+  PathName = GETREG( REG_LOCAL_MACHINE,'SOFTWARE\SoftVelocity\Clarion10','root')
+  Glo:filename1 = CLIP(PathName) & '\bin\addins\BackendBindings\ClarionBinding\ClarionWin\ClarionBinding.addin'
+  Glo:filename2 = 'ClarionBinding.addin'
+
+  InMenuItem = 0
+  InFileItem = 0
+
+  OPEN(TextFile1)
+  IF ERRORCODE()
+        MESSAGE('Could not open the ' & glo:filename1 & ' file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  REMOVE(TEXTFILE2)
+  CREATE(TEXTFILE2)
+  OPEN(TEXTFILE2)
+  if errorcode()
+        MESSAGE('Could not open the work file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  SET(TEXTFILE1)
+  LOOP
+    NEXT(TEXTFILE1)
+    IF ERRORCODE() THEN BREAK.
+
+    TXT2:TEXTLINE = TXT1:TEXTLINE
+
+    if InMenuItem = 0
+       if Tweak_Sep=True and instring('<!-- Build Menu -->',txt1:textline,1,1)
+            InMenuitem = 1
+       end
+    end
+    if InMenuitem = 1
+       InFileItem+=1
+       if InFileItem = 4
+         if instring('Separator1',txt1:textline,1,1) and instring('(IQ)',txt1:textline,1,1) = 0
+             txt2:textline = '<!-- (IQ)' & clip(txt1:textline) & ' -->'
+         end
+         InMenuItem = 2
+       end
+    end
+    APPEND(TEXTFILE2)
+  end
+
+  CLOSE(TEXTFILE1)
+  CLOSE(TEXTFILE2)
+
+  REMOVE(CLIP(PATHNAME) & '\ClarionBinding.Addin.Old')    ! remove old file
+  RENAME(TEXTFILE1,'ClarionBinding.Addin.Old')            ! make backup of current
+  COPY(glo:filename2,glo:filename1)                       ! copy in new file
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Tweaker4    ROUTINE
+
+  if Tweak_CapsErrors = false then exit.
+
+  PathName = GETREG( REG_LOCAL_MACHINE,'SOFTWARE\SoftVelocity\Clarion10','root')
+  Glo:filename1 = CLIP(PathName) & '\bin\addins\Clarion.addin'
+  Glo:filename2 = 'Clarion.addin'
+
+  InMenuItem = 0
+  InFileItem = 0
+
+  OPEN(TextFile1)
+  IF ERRORCODE()
+        MESSAGE('Could not open the ' & glo:filename1 & ' file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  REMOVE(TEXTFILE2)
+  CREATE(TEXTFILE2)
+  OPEN(TEXTFILE2)
+  if errorcode()
+        MESSAGE('Could not open the work file.||Error: ' & ERROR(),'Error Occurred',icon:exclamation)
+        EXIT
+  END
+
+  SET(TEXTFILE1)
+  LOOP
+    NEXT(TEXTFILE1)
+    IF ERRORCODE() THEN BREAK.
+
+    TXT2:TEXTLINE = TXT1:TEXTLINE
+
+    if instring('<MenuItem id = "SetConfiguration"',txt1:TEXTLINE,1,1)
+       APPEND(TEXTFILE2)
+       NEXT(TEXTFILE1)
+       IF ERRORCODE() THEN BREAK.
+       TXT2:TEXTLINE = '                                          label = "Set Configuration"'
+       APPEND(textfile2)
+       CYCLE
+    END
+    if instring('${{res:XML.MainMenu.DebugMenu.Continue}',txt1:TEXTLINE,1,1)
+       txt2:textline = '                                                          label    = "Continue Debugging"'
+    end
+
+    APPEND(TEXTFILE2)
+  end
+
+  CLOSE(TEXTFILE1)
+  CLOSE(TEXTFILE2)
+
+  REMOVE(CLIP(PATHNAME) & '\Clarion.Addin.Old')    ! remove old file
+  RENAME(TEXTFILE1,'Clarion.Addin.Old')            ! make backup of current
+  COPY(glo:filename2,glo:filename1)                ! copy in new file
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Tweaker5    ROUTINE
+
+    FREE(ALLFILES)
+    DIRECTORY(AllFiles,PathName & '\libsrc\win\wb*.*',ff_:NORMAL    )
+    DIRECTORY(AllFiles,PathName & '\libsrc\win\ic*.*',ff_:NORMAL    )
+
+    LOOP I = 1 TO RECORDS(ALLFILES)
+      GET(ALLFILES,i)
+      REMOVE(PathName & '\libsrc\win\' & FIL:NAME)
+    end
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+AddSep  ROUTINE
+
+    txt2:textline = '    <MenuItem id = "IQSeparator" type = "Separator"  />';append(TEXTFILE2)
+[END]
+EMBED %ControlPreEventHandling
+[INSTANCES]
+WHEN '?LoadXML'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+DO LoadRecent
+Enable(?SaveXML)
+[END]
+[END]
+WHEN '?CancelButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 4000
+INSTANCE 1
+[END]
+[END]
+WHEN '?DicButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+GET(EndDictQueue,CHOICE(?LIST2))
+if ~errorcode()
+   DELETE(EndDictQueue)
+end
+[END]
+[END]
+WHEN '?DiagButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+GET(EndDiagQueue,CHOICE(?LIST3))
+if ~errorcode()
+   DELETE(EndDiagQueue)
+end
+[END]
+[END]
+WHEN '?SrcButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+GET(EndSrcQueue,CHOICE(?LIST4))
+if ~errorcode()
+   DELETE(EndSrcQueue)
+end
+[END]
+[END]
+WHEN '?BUTTON2'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+free(EndFileQueue)
+[END]
+[END]
+WHEN '?BUTTON3'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FREE(EndDictQueue)
+[END]
+[END]
+WHEN '?BUTTON4'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FREE(EndDiagQueue)
+[END]
+[END]
+WHEN '?BUTTON5'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FREE(EndSrcQueue)
+[END]
+[END]
+WHEN '?SaveXML'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+    Do FileSave
+[END]
+[END]
+WHEN '?BUTTON7'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+GET(FileQueue,CHOICE(?LIST5))
+if ~errorcode()
+   DELETE(FileQueue)
+end
+[END]
+[END]
+WHEN '?BUTTON8'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+free(FileQueue)
+[END]
+[END]
+WHEN '?BUTTON1'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+    do ApplyTweaks
+[END]
+[END]
+WHEN '?BUTTON6'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  PathName = GETREG( REG_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders','AppData')
+  PathName = PathName & '\SoftVelocity\Clarion\10.0'
+  FileName = 'RecentOpen.xml'
+  FullName = PathName & '\' & FileName
+  copy(fullname,'RECENTFAVORITE.XML')
+  message('Recents now saved so they can be restored later.','Save Recents',icon:asterisk)
+
+[END]
+[END]
+WHEN '?BUTTON6:2'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  PathName = GETREG( REG_CURRENT_USER,'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders','AppData')
+  PathName = PathName & '\SoftVelocity\Clarion\10.0'
+  FileName = 'RecentOpen.xml'
+  FullName = PathName & '\' & FileName
+  copy('RECENTFAVORITE.XML',fullname)
+  message('Recents now restored!','Restore Favorites',icon:asterisk)
+
+[END]
+[END]
+WHEN '?BUTTON1:2'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  Tweak_AlignMenu=true
+  Tweak_UseAlign=true
+  Tweak_New=true
+  Tweak_Close=true
+  Tweak_Sep=true
+  Tweak_CapsErrors=true
+  Tweak_Templates=true
+  DISPLAY()
+[END]
+[END]
+[END]
+EMBED %ProcedureSetup
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+SYSTEM{PROP:FONTNAME} = 'Tahoma'
+[END]
+EMBED %ControlPostEventHandling
+[INSTANCES]
+WHEN '?SolDelete'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+GET(EndFileQueue,CHOICE(?List1))
+if ~errorcode()
+   DELETE(EndFileQueue)
+end
+[END]
+[END]
+[END]
+EMBED %DeclarationSection
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+AllFiles QUEUE(File:queue),PRE(FIL)    !Inherit exact declaration of File:queue
+
+        END
+
+[END]
+[END]
+[ADDITION]
+NAME Clarion CloseCurrentWindow
+[INSTANCE]
+INSTANCE 1
+[WINDOW]
+Window  WINDOW('iQ-Recent - Clarion Clear File List'),AT(,,428,241),FONT('Tahoma',8),ICON('WAFRAME.ICO'), |
+          GRAY,IMM,SYSTEM
+          BUTTON('Close'),AT(371,222,50,14),USE(?CancelButton),#ORDINAL(1)
+          BUTTON('Load List ...'),AT(5,222,86),USE(?LoadXML),#ORDINAL(2)
+          SHEET,AT(5,7,418,212),USE(?SHEET1),#ORDINAL(3)
+            TAB(' Solutions '),USE(?TAB1),#ORDINAL(4)
+              LIST,AT(15,31,400,160),USE(?LIST1),VSCROLL,FORMAT('1020L(2)|M~File Name~@s255@'), |
+                FROM(EndFileQueue),#FIELDS(efq:FileName),#ORDINAL(5)
+              BUTTON('Delete'),AT(365,195,50),USE(?SolDelete),#ORDINAL(6)
+              BUTTON('Clear All'),AT(311,195,50),USE(?BUTTON2),#ORDINAL(7)
+            END
+            TAB(' Dictionaries '),USE(?TAB2),#ORDINAL(8)
+              LIST,AT(15,31,400,160),USE(?LIST2),VSCROLL,FORMAT('1020L(2)|M~File Name~@s255@'), |
+                FROM(EndDictQueue),#FIELDS(dfq:FileName),#ORDINAL(9)
+              BUTTON('Delete'),AT(365,195,50,14),USE(?DicButton),#ORDINAL(10)
+              BUTTON('Clear All'),AT(310,195,50),USE(?BUTTON3),#ORDINAL(11)
+            END
+            TAB(' Diagrams '),USE(?TAB3),#ORDINAL(12)
+              LIST,AT(15,31,400,160),USE(?LIST3),VSCROLL,FORMAT('1020L(2)|M~File Name~@s255@'), |
+                FROM(EndDiagQueue),#FIELDS(aeq:FileName),#ORDINAL(13)
+              BUTTON('Delete'),AT(365,195,50,14),USE(?DiagButton),#ORDINAL(14)
+              BUTTON('Clear All'),AT(311,195,50),USE(?BUTTON4),#ORDINAL(15)
+            END
+            TAB(' Tables '),USE(?TAB4),#ORDINAL(16)
+              LIST,AT(15,31,400,160),USE(?LIST5),VSCROLL,FORMAT('256L(2)|M~Properties Name~@s64@'), |
+                FROM(FileQueue),#FIELDS(FQ:PropertiesName),#ORDINAL(17)
+              BUTTON('Delete'),AT(365,195,50,14),USE(?BUTTON7),#ORDINAL(18)
+              BUTTON('Clear All'),AT(311,195,50),USE(?BUTTON8),#ORDINAL(19)
+            END
+            TAB(' Source Files '),USE(?TAB5),#ORDINAL(20)
+              LIST,AT(15,31,400,160),USE(?LIST4),VSCROLL,FORMAT('1020L(2)|M~File Name~@s255@'), |
+                FROM(EndSrcQueue),#FIELDS(sfq:FileName),#ORDINAL(21)
+              BUTTON('Delete'),AT(365,195,50,14),USE(?SrcButton),#ORDINAL(22)
+              BUTTON('Clear All'),AT(311,195,50),USE(?BUTTON5),#ORDINAL(23)
+            END
+            TAB(' Tweaks '),USE(?TAB6),#ORDINAL(24)
+              BUTTON('Apply'),AT(333,195,83),USE(?BUTTON1),#ORDINAL(25)
+              GROUP(' Menu Tweaks '),AT(14,30,401,130),USE(?GROUP1),BOXED,#ORDINAL(26)
+                CHECK('Fix Format menu in Designer to be two levels instead of three le' & |
+                  'vels for Align tasks'),AT(23,46),USE(Tweak_AlignMenu),TIP('This makes' & |
+                  ' aligning elements in the Window and Report Designer easier - like i' & |
+                  'n Clarion 6.'),#ORDINAL(27)
+                CHECK('Add "Align" in front of each menu item'),AT(34,61,299,10),USE(Tweak_UseAlign), |
+                  MSG('If you check the box above, you want to check this so it says "Align ..."'), |
+                  #ORDINAL(28)
+                CHECK('Flatten the File/New menu'),AT(23,76,259,10),USE(Tweak_New),TIP('Makes it s' & |
+                  'o "FILE/NEW" is not two levels deep - easier access.'),#ORDINAL(29)
+                CHECK('Flatten the File/Close menu'),AT(23,91,259,10),USE(Tweak_Close),TIP('Close Solu' & |
+                  'tion is now must easier to access than two levels deep.'),#ORDINAL(30)
+                CHECK('Fix orphan separator bar in Build menu'),AT(23,106,259,10),USE(Tweak_Sep), |
+                  TIP('If having a seperator bar at the bottom of the Build menu for no' & |
+                  ' reason bothers you, check this.'),#ORDINAL(31)
+                CHECK('Fix Capitalization Quirks in IDE Menus'),AT(23,121,259,10),USE(Tweak_CapsErrors), |
+                  TIP('If you are real anal-retentive, and you want to see perfect capi' & |
+                  'talization of menu items within the IDE menus, click this.'),#ORDINAL(32)
+                CHECK('Remove WebBroker and Inter Connect templates'),AT(23,135,259,10),USE(Tweak_Templates), |
+                  TIP('If you are real anal-retentive, and you want to see perfect capi' & |
+                  'talization of menu items within the IDE menus, click this.'),#ORDINAL(33)
+              END
+              BUTTON('Select all ...'),AT(322,135,83,14),USE(?BUTTON1:2),#ORDINAL(34)
+            END
+          END
+          BUTTON('Save List ...'),AT(97,222,86),USE(?SaveXML),DISABLE,#ORDINAL(36)
+          BUTTON('Save as a Favorite'),AT(188,222,86),USE(?BUTTON6),#ORDINAL(37)
+          BUTTON('Restore Favorites'),AT(279,222,86,14),USE(?BUTTON6:2),#ORDINAL(38)
+        END
+
+[END]

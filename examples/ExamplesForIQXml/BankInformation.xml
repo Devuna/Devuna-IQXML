@@ -1,0 +1,6 @@
+ <BankAccount Number="1234-5678" Type="Checking">
+  <AccountHolder FirstName="John" LastName="Jones">
+   <Signature xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">
+   </Signature>
+  </AccountHolder>
+ </BankAccount>

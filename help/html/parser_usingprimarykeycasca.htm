@@ -1,0 +1,156 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Parser - Using PrimaryKeyCascade</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Parser - Using PrimaryKeyCascade</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>If you are processing an XML document with both Child and Sibling parameters, you have the ability to keep certain fields primed so your program can read the data easily.</p>
+<p>&nbsp;</p>
+<p>Take for instance the following xml data:</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-famil
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>The following code will allow you to process this XML document easily in to one queue instead of two different queues.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">InvoicesQueue </span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">CustomerName </span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">CustomerID  </span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">InvoiceNo</span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">InvoiceDate</span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">InvoiceAmt</span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">End</span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><br>
+</td>
+<td valign="top" width="179" style="width:179px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="118" style="width:118px;"><p><span class="f_CourierFixed">IRecs</span></p>
+</td>
+<td valign="top" width="179" style="width:179px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #007f00;">! Load the XML file to process it</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #007f00;">! -------------------------------</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~XML:LoadFromFile('testing.xml')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">If ~XML:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:PrimaryKeyCascade('CustomerName')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:PrimaryKeyCascade('CustomerID')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IRecs = XML:LoadQueue(InvoicesQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">XML:Free()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p>&quot;IRecs&quot; will contain the value of 7 (one for each invoice) keeping the CustomerName and Customer Number fields primed for all child records.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

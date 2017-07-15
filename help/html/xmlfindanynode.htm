@@ -1,0 +1,195 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:FindAnyNode</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:FindAnyNode</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Element Name</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 2</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 3</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 5</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><br>
+</td>
+<td valign="top" width="543" style="width:543px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><br>
+</td>
+<td valign="top" width="543" style="width:543px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">SHORT</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Which Element was Found (1 through 5) <br>
+0 = End of File</p>
+<p>-1 = Not within the current node pointer</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Used to find the first tag occurrence of <span style="font-weight: bold;">any</span> of the 1 through 5 elements. When the first one found, the current Node Pointer will be set to that record. &nbsp;Using this function will always start at the current
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>This works like the <span style="font-weight: bold;"><a href="xmlfindnextnode.htm">XML:FindNextNode</a></span>, except that it will find ANY of the (up to) five single elements and return which one it found. &nbsp; Could be used if you are looking at a
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>In this case, <span style="font-weight: bold;">XML</span>:<span style="font-weight: bold;">FindAnyNode</span> should be used instead of multiple <span style="font-weight: bold;">XML</span>:<span style="font-weight: bold;">FindNextNode</span> as it is m
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>Example:</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_CourierFixed"> &nbsp; if not xml:FindNextNode('Invoices')</span></p>
+<p><span style="width:44px">&nbsp;</span><span class="f_CourierFixed">Type = 'I'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; elsif not xml:FindNextNode('Customers')</span></p>
+<p><span style="width:44px">&nbsp;</span><span class="f_CourierFixed">Type = 'C'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; elsif not xml:FindNextNode('PurchaseOrders')</span></p>
+<p><span style="width:44px">&nbsp;</span><span class="f_CourierFixed">Type = 'P'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; elsif not xml:FindNextNode('Billing')</span></p>
+<p><span style="width:44px">&nbsp;</span><span class="f_CourierFixed">Type = 'B'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; else</span></p>
+<p><span style="width:44px">&nbsp;</span><span class="f_CourierFixed">Type = ''</span></p>
+<p><span class="f_CourierFixed"> &nbsp; end</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_CourierFixed">Using xml:FindAnyNode, it is more efficient/faster:</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">execute </span><span class="f_CourierFixed" style="color: #0000ff;">xml:FindAnyNode</span><span class="f_CourierFixed">('Invoices','Customers','PurchaseOrders','Billing')</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">Type = 'I'</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">Type = 'C'</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">Type = 'P'</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">Type = 'B'</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">else</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed"> &nbsp;Type = ''</span></p>
+<p style="margin: 0px 0px 0px 23px;"><span class="f_CourierFixed">end</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>  </p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>It's very helpful to use this if you are receiving multiple documents, but you want to see which one it is.</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">WhichOne &nbsp; SHORT</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">WhichOne = </span><span class="f_CourierFixed" style="color: #0000ff;">xml:FindAnyNode</span><span class="f_CourierFixed">('Invoices','Customers','PurchaseOrders','Billing')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>WhichOne would return as <span style="font-weight: bold;">2</span> because it found Customers</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff; background-color: #ffff00;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000; background-color: #ffff00;">Cus
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-famil
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:AttributeFieldSet</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:AttributeFieldSet</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="1" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="130" style="width:130px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>Field name in LocalQueue</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="130" style="width:130px;"><p><span style="font-style: italic;">&lt;BYTE Required&gt;</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>IQXML:NONE (0)</p>
+<p>IQXML:REQUIRED (1)</p>
+<p>IQXML:OPTIONAL (2)<br>
+IQXML:FORCEWRITE (100)</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="130" style="width:130px;"><p><span style="font-style: italic;">&lt;STRING Picture&gt;</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>A valid Clarion picture to format the string before being placed in the Queue field.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="130" style="width:130px;"><br>
+</td>
+<td valign="top" width="515" style="width:515px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="130" style="width:130px;"><br>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>Does not return a value</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Further defines a field for the XML:LoadQueue() function. &nbsp;If you have added the global template, you can use the Equates. &nbsp;These values are not cleared until the XML:AttributeFieldClear() function is called or the XML:Free statement is calle
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Required:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="136" style="width:136px;"><p>IQXML:REQUIRED</p>
+</td>
+<td valign="top" width="650" style="width:650px;"><p>If this field is blank, the record will not be added to the passed Queue, even if other fields contain values.  </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="136" style="width:136px;"><p>IQXML:OPTIONAL </p>
+</td>
+<td valign="top" width="650" style="width:650px;"><p>If this field has a value, a record will not be added to the passed Queue unless another non-optional field is populated.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="136" style="width:136px;"><p>IQXML:FORCEWRITE</p>
+</td>
+<td valign="top" width="650" style="width:650px;"><p>A record will be inserted into the queue immediately when this field or attribute is reached, regardless of whether or not all, some or none of the fields have data in them. &nbsp; Used when you know th
+&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">String values in an XML document which contain &quot;0&quot; or &quot;false&quot; or &quot;0.00&quot; will be considered a 'filled' field. &nbsp;Only </span><span style="font-style: italic; font-weight: bold;">BLANK </span>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name </span><span style="font-size: 9pt; font-family:
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Profiles</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Phone</span><span style="
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Email</span><span style="
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &lt;</span><span style="font-size: 9pt; font-family: '
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Phone</span><span style="
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Email</span><span style="
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Phone</span><span style="
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Emai</span><span style="f
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">  &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Profiles</span><span style="font-size: 9pt; font-fam
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">Profile</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">Phone</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">Email</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:AttributeFieldSet('Profile',</span><span style="font-size: 9pt; font-family: 'Courier New'; font-style
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Profiles','Profile')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(MyQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 47px;">In the above example, only two record will be added to the Queue. &nbsp;If the AttributeFieldSet was not set, then all three records would end up in the Queue.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:AttributeFieldSet('Phone',</span><span style="font-size: 9pt; font-family: 'Courier New'; font-style:
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Profiles','Profile')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(MyQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;">In the above example, only one record (the first one) will be added to the Queue. &nbsp;If the AttributeFieldSet was not set, then all three records would end up in the Queue.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name </span><span style="font-size: 9pt; font-family:
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Notes</span><span style="font-size: 9pt; font-family:
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Notes</span><span style="font-size: 9pt; font-family
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:AttributeFieldSet('Note',</span><span style="font-size: 9pt; font-family: 'Courier New'; font-style: i
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Name')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(MyQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;">In the above example, <span style="font-weight: bold;">four</span> records will be written out to the queue including the blank line, even though the sibling pointer points to &quot;Name&quot;.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:AttributeFieldSet('Note',</span><span style="font-size: 9pt; font-family: 'Courier New'; font-style: i
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Name')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(MyQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;">In the above example, <span style="font-weight: bold;">three</span> records will be written out to the queue excluding the blank line, even though the sibling pointer points to &quot;Name&quot;.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">Here is an example of dynamically figuring out when to write out the record because there may be multiple-versions of the XML, and you are not sure which field is the last field in the group. &nbsp; You may need this i
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">In the following example, Version 1 of the XML has a ending field of &quot;ThatField&quot; but Version 2 of the XML has a ending field of &quot;ThisField&quot;. &nbsp; First, we save the pointer state, then we look to
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> IF ~XML:FindNextNode('TheData')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;i = XML:SaveState()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;IF ~xml:FindNextNode('ThisField')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; </span><span class="f_CourierFixed" style="color: #0000ff;"> &nbsp;XML:AttributeFieldSet('ThisField',IQXML:FORCEWRITE)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;else</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; </span><span class="f_CourierFixed" style="color: #0000ff;"> &nbsp; &nbsp;XML:AttributeFieldSet('ThatField',IQXML:FORCEWRITE)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;If XML:RestoreState(i).</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;XML:FreeState(i)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;if XML:LoadQueue(DynamicQueue,True,True).</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;XML:AttributeFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> ELSE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp;Do ShowXMLError</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> END</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Picture:  </span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">XML:AttributeFieldSet('Money',,'@n-12.2')</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">In this example, if the QUEUE field were a string field, containing 0, then it would be reformatted at 0.00</p>
+
+</td></tr></table>
+
+</body>
+</html>

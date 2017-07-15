@@ -1,0 +1,150 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:Parse</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:Parse</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>String to Parse</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Delimator</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Quote Character found in Parse String ie: quote or Blank</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">LONG</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Total Records Parsed</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Parses a string that is separated by a character such as , or | </p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">John|Mary|Steve|Tyler|Robert</span></p>
+<p><span style="width:48px">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">or</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">John,Mary,Steve,Tyler,Robert</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">or</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">&quot;101&quot;,&quot;102&quot;,&quot;103&quot;,&quot;104&quot;</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">or</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">&quot;Paresi, Robert&quot;,100,200.10,&quot;This is a test string&quot;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Use XML:ParseRead() to read an element from the results and use XML:ParseEmpty() to clear the functions results if you wish. &nbsp;The values being returned are limited to 2K per field extracted. &nbsp;The string text to parse is limited to 4MB.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example:</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">TotalRecords &nbsp; &nbsp;LONG</span></p>
+<p><span class="f_CourierFixed">FullString &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CSTRING(512)</span></p>
+<p><span class="f_CourierFixed">EndString &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CSTRING(512)</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">CODE</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">FullString='Robert,John,Mary,Tyler,Lynn,Chuck,David,Mark,Christy'</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">LOOP </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSE(FullString,',','')</span><span class="f_CourierFixed"> TIMES</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">MESSAGE(endstring,'List of Names',icon:asterisk)</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">FullString='&quot;101&quot;,KING,&quot;Paresi, Robert'</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">ENDSTRING = ''</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">LOOP </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSE(FullString,',','&quot;')</span><span class="f_CourierFixed"> TIMES</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">MESSAGE(endstring,'CSV Values',icon:asterisk)</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">Note: It is a programmers responsibility to make sure they do not read more than the parse values being returned. &nbsp;Otherwise, check for ERRORCODE(). &nbsp;You can optionally empty the parse results by calling </span><s
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

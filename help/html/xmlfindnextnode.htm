@@ -1,0 +1,250 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:FindNextNode</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:FindNextNode</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Element Name</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 2</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 3</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;STRING&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Optional Element Name 5</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">&lt;BYTE&gt;</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>Implicit Element (True)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="106" style="width:106px;"><br>
+</td>
+<td valign="top" width="543" style="width:543px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="106" style="width:106px;"><p><span style="font-style: italic;">SHORT</span></p>
+</td>
+<td valign="top" width="543" style="width:543px;"><p>XML Error Code (see end of document)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Sets the current Node Pointer to the next match of element(s) passed, setting the new parent. &nbsp;Using this function will always start at the current cursor location. &nbsp;If a &quot;next node&quot; is found, the cursor location is updated to the n
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>Attributes are valid when using this function, however, you are not able to use another XML:FindNextNode to get another attribute within the node as this function only searches within nodes. &nbsp;Finding a node with a prefix must include the prefix su
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-weight: bold;">Implicit Element - </span>Set this optional flag to true (1) to indicate that the node to find is implicitly this Element/Node, and no other child or sub-node. &nbsp;This is simply used to find the value of a node that
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">  </span><span style="font-size: 10pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 10pt; font-family: 'Trebuchet MS'; color: #800000;">messageheader</span><span style="font-size: 10pt; f
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial';">If you use the following, the pointer will end up at the beginning of the message header:</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">xml:FindNextNode('Messageheader') </span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial';">If you use the following, the pointer will end up at the actual value. &nbsp;If no value, the pointer will still go to that location, and the value would be blank.</
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:FindNextNode('Messageheader',,,,,True) </span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial';">  </span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">Wild Card (Name Space) searching:</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>By placing a * (asterisk) in position 1 of any of the parameters, a search for the node name will not be exact/implicit. &nbsp; This is helpful if the XML is using namespaces and you are not aware of what the namespace may be. &nbsp; For example, if a
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">soap:envelope</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">if not xml:FindNextNode('*name') </span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">if not xml:FindNextNode('*name')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>Above will find doc1:name and then doc2:name --- be aware that it does not break apart the NameSpace vs the Tag name, it is simply using a wildcard search for the word &quot;name&quot;.</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>See also: <a href="xmldebugtrace.htm">XML:DebugTrace</a></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">Example:</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">  </span><span style="font-size: 10pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 10pt; font-family: 'Trebuchet MS'; color: #800000;">messageheader</span><span style="font-size: 10pt; f
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>You can find &quot;messageheader,systemid&quot; and it will position the cursor on this attribute. &nbsp;However, you cannot then issue another call to this function for &quot;logon&quot;, as it will not work because the node that should have been sear
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">This function will only find a new node pointer after the current node pointer location and within the current parent. </span> If there is no node pointer set or current record set, the function will start at the top of the
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuche
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-famil
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 1:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #7f0000;">! Sets the pointer to &lt;xmlmessage&gt;&lt;Customers&gt; </span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Xml:GotoTop()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If Xml:FindNextNode('XMLMessage','Customers')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Message('Node Not Found!!','Error')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 2:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #7f0000;">! Sets the pointer to &lt;xmlmessage&gt;&lt;Customers&gt;&lt;Customer&gt;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Xml:GotoTop()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If Xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Message('Node Not Found!!','Error')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 3:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #7f0000;">! Sets the pointer to &lt;xmlmessage&gt;&lt;Customers&gt;&lt;Customer&gt;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Xml:GotoTop()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If Xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Message('Node Not Found!!','Error')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">ELSE</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #7f0000;">! Sets the pointer to &lt;xmlmessage&gt;&lt;Customers&gt;&lt;Customer&gt;&lt;p
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">IF NOT XML:FindNextNode('PersonName')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #7f0000;">! Tries to find a &lt;Customer&gt; inside this par
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">IF XML:FindNextNode('Customer') &nbsp; &nbsp; &nbs
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">MESSAGE('No sub-customer found!')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">Example 4 - Finding a single value and reading it quickly:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">DATA</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">LogonInfo &nbsp; &nbsp; &nbsp; &nbsp;CSTRING(32) &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Xml:GotoTop()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If NOT Xml:FindNextNode('xmlmessage','messageheader','logon')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New';">IF NOT XML:ReadCurrentData(LoginInfo)</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New';">messsage('Logon name is: ' &amp; LogonInfo)</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New';">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">END</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

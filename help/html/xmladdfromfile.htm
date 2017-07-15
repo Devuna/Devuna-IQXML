@@ -1,0 +1,143 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:AddFromFile</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:AddFromFile</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="98" style="width:98px;"><p><span style="font-style: italic;">FILE</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>File (You must include the driver)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="98" style="width:98px;"><p><span style="font-style: italic;">Records Tag</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>Records Tag</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="98" style="width:98px;"><p>Row Rag</p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>Row Tag</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="98" style="width:98px;"><p><span style="font-style: italic;">&lt;BYTE&gt;</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p><span style="font-style: italic;">Open/Close file (Optional - if false, the system assumes you have the file opened on the current thread)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="517" style="width:517px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="517" style="width:517px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>Number of records written (-1 means error occurred)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Reads all the records in a file and writes it out as XML.</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">TotalRecords &nbsp; &nbsp; &nbsp; &nbsp;LONG</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">TotalRecords = XML:AddFromFile(MyTPSFILE,'Softball','row',True)</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &lt;Softball Filename=&quot;C:\Clarion8\apps\iqxml\SOFTBALL.TPS&quot; Driver=&quot;TOPSPEED&quot; Fields=&quot;16&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;row&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;ID&gt;1&lt;/ID&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;FIRSTNAME&gt;Sue&lt;/FIRSTNAME&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;LASTNAME&gt;Wright&lt;/LASTNAME&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;HITS&gt;6&lt;/HITS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;RUNS&gt;3&lt;/RUNS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;ERRORS&gt;0&lt;/ERRORS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;WALKS&gt;2&lt;/WALKS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;STRIKEOUTS&gt;1&lt;/STRIKEOUTS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;SINGLES&gt;4&lt;/SINGLES&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;DOUBLES&gt;2&lt;/DOUBLES&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;TRIPLES&gt;0&lt;/TRIPLES&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;HOMERUNS&gt;0&lt;/HOMERUNS&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;PAIDFORLEAGUE&gt;1&lt;/PAIDFORLEAGUE&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;DUESPAID&gt;35&lt;/DUESPAID&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;HASUNIFORM&gt;1&lt;/HASUNIFORM&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;UNIFORMNUMBER&gt;9&lt;/UNIFORMNUMBER&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;/row&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Trebuchet MS';"> &nbsp;&lt;/Softball&gt;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

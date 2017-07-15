@@ -1,0 +1,343 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Parser - Real OTA/XML Example</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Parser - Real OTA/XML Example</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Below is a real extraction from an OTA XML document. &nbsp;The document is an Open Travel Alliance document sent from Expedia to a hotel to register a hotel booking. &nbsp;In this example, the data is extracted for multiple room stays, using a SYSID to
+<p>&nbsp;</p>
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStays</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStay</span><span style="font-size: 9pt; font-fami
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomTypes</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomTypes</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RatePlans</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RatePlans</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomRates</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="fon
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="fo
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: '
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomRates</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GuestCounts</span><span s
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GuestCounts</span><span
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">TimeSpan</span><span styl
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">SpecialRequests</span><sp
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">SpecialRequests</span><s
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStay</span><span style="font-size: 9pt; font-fam
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStay</span><span style="font-size: 9pt; font-fami
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomTypes</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomTypes</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RatePlans</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RatePlans</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomRates</span><span sty
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="fon
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="fo
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: '
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #80000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomRates</span><span st
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GuestCounts</span><span s
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GuestCounts</span><span
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">TimeSpan</span><span styl
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">SpecialRequests</span><sp
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">SpecialRequests</span><s
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStay</span><span style="font-size: 9pt; font-fam
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">RoomStays</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">D1QUEUE QUEUE,PRE(D1)</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SYSID</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">LONG</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">TimeSpanStart</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">TimeSpanEnd</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">MarketCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(4)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SourceOfBusiness</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(4)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SpecialRequestName</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(50),DIM(5)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">D2QUEUE QUEUE,PRE(D2)</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SYSID </span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">LONG</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">IsPerRoom</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(5)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">AgeQualifyingCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(2)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">Count</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">D3Queue QUEUE,PRE(D3)</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SYSID</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">LONG</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">RoomTypeCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">NumberOfUnits</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">D4Queue QUEUE,PRE(D4)</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">SYSID</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">LONG</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">EffectiveDate</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">ExpireDate</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">RatePlanCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">BaseAmountBeforeTax</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">BaseCurrencyCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(5)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">BaseDecimalPlaces</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(5)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">TotalAmountBeforeTax</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">TotalCurrencyCode</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">TotalDecimalPlaces</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="143" style="width:143px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 42px;"><span class="f_CourierFixed">IF NOT XML:FindNextNode('HotelReservation','RoomStays','RoomStay')</span></p>
+<p style="margin: 0px 0px 0px 42px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+<p style="margin: 0px 0px 0px 42px;"><span class="f_CourierFixed">StayNDX = 1</span></p>
+<p style="margin: 0px 0px 0px 42px;"><span class="f_CourierFixed">LOOP</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:PrimaryFieldCascade('SysID',StayNdx)</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:AutoRootSet()</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:QualifyFieldSet('Start')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:QualifyFieldSet('End')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:QualifyFieldSet('Name')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">NDX = XML:LoadQueue(D1QUEUE,True,False)</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:QualifyFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">IF ~xml:FindNextNode('GuestCounts','GuestCount')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">NDX = XML:LoadQueue(D2Queue,False,True)</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">IF ~xml:FindNextNode('RoomTypes','RoomType')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">NDX = XML:LoadQueue(D3Queue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">IF ~xml:FindNextNode('RoomRates','RoomRate')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">XML:QualifyFieldSet('AmountBeforeTax')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">XML:QualifyFieldSet('CurrencyCode')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">XML:QualifyFieldSet('DecimalPlaces')</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">NDX = XML:LoadQueue(D4Queue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="width:33px">&nbsp;</span><span class="f_CourierFixed">XML:QualifyFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">XML:PrimaryFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">IF xml:GotoSibling() then break.</span></p>
+<p style="margin: 0px 0px 0px 63px;"><span class="f_CourierFixed">StayNDX+=1</span></p>
+<p style="margin: 0px 0px 0px 42px;"><span class="f_CourierFixed">END</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<xmlmessage>
+	<Reservations>
+		<Reservation>
+			<PersonName>
+				<GivenName>Robert</GivenName>
+				<Surname>Paresi</Surname>
+			</PersonName>
+			<StayInformation>
+				<Stay StartDate="2005-01-01" EndDate="2005-01-30"  Total="1950.00">
+				<StayDetail>
+				<RoomRate StartDate="2005-01-01" EndDate="2005-01-15"  Rate="50.00"/>
+				<RoomRate StartDate="2005-01-16" EndDate="2005-01-30"  Rate="80.00"/>
+				</StayDetail>
+				</Stay>
+				<Stay StartDate="2005-03-01" EndDate="2005-03-30"  Total="2835.00">
+				<StayDetail>
+				<RoomRate StartDate="2005-03-01" EndDate="2005-03-15"  Rate="90.00"/>
+				<RoomRate StartDate="2005-03-16" EndDate="2005-03-30"  Rate="99.00"/>
+				</StayDetail>
+				</Stay>
+				</StayInformation>
+		</Reservation>
+	</Reservations>
+</xmlmessage>

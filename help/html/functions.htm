@@ -1,0 +1,338 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Functions</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Functions</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>This application is made up of two types of functions (Parser and Writer)</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption"><a href="parserfunctions.htm">Parser Functions</a>:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AttributeFieldSet</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Sets a field as Required/Optional and/or sets a field picture.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AutoRootClear</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Clears the auto position setting of the node pointer.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AutoRootSet </p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Sets to auto position the node pointer back to a 'root' level after loading Queue</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:DebugMyQueue</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Show the contents of any Clarion Queue for debug purposes.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:DebugQueue</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Show the XML Queue contents for debug purposes.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:FindNextContent</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Positions the XML Pointer the closest data content match.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:FindNextNode</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Positions the XML pointer to the closest specified parent.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:Free</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Clear the loaded XML Document.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:FreeState</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Releases a previously stored Saved State. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:GetPointer</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Retrieves the current record pointer used by iQ-XML.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:GotoChild</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Positions the XML pointer to the next node deeper within the current node.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:GotoParent</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Positions the XML pointer to the node previous to the current node.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:GotoSibling</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Positions the XML pointer to the next node similar to the current node. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:GotoTop</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p> Positions the XML pointer to the top/root of the XML document.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:LoadFromFile </p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Load an XML document from passed file name.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:LoadFromString</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Load a XML document from passed text.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:LoadQueue</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Loads a local queue with all matched column values with the XML document. (By current node or all for all siblings)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:PrimaryFieldCascade</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Sets a default value for queue field(s) prior to LoadQueue() function for all new entries created in the queue.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:PrimaryFieldClear </p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Clears primary key fields set in XML:PrimaryFieldCascade() function.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:PrimaryKeyCascade</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Sets fields to be used to cascade down to other queue records.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:PrimaryKeyClear</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Clears primary key fields set in XML:PrimaryKeyCascade() function.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:ReadCurrentRecord</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Returns the contents of the current record.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:ReadNextRecord</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Advances the current record pointer and returns contents.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:ReadPreviousRecord</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Set the current record pointer to the previous record and returns contents.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:RestoreState</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Restores current Node Pointer, current record and data record values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:SaveState</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Stores current Node Pointer, current record and data values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:SetPointer</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Sets the current record pointer to a specific RRN.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:SkipDebug</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Skip debug windows even when called.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:ViewFile</p>
+</td>
+<td valign="top" width="474" style="width:474px;"><p>Opens the XML file (or any file) through Windows registered file type.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption"><a href="writefunctions.htm">Writer Functions</a>:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddComment</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes a comment out to an XML file/string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddElement</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes an element out to the XML file/string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddFromGroup</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes out elements for a group structure.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddFromQueue</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes out elements for all queue records.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddParent</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes the Parent out to the XML file.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CloseParent</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Closes the last parent tag.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CloseXMLFile</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Closes the XML file and clears all memory used. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CreateAttribute</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Prepares the attributes for the parent tag to be written.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CreateParent</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Prepares a tag ready to be written.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CreateXMLFile</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Creates the XML file for processing.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CreateXMLString</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Creates an XML internal string structure for processing.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CloseXMLString</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Returns the XML internal string structure.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:AddStringText</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Writes out the string text to the XML file/string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:SetElementPrefix</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Instructs the writer to prefix all elements with prefix/namespace.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:SetIgnoreEmpty</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Instructs the writer to ignore empty attributes and elements automatically.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="174" style="width:174px;"><p>XML:CreateEchoToken</p>
+</td>
+<td valign="top" width="473" style="width:473px;"><p>Returns a serialized Echo Token to be used for document processing.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

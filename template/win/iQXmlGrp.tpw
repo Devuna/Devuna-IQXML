@@ -1,0 +1,111 @@
+#!region Copyright and License
+#! ================================================================================
+#!                                       IQXML
+#! ================================================================================
+#! Notice : Copyright (C) 2017, Paresi
+#!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+#!
+#!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+#!
+#!    Devuna-IQXML is free software: you can redistribute it and/or modify
+#!    it under the terms of the GNU General Public License as published by
+#!    the Free Software Foundation, either version 3 of the License, or
+#!    (at your option) any later version.
+#!
+#!    Devuna-IQXML is distributed in the hope that it will be useful,
+#!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#!    GNU General Public License for more details.
+#!
+#!    You should have received a copy of the GNU General Public License
+#!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+#! ================================================================================
+#!endRegion
+#!-----------------------------------------------------------------------------------
+#GROUP(%iQWelcome)
+#Boxed(' iQ-XML - General ')
+#DISPLAY('Written by: Robert Paresi')
+#DISPLAY('© Robert Paresi. All Rights Reserved.')
+#DISPLAY('All Rights Reserved.')
+#DISPLAY('Updates: http://www.paresi.net/clarion')
+#ENDBOXED
+#GROUP(%iQWelcomeShort)
+#BOXED(' iQ-XML - Information ')
+#DISPLAY('See Global Information for copyright notice and updates.')
+#DISPLAY('Use of this product in an end-user application is by ')
+#DISPLAY('a non-exclusive right to use agreement.')
+#ENDBOXED
+#GROUP(%iQErrorsMes)
+   #IF(%iQIncludeError=1)
+     #IF(%iQErrorCheckOptions=1)
+        Message('%IOErrorMessageText||Error: ' & XML:GetError(),'%IOErrorMessageTitle')
+     #ENDIF
+
+     #IF(%iQErrorCheckOptions=2)
+        Glo:iQErrorMessageText= XML:GetError()
+     #ENDIF
+   #ENDIF
+#GROUP(%iQSourceComment)
+#GROUP(%iQXMLVersion)
+#Boxed(' Version ')
+#DISPLAY('Template: Version 4.04 for Clarion 10')
+#DISPLAY('Last Date: September 2016')
+#ENDBOXED
+#Group(%ParserGroup)
+#Boxed(' Parser API''s Supported ')
+#DISPLAY(' ')
+#DISPLAY('XML:AutoRootClear ')
+#DISPLAY('XML:AutoRootSet')
+#DISPLAY('XML:DebugMyQueue')
+#DISPLAY('XML:DebugQueue')
+#DISPLAY('XML:FindNextContent')
+#DISPLAY('XML:FindNextNode')
+#DISPLAY('XML:Free')
+#DISPLAY('XML:FreeState')
+#DISPLAY('XML:GetError')
+#DISPLAY('XML:GetPointer')
+#DISPLAY('XML:GotoChild')
+#DISPLAY('XML:GotoParent')
+#DISPLAY('XML:GotoSibling')
+#DISPLAY('XML:GotoTop')
+#DISPLAY('XML:LoadFromFile')
+#DISPLAY('XML:LoadFromString')
+#DISPLAY('XML:LoadQueue')
+#DISPLAY('XML:PrimaryFieldCascade')
+#DISPLAY('XML:PrimaryFieldClear')
+#DISPLAY('XML:PrimaryKeyCascade')
+#DISPLAY('XML:PrimaryKeyClear')
+#DISPLAY('XML:ReadCurrentRecord')
+#DISPLAY('XML:ReadNextRecord')
+#DISPLAY('XML:ReadPreviousRecord')
+#DISPLAY('XML:RestoreState')
+#DISPLAY('XML:SaveState')
+#DISPLAY('XML:SetPointer')
+#DISPLAY('XML:SkipDebug')
+#DISPLAY('XML:ViewFile')
+#DISPLAY(' ')
+#ENDBOXED
+#Group(%WriteGroup)
+#Boxed(' Writer API''s Supported ')
+#DISPLAY(' ')
+#DISPLAY('XML:AddComment')
+#DISPLAY('XML:AddElement')
+#DISPLAY('XML:AddFromGroup')
+#DISPLAY('XML:AddFromQueue')
+#DISPLAY('XML:AddParent')
+#DISPLAY('XML:AddStringText')
+#DISPLAY('XML:CloseParent')
+#DISPLAY('XML:CloseXMLFile')
+#DISPLAY('XML:CloseXMLString')
+#DISPLAY('XML:CreateAttribute')
+#DISPLAY('XML:CreateParent')
+#DISPLAY('XML:CreateXMLFile')
+#DISPLAY('XML:CreateXMLString')
+#DISPLAY('XML:SetElementPrefix')
+#DISPLAY(' ')
+#ENDBOXED
+#Group(%ElseEndWarning)
+#DISPLAY(' ')
+#DISPLAY('You must remember to add the appropriate ELSE/END')
+#DISPLAY('statements in your code when using this option.')
+#DISPLAY(' ')

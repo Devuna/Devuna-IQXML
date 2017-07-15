@@ -1,0 +1,16 @@
+   !BuildSLXML 
+
+    If Not XML:CreateXMLFile('WebPage\SL.XML','1.0','ISO-8859-1',True)
+        XML:CreateParent('SLNum');XML:AddParent()
+        SET(WDT:SLNumKey)
+        Loop
+            If Access:WData.Next() = Level:Benign
+                WDX:SLNoGroup :=: WDT:Record
+                XML:AddFromGroup(WDX:SLNoGroup,'SLNUM',True)
+            Else
+                Break
+            End
+        End
+
+        XML:CloseParent()
+        XML:CloseXMLFile()

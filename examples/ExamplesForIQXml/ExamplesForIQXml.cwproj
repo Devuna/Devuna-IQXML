@@ -1,0 +1,83 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{9BF9E2D1-ADD7-4315-8619-ED8EF018F6E9}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>ExamplesForIQXml</AssemblyName>
+    <OutputName>ExamplesForIQXml</OutputName>
+    <Model>Dll</Model>
+    <stack_size>16384</stack_size>
+    <CopyCore>True</CopyCore>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+    <GenerateMap>True</GenerateMap>
+    <line_numbers>True</line_numbers>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>min</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+    <GenerateMap>True</GenerateMap>
+    <line_numbers>True</line_numbers>
+    <warnings>on</warnings>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="DOS" />
+    <FileDriver Include="TOPSPEED" />
+    <Compile Include="ExamplesForIQXml.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ExamplesForIQXml009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Examp_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Examp_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Examp_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ResCode.Clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="iqxml.lib" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

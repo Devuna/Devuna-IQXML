@@ -1,0 +1,322 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Parser - Why iQ-XML Is So Powerful</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Parser - Why iQ-XML Is So Powerful</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>iQ-XML was designed so if you little knowledge of XML, you can process complex documents in your Clarion application. &nbsp; Without any knowledge of &quot;DOM&quot; or installing add-on products, a novice user can easily pull data from a complex XML d
+<p>&nbsp;</p>
+<p>If you are a novice, take for instance this complex looking XML document ...</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span style="color: #00007f;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="color: #00007f;">&lt;OTA_HotelResNotifRQ xmlns=&quot;&quot; TimeStamp=&quot;2005-02-23T10:12:07.964&quot; Target=&quot;Production&quot; Version=&quot;4&quot; ResStatus=&quot;Book&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="color: #00007f;"> &nbsp;&lt;HotelReservations xmlns=&quot;http://www.opentravel.org/OTA/2003/05&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span><span style="color: #00007f;">&lt;HotelReservation RoomStayReservation=&quot;true&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span><span style="color: #00007f;">&lt;UniqueID Type=&quot;14&quot; ReservationID=&quot;10090SY000001&quot;/&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span><span style="color: #00007f;">&lt;ResGuests&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;ResGuest AgeQualifyingCode=&quot;10&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Profiles&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;ProfileInfo&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;UniqueID Type=&quot;1&quot; ID=&quot;a2a764b6a0c34fc9a3860e603
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Profile ProfileType=&quot;1&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Customer Deceased=&quot;false&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;PersonName&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;NamePrefix&gt;MS.&lt;/NamePrefix&g
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;GivenName&gt;A&lt;/GivenName&gt;</
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;MiddleName&gt;GORILLA&lt;/MiddleNa
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Surname&gt;MILES&lt;/Surname&gt;</
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;NameSuffix&gt;JR.&lt;/NameSuffix&g
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/PersonName&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TelephoneInfo PhoneTechType=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TelephoneInfo PhoneTechType=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Address FormattedInd=&quot;false&q
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Addres
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Addres
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;CityNa
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Postal
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;StateP
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Countr
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Address&gt; &nbsp; &nbsp; &nbsp;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Customer&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Affiliations&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TravelArranger TravelSector=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Affiliations&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Profile&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Profile ProfileType=&quot;2&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Customer Deceased=&quot;false&quot;&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;PersonName&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;NamePrefix&gt;Mr&lt;/NamePrefix&gt
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;GivenName&gt;Phil&lt;/GivenName&gt
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;MiddleName&gt;H&lt;/MiddleName&gt;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Surname&gt;Collins&lt;/Surname&gt;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;NameSuffix&gt;&lt;/NameSuffix&gt;<
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/PersonName&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TelephoneInfo PhoneTechType=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TelephoneInfo PhoneTechType=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Address FormattedInd=&quot;false&q
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Addres
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Addres
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;CityNa
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Postal
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;StateP
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Countr
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Address&gt; &nbsp; &nbsp; &nbsp;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Customer&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;Affiliations&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;TravelArranger TravelSector=&quot;
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Affiliations&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Profile&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/ProfileInfo&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/Profiles&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00007f;">&lt;/ResGuest&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span><span style="color: #00007f;">&lt;/ResGuests&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:48px">&nbsp;</span><span style="color: #00007f;">&lt;/HotelReservation&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="color: #00007f;">&lt;/HotelReservations&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="color: #00007f;">&lt;/OTA_HotelResNotifRQ&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>What I told you that you can pull all the names, address, multiple phone numbers from this document in two lines of code? &nbsp;In addition, one set of these addresses are for the Customer and the other is for a Travel Agent, and you'll still be able t
+<p>&nbsp;</p>
+<p>Ready? &nbsp;Here they are ...</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">XML:FindNextNode('Profiles','ProfileInfo','Profile)</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">Recs = XML:LoadQueue(ResQueue,True,True)</span></p>
+<p>&nbsp;</p>
+<p>Yup, that's it. &nbsp;I've successfully pulled out the names, addresses and phone numbers from this XML document. </p>
+<p>&nbsp;</p>
+<p>It's all in how the QUEUE structure is setup.</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">ResQueue</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">ProfileType</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(1)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">NamePrefix</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">GivenName</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">MiddleName</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">SurName</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">PhoneNumber</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20),DIM(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">AddressLine</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20),DIM(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">CityName</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">PostalCode</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">StateProv</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(2)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">CountryName</span></p>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="162" style="width:162px;"><p><span class="f_CourierFixed">end</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>When completed, this QUEUE will contain two records. &nbsp;One for ProfileType = 1 and one for ProfileType = 2 - which is a &quot;Parent Element&quot; located in this document.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Let's take this one step further ...</span></p>
+<p>&nbsp;</p>
+<p>Now, let's say this one document contained 100 different reservations, all with two different sets of names/address, and we still wanted to fill our QUEUE. &nbsp;One line of code, and we can now process unlimited records in an XML document, and still t
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">ResQueue</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed" style="font-style: italic; font-weight: bold;">ReservationID</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed" style="font-style: italic; font-weight: bold;">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">ProfileType</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(1)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">NamePrefix</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">GivenName</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">MiddleName</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">SurName</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">PhoneNumber</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20),DIM(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">AddressLine</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20),DIM(10)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">CityName</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">PostalCode</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">StateProv</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(2)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_CourierFixed">CountryName</span></p>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="161" style="width:161px;"><p><span class="f_CourierFixed">end</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">XML:FindNextNode('HotelReservation')</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; font-weight: bold; color: #0000ff;">XML:PrimaryKeyCascade('ReservationID')</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Recs = XML:LoadQueue(ResQueue,True,True)</span></p>
+<p>&nbsp;</p>
+<p>Our QUEUE would have 200 records in them, all with a cascaded unique identifier for every reservation. As you can see, processing XML documents are easy with iQ-XML. &nbsp;You can't do this with Clarion XML functions.  </p>
+<p>&nbsp;</p>
+<p>For more information, please see the other examples in this document as well as the two example applications which were installed in your \accessory\bin\iqxml directory.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

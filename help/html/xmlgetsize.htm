@@ -1,0 +1,109 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:GetSize</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:GetSize</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">(None)</span></p>
+</td>
+<td valign="top" width="512" style="width:512px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="512" style="width:512px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="101" style="width:101px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">ULONG</span></p>
+</td>
+<td valign="top" width="512" style="width:512px;"><p>Size of last file successfully closed/completed</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Returns the size (in bytes) of the file that was recently created. &nbsp;This can only be returned after<span style="font-weight: bold;"> xml:CloseXMLFile</span> or <span style="font-weight: bold;">xml:CloseXMLString</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp;IF NOT XML:CreateXMLFile('Work.XML',,,True)</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateParent('BenchMark')</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateAttribute('Date',format(today(),@d010-))</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateAttribute('Time',format(clock(),@t07))</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:AddParent()</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;xml:createParent('Detail')</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateAttribute('Date',format(today(),@d010-))</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateAttribute('Time',format(clock(),@t07))</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;XML:AddParent()</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;loop j = 1 to 60000</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xml:AddElement('Line','Information for Line: ' &amp; J)</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;end</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;xml:CloseParent()</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;xml:CloseParent()</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;xml:CloseXMLFile()</span></p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp;message('The XML file (Work.XML) size is ' &amp; FORMAT(</span><span class="f_CourierFixed" style="color: #0000ff;">XML:GetSize(),@N14) </span><span class="f_CourierFixed">&amp; 'bytes.','Complet
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp;END</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

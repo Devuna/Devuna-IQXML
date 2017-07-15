@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Interface xmlns="http://innquest.com/ns/us/them/header" Name="InnQuest" Version="2.0">
+		<SOAP-ENV:PayloadInfo RequestID="1234567" RequestorID="Dest" ResponderID="Them" Location="MyRootTag">
+</SOAP-ENV:PayloadInfo>
+<!-- End of Payload -->
+	</SOAP-ENV:Interface>
+	<!-- End of Interfaces -->
+	<SOAP-ENV:Body>
+		<MyRootTag>
+			<CustomerTag Lastname="Smith" Firstname="Joseph" CustID="100"/>
+		</MyRootTag>
+	</SOAP-ENV:Body><!-- End of Body -->
+</SOAP-ENV:Envelope>
+<!-- End of File -->

@@ -1,0 +1,100 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Write - Export to write TPS file contents</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Write - Export to write TPS file contents</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>Here is an example of taking the contents of two files, and making an XML Document from it.<span style="font-size: 12pt; font-family: 'Consolas';"> </span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">DOSTargetVariable &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="f_CourierFixed" style="color: #0000ff;">CSTRING</span><span class="f_CourierFixed">(255)</span></p>
+<p style="margin: 0px 0px 0px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed" style="color: #008000;">! Have the user pick file name</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed" style="color: #008000;">! ============================</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">IF&nbsp;</span><span class="f_CourierFixed" style="color: #0000ff;">FILEDIALOG</span><span class="f_CourierFixed">('Choose&nbsp;File&nbsp;to&nbsp;Export',DOSTargetVari
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF&nbsp;</span><span class="f_CourierFixed">instring</span><span class="f_CourierFixed">('.XML,UPPER(DOSTargetVariable),1,1)&nbsp
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">DOSTargetVariable&nbsp;=&nbsp;DOSTargetVariable&nbsp;&nbsp;&amp;&nbsp;'.XML'</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">end</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">if&nbsp;NOT</span><span class="f_CourierFixed" style="font-weight: bold;">&nbsp;XML</span><span class="f_CourierFixed">:</span><s
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">xml:CreateParent</span><span class="f_CourierFixed">('IQSync');</span><spa
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">!&nbsp;Write&nbsp;out&nbsp;file&nbsp;1</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">!&nbsp;================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">xml:CreateParent</span><span class="f_CourierFixed">('Files');</span><span
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">CLEAR(copydtl)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">SET(cpd:ID_KEY)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">LOOP</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">NEXT(COPYDTL)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IF&nbsp;ERRORCODE()&nbsp;THEN&nbsp;BREAK.</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">XML:AddFromGroup</span><span class="f_CourierF
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">xml:CloseParent</span><span class="f_CourierFixed">() &nbsp; &nbsp; &nbsp;
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">!&nbsp;Write&nbsp;out&nbsp;File&nbsp;2</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">!&nbsp;================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">xml:CreateParent</span><span class="f_CourierFixed">('Actions');</span><sp
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">CLEAR(copyact)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">SET(CPA:Program_key)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">LOOP</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">NEXT(COPYACT)</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IF&nbsp;ERRORCODE()&nbsp;THEN&nbsp;BREAK.</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">XML:AddFromGroup</span><span class="f_CourierF
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">xml:CloseParent</span><span class="f_CourierFixed">() &nbsp; &nbsp; &nbsp;
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-weight: bold;">XML:CloseXMLFILE</span><span class="f_CourierFixed">(True) &nbsp; &nbsp; &
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="color: #0000ff;">MESSAGE</span><span class="f_CourierFixed">('The&nbsp;files&nbsp;are&nbsp;now
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">end&nbsp;&nbsp;&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

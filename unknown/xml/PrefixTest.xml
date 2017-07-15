@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is sent from IQ to Trading Partner to request to pickup waiting reservations - the StartSeqNmbr is 0 based -->
+<!-- The Trading partner must respond with either OTA_HotelGetMsgRS or OTA_ErrorRS -->
+<OTA_HotelGetMsgRQ 
+	   xmlns="This is the xmlns" 
+	   TimeStamp="2001-12-17T09:30:47.0Z" 
+	   Version="4"  
+	   xmlns:xsi="THIS IS THE XSI" 
+	   xsd="This is the xsd"
+	   schemalocation="This is the location"
+	   <xml>
+	<Messages>
+		<Message HotelCode="123" HotelName="Test Hotel" ChainCode="321" ReasonForRequest="Reservation Retrieval" RequestCode="Optional" ChainName="Test Chain" MessageType="All" StartSeqNmbr="0" EndSeqNmbr="9" />
+	</Messages>
+</OTA_HotelGetMsgRQ>

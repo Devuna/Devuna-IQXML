@@ -1,0 +1,107 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>SA:TimeSinceNow</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">SA:TimeSinceNow</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#fdb5ac" border="0" style="background-color: #fdb5ac; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>LONG</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>Start Time </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>BYTE</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>Digits of Milliseconds to show (0,1 or 2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="96" style="width:96px;"><br>
+</td>
+<td valign="top" width="520" style="width:520px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>STRING</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>Return Time elapsed (HH:MM:SS.ss) since now or current CPU time</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Returns the time elapsed since now. &nbsp;This does not take into consideration a change in days, so to be used for debug information or when the entire time is less than 24 hours. &nbsp; To use time since current that would span a day or days or be mo
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! 00:00:23.09</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TimeElapsed = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:TimeSinceNow</span><span class="f_CourierFixed">(StartTime,2) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! 00:00:23.1</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TimeElapsed = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:TimeSinceNow</span><span class="f_CourierFixed">(StartTime,1) &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! 00:00:23 &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TimeElapsed = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:TimeSinceNow</span><span class="f_CourierFixed">(StartTime,0) &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>You can use this to get the current time with milliseconds by sending 0 as the Start Time.</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! 12:23:50.45 &nbsp;(good for debug logging)</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">ExactCPUTime = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:TimeSinceNow</span><span class="f_CourierFixed">(0,2) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

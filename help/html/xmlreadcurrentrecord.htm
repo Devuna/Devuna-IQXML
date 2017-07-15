@@ -1,0 +1,181 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:ReadCurrentRecord</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:ReadCurrentRecord</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">*QUEUE</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Queue to contain elements at current record (declare with one STRING)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">*CSTRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Data value at current location</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">SHORT</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>XML Error Code (see end of document)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Used to read the XML record at the current cursor location. The Queue will contain a record for each element and the data value will contain the value.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example of reading current record and display the node name:</span></p>
+<p>&nbsp;</p>
+<p>In this example, the program will display a box with showing the current node pointer and value.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &nbsp;&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-f
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &nbsp; &nbsp; &lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">PersonName</span><span style="font-size: 9
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><sp
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><p><span class="f_CourierFixed">QUEUE,PRE(QUE)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed">ElementName</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><p><span class="f_CourierFixed">STRING(35)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed"> &nbsp;END</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed">ElementValue</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><p><span class="f_CourierFixed">CSTRING(128)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><br>
+</td>
+<td valign="top" width="156" style="width:156px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed">Recs</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="109" style="width:109px;"><p><span class="f_CourierFixed">Node</span></p>
+</td>
+<td valign="top" width="156" style="width:156px;"><p><span class="f_CourierFixed">STRING(2048)</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If ~xml:ReadCurrentRecord(MyQueue,ElementValue)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">Loop Recs = 1 to records(MyQueue)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Get(MyQueue,Recs)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Node = clip(Node) &amp; chr(60) &amp; clip(que:elementname) &amp; chr(62)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">Message('Currently at: ' &amp; clip(Node) &amp; '||Value: ' &amp; clip(ElementValue))</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example of reporting number of levels:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If ~xml:ReadCurrentRecord(MyQueue,ElementValue)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">MESSAGE('There are ' &amp; records(MyQueue) &amp; ' elements at current location.')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example to see what kind of &quot;Transaction&quot; this is:</span></p>
+<p>&nbsp;</p>
+<p>In this example, you may need to know something about the current record you are on, but the element could be located at any level. &nbsp;This might be because in an XML document, it could be wrapped with other parent tags you are not concerned with or
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">If ~xml:ReadCurrentRecord(MyQueue,ElementValue)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">loop Recs = 1 to records(MyQueue)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Get(MyQueue,Recs)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">if upper(que:ElementName) = 'OTA_ADDTRANSACTION'</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">TranType = 'Add'</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">break</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">elsif upper(que:ElementName) = 'OTA_CHANGETRANSACTION'</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">TranType = 'Change'</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">break</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">end</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:QualifyFieldSet</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:QualifyFieldSet</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="99" style="width:99px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>Field name to Qualify to Parent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="99" style="width:99px;"><p><span style="font-style: italic;">&lt;BYTE&gt;</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>1 = Qualify to <span style="font-style: italic;">Grandparent</span>Parent<br>
+2 = Qualify to <span style="font-style: italic;">Great</span>GrandparentParent  </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="99" style="width:99px;"><br>
+</td>
+<td valign="top" width="517" style="width:517px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="99" style="width:99px;"><p>&nbsp;</p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p>Does not return a value</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Instructs the system to qualify this field name with its parent before matching fields during the XML:LoadQueue() function. You can call this function as many times as needed for as many unique fields you need to qualify. </p>
+<p>&nbsp;</p>
+<p>If you use the XML:LoadQueue function, you may come across a field name being used more than once and you are only concerned with the data that corresponds to one of them or that the field will be used more than once in your queue to mean different thi
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;">Qualified field names are concatenated in the form of &quot;ParentAttribute&quot;. </p>
+<p style="margin: 0px 0px 0px 13px;">Double Qualified field names are concatenated in the form of &quot;GrandparentParentAttribute&quot; </p>
+<p style="margin: 0px 0px 0px 13px;">Triple Qualified field names are concatenated in the form of &quot;GreatGrandparentParentAttribute&quot;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>The maximum length of the field, both element and attribute combined, is 128 characters. </p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="color: #7f0000;">&lt;CompanyName Code=&quot;1213&quot; Data=&quot;123&quot;&gt;</span> qualifies to <span style="font-style: italic; font-weight: bold;">CompanyNameCode</span> and <span style="font-style:
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>NOTE: If the XML:LoadQueue function is set to ignore prefixes/name spaces, then the QualifyFieldSet should not include the prefixes as well so there is a match. &nbsp; This would be when you use the &quot;2&quot; option for Include field prefixes.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>See also <a href="xmlqualifyfieldclear.htm">XML:QualifyFieldClear</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 1:</span></p>
+<p>&nbsp;</p>
+<p>Take for example the portion of this XML document:</p>
+<p>&nbsp;</p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Data</span><span style="font-size: 9pt; font-family:
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name </span><span style="font-size: 9pt; font-family:
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Phones</span><span style="font-size: 9pt; font-family
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Type</span><span style="f
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fami
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Type&gt;</span><span styl
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &lt;</span><span style="font-size: 9pt; font-family: '
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Type&gt;</span><span styl
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Phones</span><span style="font-size: 9pt; font-famil
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Name</span><span style="font-size: 9pt; font-family:
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;"> &nbsp; &nbsp; &lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">Data</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>Notice each has the field name &quot;Number&quot;, however, you only want to bring the Home and Work numbers into the Queue. &nbsp; The following code will qualify the XML:LoadQueue operation to be more specific when working with such a field name befo
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">Firstname</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">LastName</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">HomeNumber</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">PhonesHomeType</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">WorkNumber</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed">PhonesWorkType</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="135" style="width:135px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Name')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:QualifyFieldSet('Number')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:QualifyFieldSet('Type',True) &nbsp; &nbsp; &nbsp; &nbsp;</span><span style
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue('Names',True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:QualifyFieldClear('Number')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 2:</span></p>
+<p>&nbsp;</p>
+<p>Take for example the portion of this XML document:</p>
+<p>&nbsp;</p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;Name Firstname=&quot;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #ff0000;">John</span><span style="font-siz
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;Employee&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; &lt;BadgeInfo&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;Code&gt;12344&lt;/Code&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;"> &nbsp; &lt;/BadgeInfo&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;ProgramSkills Code=&quot;Yes&quot; Design=&quot;Hell no&quot; Document=&quot;Terrible&quot;/&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;/Employee&gt;</span></p>
+<p><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #7f0000;">&lt;/Name&gt;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Notice each there are two &quot;Code&quot; fields, however, we are only concerned with the Programming Skills type.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed">Firstname</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed">LastName</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed">BadgeInfoCode</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed">ProgramSkillsCode</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="134" style="width:134px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="90" style="width:90px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:FindNextNode('Name')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:QualifyFieldSet('Code')</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue('Names',True,True)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;XML:QualifyFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

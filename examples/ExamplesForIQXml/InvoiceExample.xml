@@ -1,0 +1,31 @@
+<xmlmessage>
+<Customers>
+<Customer CustomerName="Smith Travel&apos;s and &quot;Such&quot;" CustomerID="123">
+<Invoices>
+<Invoice Invoiceno="1" InvoiceDate="2005-01-01" InvoiceAmt="12.12"/>
+<Invoice Invoiceno="12" InvoiceDate="2005-03-02" InvoiceAmt="9.09"/>
+<Invoice Invoiceno="144" InvoiceDate="2005-04-02" InvoiceAmt="1000.00"/>
+</Invoices>
+</Customer>
+<Customer CustomerName="Soft Velocity" CustomerID="127">
+<Invoices>
+<Invoice Invoiceno="20" InvoiceDate="2005-01-01" InvoiceAmt="50.00"/>
+<Invoice Invoiceno="21" InvoiceDate="2005-02-01" InvoiceAmt="50.00"/>
+<Invoice Invoiceno="22" InvoiceDate="2005-03-01" InvoiceAmt="50.00"/>
+<Invoice Invoiceno="23" InvoiceDate="2005-04-01" InvoiceAmt="60.00"/>
+</Invoices>
+</Customer>
+<Customer CustomerName="General Electric Company" CustomerID="132">
+<Invoices>
+</Invoices>
+</Customer>
+<Customer CustomerName="InnQuest Software" CustomerID="155">
+<Invoices>
+<Invoice Invoiceno="520" InvoiceDate="2005-01-11" InvoiceAmt="349.00"/>
+<Invoice Invoiceno="521" InvoiceDate="2005-02-12" InvoiceAmt="29.95"/>
+<Invoice Invoiceno="522" InvoiceDate="2005-03-13" InvoiceAmt="49.00"/>
+<Invoice Invoiceno="523" InvoiceDate="2005-04-14" InvoiceAmt="695.00"/>
+</Invoices>
+</Customer>
+</Customers>
+</xmlmessage>

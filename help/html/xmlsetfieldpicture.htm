@@ -1,0 +1,133 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:SetFieldPicture</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:SetFieldPicture</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Field Name </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>A valid Clarion picture to format the string before writing<br>
+&nbsp;<br>
+If the picture is * (an asterisk), then the field is written exactly as-is without any XML/HTML conversion. &nbsp;This is helpful if you want to write the field out for HTML files and do not want a conversion to happen to the field.<br>
+&nbsp;<br>
+<span style="font-weight: bold;">Wild Cards are supported such as *DATE* to change all date fields.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Does not return a value</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Instructs the writer to format all data being written out, either manually or by XML:AddFromFile, XML:AddFromQueue, XML:AddFromGroup. &nbsp;The picture must be a valid Clarion Picture Token such as @d010-</p>
+<p>&nbsp;</p>
+<p>To manually clear any set field pictures, call this function with a blank picture to release the field. &nbsp;However, see the following:</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">NOTE: &nbsp;All Field Pictures are freed when called XML:CloseXMLFILE() or XML:CloseXMLString() is called.</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example:</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! convert CLARION long field to YYYY-MM-DD and format money</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! ---------------------------------------------------------</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('InvoiceTotal','@n-12.2')</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('InvoiceDate','@d010-') &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! Do some processing</span></p>
+<p><span style="width:48px">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('InvoiceTotal','')</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('InvoiceDate','')</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! Do not internally convert fields to value XML</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! ---------------------------------------------------------</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('td','*')</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:CreateParent('td')</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:AddParent(True,'&amp;nbsp;hello&amp;nbsp;'</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('td','')</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">In the above example, the field will be written as &amp;nbsp; instead of &amp;amp;nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! convert all fields to date where date is in the field name</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New';">! ---------------------------------------------------------</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('*date*','@d010-') &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! Do some processing</span></p>
+<p><span style="width:48px">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:SetFieldPicture('*date*','')</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

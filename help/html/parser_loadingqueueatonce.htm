@@ -1,0 +1,96 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Parser - Loading Queue at Once</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Parser - Loading Queue at Once</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>When you are processing a simple queue, (one that does not contain multiple children or you are not interested in the child data), you can use the &quot;True&quot; parameter on the XML:LoadQueue() function. &nbsp;Once you do this, you can then process
+<p>&nbsp;</p>
+<p>Take for instance the following xml data:</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><sp
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">GivenName</span><sp
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-famil
+<p>&nbsp;</p>
+<p>You can load the entire queue easily by using the following method:</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~Xml:LoadFromFile('testing.xml',False)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">If ~xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #007f00;">! Load all at once (siblings) &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #007f00;">! -----------------------------------</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;TotalRecords = LoadQueue(MyQueue,True,True) &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p><span style="width:48px">&nbsp;</span></p>
+<p>The queue would contain two records. &nbsp; Even if there were children records, and you were not concerned with them, the system would be able to process the entire document successfully. &nbsp;It is important to set the &quot;Next Node&quot; before i
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:GetError</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:GetError</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">&lt;SHORT&gt;</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>Error code returned by other XML functions</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p>&nbsp;</p>
+</td>
+<td valign="top" width="101" style="width:101px;"><br>
+</td>
+<td valign="top" width="515" style="width:515px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="101" style="width:101px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>Error Description</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Used to return the error text of an error code returned from other iQ-XML functions.</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 54px;"><span class="f_CourierFixed">Error_Code = xml:restoreState(CustomerPointer)</span></p>
+<p style="margin: 0px 0px 0px 54px;"><span class="f_CourierFixed">If Error_Code</span></p>
+<p style="margin: 0px 0px 0px 54px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp;ErrorText = </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:GetError(Error_Code)</span></p>
+<p style="margin: 0px 0px 0px 54px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Message('Error Occurred!||Error: ' &amp; ErrorText)</span></p>
+<p style="margin: 0px 0px 0px 54px;"><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p>Calling this function without a parameter will automatically return back the last error that has happened on the current thread. &nbsp;If the last function called ended without error, no error response will be returned.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If xml:restoreState(CustomerPointer)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Do ShowError</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Exit</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">ShowError &nbsp; &nbsp; &nbsp; &nbsp;ROUTINE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">Message('An error occurred in XML parser.||' &amp; </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:GetError()</spa
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Current XML Error codes used are:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 27px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1000 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Unable to Parse Document Properly</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1001 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Read past end of file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1002 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Read past beginning of file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1003 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Not on any record</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1004 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Not in specified parent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1005</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Node Not Found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1006 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Invalid Parameters specified</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><br>
+</td>
+<td valign="top" width="282" style="width:282px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1010</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Sibling Not Found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1011 </p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Child Not Found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1012</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Parent Not Found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><br>
+</td>
+<td valign="top" width="282" style="width:282px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1020</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Find Content not found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><br>
+</td>
+<td valign="top" width="282" style="width:282px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1050</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Not a valid XML file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1051</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Missing attribute Tag in XML file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1052</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Missing element Tag in XML file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1053</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Missing end of comment tag in XML file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="47" style="width:47px;"><p>1054</p>
+</td>
+<td valign="top" width="282" style="width:282px;"><p>Missing end of CDATA tag in XML file</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 230px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

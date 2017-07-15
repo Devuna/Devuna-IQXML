@@ -1,0 +1,13 @@
+[PROMPTS]
+%ShowPROCEDUREonEmbeds LONG  (1)
+%ShowVIRTUALonEmbeds LONG  (1)
+%ShowPROTECTEDonEmbeds LONG  (1)
+%ShowBaseClassOnEmbeds LONG  (1)
+%ShowDescriptionOnEmbeds LONG  (1)
+%ShowDetailsOnEmbeds LONG  (1)
+%ColorEntriesOnEmbeds LONG  (1)
+%ColorDataSection LONG  (255)
+%ColorCodeSection LONG  (16711680)
+%ColorVirtualMethod LONG  (32768)
+%ColorProtectedMethod LONG  (255)
+%ColorNewMethod LONG  (16711935)

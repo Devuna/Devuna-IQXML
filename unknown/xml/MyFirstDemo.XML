@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--Created with iQ-XML for Clarion - Version 2.04  Date: 05/22/2009  Time: 12:47 PM-->
+ <Teams>
+  <Team>
+  <Name>RedSox</Name>
+   <Players>
+    <Player Name="Dustin Pedroa" Number="15"/>
+    <Player Name="Jacoby Elsbury" Number="46"/>
+    <Player Name="David Ortiz" Number="34"/>
+   </Players>
+  </Team>
+ </Teams>

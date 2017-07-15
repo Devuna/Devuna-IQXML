@@ -1,0 +1,666 @@
+﻿<AddIn name        = "ClarionWindowsBinding"
+       author      = "SoftVelocity"
+       copyright   = "Copyright  SoftVelocity 1986-2006"
+       url         = "http://www.softvelocity.com"
+       description = "Binding for Clarion for Windows">
+
+	<Manifest>
+		<Identity name = "Clarion.CWBinding"/>
+		<Dependency addin = "SoftVelocity.ClarionBinding"/>
+		<Dependency addin = "SoftVelocity.Generator"/>
+	</Manifest>
+
+	<Runtime>
+		<Import assembly = "$ICSharpCode.FormsDesigner/FormsDesigner.dll"/>
+		<Import assembly = "..\Common\CommonSources.dll"/>
+		<Import assembly = "..\Common\ClarionParser.dll"/>
+		<Import assembly = "..\Common\DataDictionaryEditor.dll"/>
+		<Import assembly = "..\Common\Generator.dll"/>
+		<Import assembly = "CWBinding.dll"/>
+		<Import assembly = ":ICSharpCode.SharpDevelop"/>
+	</Runtime>
+
+	<Path name = "/Workspace/Autostart">
+		<Class id    = "InitializeClarion"
+		       class = "CWBinding.StartupCode"/>
+	</Path> <!-- /Workspace/Autostart -->
+
+	<Path name = "/SharpDevelop/MSBuildEngine/CompileTaskNames">
+		<!-- Makes the IDE show the text 'Compiling ProjectName...' when the task is started -->
+		<String id="csc" text = "csc"/>
+	</Path>
+
+	<!-- Language description -->
+	<Path name = "/SharpDevelop/Workbench/LanguageBindings">
+		<LanguageBinding id                   = "Clarion"
+		                 guid                 = "{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}"
+		                 supportedextensions  = ".clw;.inc;.int;.trn;.equ"
+		                 projectfileextension = ".cwproj"
+		                 class                = "CWBinding.CWLanguageBinding" />
+		<LanguageBinding id                   = "Clarion"
+		                 guid                 = "{BDCBBC3D-8554-48F5-91B5-0D6E193A7180}"
+		                 projectfileextension = ".prj"
+		                 class                = "CWBinding.CWLanguageBinding" />
+		<LanguageBinding id                   = "Clarion"
+		                 guid                 = "{FDE68FE4-8F82-4826-8DF8-2D4DE9CA9F72}"
+		                 projectfileextension = ".pr"
+		                 class                = "CWBinding.CWLanguageBinding" />
+	</Path>
+	<Path name = "/SharpDevelop/Workbench/QuickOpen/FileFilter">
+		<FileFilter id = "ClarionForWindowSource"
+		            name = "Clarion for Window Source Files (.clw;.inc;.int;.trn;.equ)"
+		            extensions = ".clw;.inc;.int;.trn;.equ"/>
+	</Path>
+	<StringResources file = "Resources/StringResources.resources"/>
+	<StringResources file = "Resources/Init.Strings.resources"/>
+
+	<Path name = "/SharpDevelop/Views/ProjectBrowser/NodeBuilders">
+		<Class id           = "CWNodeBuilder"
+		       insertbefore = "DefaultBuilder"
+		       class        = "CWBinding.ProjectTreeBuilder.CWNodeBuilder"/>
+	</Path>
+
+	<!-- File filters -->
+	<Path name = "/SharpDevelop/Workbench/Combine/FileFilter">
+		<FileFilter id         = "CWProject"
+		            insertbefore="AllFiles"
+		            name       = "${res:Clarion.FileFilter.CWPrjFiles}"
+		            class      = "ICSharpCode.SharpDevelop.Project.LoadProject"
+		            extensions = "*.cwproj"/>
+		<FileFilter id         = "ClarionPrFile"
+		            insertbefore="AllFiles"
+		            name       = "${res:Clarion.FileFilter.PrjFiles}"
+		            class      = "CWBinding.Project.PrjToCwproj"
+		            extensions = "*.pr;*.prj"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/FileFilter">
+		<FileFilter id = "Clarion"
+		            insertbefore="AllFiles"
+		            name = "${res:Clarion.FileFilter.CWFiles}"
+		            extensions = "*.clw;*.inc;*.int;*.trn;*.equ"/>
+	</Path>
+
+	<Path name = "/Clarion/SourceCode/FileFilter">
+		<Include  id = "Clarion" item = "/SharpDevelop/Workbench/FileFilter/Clarion"/>
+	</Path>
+
+	<Path name = "/Clarion/ProjectFiles/FileFilter">
+		<Include  id = "NewProject" item = "/SharpDevelop/Workbench/Combine/FileFilter/CWProject"/>
+		<Include  id = "OldProject" item = "/SharpDevelop/Workbench/Combine/FileFilter/ClarionPrFile"/>
+	</Path>
+
+	<Path name = "/Clarion/OldProjectFiles/FileFilter">
+		<Include  id = "OldProject" item = "/SharpDevelop/Workbench/Combine/FileFilter/ClarionPrFile"/>
+	</Path>
+
+	<Path name = "/Clarion/LibraryFiles/FileFilter">
+		<FileFilter id         = "Libraries"
+		            name       = "${res:ClarionForWindows.FileFilter.LibraryFiles}"
+		            extensions = "*.lib;*.obj"/>
+		<FileFilter id         = "Icons"
+		            name       = "${res:Clarion.FileFilter.IconFiles}"
+		            extensions = "*.ico"/>
+		<FileFilter id         = "Cursors"
+		            name       = "${res:ClarionForWindows.FileFilter.CursorFiles}"
+		            extensions = "*.cur"/>
+		<FileFilter id         = "Images"
+		            name       = "${res:ClarionForWindows.FileFilter.ImageFiles}"
+		            extensions = "*.bmp;*.wmf;*.gif;*.jpg;*.pcx"/>
+		<FileFilter id         = "Manifests"
+		            name       = "${res:ClarionForWindows.FileFilter.ManifestFiles}"
+		            extensions = "*.manifest"/>
+		<FileFilter id         = "VersionScripts"
+		            name       = "${res:ClarionForWindows.FileFilter.VersionScriptFile}"
+		            extensions = "*.version"/>
+	</Path>
+
+	<Path name = "/AddIns/FileTypeRegisterer/FileTypes">
+		<FiletypeAssociation
+			id = "cwproj"
+			insertafter = "sln"
+			insertbefore = "sdaddin"
+			autoRegister = "True"
+			icon = "${AddInPath:Clarion.CWBinding}/Resources/cwproject.ico"
+			text = "${res:Clarion.FiletypeRegisterer.Project}"/>
+		<FiletypeAssociation
+			id = "clw"
+			insertafter = "sdaddin"
+			autoRegister = "True"
+			icon = "${AddInPath:Clarion.CWBinding}/Resources/clw.ico"
+			text = "${res:Clarion.FiletypeRegisterer.ClwFile}"/>
+	</Path>
+
+	<Path name = "/Workspace/Icons">
+		<Icon id         = "CW.ProjectIcon"
+		      language   = "Clarion for Windows"
+		      resource   = "CW.ProjectIcon"/>
+		<Icon id         = "CW.FileIcon"
+		      extensions = ".clw"
+		      resource   = "CW.FileIcon"/>
+		<Icon id         = "CW.Project.EmptyProject"
+		      resource   = "CW.Project.EmptyProject"/>
+		<Icon id         = "CW.File.EmptyFile"
+		      resource   = "CW.File.EmptyFile"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/BackendBindings/Templates">
+		<Directory id = "Clarion" path = "./Templates" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/Ambiences">
+		<Class id    = "Clarion"
+		       class = "CWBinding.ClarionAmbience"/>
+	</Path>
+
+	<Path name = "/Workspace/Parser">
+		<Parser id    = "Clarion"
+		        supportedextensions  = ".clw;.inc;.int;.trn;.equ"
+		        projectfileextension = ".cwproj"
+		        class = "CWBinding.CodeCompletion.ClarionIDEParser"/>
+	</Path>
+
+	<Path name = "/Workspace/Parser">
+		<Parser id    = "ClarionPWEE"
+		        supportedextensions  = ".appclw"
+		        projectfileextension = ".cwproj"
+		        insertafter = "Clarion"
+		        class = "CWBinding.CodeCompletion.ClarionPWEEParser"/>
+	</Path>
+
+	<Path name = "/AddIns/DefaultTextEditor/CodeCompletion">
+		<CodeCompletionBinding id = "Clarion"
+		                       extensions = ".clw;.inc;.int;.trn;.equ"
+		                       class = "CWBinding.CodeCompletion.ClaCompletionBinding"/>
+	</Path>
+
+	<Path name = "/AddIns/DefaultTextEditor/CodeCompletion">
+		<CodeCompletionBinding id = "ClarionPWEE"
+		                       extensions = ".appclw"
+		                       class = "CWBinding.CodeCompletion.ClaPWEECompletionBinding"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id = "ClarionWinEditor"
+		                insertbefore = "Text"
+		                supportedformats = "Text Files,Source Files"
+		                class = "CWBinding.ClarionEditor.ClarionEditorDisplayBinding" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id              = "ClaWinStructureDesigner"
+		                type            = "Secondary"
+		                fileNamePattern = "\.clw$|\.inc$|\.int$|\.trn$|\.equ$|\.tpl$|\.tpw$"
+		                class           = "CWBinding.Designer.WinStructureDesignerDisplayBinding" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id              = "ClaWinGenStructureDesigner"
+		                type            = "Secondary"
+		                fileNamePattern = "\.app"
+		                class           = "CWBinding.Generator.Editor.ClaGenStructureDesignerDisplayBinding" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id              = "ClaGenMenuEditor"
+		                type            = "Secondary"
+		                fileNamePattern = "\.app"
+		                class           = "CWBinding.Generator.Editor.ClaGenMenuEditorDisplayBinding" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id              = "ClaWinGenEditor"
+		                type            = "Secondary"
+		                fileNamePattern = "\.app"
+		                class           = "CWBinding.Generator.Editor.WinGenEditorDisplayBinding" />
+	</Path>
+
+	<Path name = "/AddIns/DefaultTextEditor/Formatter/Clarion">
+		<Class id = "ClarionFormatter" class = "CWBinding.ClarionEditor.ClaWinFormattingStrategy"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/ViewContent/DefaultTextEditor/SyntaxModes">
+		<SyntaxMode id         = "Clarion Syntax Mode"
+		            name       = "Clarion"
+		            extensions = ".clw;.inc;.int;.trn;.equ"
+		            resource   = "CWBinding.Resources.Clarion-Mode.xshd"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Build">
+		<Condition name = "ProjectActive" activeproject="Clarion">
+			<MenuItem id       = "Build project"
+			          label    = "${res:XML.MainMenu.BuildMenu.BuildProject}"
+			          insertbefore = "Separator2"
+			          shortcut = "F9"
+			          icon     = "Icons.16x16.BuildCurrentSelectedProject"
+			          class    = "ICSharpCode.SharpDevelop.Project.Commands.BuildProject"/>
+			<MenuItem id       = "Rebuild project"
+			          label    = "${res:XML.MainMenu.BuildMenu.RebuildProject}"
+			          insertbefore = "Separator2"
+			          shortcut = "Alt|F9"
+			          class    = "ICSharpCode.SharpDevelop.Project.Commands.RebuildProject"/>
+			<MenuItem id    = "Clean project"
+			          insertbefore = "Separator2"
+			          label = "${res:XML.MainMenu.BuildMenu.CleanProject}"
+			          class = "ICSharpCode.SharpDevelop.Project.Commands.CleanProject"/>
+			<Condition name = "EditionActive" edition="Enterprise">
+				<MenuItem id = "ProjectOnly"
+				          label = "${res:MainMenu.Build.ProjectOnly}"
+				          insertbefore = "Separator2"
+				          type = "Menu">
+					<MenuItem id    = "BuildOnlyProject"
+					          label = "${res:XML.MainMenu.BuildMenu.BuildProject}"
+					          class = "CWBinding.ProjectTreeBuilder.Commands.ProjectOnlyBuild"/>
+					<MenuItem id    = "RebuildOnlyProject"
+					          label = "${res:XML.MainMenu.BuildMenu.RebuildProject}"
+					          class = "CWBinding.ProjectTreeBuilder.Commands.ProjectOnlyRebuild"/>
+					<MenuItem id    = "CleanOnlyProject"
+					          label = "${res:XML.MainMenu.BuildMenu.CleanProject}"
+					          class = "CWBinding.ProjectTreeBuilder.Commands.ProjectOnlyClean"/>
+				</MenuItem>
+			</Condition>
+		</Condition>
+	</Path> <!-- /Build Menu -->
+	<!-- RegisterTemplates -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Tools">
+		<ComplexCondition>
+			<Not>
+				<Condition name = "AddinExists" addin="DotNetApplicationGenerator"/>
+			</Not>
+			<MenuItem id    = "EditTemplateRegistry"
+			          label = "${res:MainMenu.ToolsMenu.EditTemplateRegistry}"
+			          insertafter  = "DriverSeparator"
+			          insertbefore = "Separator2"
+			          class = "CWBinding.Generator.Commands.EditWinTemplateRegistry"/>
+			<MenuItem id    = "EditTemplateRegistryForDir"
+			          label = "${res:MainMenu.ToolsMenu.EditTemplateRegistryForDir}"
+			          tooltip = "${res:MainMenu.ToolsMenu.EditTemplateRegistryForDir.Tooltip}"
+			          insertafter  = "EditTemplateRegistry"
+			          insertbefore = "Separator2"
+			          class = "CWBinding.Generator.Commands.EditWinTemplateRegistryForDir"/>
+		</ComplexCondition>
+		<Condition name = "AddinExists" addin="DotNetApplicationGenerator">
+			<MenuItem id    = "EditWin32TemplateRegistry"
+			          label = "Edit Win32 Template Registry"
+			          insertafter  = "DriverSeparator"
+			          insertbefore = "Separator2"
+			          class = "CWBinding.Generator.Commands.EditWinTemplateRegistry"/>
+			<MenuItem id    = "EditWin32TemplateRegistryForDir"
+			          label = "Edit Win32 Template Registry using alternate RED file ..."
+			          tooltip = "${res:MainMenu.ToolsMenu.EditTemplateRegistryForDir.Tooltip}"
+			          insertafter  = "EditTemplateRegistry"
+			          insertbefore = "Separator2"
+			          class = "CWBinding.Generator.Commands.EditWinTemplateRegistryForDir"/>
+		</Condition>
+	</Path>
+	<Path name = "/Clarion/AddFileActions">
+		<MenuItem id = "AddFile" label = "${res:ProjectComponent.ContextMenu.AddMenu}" type = "Menu">
+			<MenuItem id    = "New Item"
+			          label = "${res:ProjectComponent.ContextMenu.NewItem}"
+			          icon  = "Icons.16x16.NewDocumentIcon"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddNewItemsToProject"/>
+			<MenuItem id    = "Existing Item"
+			          label = "${res:ProjectComponent.ContextMenu.ExistingItem}"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddFilesToProject"/>
+			<MenuItem id    = "AddFileDriver"
+			          label = "${res:Clarion.ProjectMenu.Add.FileDriver}"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddFileDriverToProject"/>
+			<MenuItem id    = "AddLibrary"
+			          label = "${res:Clarion.ProjectMenu.Add.Library}"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddLibraryToProject"/>
+			<MenuItem id    = "AddReference"
+			          label = "${res:Clarion.ProjectMenu.Add.Reference}"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddReferenceToProject"/>
+		</MenuItem>
+	</Path> <!-- /Clarion/AddFileActions -->
+
+	<!-- Project Menu -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu">
+		<Condition name = "ProjectActive" activeproject="Clarion">
+			<MenuItem id = "ClaProject" label = "${res:XML.MainMenu.ProjectMenu}" type="Menu" insertafter = "View" insertbefore = "Build">
+				<Include  id = "ProjectAddMenu" item = "/Clarion/AddFileActions/AddFile"/>
+				<Condition name="IsProcessRunning" isprocessrunning="False" isdebugging="False" action="Disable">
+					<MenuItem id    = "RunSeparator" type = "Separator" />
+					<MenuItem id    = "Run"
+					          label = "${res:ProjectComponent.ContextMenu.RunProject}"
+					          icon  = "Icons.16x16.Debug.StartWithoutDebugging"
+					          class = "ICSharpCode.SharpDevelop.Project.Commands.ExecuteWithoutDebugger"/>
+					<MenuItem id    = "Debug"
+					          label = "${res:Clarion.ProjectComponent.ContextMenu.Debug}"
+					          icon  = "Icons.16x16.RunProgramIcon"
+					          class = "ICSharpCode.SharpDevelop.Project.Commands.Execute"/>
+				</Condition>
+				<Include  id    = "SetAsStartupProject" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectActions/SetAsStartupProject"/>
+				<MenuItem id = "Separator2" type = "Separator" />
+				<Include  id = "Options" item = "/SharpDevelop/Workbench/MainMenu/Project/Options"/>
+			</MenuItem>
+		</Condition> <!-- end PROJECT menu -->
+	</Path> <!-- end MAIN menu -->
+
+	<!-- Build Menu -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Build">
+		<Condition name = "ProjectActive" activeproject="Clarion">
+<!-- (IQ)			<MenuItem id = "Separator1" type = "Separator" /> -->
+			<Include  id = "BuildProject" item = "/SharpDevelop/Workbench/MainMenu/Build/Build project"/>
+			<Include  id = "Rebuild" item = "/SharpDevelop/Workbench/MainMenu/Build/Rebuild project"/>
+			<Include  id = "Clean" item = "/SharpDevelop/Workbench/MainMenu/Build/Clean project"/>
+		</Condition>
+	</Path> <!-- end Build menu -->
+
+	<!-- Project Option tabs -->
+	<Path name = "/SharpDevelop/BackendBindings/ProjectOptions/Clarion">
+		<DialogPanel id    = "Application"
+		             label = "${res:Dialog.ProjectOptions.ApplicationSettings}"
+		             class = "CWBinding.ApplicationOptionsPanel"/>
+		<DialogPanel id    = "BuildOptions"
+		             label = "${res:Dialog.ProjectOptions.BuildOptions}"
+		             class = "CWBinding.BuildOptionsPanel"/>
+		<DialogPanel id    = "DebugOptions"
+		             label = "${res:Dialog.ProjectOptions.DebugOptions}"
+		             class = "ICSharpCode.SharpDevelop.Gui.OptionPanels.DebugOptions"/>
+		<DialogPanel id    = "BuildEvents"
+		             label = "${res:Dialog.ProjectOptions.BuildEvents}"
+		             class = "ICSharpCode.SharpDevelop.Gui.OptionPanels.BuildEvents"/>
+	</Path>
+
+	<!-- Project Browser menus -->
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWProjectBrowserNode">
+		<Include  id = "BuildProject" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Build project"/>
+		<Include  id = "RebuildProject" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Rebuild project"/>
+		<Include  id = "CleanProject" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Clean project"/>
+		<Include  id = "ProjectOnly" item = "/SharpDevelop/Workbench/MainMenu/Build/ProjectOnly"/>
+		<MenuItem id = "BuildGroupSeparator" type = "Separator" />
+		<Include  id = "ProjectAddMenu" item = "/Clarion/AddFileActions/AddFile"/>
+		<Condition name="IsProcessRunning" isprocessrunning="False" isdebugging="False" action="Disable">
+			<MenuItem id    = "RunSeparator" type = "Separator" />
+			<MenuItem id    = "Run"
+			          label = "${res:ProjectComponent.ContextMenu.RunProject}"
+			          icon  = "Icons.16x16.Debug.StartWithoutDebugging"
+			          class = "ICSharpCode.SharpDevelop.Project.Commands.ExecuteWithoutDebugger"/>
+			<MenuItem id    = "Debug"
+			          label = "${res:Clarion.ProjectComponent.ContextMenu.Debug}"
+			          icon  = "Icons.16x16.RunProgramIcon"
+			          class = "ICSharpCode.SharpDevelop.Project.Commands.Execute"/>
+		</Condition>
+		<Include  id = "SetAsStartupProject" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectActions/SetAsStartupProject"/>
+		<MenuItem id = "AddSeparator" type = "Separator" />
+		<Include  id = "remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+		<MenuItem id    = "RedirectionSeparator" type = "Separator" />
+		<MenuItem id    = "OpenViaRedFile"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.OpenUsingRedirection}"
+		          class = "SoftVelocity.Common.Redirection.OpenViaRedirectionFile"/>
+		<MenuItem id    = "EditRedFile"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.EditRedirection}"
+		          class = "SoftVelocity.Common.Redirection.EditRedirectionFile"/>
+		<MenuItem id    = "CreateRedFile"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.CreateRedirection}"
+		          class = "SoftVelocity.Common.Redirection.CreateRedirectionFile"/>
+    <MenuItem id    = "SeparatorOpenProjectDependencyEditorCommand" type = "Separator" />
+    <MenuItem id    = "OpenProjectDependencyEditorCommand"
+              label = "${res:SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand}"
+              icon  = "Icons.16x16.Dependency"
+              class = "SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand"/>
+    <MenuItem id    = "OptionsSeparator" type = "Separator" />
+		<Include  id = "ProjectOptions" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Properties"/>
+	</Path> <!-- End CWProjectBrowserNode -->
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ToolBar/CWProjectBrowserNode">
+    <ToolbarItem id = "OpenProjectDependencyEditorCommand"
+                 tooltip = "${res:SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand}"
+                 icon    = "Icons.16x16.Dependency"
+                 class   = "SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand"/>
+    <ToolbarItem id      = "SeparatorOpenProjectDependencyEditorCommand" type = "Separator" />
+    <ToolbarItem id = "AddLibrary"
+                 tooltip = "${res:Clarion.ProjectComponent.ContextMenu.AddLibrary}"
+                 icon    = "Icons.24x24.AddExistingFiletIcon"
+                 class = "CWBinding.ProjectTreeBuilder.Commands.AddLibraryToProject"/>
+  </Path>
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWReferenceFolderNode">
+		<MenuItem id    = "AddReference"
+			          label = "${res:ProjectComponent.ContextMenu.AddReference}"
+			          class = "CWBinding.ProjectTreeBuilder.Commands.AddReferenceToProject"/>
+	</Path> <!-- End CWReferenceFolderNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWLibrariesNode">
+		<MenuItem id    = "AddLibrary"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.AddLibrary}"
+            class = "CWBinding.ProjectTreeBuilder.Commands.AddLibraryToProject"/>
+	</Path>
+  <!-- End CWLibrariesNode -->
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ToolBar/CWLibrariesNode">
+    <ToolbarItem id = "AddLibrary"
+                 tooltip = "${res:Clarion.ProjectComponent.ContextMenu.AddLibrary}"
+                 icon    = "Icons.24x24.AddExistingFiletIcon"
+                 class = "CWBinding.ProjectTreeBuilder.Commands.AddLibraryToProject"/>
+  </Path>
+  <!-- End CWLibrariesNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/AppFile">
+		<MenuItem id    = "OpenAppFile"
+		          icon    = "Icons.24x24.OpenFileIcon"
+		          label = "${res:Gui.ProjectBrowser.Open}"
+		          class = "ICSharpCode.SharpDevelop.Project.Commands.OpenFileEvent"/>
+		<Include  id = "remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+	</Path>
+
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ToolBar/AppFile">
+		<ToolbarItem id      = "OpenAppFile"
+	  	             icon    = "Icons.24x24.OpenFileIcon"
+		               tooltip = "${res:Gui.ProjectBrowser.Open}"
+		               class   = "ICSharpCode.SharpDevelop.Project.Commands.OpenFileEvent"/>
+  </Path>
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWLibraryNode">
+		<Include  id = "Remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+		<MenuItem id    = "Generalize"
+			          label = "${res:Clarion.ProjectComponent.ContextMenu.Generalize}"
+			          icon  = "Icons.16x16.NewDocumentIcon"
+			          class = "CWBinding.ProjectBrowser.Commands.GeneraliseName"/>
+		<Include  id = "Rename" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/SolutionNode/Rename"/>
+		<MenuItem id = "OpenSeparator" type = "Separator" />
+		<Include  id = "OpenFile" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/SolutionItemNode/OpenFile"/>
+		<MenuItem id = "PropertiesSeparator" type = "Separator" />
+		<Include  id = "Properties" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Properties"/>
+	</Path> <!-- End CWLibraryNode -->
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ToolBar/CWLibraryNode">
+	  		<ToolbarItem id      = "OpenFile"
+	  	             icon    = "Icons.24x24.OpenFileIcon"
+		               tooltip = "${res:Gui.ProjectBrowser.Open}"
+		               class   = "ICSharpCode.SharpDevelop.Project.Commands.OpenFileEvent"/>
+  </Path>
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWReferenceNode">
+		<Include  id = "Remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+		<MenuItem id = "PropertiesSeparator" type = "Separator" />
+		<Include  id = "Properties" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Properties"/>
+	</Path> <!-- End CWLibraryNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWIncPrjsNode">
+		<MenuItem id    = "AddProject"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.AddProject}"
+		          class = "CWBinding.ProjectTreeBuilder.Commands.AddProjectToProject"/>
+	</Path> <!-- End CWIncPrjsNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWIncPrjNode">
+		<Include  id = "Remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+	</Path> <!-- End CWIncPrjNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWDriversNode">
+		<MenuItem id    = "AddDriver"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.AddDriver}"
+		          class = "CWBinding.ProjectTreeBuilder.Commands.AddFileDriverToProject"/>
+	</Path>
+  <!-- End CWDriversNode -->
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ToolBar/CWDriversNode">
+    <ToolbarItem id = "AddExistingFile"
+                 tooltip = "${res:XML.Toolbar.Standard.Open.Solution.Description}"
+                 icon    = "Icons.24x24.AddExistingFiletIcon"
+                 class = "ICSharpCode.SharpDevelop.Project.Commands.AddExistingItemToProjectOrSolution"/>
+  </Path>
+  <!-- End CWDriversNode -->
+  <Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWDriverNode">
+		<Include  id = "Remove" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutPasteRemoveRename/Remove"/>
+	</Path> <!-- End CWDriverNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWFileNode">
+		<Include  id = "OpenFile" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/SolutionItemNode/OpenFile"/>
+		<MenuItem id = "OpenSeparator" type = "Separator" />
+		<Include  id = "AddFile" item = "/Clarion/AddFileActions/AddFile"/>
+		<MenuItem id = "AddSeparator" type = "Separator"  />
+		<Include  id = "ExcludeFile" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/FileNode/ExcludeFile"/>
+		<MenuItem id = "ExcludeFileSeparator" type = "Separator"  />
+		<Include  id = "Delete" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutCopyPasteDeleteRename/Delete"/>
+		<Include  id = "Rename" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutCopyPasteDeleteRename/Rename"/>
+		<MenuItem id = "OptionsSeparator" type = "Separator" />
+		<Include  id = "Properties" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ProjectNode/Properties"/>
+	</Path> <!-- End CWFileNode -->
+
+	<Path name = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CWIncludeNode">
+		<Include  id = "OpenFile" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/SolutionItemNode/OpenFile"/>
+		<MenuItem id = "OpenSeparator" type = "Separator" />
+		<Include  id = "ExcludeFile" item = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/FileNode/ExcludeFile"/>
+		<MenuItem id = "ExcludeFileSeparator" type = "Separator"  />
+		<Include  id="CutCopyPasteDeleteRename" path="/SharpDevelop/Pads/ProjectBrowser/ContextMenu/CutCopyPasteDeleteRename"/>
+	</Path> <!-- End CWIncludeNode -->
+
+	<Path name = "/SharpDevelop/Dialogs/OptionsDialog/Clarion Options">
+		<DialogPanel id    = "Clarion Options"
+		             label = "${res:OptionsDialog.Clarion.Windows}">
+			<DialogPanel id = "ClarionWindowsGeneralOptionsPanel"
+			             label = "${res:OptionsDialog.Clarion.Windows.General}"
+			             class = "Clarion.Gui.ClarionWindowsGeneralOptionsPanel"/>
+			<DialogPanel id = "ClarionWindowsVersionsOptionsPanel"
+			             label = "${res:OptionsDialog.Clarion.Windows.Versions}"
+			             class = "Clarion.Gui.ClarionWindowsVersionsOptionsPanel"/>
+		</DialogPanel>
+	</Path> <!-- Clarion General Options Dialog -->
+
+	<Path name = "/SharpDevelop/Dialogs/OptionsDialog/TextEditorOptions/ClarionSpecificOptions">
+		<DialogPanel id = "ClarionWinOptions"
+			     insertafter = "GeneralOptions"
+			     label = "${res:OptionsDialog.Clarion.Windows}"
+			     class = "Clarion.Gui.ClarionEditorOptionPanel"/>
+	</Path>
+
+	<Path name = "/ClarionVersionsOptions/ClarionWin/FileFilter/Exe">
+		<FileFilter id         = "ClarionWinExeFileFilter"
+		            insertbefore="AllFiles"
+		            name       = "${res:Clarion.FileFilter.ClarionExeFiles}"
+		            extensions = "clarion*.exe;c60*.exe;c55?e.exe;c5ee.exe;c4*.exe;CW??.exe"/>
+	</Path> <!-- Clarion Version's File Filter -->
+	<Path name = "/ClarionVersionsOptions/ClarionWin/FileFilter/Libsrc">
+		<FileFilter id         = "ClarionWinLibsrcFileFilter"
+		            insertbefore="AllFiles"
+		            name       = "${res:Clarion.FileFilter.CWFiles}"
+		            extensions = "*.clw;*.inc;*.int;*.trn;*.equ"/>
+	</Path> <!-- Clarion Version's Libsrc Filter -->
+
+	<Path name = "/Workspace/Tools">
+	</Path>
+
+	<Path name = "/Clarion/GeneratorEditors">
+		<AppGenEditor id     = "ClarionGeneratorEditor"
+		              language = "Clarion"
+		              class  = "CWBinding.Generator.Editor.ClaGenEditor" />
+	</Path>
+
+	<Path name = "/SoftVelocity/TextEditorBookmarks/MemberContextMenu/Clarion">
+		<MenuItem id = "MenuBuilder" type="Builder" class = "CWBinding.Bookmarks.ClaWinMemberEditorBookmarkMenuBuilder" />
+	</Path>
+
+	<Path name = "/SoftVelocity/TextEditorBookmarks/ClassContextMenu/Clarion">
+		<MenuItem id = "MenuBuilder" type="Builder" class = "CWBinding.Bookmarks.ClaWinClassEditorBookmarkMenuBuilder" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Views/ClassBrowser/ProjectNodeBuilders">
+		<Class id = "ClarionWinProjectBuilder"
+		       insertbefore = "DefaultProjectBuilder"
+		       class = "CWBinding.ClassBrowser.ClaWinProjectNodeBuilder"/>
+	</Path>
+
+	<!-- Text Editor Context Menu -->
+	<Path name = "/SharpDevelop/ViewContent/ClarionWinTextEditor/ContextMenu">
+		<MenuItem id = "Refactoring" type = "Builder" class = "SoftVelocity.Common.Bookmarks.ClaRefactoringMenuBuilder"/>
+		<Include  id = "FormatMenu" path = "/SharpDevelop/ViewContent/ClarionTextEditor/ContextMenu"/>
+	</Path>
+
+	<!-- Gen Text Editor Context Menu -->
+	<Path name = "/SharpDevelop/ViewContent/ClarionGenTextEditor/ContextMenu">
+		<!--<MenuItem id = "Refactoring" type = "Builder" class = "SoftVelocity.Common.Bookmarks.ClaRefactoringMenuBuilder"/>-->
+	<Condition name = "IsReadWriteText" action="Disable">
+		<Include  id = "FormatMenu" path = "/SharpDevelop/Workbench/MainMenu/Edit/Format"/>
+		<MenuItem id = "FormatSeparator" type = "Separator" />
+	</Condition>
+		<Include id = "Cut" item = "/SharpDevelop/Workbench/MainMenu/Edit/Cut"/>
+		<Include id = "Copy" item = "/SharpDevelop/Workbench/MainMenu/Edit/Copy"/>
+		<Include id = "Paste" item = "/SharpDevelop/Workbench/MainMenu/Edit/Paste"/>
+		<Include id = "Delete" item = "/SharpDevelop/Workbench/MainMenu/Edit/Delete"/>
+		<MenuItem id = "Separator1" type = "Separator" />
+		<MenuItem id = "Save"
+		          label = "${res:XML.MainMenu.FileMenu.Save}"
+		          icon = "Icons.16x16.SaveIcon"
+		          shortcut = "Control|S"
+		          class = "ICSharpCode.SharpDevelop.Commands.SaveFile"/>
+		<MenuItem id = "Close"
+		          label = "${res:XML.MainMenu.FileMenu.Close}"
+		          class ="ICSharpCode.SharpDevelop.Commands.CloseFile"/>
+		<MenuItem id = "Separator2" type = "Separator" />
+		<MenuItem id = "ExpandAllFoldings"
+		          icon  = "Icons.16x16.FoldingExpandAll"
+		          label = "${res:XML.MainMenu.EditMenu.FoldingMenu.ExpandAll}"
+		          class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ExpandAllFoldings"/>
+ 		<MenuItem id = "ContractAllFoldings"
+		          icon  = "Icons.16x16.FoldingContractAll"
+		          label = "${res:XML.MainMenu.EditMenu.FoldingMenu.ContractAll}"
+		          class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ContractAllFoldings"/>
+		<MenuItem id = "FoldingsSeparator" type = "Separator" />	
+	<Condition name = "IsReadWriteText" action="Disable">
+		<MenuItem id = "InsertClarionColor"
+						label = "${res:XML.MainMenu.ToolMenu.InsClarionColor}"
+						class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ShowClarionColorDialog"/>
+		<MenuItem id = "InsertClarionPicture"
+						label = "${res:XML.MainMenu.ToolMenu.InsClarionPicture}"
+						class = "SoftVelocity.Common.ClarionEditor.Commands.ShowPictureEditorCommand"/>
+		<MenuItem id = "InsertGuid"
+						shortcut = "Control|Shift|G"
+						label    = "${res:XML.MainMenu.ToolMenu.InsGUID}"
+						class    = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.InsertGuidCommand"/>
+		<MenuItem id = "InsertTemplateCompletion"
+				shortcut = "Control|J"
+				label = "Insert Code Snippet"
+				class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.InsertCodeSnippetMenuCommand"/>				
+	</Condition>
+		<MenuItem id = "Separator3" type = "Separator" />
+		<MenuItem id = "FileMode" label = "${res:XML.TextAreaContextMenu.FileMode}"  type="Menu">
+		<MenuItem id = "HighlightBuilder" type="Builder" class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.HighlightingTypeBuilder" />
+		</MenuItem>
+		<MenuItem id = "Options"
+		          label = "${res:XML.TextAreaContextMenu.BufferOptions}"
+		          icon = "Icons.16x16.PropertiesIcon"
+		          class ="ICSharpCode.SharpDevelop.DefaultEditor.Commands.ShowBufferOptions"/>
+		<MenuItem id = "Separator4" type = "Separator" />
+		<MenuItem id = "OpenSelectedViaRedFile"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.OpenUsingRedirection}"
+		          class = "SoftVelocity.Common.Redirection.OpenSelectedViaRedirectionFile"/>	
+	</Path>  <!-- End Gen Text Editor Context Menu -->
+
+	<Path name = "/Clarion/DataDictionary/ContextMenu/Table/GenerateConvert">
+		<MenuItem id    = "win32Convert"
+		          label = "${res:SoftVelocity.DataDictionary.Table.ContextMenu.ConvertWin32}"
+		          class = "CWBinding.DataDictionary.CreateConversionProgram"/>
+	</Path>
+	<Path name = "/Clarion/DataDictionary/ContextMenu/File/CopyDetails">
+		<MenuItem id    = "dotNetCopyDetails"
+		          label = "${res:SoftVelocity.DataDictionary.Table.ContextMenu.ConvertWin32}"
+		          class = "CWBinding.DataDictionary.DetailsWriter"/>
+	</Path>
+	<Path name = "/Clarion/DataDictionary/ContextMenu/Field/CopyDetails">
+		<MenuItem id    = "dotNetCopyDetails"
+		          label = "${res:SoftVelocity.DataDictionary.Table.ContextMenu.ConvertWin32}"
+		          class = "CWBinding.DataDictionary.DetailsWriter"/>
+	</Path>
+	<Path name = "/AddIns/DefaultTextEditor/Search/Engine">
+		<SearchEngine id = "LastBuild"
+		              class = "CWBinding.LastBuildSearchBinding"
+		              insertafter  = "Redirection"
+		              insertbefore = "Directory"/>
+	</Path>
+</AddIn>

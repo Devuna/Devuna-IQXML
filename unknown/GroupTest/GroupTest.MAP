@@ -1,0 +1,73 @@
+  401020      11F Code                GROUPTEST001_TEXT
+  401140       10 Code                GROUPTEST_TEXT
+  401150       23 Code                IEXE32_TEXT
+  401174       F9 Code                INIT_TEXT
+  401270        D Code                INST00_TEXT
+  402000       38 Initialized Data    GROUPTEST001_CONST
+  402038       25 Initialized Data    GROUPTEST001_DATA
+  402060       30 Initialized Data    GROUPTEST_CONST
+  402090     1B24 Initialized Data    GROUPTEST_DATA
+  403BB4       44 Initialized Data    IEXE32_DATA
+  403BF8        0 Initialized Data    __CPPINI_CONS
+  403BF8       8C Initialized Data    __CPPINI_CONST
+  403C84        4 Initialized Data    __CPPINI_END
+  403C88        0 Initialized Data    __INIVMT_CONS
+  403C88        0 Initialized Data    __INIVMT_CONST_END
+  403C90        0 Un-initialized Data GROUPTEST_BSS
+  404000        8 __T_L_S__DAT
+  404008       F8 __T_L_S__DATA
+  404100        0 __T_L_S__DATA_END
+  404100        0 __T_L_S__BS
+  404100      EEC __T_L_S__BSS
+  404FEC        0 __T_L_S__BSS_END
+
+  401020 MAIN@F
+  401140 _main
+  401270 __thr_inst0
+  402090 WDATA$TYPE$WDT:RECORD
+  402DE0 WDATAX$TYPE$WDX:RECORD
+  403C90 MEMOS$WDATA
+  404008 WDATA$WDT:SLNUMKEY
+  40402C KEYS$WDATA
+  404030 $WDATA
+  404084 WDATAX$WDX:SLNUMKEY
+  4040A8 KEYS$WDATAX
+  4040AC $WDATAX
+  404100 $GLOBALREQUEST
+  404104 $GLOBALRESPONSE
+  404108 $VCRREQUEST
+  40410C WDATA$WDT:RECORD
+  40477C WDATAX$WDX:RECORD
+  404DEC GROUP_RU$HOLDPOSITION
+  405000 __import_section_start
+  405334 __import_section_end
+
+Imports
+ClaCLA.dll:CLARION 405058
+ClaRUN.dll:Cla$CLEAR 4050A8
+ClaRUN.dll:Cla$clearstr 4050AC
+ClaRUN.dll:Cla$code 4050B0
+ClaRUN.dll:CLA$FILE_DESTROY 4050B4
+ClaRUN.dll:Cla$FREEqueue 4050B8
+ClaRUN.dll:Cla$init 4050BC
+ClaRUN.dll:Cla$PushLong 4050C0
+ClaRUN.dll:Cla$PushString 4050C4
+ClaRUN.dll:Cla$StackConcat 4050C8
+ClaRUN.dll:Cla$storecstr 4050CC
+ClaRUN.dll:Cla$THREAD_FILE 4050D0
+ClaRUN.dll:THR$GetInstance 4050D4,401000
+ClaRUN.dll:_exit 4050D8,401008
+ClaRUN.dll:_free 4050DC
+ClaRUN.dll:_malloc 4050E0
+ClaRUN.dll:__sysinit 4050E4,401010
+ClaRUN.dll:__sysstart 4050E8,401018
+IQXML:XML:DEBUGMYQUEUE@FBqOsb 40510C
+IQXML:XML:DEBUGQUEUE@FOsb 405110
+IQXML:XML:FREE@F 405114
+IQXML:XML:GOTOTOP@F 405118
+IQXML:XML:LOADFROMSTRING@FRscOUcOUcOUc 40511C
+IQXML:XML:LOADQUEUE@FBqOUcOUcOUcOlOUc 405120
+
+
+
+Entry Point:   401150

@@ -1,0 +1,1310 @@
+<AddIn name        = "ClarionBinding"
+       author      = "SoftVelocity"
+       copyright   = "Copyright SoftVelocity 1986-2009"
+       url         = "http://www.softvelocity.com"
+       description = "Common parts for Clarion for Windows and Clarion.NET Bindings">
+
+	<Manifest>
+		<Identity name = "SoftVelocity.ClarionBinding"/>
+		<Dependency addin = "SharpDevelop"/>
+		<Dependency addin = "ICSharpCode.FormsDesigner"/>
+	</Manifest>
+
+	<Runtime>
+		<Import assembly = ":ICSharpCode.SharpDevelop"/>
+		<Import assembly = "$ICSharpCode.FormsDesigner/FormsDesigner.dll"/>
+		<Import assembly = "Controls/CommonControl.dll"/>
+		<Import assembly = "ClarionNetReport.dll"/>
+		<Import assembly = "ClarionNetWindow.dll"/>
+		<Import assembly = "ClarionParser.dll"/>
+		<Import assembly = "CommonSources.dll">
+			<ConditionEvaluator name = "OpenFileCommandUsingRedFile" class = "SoftVelocity.Common.Redirection.OpenFileCommandUsingRedFile"/>
+			<ConditionEvaluator name = "SafeExternalCondition" class = "SoftVelocity.Common.SafeExternalConditionEvaluator"/>
+			<ConditionEvaluator name = "ClarionDesignerState" class = "SoftVelocity.Common.ClarionEditor.ClarionDesignerStateEvaluator"/>
+			<ConditionEvaluator name = "EditorCanCallDesigner" class = "SoftVelocity.Common.ClarionEditor.ClaCanCallDesignerEvaluator"/>
+			<ConditionEvaluator name = "AddinExists" class = "SoftVelocity.Common.AddinExistsCondition"/>
+			<Doozer name="GeneratorBinding" class="SoftVelocity.Generator.GeneratorBindingDoozer"/>
+			<Doozer name="AppGenEditor" class="SoftVelocity.Generator.AppGenEditorDoozer"/>
+		</Import>
+	</Runtime>
+
+	<BitmapResources file="Resources\BitmapResources.resources" />
+	<StringResources file="Resources\StringResources.resources" />
+
+	<Path name = "/Workspace/Autostart">
+		<Class id    = "InitializeClarion"
+		       class = "SoftVelocity.Common.StartupCode"/>
+	</Path> <!-- /Workspace/Autostart -->
+
+	<Path name = "/Workspace/Terminate">
+		<Class id    = "CleanupClarion"
+		       class = "SoftVelocity.Common.TerminationCode"/>
+	</Path> <!-- /Workspace/Terminate -->
+
+	<Path name = "/Clarion/Wallpaper/FileFilter">
+		<FileFilter id         = "PNG"
+		            name       = "PNG"
+		            extensions = "*.PNG"/>
+		<FileFilter id         = "Bitmaps"
+		            name       = "${res:Clarion.FileFilter.BitmapFiles}"
+		            extensions = "*.bmp"/>
+		<FileFilter id         = "Gifs"
+		            name       = "${res:Clarion.FileFilter.GifFiles}"
+		            extensions = "*.gif"/>
+		<FileFilter id         = "Jpegs"
+		            name       = "${res:Clarion.FileFilter.JpegFiles}"
+		            extensions = "*.jpg;*.jpeg"/>
+		<FileFilter id         = "MetaFiles"
+		            name       = "${res:Clarion.FileFilter.MetaFiles}"
+		            extensions = "*.wmf"/>
+	</Path>
+
+	<Path name = "/Clarion/Images/FileFilter">
+		<FileFilter id         = "Icons"
+		            name       = "${res:Clarion.FileFilter.IconFiles}"
+		            extensions = "*.ico"/>
+		<Include id  = "OtherImages" path = "/Clarion/Wallpaper/FileFilter"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Views/ClassBrowser/ClassNodeBuilders">
+		<Class id = "ClarionClassBuilder"
+		       insertbefore = "DefaultClassBuilder"
+		       class = "SoftVelocity.Common.ClassBrowser.ClaClassNodeBuilder"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Pads/ClassBrowser/MemberContextMenu/Clarion">
+		<MenuItem id = "MenuBuilder" type="Builder" class = "SoftVelocity.Common.Bookmarks.ClaMemberBookmarkMenuBuilder" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Pads/ClassBrowser/ClassContextMenu/Clarion">
+		<MenuItem id = "MenuBuilder" type="Builder" class = "SoftVelocity.Common.Bookmarks.ClaClassBookmarkMenuBuilder" />
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/Pads">
+		<Pad id       = "ControlTemplates"
+		     category = "Main"
+		     title    = "Control Templates"
+		     icon     = "ControlTemplatesPad"
+		     class    = "SoftVelocity.Generator.Pads.ControlTemplatesPad"/>
+	</Path>
+	<Path name = "/SharpDevelop/Workbench/MainMenu/File">
+		<MenuItem id    = "OpenViaRedFile"
+		          insertafter = "Project"
+		          insertbefore = "Close"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.OpenUsingRedirection}"
+		          shortcut = "Control|Shift|O"
+		          class = "SoftVelocity.Common.Redirection.OpenViaRedirectionFile"/>
+	</Path> <!-- /File/Open Menu -->
+  <!-- Build Menu-->
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Build">
+		<MenuItem id           = "SetVersion"
+		          type         = "Builder"
+		          insertafter  = "SetConfiguration"
+		          insertbefore = "EditConfigurations"
+		          class        = "SoftVelocity.Common.SetVersionMenuBuilder"/>
+		<Condition name = "IsBuildRunning">
+			<MenuItem id    = "CancelBuild"
+			          label = "${res:SoftVelocity.Common.Commands.CancelBuild}"
+			          icon  = "Icons.24x24.CancelIcon"
+			          class = "SoftVelocity.Common.Project.Commands.CancelBuild"/>
+		</Condition>
+	</Path>
+
+	<!-- Tools Menu-->
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Tools">
+		<MenuItem id           = "DriverSeparator"
+		          insertbefore = "Separator2"
+		          type         = "Separator"/>
+		<MenuItem id           = "RedFileOpen"
+		          type         = "Builder"
+		          insertafter  = "DriverSeparator"
+		          insertbefore = "Separator2"
+		          class        = "SoftVelocity.Common.Redirection.OpenRedirectionFileMenuBuilder"/>
+		<MenuItem id           = "RegisteredDrivers"
+		          insertafter  = "DriverSeparator"
+		          insertbefore = "Separator2"
+		          label        = "${res:MainMenu.ToolsMenu.RegisteredFileDrivers}"
+		          class        = "SoftVelocity.Common.Dialogs.FileDrivers.RegisterFileDrivers"/>
+		<MenuItem id           = "RegisteredDatabaseEngines"
+		          insertafter  = "DriverSeparator"
+		          insertbefore = "Separator2"
+		          label        = "${res:MainMenu.ToolsMenu.RegisterDatabaseEngines}"
+		          class        = "SoftVelocity.Common.Dialogs.FileDrivers.RegisterDatabaseEngines"/>
+	</Path>
+
+
+	<!-- General Text Editor Context Menu -->
+	<Path name = "/SharpDevelop/ViewContent/ClarionTextEditor/ContextMenu">
+		<!--<MenuItem id = "Refactoring" type = "Builder" class = "SoftVelocity.Common.Bookmarks.ClaRefactoringMenuBuilder"/>-->
+		<Condition name = "IsProcessRunning" isdebugging="True" isprocessrunning="False">
+			<MenuItem id = "DebuggerSetCurrentStatement"
+			          label = "${res:MainWindow.Windows.Debug.SetCurrentStatement}"
+			          icon = "Icons.16x16.Debug.StepInto"
+			          class = "ICSharpCode.SharpDevelop.Services.SetCurrentStatementCommand"/>
+			<MenuItem id = "DebugSeparator" type = "Separator" />
+		</Condition>
+		<Include  id = "FormatMenu" path = "/SharpDevelop/Workbench/MainMenu/Edit/Format"/>
+		<MenuItem id = "FormatSeparator" type = "Separator" />
+			<MenuItem id = "SelectAll"
+			          label = "${res:XML.MainMenu.EditMenu.SelectAll}"
+			          type = "Item"
+			          shortcut = "Control|A"
+			          loadclasslazy = "false"
+			          class = "ICSharpCode.SharpDevelop.Commands.SelectAll"/>
+		<Include id = "Cut" item = "/SharpDevelop/Workbench/MainMenu/Edit/Cut"/>
+		<Include id = "Copy" item = "/SharpDevelop/Workbench/MainMenu/Edit/Copy"/>
+		<Include id = "Paste" item = "/SharpDevelop/Workbench/MainMenu/Edit/Paste"/>
+		<Include id = "Delete" item = "/SharpDevelop/Workbench/MainMenu/Edit/Delete"/>
+		<MenuItem id = "Separator1" type = "Separator" />
+		<MenuItem id = "Save"
+		          label = "${res:XML.MainMenu.FileMenu.Save}"
+		          icon = "Icons.16x16.SaveIcon"
+		          shortcut = "Control|S"
+		          class = "ICSharpCode.SharpDevelop.Commands.SaveFile"/>
+		<MenuItem id = "SaveAs"
+		          label = "${res:XML.MainMenu.FileMenu.SaveAs}"
+		          class = "ICSharpCode.SharpDevelop.Commands.SaveFileAs"/>
+		<MenuItem id = "File"
+		          label = "${res:XML.MainMenu.FileMenu.Close}"
+		          class ="ICSharpCode.SharpDevelop.Commands.CloseFile"/>
+		<MenuItem id = "Separator2" type = "Separator" />
+		<MenuItem id = "ExpandAllFoldings"
+		          icon  = "Icons.16x16.FoldingExpandAll"
+		          label = "${res:XML.MainMenu.EditMenu.FoldingMenu.ExpandAll}"
+		          class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ExpandAllFoldings"/>
+ 		<MenuItem id = "ContractAllFoldings"
+		          icon  = "Icons.16x16.FoldingContractAll"
+		          label = "${res:XML.MainMenu.EditMenu.FoldingMenu.ContractAll}"
+		          class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ContractAllFoldings"/>
+		<MenuItem id = "FoldingsSeparator" type = "Separator" />	
+				<MenuItem id = "Insert" label = "${res:XML.MainMenu.EditMenu.Insert}" type="Menu">
+		<Condition name = "WindowActive" activewindow="SoftVelocity.ClarionNet.Binding.ClarionEditor.ClarionNetEditor">
+				<MenuItem id = "InsertColor"
+				label = "${res:XML.MainMenu.ToolMenu.InsColor}"
+				class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ShowColorDialog"/>
+		</Condition>
+		<MenuItem id = "InsertClarionColor"
+						label = "${res:XML.MainMenu.ToolMenu.InsClarionColor}"
+						class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.ShowClarionColorDialog"/>
+		<MenuItem id = "InsertClarionPicture"
+						label = "${res:XML.MainMenu.ToolMenu.InsClarionPicture}"
+						class = "SoftVelocity.Common.ClarionEditor.Commands.ShowPictureEditorCommand"/>
+		<MenuItem id = "InsertGuid"
+						shortcut = "Control|Shift|G"
+						label    = "${res:XML.MainMenu.ToolMenu.InsGUID}"
+						class    = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.InsertGuidCommand"/>
+				</MenuItem>
+		<MenuItem id = "InsertTemplateCompletion"
+				shortcut = "Control|J"
+				label = "Insert Code Snippet"
+				class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.InsertCodeSnippetMenuCommand"/>		
+		<MenuItem id = "FileMode" label = "${res:XML.TextAreaContextMenu.FileMode}"  type="Menu">
+			<MenuItem id = "HighlightBuilder" type="Builder" class = "ICSharpCode.SharpDevelop.DefaultEditor.Commands.HighlightingTypeBuilder" />
+		</MenuItem>
+
+		<MenuItem id = "Separator3" type = "Separator" />
+		<MenuItem id = "Options"
+		          label = "${res:XML.TextAreaContextMenu.BufferOptions}"
+		          icon = "Icons.16x16.PropertiesIcon"
+		          class ="ICSharpCode.SharpDevelop.DefaultEditor.Commands.ShowBufferOptions"/>
+		<MenuItem id = "SeparatorClaStructureDesigner" type = "Separator" />
+		<MenuItem id = "ClaStructureDesignerContext"
+		          label = "${res:MainMenu.EditMenu.StructureDesigner}"
+		          icon = "Clarion.StructureDesigner"
+		          class = "SoftVelocity.Common.ClarionEditor.RunDesigner"/>
+		<MenuItem id = "Separator4" type = "Separator" />
+		<MenuItem id = "OpenSelectedViaRedFile"
+		          label = "${res:Clarion.ProjectComponent.ContextMenu.OpenUsingRedirection}"
+		          class = "SoftVelocity.Common.Redirection.OpenSelectedViaRedirectionFile"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Help">
+		<MenuItem id           = "ClarionContextHelp"
+			      insertbefore = "SDKHelp"
+			      label        = "${res:Clarion.MainMenu.HelpMenu.ContextHelp}"
+			      icon         = "HtmlHelp2.16x16.DynamicHelp"
+			      shortcut     = "F1"
+			      class        = "SoftVelocity.Common.ClarionEditor.Commands.ShowClarionContextHelpCommand"/>
+	</Path>
+
+	<!--<Path name = "/AddIns/DefaultTextEditor/EditActions">
+		<EditAction id = "ClaWordCompletionPopup" class = "SoftVelocity.Common.WordCompletion.WordCompletionPopup"  keys = "Alt|Right"/>
+	</Path>-->
+
+
+	<!-- STRUCTURE DESIGNER -->
+
+
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Edit">
+		<Condition name = "EditorCanCallDesigner" action = "Exclude" >
+			<MenuItem id = "ClaStructureDesignerSeparator1"
+			          insertafter = "WordCount"
+			          type = "Separator"/>
+			<MenuItem id = "ClaStructureDesigner"
+			          insertafter  = "ClaStructureDesignerSeparator1"
+			          label = "${res:MainMenu.EditMenu.StructureDesigner}"
+			          shortcut = "Control|D"
+			          icon = "Clarion.StructureDesigner"
+			          class = "SoftVelocity.Common.ClarionEditor.RunDesigner"/>
+		</Condition>
+		<ComplexCondition action = "Exclude">
+			<Or>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionDesignerView"/>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionEditor"/>
+			</Or>
+			<MenuItem id = "CancelEditorMenuItemSeparator"
+			          type = "Separator"/>
+			<MenuItem id      = "CancelEditorMenuItem"
+			          icon    = "Icons.16x16.ExitNotSave"
+			          label = "Quit (Prompt if changed)"		
+			          shortcut = "Control|Q"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.DesignerBackToSource"/>
+			<MenuItem id      = "NextEmbed"
+			          icon    = "Icons.16x16.Generator.NextEmbed"
+			          label = "Next Embed"
+			          shortcut = "Control|Shift|J"
+			          class   = "SoftVelocity.Generator.Editor.Commands.GotoNextEmbed"
+			          loadclasslazy = "false"/>
+			<MenuItem id      = "NextFilledEmbed"
+			          icon    = "Icons.16x16.Generator.NextFilledEmbed"
+			          label = "Next Filled Embed"
+			          shortcut = "Control|J"
+			          class   = "SoftVelocity.Generator.Editor.Commands.GotoNextFilledEmbed"
+			          loadclasslazy = "false"/>
+			<MenuItem id      = "PrevEmbed"
+			          icon    = "Icons.16x16.Generator.PrevEmbed"
+			          label = "Previous Embed"
+			          shortcut = "Control|Shift|B"
+			          class   = "SoftVelocity.Generator.Editor.Commands.GotoPrevEmbed"
+			          loadclasslazy = "false"/>
+			<MenuItem id      = "PrevFilledEmbed"
+			          icon    = "Icons.16x16.Generator.PrevFilledEmbed"
+			          label = "Previous Filled Embed"
+			          shortcut = "Control|B"
+			          class   = "SoftVelocity.Generator.Editor.Commands.GotoPrevFilledEmbed"
+			          loadclasslazy = "false"/>
+		</ComplexCondition>
+	</Path>
+
+	<Path name = "/SoftVelocity/Clarion/ToolBar/CompilerErrorView">
+		<ToolbarItem id      = "BackToSource"
+		             icon    = "Icons.16x16.BrowserBefore"
+		             tooltip = "${res:Clarion.MainMenu.BackToSource}"
+		             class   = "SoftVelocity.Common.ClarionEditor.Commands.DesignerBackToSource"/>		             		             		
+	</Path>
+
+	<!--Properties Toolbar-->
+	<Path name = "/SoftVelocity/Clarion/ToolBar/ClaPropertiesToolbar">
+		<ToolbarItem id = "lbltextValue"
+		             label = "Text: "
+		             type = "Label"/>
+		<ToolbarItem id = "textValue"
+		             type = "TextBox"
+		             tooltip = "${res:Clarion.Tooltips.TextValue}"
+		             width = "200"
+		             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.TextValueTextBox"/>
+		<ToolbarItem id = "lbluseValue"
+		             label = "Use: "
+		             type = "Label"/>
+		<ToolbarItem id = "textValue"
+		             type = "TextBox"
+		             tooltip = "${res:Clarion.Tooltips.USEValue}"
+		             width = "200"
+		             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.UseValueTextBox"/>
+		<ToolbarItem id = "lblfontName"
+		             label = "Font: "
+		             type = "Label"/>
+		<ToolbarItem id = "fontName"
+		             type = "ComboBox"
+		             tooltip = "${res:Clarion.Tooltips.FontName}"
+		             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.FontNameComboBox"/>
+		<ToolbarItem id = "fontSize"
+		             type = "ComboBox"
+		             tooltip = "${res:Clarion.Tooltips.FontSize}"
+		             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.FontSizeComboBox"/>
+		<ToolbarItem id        = "fontBold"
+			        icon    = "Icons.16x16.FontBold"
+			        type = "CheckBox"
+			        tooltip = "${res:Clarion.Tooltips.FontBold}"
+			        class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchFontBold"/>
+		<ToolbarItem id        = "fontItalic"
+			        icon    = "Icons.16x16.FontItalic"
+			        type = "CheckBox"
+			        tooltip = "${res:Clarion.Tooltips.FontItalic}"
+			        class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchItalicBold"/>
+		<ToolbarItem id        = "fontUndeline"
+			        icon    = "Icons.16x16.FontUnderline"
+			        type = "CheckBox"
+			        tooltip = "${res:Clarion.Tooltips.FontUndeline}"
+			        class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchUnderlineBold"/>
+	</Path>
+
+	<!-- Command Toolbar-->
+	<Path name = "/SoftVelocity/Clarion/ToolBar/ClarionFormater">
+		<ToolbarItem id      = "SaveAndExitReport"
+		             icon    = "Icons.24x24.SaveAndExit"
+		             tooltip = "${res:Clarion.ButtonText.SaveAndClose}"
+		             class   = "SoftVelocity.Common.ClarionEditor.Commands.DesignerSaveAndExit"/>
+		<ToolbarItem id      = "CancelReport"
+		             icon    = "Icons.24x24.ExitNotSave"
+		             tooltip = "${res:Global.CancelButtonText}"
+		             class   = "SoftVelocity.Common.ClarionEditor.Commands.DesignerCancel"/>
+		<ToolbarItem id      = "ExitSeparator" type = "Separator"/>
+		<ToolbarItem id      = "AlignToGrid"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignToGrid}"
+		             icon    = "Icons.24x24.FormsDesigner.AlignToGrid"
+		             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignToGrid"/>
+		<ToolbarItem id = "alignLeft"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignLefts}"
+		             icon = "Icons.24x24.FormsDesigner.AlignLefts"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignLeft"/>
+		<ToolbarItem id = "alignRight"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignRights}"
+		             icon    = "Icons.24x24.FormsDesigner.AlignRights"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignRight"/>
+		<ToolbarItem id = "alignTop"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignTops}"
+		             icon        = "Icons.24x24.FormsDesigner.AlignTops"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignTop"/>
+		<ToolbarItem id = "alignBottom"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignBottoms}"
+		             icon        = "Icons.24x24.FormsDesigner.AlignBottoms"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignBottom"/>
+		<ToolbarItem id = "alignHorz"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignMiddles}"
+		             icon        = "Icons.24x24.FormsDesigner.AlignMiddles"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignHorizontalCenters"/>
+		<ToolbarItem id = "alignVert"
+		             tooltip = "${res:Clarion.Tooltips.Format.AlignCenters}"
+		             icon        = "Icons.24x24.FormsDesigner.AlignCenters"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignVerticalCenters"/>
+		<ToolbarItem id = "spreadHorz"
+		             tooltip = "${res:Clarion.Tooltips.Format.SpreadHorz}"
+		             icon        = "Icons.24x24.FormsDesigner.EqualizeHorizontalSpace"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.HorizSpaceMakeEqual"/>
+		<ToolbarItem id = "spreadVert"
+		             tooltip = "${res:Clarion.Tooltips.Format.SpreadVert}"
+		             icon        = "Icons.24x24.FormsDesigner.EqualizeVerticalSpace"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.VertSpaceMakeEqual"/>
+		<ToolbarItem id = "makeSameSize"
+		             tooltip = "${res:Clarion.Tooltips.Format.SizeToControl}"
+		             icon        = "Icons.24x24.FormsDesigner.MakeSameSize"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControl"/>
+		<ToolbarItem id = "makeSameWidth"
+		             tooltip = "${res:Clarion.Tooltips.Format.SizeToControlWidth}"
+		             icon        = "Icons.24x24.FormsDesigner.MakeSameWidth"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControlWidth"/>
+		<ToolbarItem id = "makeSameHeight"
+		             tooltip = "${res:Clarion.Tooltips.Format.SizeToControlHeight}"
+		             icon        = "Icons.24x24.FormsDesigner.MakeSameHeight"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControlHeight"/>
+		<ToolbarItem id          = "sizeToGrid"
+		             tooltip     = "${res:Clarion.Tooltips.Format.SizeToGrid}"
+		             icon        = "Icons.24x24.FormsDesigner.SizeToGrid"
+		             class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToGrid"/>
+		<ToolbarItem id = "centerHorz"
+		             tooltip = "${res:Clarion.Tooltips.Format.CenterHorizontally}"
+		             icon    = "Icons.24x24.FormsDesigner.CenterHorizontally"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.CenterHorizontally"/>
+		<ToolbarItem id = "centerVert"
+		             tooltip = "${res:Clarion.Tooltips.Format.CenterVertically}"
+		             icon    = "Icons.24x24.FormsDesigner.CenterVertically"
+		             class ="SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.CenterVertically"/>
+		<ToolbarItem id = "ZMoveSeparator" type = "Separator"/>
+		<ToolbarItem id          = "BringToFront"
+		             tooltip       = "${res:Clarion.Tooltips.Format.BringToFront}"
+		             icon        = "Icons.24x24.FormsDesigner.BringToFront"
+		             class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.BringToFront"/>
+		<ToolbarItem id          = "SendToBack"
+		             tooltip       = "${res:Clarion.Tooltips.Format.SendToBack}"
+		             icon        = "Icons.24x24.FormsDesigner.SendToBack"
+		             class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SendToBack"/>
+		<Condition name = "ClaWindowTabOrderEnabled" action="Disable">
+			<ToolbarItem id = "ViewTabOrderSeparator" type = "Separator"/>
+			<ToolbarItem id          = "ViewTabOrder"
+			             icon    = "Icons.24x24.FormsDesigner.ShowTabOrder"
+			             type        = "CheckBox"
+			             tooltip       = "${res:Clarion.Tooltips.Format.ShowTabOrder}"
+			             class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewTabOrder"/>
+		</Condition>
+	</Path>
+	<Path name = "/SoftVelocity/Clarion/ToolBar/ClarionFormater">
+		<Condition name = "ClaStructureIsReport" action="Exclude">
+			<ToolbarItem id      = "PrintPreview"
+			             insertafter = "ExitSeparator"
+			             insertbefore = "AlignToGrid"
+			             icon    = "Icons.24x24.FormsDesigner.Preview"
+			             tooltip = "${res:Clarion.Tooltips.Format.PrintPreviewDetails}"
+			             class   = "SoftVelocity.Common.ClarionEditor.Commands.PrintPreview"/>
+			<ToolbarItem id = "PrintPreviewSeparator" insertbefore = "AlignToGrid" insertafter = "PrintPreview" type = "Separator"/>
+		</Condition>
+	</Path>
+	<Path name = "/SoftVelocity/Clarion/ToolBar/ClarionFormater">
+		<Condition name = "ClaStructureIsWindow" action="Exclude">
+			<ToolbarItem id = "SuppressTransparencySeparator" type = "Separator"/>
+			<ToolbarItem id        = "SuppressTransparency"
+			             icon    = "Icons.24x24.FormsDesigner.SuppressTransparency"
+			             type = "CheckBox"
+			             tooltip = "${res:Clarion.Tooltips.SuppressTransparency}"
+			             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchSuppressTransparency"/>
+			<ToolbarItem id = "UseVisualStylesSeparator" type = "Separator"/>
+			<ToolbarItem id        = "UseVisualStyles"
+			             icon    = "Icons.24x24.FormsDesigner.UseVisualStyles"
+			             type = "CheckBox"
+			             tooltip = "${res:Clarion.Tooltips.UseVisualStyles}"
+			             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchUseVisualStyles"/>
+			<ToolbarItem id = "HideHiddenControlsSeparator" type = "Separator"/>
+			<ToolbarItem id        = "HideHiddenControls"
+			             icon    = "Icons.24x24.FormsDesigner.SuppressHidden"
+			             type = "CheckBox"
+			             tooltip = "Hide hidden controls"
+			             class   = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchHideHiddenControls"/>
+		</Condition>
+	</Path>
+
+	<!-- REPORT DESIGNER MAIN MENU -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu">
+		<ComplexCondition action = "Exclude">
+			<And>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionDesignerView"/>
+				<Condition name = "ClarionDesignerState" state = "report"/>
+			</And>
+			<MenuItem id           = "ReportDesigner"
+			          label        = "${res:Clarion.MainMenu.ReportDesignerMenu}"
+			          insertafter  = "Debug"
+			          insertbefore = "Tools"
+			          type         = "Menu">
+			<!--MenuItem id = "ClaReportViews" type = "Builder" class = "SoftVelocity.Common.ClarionEditor.Commands.ViewBuilder"/-->
+			<!--<MenuItem id = "Seperator1" type = "Separator"/>-->
+			<MenuItem id = "ClaReportViews" type = "Builder" class = "SoftVelocity.Common.ClarionEditor.Commands.ViewBuilder"/>
+			<MenuItem id = "Seperator1" type = "Separator"/>
+				<MenuItem id="Reportsettings" label="${res:XML.MainMenu.FormatMenu.ShowProperties}" class="SoftVelocity.Common.ClarionEditor.Commands.ShowReportSettings"/>
+				<MenuItem id = "Seperator21" type = "Separator"/>
+				<MenuItem id = "Populate" label = "${res:Clarion.MainMenu.ReportDesignerMenu.Populate}" type = "Menu">
+					<Condition name = "ClaReportPopulateEnabled" action="Disable">
+						<MenuItem id="populateField" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.Column}" class="SoftVelocity.Common.ClarionEditor.Commands.AddReportColumn"/>
+					</Condition>
+					<Condition name = "ClaReportPopulateEnabled" action="Disable">
+						<MenuItem id="populateMultipleFields" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.MultipleColumns}" class="SoftVelocity.Common.ClarionEditor.Commands.AddReportMultipleColumns"/>
+					</Condition>
+					<!--<Condition name = "ClaReportPopulateEnabled" action="Disable">
+						<MenuItem id="populateRTemplate" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.Template}" class="SoftVelocity.Common.ClarionEditor.Commands.AddReportTemplate"/>
+					</Condition>-->
+				</MenuItem>
+				<MenuItem id = "Seperator31" type = "Separator"/>
+				<MenuItem id = "Bands" label = "&amp;Bands" type = "Menu">
+					<Condition name = "ClaReportPageHeaderEnabled" action="Disable">
+						<MenuItem id="pageHeader" label="${res:Clarion.ContextMenu.Report.PageHeader}" class="SoftVelocity.Common.ClarionEditor.Commands.AddPageHeader"/>
+					</Condition>
+					<Condition name = "ClaReportPageFooterEnabled" action="Disable">
+						<MenuItem id="pageFooter" label="${res:Clarion.ContextMenu.Report.PageFooter}" class="SoftVelocity.Common.ClarionEditor.Commands.AddPageFooter"/>
+					</Condition>
+					<Condition name = "ClaReportPageFormEnabled" action="Disable">
+						<MenuItem id="pageForm" label="${res:Clarion.ContextMenu.Report.PageForm}" class="SoftVelocity.Common.ClarionEditor.Commands.AddPageForm"/>
+					</Condition>
+					<Condition name = "ClaReportDetailEnabled" action="Disable">
+						<MenuItem id="addDetail" label="${res:Clarion.ContextMenu.Report.Detail}" class="SoftVelocity.Common.ClarionEditor.Commands.AddDetail"/>
+					</Condition>
+					<MenuItem id="sep2" type = "Separator"/>
+					<Condition name = "ClaReportBreakGroupEnabled" action="Disable">
+						<MenuItem id="breakGroup" label="${res:Clarion.ContextMenu.Report.BreakGroup}" class="SoftVelocity.Common.ClarionEditor.Commands.AddBreakGroup"/>
+					</Condition>
+					<Condition name = "ClaReportGroupHeaderEnabled" action="Disable">
+						<MenuItem id="groupHeader" label="${res:Clarion.ContextMenu.Report.GroupHeader}" class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupHeader"/>
+					</Condition>
+					<Condition name = "ClaReportGroupFooterEnabled" action="Disable">
+						<MenuItem id="groupFooter" label="${res:Clarion.ContextMenu.Report.GroupFooter}" class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupFooter"/>
+					</Condition>
+					<MenuItem id="sep4" type = "Separator"/>
+					<Condition name = "ClaReportSurroundBreakEnabled" action="Disable">
+						<MenuItem id="surroundBreak" label="${res:Clarion.ContextMenu.Report.SurroundingBreak}" class="SoftVelocity.Common.ClarionEditor.Commands.SurroundingBreakSection"/>
+					</Condition>
+				</MenuItem>
+				<MenuItem id           = "ReportFormat"
+				          label        = "${res:XML.MainMenu.FormatMenu}"
+				          type         = "Menu">
+					<Include  id = "ReportFormatMenu" path ="/ClaWindow/MainMenu/Format/ReportFormatMenu"/>
+					<!--
+					<Include  id = "AlignMenu" path = "/ClaWindow/MainMenu/Format/AlignMenu"/>
+					<Include  id = "SameSizeMenu" path = "/ClaWindow/MainMenu/Format/SameSizeMenu"/>
+					<Include  id = "HorizontalSpacingMenu" path = "/ClaWindow/MainMenu/Format/HorizontalSpacingMenu"/>
+					<Include  id = "VerticalSpacingMenu" path = "/ClaWindow/MainMenu/Format/VerticalSpacingMenu"/>
+
+					<MenuItem id = "SpacingSeparator" type = "Separator"/>
+					<Include  id = "CenterMenu" path = "/ClaWindow/MainMenu/Format/CenterMenu"/>
+-->
+					<MenuItem id = "CenterSeparator" type = "Separator"/>
+
+					<MenuItem id = "OrderMenu" label = "${res:XML.MainMenu.FormatMenu.OrderMenu}" type = "Menu">
+						<Condition name = "ClaWindowBringToFrontEnabled" action="Disable">
+							<MenuItem id          = "BringToFront"
+							          label       = "${res:XML.MainMenu.FormatMenu.OrderMenu.BringToFront}"
+							          icon        = "Icons.16x16.FormsDesigner.BringToFront"
+							          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.BringToFront"/>
+						</Condition>
+						<Condition name = "ClaWindowSendToBackEnabled" action="Disable">
+							<MenuItem id          = "SendToBack"
+							          label       = "${res:XML.MainMenu.FormatMenu.OrderMenu.SendToBack}"
+							          icon        = "Icons.16x16.FormsDesigner.SendToBack"
+							          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SendToBack"/>
+						</Condition>
+					</MenuItem>
+
+					<MenuItem id = "OrderSeparator" type = "Separator"/>
+					<MenuItem id          = "Lock"
+					          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+					          icon        = "Icons.16x16.FormsDesigner.LockControls"
+					          class = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+				</MenuItem>
+				<Condition name = "ClaReportCollapseAllShown" action="Exclude">
+					<MenuItem id = "Seperator61" type = "Separator"/>
+					<Condition name = "ClaReportCollapseAllEnabled" action="Exclude">
+						<MenuItem id="CollapseAll" label="&amp;Collapse All" class="SoftVelocity.Common.ClarionEditor.Commands.CollapseAll"/>
+					</Condition>
+					<Condition name = "ClaReportExpandAllEnabled" action="Exclude">
+						<MenuItem id="ExpandAll" label="E&amp;xpand All" class="SoftVelocity.Common.ClarionEditor.Commands.CollapseAll"/>
+					</Condition>
+				</Condition>
+			</MenuItem>
+		</ComplexCondition>
+	</Path>
+
+	<!-- REPORT DESIGNER CONTEXT MENU-->
+	<Path name="/ClaReport/ContextMenus/ContainerMenu">
+		<Condition name = "ClaWindowActionEnabled" action="Disable">
+			<MenuItem id          = "ViewCode"
+			          label       = "${res:Clarion.MainMenu.BackToSource}"
+			          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+			<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+			<!--<MenuItem id          = "Lock"
+			          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+			          icon        = "Icons.16x16.FormsDesigner.LockControls"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+			<MenuItem id = "LockSeparator" type = "Separator"/>-->
+			<Condition name = "ClaReportPageHeaderEnabled" action="Disable">
+				<MenuItem id="pageHeader"
+				          label="${res:Clarion.ContextMenu.Report.PageHeader}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageHeader"/>
+			</Condition>
+			<Condition name = "ClaReportPageFooterEnabled" action="Disable">
+				<MenuItem id="pageFooter"
+				          label="${res:Clarion.ContextMenu.Report.PageFooter}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageFooter"/>
+			</Condition>
+			<Condition name = "ClaReportPageFormEnabled" action="Disable">
+				<MenuItem id="pageForm"
+				          label="${res:Clarion.ContextMenu.Report.PageForm}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageForm"/>
+			</Condition>
+			<Condition name = "ClaWindowActionEnabled" action="Disable">
+				<MenuItem id="addDetail"
+				          label="${res:Clarion.ContextMenu.Report.Detail}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddDetail"/>
+				<MenuItem id="sep2" type = "Separator"/>
+				<MenuItem id="breakGroup"
+				          label="${res:Clarion.ContextMenu.Report.BreakGroup}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddBreakGroup"/>
+			</Condition>
+			<Condition name = "ClaReportGroupHeaderEnabled" action="Disable">
+				<MenuItem id="groupHeader"
+				          label="${res:Clarion.ContextMenu.Report.GroupHeader}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupHeader"/>
+			</Condition>
+			<Condition name = "ClaReportGroupFooterEnabled" action="Disable">
+				<MenuItem id="groupFooter"
+				          label="${res:Clarion.ContextMenu.Report.GroupFooter}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupFooter"/>
+			</Condition>
+			<MenuItem id = "PropertySeparator" type = "Separator"/>
+			<MenuItem id = "DesignerVerbsBuilder" type="Builder" class = "ICSharpCode.FormsDesigner.Commands.DesignerVerbSubmenuBuilder" />
+			<MenuItem id          = "ShowProperties"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+			          icon        = "Icons.16x16.Property"
+			          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+		</Condition>
+	</Path>
+
+	<Path name="/ClaReport/ContextMenus/PageLayoutView/ContainerMenu">
+		<Condition name = "ClaWindowActionEnabled" action="Disable">
+			<MenuItem id          = "ViewCode"
+			          label       = "${res:Clarion.MainMenu.BackToSource}"
+			          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+			<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+			<MenuItem id          = "ShowProperties"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+			          icon        = "Icons.16x16.Property"
+			          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+		</Condition>
+	</Path>
+
+	<Path name="/ClaReport/ContextMenus/SectionMenu">
+		<Condition name = "ClaWindowActionEnabled" action="Disable">
+			<MenuItem id          = "ViewCode"
+			          label       = "${res:Clarion.MainMenu.BackToSource}"
+			          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+			<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+			<MenuItem id          = "Lock"
+			          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+			          icon        = "Icons.16x16.FormsDesigner.LockControls"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+
+			<MenuItem id          = "ViewTabOrder"
+			          type        = "CheckBox"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowTabOrder}"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewTabOrder"/>
+
+			<MenuItem id = "LockSeparator" type = "Separator"/>
+			<Condition name = "ClaWindowPasteEnabled" action="Disable">
+				<MenuItem id = "Paste"
+				          label = "${res:XML.MainMenu.EditMenu.Paste}"
+				          icon = "Icons.16x16.PasteIcon"
+				          class = "ICSharpCode.SharpDevelop.Commands.Paste"/>
+			</Condition>
+			<!--
+			<MenuItem id = "CollapseSection"
+			          label = "Collapse Section"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.CollapseSection"/>
+			-->
+			<Condition name = "ClaReportCollapseSectionEnabled" action="Exclude">
+				<MenuItem id = "CollapseSection"
+				          label = "${res:Clarion.ContextMenu.Report.CollapseSection}"
+				          class = "SoftVelocity.Common.ClarionEditor.Commands.CollapseSection"/>
+			</Condition>
+			<Condition name = "ClaReportExpandSectionEnabled" action="Exclude">
+				<MenuItem id = "ExpandSection"
+				          label = "${res:Clarion.ContextMenu.Report.ExpandSection}"
+				          class = "SoftVelocity.Common.ClarionEditor.Commands.CollapseSection"/>
+			</Condition>
+			<MenuItem id="sep3" type = "Separator"/>
+			<Condition name = "ClaReportPageHeaderEnabled" action="Disable">
+				<MenuItem id="pageHeader"
+				          label="${res:Clarion.ContextMenu.Report.PageHeader}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageHeader"/>
+			</Condition>
+			<Condition name = "ClaReportPageFooterEnabled" action="Disable">
+				<MenuItem id="pageFooter"
+				          label="${res:Clarion.ContextMenu.Report.PageFooter}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageFooter"/>
+			</Condition>
+			<Condition name = "ClaReportPageFormEnabled" action="Disable">
+				<MenuItem id="pageForm"
+				          label="${res:Clarion.ContextMenu.Report.PageForm}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddPageForm"/>
+			</Condition>
+			<MenuItem id="addDetail"
+			          label="${res:Clarion.ContextMenu.Report.Detail}"
+			          class="SoftVelocity.Common.ClarionEditor.Commands.AddDetail"/>
+			<MenuItem id="sep2" type = "Separator"/>
+			<MenuItem id="breakGroup"
+			          label="${res:Clarion.ContextMenu.Report.BreakGroup}"
+			          class="SoftVelocity.Common.ClarionEditor.Commands.AddBreakGroup"/>
+			<Condition name = "ClaReportGroupHeaderEnabled" action="Disable">
+				<MenuItem id="groupHeader"
+				          label="${res:Clarion.ContextMenu.Report.GroupHeader}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupHeader"/>
+			</Condition>
+			<Condition name = "ClaReportGroupFooterEnabled" action="Disable">
+				<MenuItem id="groupFooter"
+				          label="${res:Clarion.ContextMenu.Report.GroupFooter}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.AddGroupFooter"/>
+			</Condition>
+			<MenuItem id="sep5" type = "Separator"/>
+			<Condition name = "ClaReportSurroundBreakEnabled" action="Disable">
+				<MenuItem id="surroundBreak"
+				          label="${res:Clarion.ContextMenu.Report.SurroundingBreak}"
+				          class="SoftVelocity.Common.ClarionEditor.Commands.SurroundingBreakSection"/>
+			</Condition>
+			<MenuItem id = "PropertySeparator" type = "Separator"/>
+			<MenuItem id = "DesignerVerbsBuilder" type="Builder" class = "ICSharpCode.FormsDesigner.Commands.DesignerVerbSubmenuBuilder" />
+			<MenuItem id          = "ShowProperties"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+			          icon        = "Icons.16x16.Property"
+			          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+		</Condition>
+	</Path>
+
+	<Path name="/ClaReport/ContextMenus/PageLayoutView/SectionMenu">
+		<Condition name = "ClaWindowActionEnabled" action="Disable">
+			<MenuItem id          = "ViewCode"
+			          label       = "${res:Clarion.MainMenu.BackToSource}"
+			          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+			<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+			<MenuItem id          = "Lock"
+			          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+			          icon        = "Icons.16x16.FormsDesigner.LockControls"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+			<MenuItem id = "LockSeparator" type = "Separator"/>
+
+			<MenuItem id          = "ShowProperties"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+			          icon        = "Icons.16x16.Property"
+			          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+		</Condition>
+	</Path>
+
+	<!-- WINDOW DESIGNER MAIN MENU -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu">
+		<ComplexCondition action = "Exclude">
+			<And>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionDesignerView"/>
+				<Condition name = "ClarionDesignerState" state = "window"/>
+			</And>
+			<MenuItem id           = "WindowDesigner"
+			          label        = "&amp;Window Designer"
+			          insertafter  = "Debug"
+			          insertbefore = "Tools"
+			          type         = "Menu">
+				<MenuItem id = "Populate" label = "${res:Clarion.MainMenu.ReportDesignerMenu.Populate}" type = "Menu">
+					<Condition name = "ClaWindowPopulateEnabled" action="Disable">
+						<MenuItem id="populateColumn" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.Column}" class="SoftVelocity.Common.ClarionEditor.Commands.AddWindowColumn"/>
+					</Condition>
+					<Condition name = "ClaWindowPopulateEnabled" action="Disable">
+						<MenuItem id="populateMultipleColumns" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.MultipleColumns}" class="SoftVelocity.Common.ClarionEditor.Commands.AddWindowMultipleColumns"/>
+					</Condition>
+					<!--<Condition name = "ClaWindowPopulateEnabled" action="Disable">
+						<MenuItem id="populateWTemplate" label="${res:Clarion.MainMenu.StructureDesignerMenu.Populate.Template}" class="SoftVelocity.Common.ClarionEditor.Commands.AddWindowTemplate"/>
+					</Condition>-->
+				</MenuItem>
+				<MenuItem id = "Seperator31" type = "Separator"/>
+
+				<MenuItem id           = "WindowFormat" label        = "${res:XML.MainMenu.FormatMenu}"
+				          type         = "Menu">
+					<Include  id = "WindowFormatMenu" path ="/ClaWindow/MainMenu/Format/WindowFormatMenu"/>
+					<!--
+					<Include  id = "AlignMenu" path = "/ClaWindow/MainMenu/Format/AlignMenu"/>
+					<Include  id = "SameSizeMenu" path = "/ClaWindow/MainMenu/Format/SameSizeMenu"/>
+					<Include  id = "HorizontalSpacingMenu" path = "/ClaWindow/MainMenu/Format/HorizontalSpacingMenu"/>
+					<Include  id = "VerticalSpacingMenu" path = "/ClaWindow/MainMenu/Format/VerticalSpacingMenu"/>
+
+					<MenuItem id = "SpacingSeparator" type = "Separator"/>
+					<Include  id = "CenterMenu" path = "/ClaWindow/MainMenu/Format/CenterMenu"/>
+					-->
+					<MenuItem id = "CenterSeparator" type = "Separator"/>
+
+					<MenuItem id = "OrderMenu" label = "${res:XML.MainMenu.FormatMenu.OrderMenu}" type = "Menu">
+						<Condition name = "ClaWindowBringToFrontEnabled" action="Disable">
+							<MenuItem id          = "BringToFront"
+							          label       = "${res:XML.MainMenu.FormatMenu.OrderMenu.BringToFront}"
+							          icon        = "Icons.16x16.FormsDesigner.BringToFront"
+							          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.BringToFront"/>
+						</Condition>
+						<Condition name = "ClaWindowSendToBackEnabled" action="Disable">
+							<MenuItem id          = "SendToBack"
+							          label       = "${res:XML.MainMenu.FormatMenu.OrderMenu.SendToBack}"
+							          icon        = "Icons.16x16.FormsDesigner.SendToBack"
+							          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SendToBack"/>
+						</Condition>
+					</MenuItem>
+
+					<MenuItem id = "OrderSeparator" type = "Separator"/>
+					<MenuItem id          = "ViewTabOrder"
+					          type        = "CheckBox"
+					          label       = "${res:XML.MainMenu.FormatMenu.ShowTabOrder}"
+					          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewTabOrder"/>
+					<MenuItem id          = "Lock"
+					          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+					          icon        = "Icons.16x16.FormsDesigner.LockControls"
+					          class = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+				</MenuItem>
+				<Condition name = "ClaStructureIsWindow" action="Exclude">
+					<MenuItem id = "OneMoreSeperator" type = "Separator"/>
+					<MenuItem id = "SwitchSuppressTransparency"
+					          label = "Switch SuppressTransparency"
+					          type = "CheckBox"
+					          icon = "Clarion.SuppressTransparency"
+					          class = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchSuppressTransparency"/>
+					<MenuItem id = "SwitchUseVisualStyles"
+					          label = "Switch UseVisualStyles"
+					          type = "CheckBox"
+					          icon = "Clarion.UseVisualStyles"
+					          class = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SwitchUseVisualStyles"/>
+				</Condition>
+			</MenuItem>
+		</ComplexCondition>
+	</Path>
+
+
+	<!--DESIGNER PATHS-->
+	<Path name = "/ClaWindow/MainMenu/Format/CenterMenu">
+		<MenuItem id = "CenterMenu" label = "${res:XML.MainMenu.FormatMenu.CenterMenu}" type = "Menu">
+			<Condition name = "ClaWindowCenterMenuEnabled" action="Disable">
+				<MenuItem id          = "CenterHorizontally"
+			                  label       = "${res:XML.MainMenu.FormatMenu.CenterMenu.CenterHorizontally}"
+			                  icon        = "Icons.16x16.FormsDesigner.CenterHorizontally"
+			                  class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.CenterHorizontally"/>
+			</Condition>
+			<Condition name = "ClaWindowCenterMenuEnabled" action="Disable">
+				<MenuItem id          = "CenterVertically"
+			                  label       = "${res:XML.MainMenu.FormatMenu.CenterMenu.CenterVertically}"
+			                  icon        = "Icons.16x16.FormsDesigner.CenterVertically"
+			                  class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.CenterVertically"/>
+			</Condition>
+		</MenuItem>
+	</Path>
+	<Path name = "/ClaWindow/MainMenu/Format/WindowFormatMenu">
+		<Include  id = "AlignMenu" path = "/ClaWindow/MainMenu/Format/AlignMenu"/>
+		<Include  id = "SameSizeMenu" path = "/ClaWindow/MainMenu/Format/SameSizeMenu"/>
+		<Include  id = "HorizontalSpacingMenu" path = "/ClaWindow/MainMenu/Format/HorizontalSpacingMenu"/>
+		<Include  id = "VerticalSpacingMenu" path = "/ClaWindow/MainMenu/Format/VerticalSpacingMenu"/>
+
+		<MenuItem id = "SpacingSeparator" type = "Separator"/>
+		<Include  id = "CenterMenu" path = "/ClaWindow/MainMenu/Format/CenterMenu"/>
+	</Path>
+	<Path name = "/ClaWindow/MainMenu/Format/ReportFormatMenu">
+		<Include  id = "AlignMenu" path = "/ClaWindow/MainMenu/Format/AlignMenu"/>
+		<Include  id = "SameSizeMenu" path = "/ClaWindow/MainMenu/Format/SameSizeMenu"/>
+		<Include  id = "HorizontalSpacingMenu" path = "/ClaWindow/MainMenu/Format/HorizontalSpacingMenu"/>
+		<Include  id = "VerticalSpacingMenu" path = "/ClaWindow/MainMenu/Format/VerticalSpacingMenu"/>
+
+		<MenuItem id = "SpacingSeparator" type = "Separator"/>
+		<Include  id = "CenterMenu" path = "/ClaWindow/MainMenu/Format/CenterMenu"/>
+
+		<!--<MenuItem id = "CenterSeparator" type = "Separator"/>-->
+	</Path>
+	<Path name = "/ClaWindow/MainMenu/Format/AlignMenu">
+<!-- (IQ)		<MenuItem id = "AlignMenu" label = "${res:XML.MainMenu.FormatMenu.AlignMenu}" type = "Menu"> -->
+			<Condition name = "ClaWindowFormatMenuEnabled" action="Disable">
+				<MenuItem id          = "AlignHorizontalLeft"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignHorizontalLeft}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignLefts"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignLeft"/>
+				<MenuItem id          = "AlignHorizontalCenters"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignHorizontalCenters}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignCenters"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignVerticalCenters"/>
+				<MenuItem id          = "AlignHorizontalRight"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignHorizontalRight}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignRights"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignRight"/>
+				<MenuItem id = "HorizontalSeparator" type = "Separator"/>
+				<MenuItem id          = "AlignTop"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignTop}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignTops"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignTop"/>
+				<!-- The AlignHorizontalCenters command is HERE correct (was swapped internally ?)!!! -->
+				<MenuItem id          = "AlignVerticalCenters"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignVerticalCenters}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignMiddles"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignHorizontalCenters"/>
+				<MenuItem id          = "AlignBottom"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignBottom}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignBottoms"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignBottom"/>
+				<MenuItem id = "VerticalSeparator" type = "Separator"/>
+				<MenuItem id          = "AlignToGrid"
+				          label       = "Align ${res:XML.MainMenu.FormatMenu.AlignMenu.AlignToGrid}"
+				          icon        = "Icons.16x16.FormsDesigner.AlignToGrid"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignToGrid"/>
+			</Condition>
+    <MenuItem id = "IQSeparator" type = "Separator"  />
+<!-- (IQ)		</MenuItem> -->
+	</Path>
+	<Path name = "/ClaWindow/MainMenu/Format/SameSizeMenu">
+		<MenuItem id = "SameSizeMenu" label = "${res:XML.MainMenu.FormatMenu.SameSizeMenu}" type = "Menu">
+			<Condition name = "ClaWindowFormatMenuEnabled" action="Disable">
+				<MenuItem id          = "SizeToControlWidth"
+				          label       = "${res:XML.MainMenu.FormatMenu.SameSizeMenu.SizeToControlWidth}"
+				          icon        = "Icons.16x16.FormsDesigner.MakeSameWidth"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControlWidth"/>
+				<MenuItem id          = "SizeToGrid"
+				          label       = "${res:XML.MainMenu.FormatMenu.SameSizeMenu.SizeToGrid}"
+				          icon        = "Icons.16x16.FormsDesigner.SizeToGrid"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToGrid"/>
+				<MenuItem id          = "SizeToControlHeight"
+				          label       = "${res:XML.MainMenu.FormatMenu.SameSizeMenu.SizeToControlHeight}"
+				          icon        = "Icons.16x16.FormsDesigner.MakeSameHeight"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControlHeight"/>
+				<MenuItem id          = "SizeToControl"
+				          label       = "${res:XML.MainMenu.FormatMenu.SameSizeMenu.SizeToControl}"
+				          icon        = "Icons.16x16.FormsDesigner.MakeSameSize"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SizeToControl"/>
+			</Condition>
+		</MenuItem>
+		<MenuItem id = "FormatSeparator" type = "Separator"/>
+	</Path>
+
+	<Path name = "/ClaWindow/MainMenu/Format/HorizontalSpacingMenu">
+		<MenuItem id = "HorizontalSpacingMenu" label = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu}" type = "Menu">
+			<Condition name = "ClaWindowFormatMenuEnabled" action="Disable">
+				<MenuItem id          = "HorizSpaceMakeEqual"
+				          label       = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu.HorizSpaceMakeEqual}"
+				          icon        = "Icons.16x16.FormsDesigner.EqualizeHorizontalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.HorizSpaceMakeEqual"/>
+				<MenuItem id          = "HorizSpaceIncrease"
+				          label       = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu.HorizSpaceIncrease}"
+				          icon        = "Icons.16x16.FormsDesigner.IncreaseHorizontalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.HorizSpaceIncrease"/>
+				<MenuItem id          = "HorizSpaceDecrease"
+				          label       = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu.HorizSpaceDecrease}"
+				          icon        = "Icons.16x16.FormsDesigner.DecreaseHorizontalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.HorizSpaceDecrease"/>
+				<MenuItem id          = "HorizSpaceConcatenate"
+				          label       = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu.HorizSpaceConcatenate}"
+				          icon        = "Icons.16x16.FormsDesigner.RemoveHorizontalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.HorizSpaceConcatenate"/>
+			</Condition>
+		</MenuItem>
+	</Path>
+	<Path name = "/ClaWindow/MainMenu/Format/VerticalSpacingMenu">
+		<MenuItem id = "VerticalSpacingMenu" label = "${res:XML.MainMenu.FormatMenu.VerticalSpacingMenu}" type = "Menu">
+			<Condition name = "ClaWindowFormatMenuEnabled" action="Disable">
+				<MenuItem id          = "VertSpaceMakeEqual"
+				          label       = "${res:XML.MainMenu.FormatMenu.VerticalSpacingMenu.VertSpaceMakeEqual}"
+				          icon        = "Icons.16x16.FormsDesigner.EqualizeVerticalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.VertSpaceMakeEqual"/>
+				<MenuItem id          = "VertSpaceIncrease"
+				          label       = "${res:XML.MainMenu.FormatMenu.VerticalSpacingMenu.VertSpaceIncrease}"
+				          icon        = "Icons.16x16.FormsDesigner.IncreaseVerticalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.VertSpaceIncrease"/>
+				<MenuItem id          = "VertSpaceDecrease"
+				          label       = "${res:XML.MainMenu.FormatMenu.VerticalSpacingMenu.VertSpaceDecrease}"
+				          icon        = "Icons.16x16.FormsDesigner.DecreaseVerticalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.VertSpaceDecrease"/>
+				<MenuItem id          = "VertSpaceConcatenate"
+				          label       = "${res:XML.MainMenu.FormatMenu.VerticalSpacingMenu.VertSpaceConcatenate}"
+				          icon        = "Icons.16x16.FormsDesigner.RemoveVerticalSpace"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.VertSpaceConcatenate"/>
+			</Condition>
+		</MenuItem>
+	</Path>
+	<!--end PATHs-->
+
+	<!-- WINDOW DESIGNER CONTEXT MENUs -->
+	<Path name = "/ClaWindow/ContextMenus/SelectionMenu">
+		<Condition name = "ClaWindowActionEnabled" action="Disable">
+			<MenuItem id          = "ViewCode"
+			          label       = "${res:Clarion.MainMenu.BackToSource}"
+			          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+			<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+			<Condition name = "ClaWindowBringToFrontEnabled" action="Disable">
+				<MenuItem id          = "BringToFront"
+				          label       = "${res:XML.MainMenu.FormatMenu.HorizontalSpacingMenu.BringToFront}"
+				          icon        = "Icons.16x16.FormsDesigner.BringToFront"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.BringToFront"/>
+			</Condition>
+			<Condition name = "ClaWindowSendToBackEnabled" action="Disable">
+				<MenuItem id          = "SendToBack"
+				          label       = "${res:XML.MainMenu.FormatMenu.OrderMenu.SendToBack}"
+				          icon        = "Icons.16x16.FormsDesigner.SendToBack"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.SendToBack"/>
+			</Condition>
+			<MenuItem id = "OrderSeparator" type = "Separator"/>
+			<!--
+			<MenuItem id          = "AlignToGrid"
+			          label       = "${res:SharpDevelop.FormsDesigner.ContextMenus.SelectionMenu.AlignToGrid}"
+			          icon        = "Icons.16x16.FormsDesigner.AlignToGrid"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.AlignToGrid"/>
+			-->
+			<!--
+			<Include  id = "AlignMenu" path = "/ClaWindow/MainMenu/Format/AlignMenu"/>
+			-->
+			<MenuItem id           = "WindowFormat" label        = "${res:XML.MainMenu.FormatMenu}"
+			          type         = "Menu">
+				<Include  id = "WindowFormatMenu" path ="/ClaWindow/MainMenu/Format/WindowFormatMenu"/>
+			</MenuItem>
+			<MenuItem id = "AlignSeparator" type = "Separator"/>
+			<MenuItem id          = "ViewTabOrder"
+			          type        = "CheckBox"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowTabOrder}"
+			          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewTabOrder"/>
+			<MenuItem id          = "Lock"
+			          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+			          icon        = "Icons.16x16.FormsDesigner.LockControls"
+			          class = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+			<MenuItem id = "LockSeparator" type = "Separator"/>
+			<MenuItem id = "DesignerVerbsBuilder" type="Builder" class = "ICSharpCode.FormsDesigner.Commands.DesignerVerbSubmenuBuilder" />
+			<Condition name = "ClaWindowActionEnabled" action="Disable">
+				<MenuItem id = "Cut"
+				          label = "${res:XML.MainMenu.EditMenu.Cut}"
+				          icon = "Icons.16x16.CutIcon"
+				          class = "ICSharpCode.SharpDevelop.Commands.Cut"/>
+			</Condition>
+			<Condition name = "ClaWindowCopyEnabled" action="Disable">
+				<MenuItem id = "Copy"
+				          label = "${res:XML.MainMenu.EditMenu.Copy}"
+				          icon = "Icons.16x16.CopyIcon"
+				          class = "ICSharpCode.SharpDevelop.Commands.Copy"/>
+			</Condition>
+			<Condition name = "ClaWindowPasteEnabled" action="Disable">
+				<MenuItem id = "Paste"
+				          label = "${res:XML.MainMenu.EditMenu.Paste}"
+				          icon = "Icons.16x16.PasteIcon"
+				          class = "ICSharpCode.SharpDevelop.Commands.Paste"/>
+			</Condition>
+			<Condition name = "ClaWindowCopyEnabled" action="Disable">
+				<MenuItem id          = "Duplicate"
+				          label       = "${res:Clarion.ContextMenu.Duplicate}"
+				          shortcut = "F2"
+				          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.Duplicate"/>
+			</Condition>
+
+			<MenuItem id = "Delete"
+				  label = "${res:XML.MainMenu.EditMenu.Delete}"
+				  icon = "Icons.16x16.DeleteIcon"
+				  class = "ICSharpCode.SharpDevelop.Commands.Delete"/>
+
+			<MenuItem id = "PropertySeparator" type = "Separator"/>
+			<MenuItem id          = "ShowProperties"
+			          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+			          icon        = "Icons.16x16.Property"
+			          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+		</Condition>
+	</Path>
+
+	<Path name = "/ClaWindow/ContextMenus/ContainerMenu">
+		<MenuItem id          = "ViewCode"
+		          label       = "${res:Clarion.MainMenu.BackToSource}"
+		          icon        = "Icons.16x16.FormsDesigner.ViewCode"
+		          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewCode"/>
+		<MenuItem id = "ViewCodeSeparator" type = "Separator"/>
+		<MenuItem id          = "ViewTabOrder"
+		          type        = "CheckBox"
+		          label       = "${res:XML.MainMenu.FormatMenu.ShowTabOrder}"
+		          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.ViewTabOrder"/>
+		<MenuItem id          = "Lock"
+		          label       = "${res:XML.MainMenu.FormatMenu.Lock}"
+		          icon        = "Icons.16x16.FormsDesigner.LockControls"
+		          class       = "SoftVelocity.Common.ClarionEditor.WindowDesigner.Commands.LockControls"/>
+		<MenuItem id = "LockSeparator" type = "Separator"/>
+		<Condition name = "ClaWindowPasteEnabled" action="Disable">
+			<MenuItem id = "Paste"
+			          label = "${res:XML.MainMenu.EditMenu.Paste}"
+			          icon = "Icons.16x16.PasteIcon"
+			          class = "ICSharpCode.SharpDevelop.Commands.Paste"/>
+		</Condition>
+		<MenuItem id = "PropertySeparator" type = "Separator"/>
+		<MenuItem id = "DesignerVerbsBuilder" type="Builder" class = "ICSharpCode.FormsDesigner.Commands.DesignerVerbSubmenuBuilder" />
+		<MenuItem id          = "ShowProperties"
+		          label       = "${res:XML.MainMenu.FormatMenu.ShowProperties}"
+		          icon        = "Icons.16x16.Property"
+		          class       = "ICSharpCode.FormsDesigner.Commands.ShowProperties"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Dialogs/OptionsDialog">
+		<DialogPanel id    = "Clarion Options"
+		             label = "${res:OptionsDialog.Clarion}"/>
+	</Path> <!-- Clarion Options Dialog -->
+
+	<Path name = "/SharpDevelop/Dialogs/OptionsDialog/Designers">
+		<DialogPanel id          = "WindowDesignerOptions"
+		             insertafter = "FormsDesignerOptions"
+		             label       = "WINDOW Structure">
+
+			<DialogPanel id    = "WindowGeneralOptions"
+			             label = "General"
+			             class = "SoftVelocity.ClarionNet.WindowDesigner.OptionPanels.WindowGeneralOptionsPanel"/>
+			<DialogPanel id    = "WindowGridOptions"
+			             label = "Grid Options"
+			             class = "SoftVelocity.ClarionNet.WindowDesigner.OptionPanels.WindowGridOptionsPanel"/>
+
+		</DialogPanel>
+		<DialogPanel id          = "ReportDesignerOptions"
+		             insertafter = "WindowDesignerOptions"
+		             label       = "REPORT Structure">
+
+			<DialogPanel id    = "ReportGeneralOptions"
+			             label = "General"
+			             class = "SoftVelocity.ClarionNet.ReportDesigner.OptionPanels.ReportGeneralOptionsPanel"/>
+			<DialogPanel id    = "ReportGridOptions"
+			             label = "Grid Options"
+			             class = "SoftVelocity.ClarionNet.ReportDesigner.OptionPanels.ReportGridOptionsPanel"/>
+
+		</DialogPanel>
+	</Path>
+	<Path name = "/SharpDevelop/Workbench/OpenFileTab/ContextMenu">
+		<MenuItem id = "SaveSeparator" type = "Separator" />	
+		<Condition name = "WindowFileNamed" action="Disable">		
+			<MenuItem id = "OpenContainingFolder"
+			          label = "Open Containing Folder"
+			          class = "CommonSources.Commands.TabStrip.OpenContainingFolder"/>
+		</Condition>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard">
+    <ToolbarItem id      = "Open"
+		             insertbefore = "AddExistingFile"
+		             insertafter  = "New"
+		             type    = "SplitButton"
+		             icon    = "Icons.24x24.OpenFileIcon"
+		             tooltip = "${res:XML.MainMenu.FileMenu.Open.File.Description}"
+		             loadclasslazy="false"
+		             class   = "SoftVelocity.Common.Redirection.OpenFileCommand">
+      <MenuItem id="QuickOpenFileMenuBuilder"
+			          type="Builder"
+			          class="ICSharpCode.SharpDevelop.Commands.QuickOpenFileMenuBuilder"/>
+    </ToolbarItem>
+    <Condition name = "EditorCanCallDesigner">
+			<ToolbarItem id = "CallStructureDesigner"
+			             insertbefore = "SearchSeparator2"
+			             icon = "Icons.24x24.FormsDesigner.StructureDesigner"
+			             tooltip = "${res:Clarion.Tooltips.StructureDesigner}"
+			             class = "SoftVelocity.Common.ClarionEditor.RunDesigner"/>
+		</Condition>
+	</Path>
+	<Path name = "/SharpDevelop/Workbench/QuickOpen/FileFilter">
+		<ComplexCondition>
+			<Not>
+					<Condition name = "OpenFileCommandUsingRedFile" action = "Exclude" />
+			</Not>
+			<MenuItem id = "OpenViaRedirectionFileToolbar"
+			             label = "${res:Clarion.ProjectComponent.ContextMenu.OpenUsingRedirection}"
+			             class = "SoftVelocity.Common.Redirection.OpenViaRedirectionFile"/>
+		</ComplexCondition>
+		<Condition name = "OpenFileCommandUsingRedFile">
+		<MenuItem id = "Allfiles"
+		             label = "All Files (*.*)"
+		             class = "ICSharpCode.SharpDevelop.Commands.OpenFile"/>
+		</Condition>
+	</Path>
+
+	<Path name = "/SharpDevelop/Dialogs/OptionsDialog/TextEditorOptions">
+		<DialogPanel id    = "ClarionSpecificOptions"
+		             insertafter = "Behavior"
+		             insertbefore = "CodeCompletion"
+		             label = "${res:OptionsDialog.ClarionTextEditorOptions}">
+			<DialogPanel id = "GeneralOptions"
+			             label = "${res:OptionsDialog.ClarionEditor.GeneralOptions}"
+			             class = "SoftVelocity.Common.ClaGeneralEditorOptionPanel"/>
+			<DialogPanel id = "SmartFormatterOptions"
+			             label = "${res:OptionsDialog.ClarionEditor.SmartFormatterOptions}"
+			             class = "SoftVelocity.Common.SmartFormatterOptionPanel"/>
+		</DialogPanel>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard/Comment">
+		<ComplexCondition action = "Exclude">
+			<And>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionEditor"/>
+			</And>
+			<MenuItem id = "Separator1" type = "Separator" insertafter = "CommentCmd"/>
+			<MenuItem id = "DebugComment"
+			          label = "${res:Clarion.StandardToolbar.DebugCommentRegion}"
+			          icon = "Icons.16x16.DebugCommentRegion"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.DebugCommentRegion"/>
+			<MenuItem id = "OmitComment"
+			          label = "${res:Clarion.StandardToolbar.OmitCommentRegion}"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.OmitCommentRegion"/>
+			<MenuItem id = "CompileComment"
+			          label = "${res:Clarion.StandardToolbar.CompileCommentRegion}"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.CompileCommentRegion"/>
+		</ComplexCondition>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard/Uncomment">
+		<ComplexCondition action = "Exclude">
+			<And>
+				<Condition name = "WindowActive" activewindow="SoftVelocity.Common.ClarionEditor.CommonClarionEditor"/>
+			</And>
+			<MenuItem id = "Separator1" type = "Separator" insertafter = "UncommentCmd"/>
+			<MenuItem id = "DebugUncomment"
+			          label = "${res:Clarion.StandardToolbar.DebugUncommentRegion}"
+			          icon = "Icons.16x16.DebugUncommentRegion"
+			          class = "SoftVelocity.Common.ClarionEditor.Commands.DebugUncommentRegion"/>
+		</ComplexCondition>
+	</Path>
+
+	<Path name = "/SoftVelocity/Clarion/ToolBar/EmbedEditor">
+		<ToolbarItem id      = "SaveAndExitEditor"
+		             icon    = "Icons.24x24.SaveAndExit"
+		             tooltip = "${res:Clarion.ButtonText.SaveAndClose}"
+		             class   = "SoftVelocity.Common.ClarionEditor.Commands.DesignerSaveAndExit"/>
+		<ToolbarItem id      = "CancelEditor"
+		             icon    = "Icons.24x24.ExitNotSave"
+		             tooltip = "${res:Global.CancelButtonText}"		
+		             class   = "SoftVelocity.Common.ClarionEditor.Commands.DesignerCancel"/>
+		<ToolbarItem id = "Separator1" type = "Separator"/>
+		<ToolbarItem id      = "PrevEmbed"
+		             icon    = "Icons.24x24.Generator.PrevEmbed"
+		             tooltip = "${res:Clarion.Tooltips.Generator.PrevEmbed}"
+		             class   = "SoftVelocity.Generator.Editor.Commands.GotoPrevEmbed"
+		             loadclasslazy = "false"/>
+		<ToolbarItem id      = "NextEmbed"
+		             icon    = "Icons.24x24.Generator.NextEmbed"
+		             tooltip = "${res:Clarion.Tooltips.Generator.NextEmbed}"
+		             class   = "SoftVelocity.Generator.Editor.Commands.GotoNextEmbed"
+		             loadclasslazy = "false"/>
+		<ToolbarItem id      = "PrevFilledEmbed"
+		             icon    = "Icons.24x24.Generator.PrevFilledEmbed"
+		             tooltip = "${res:Clarion.Tooltips.Generator.PrevFilledEmbed}"
+		             class   = "SoftVelocity.Generator.Editor.Commands.GotoPrevFilledEmbed"
+		             loadclasslazy = "false"/>
+		<ToolbarItem id      = "NextFilledEmbed"
+		             icon    = "Icons.24x24.Generator.NextFilledEmbed"
+		             tooltip = "${res:Clarion.Tooltips.Generator.NextFilledEmbed}"
+		             class   = "SoftVelocity.Generator.Editor.Commands.GotoNextFilledEmbed"
+		             loadclasslazy = "false"/>
+	</Path>
+
+	<Path name = "/SoftVelocity/Clarion/ToolBar/MenuEditor">
+		<ToolbarItem id      = "SaveAndExitEditor"
+		             icon    = "Icons.24x24.SaveAndExit"
+		             tooltip = "${res:Clarion.ButtonText.SaveAndClose}"
+		             class   = "SoftVelocity.ClarionNet.WindowDesigner.MenuDesignerSaveAndExit"/>
+		<ToolbarItem id      = "CancelEditor"
+		             icon    = "Icons.24x24.ExitNotSave"
+		             tooltip = "${res:Global.CancelButtonText}"
+		             class   = "SoftVelocity.ClarionNet.WindowDesigner.MenuDesignerCancel"/>
+	</Path>
+	<Path path = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/SolutionNode">
+		<MenuItem id    = "SeparatorOpenProjectDependencyEditorCommand" type = "Separator" />
+		<MenuItem id    = "OpenProjectDependencyEditorCommand"
+		          label = "${res:SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand}"
+		          class = "SoftVelocity.Common.DependencyEditor.Commands.OpenProjectDependencyEditorCommand"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/MainMenu/Search">
+		<MenuItem id = "GotoType"
+		          insertafter = "GotoLineNr"
+		          insertbefore = "Separator3"
+		          label = "Goto T&amp;ype or Global Method"
+		          shortcut = "Control|T"
+		          class = "SoftVelocity.Common.CodeCompletion.Commands.GotoType"/>
+	</Path>
+	<!-- Command Line Support -->
+	<Path name = "/SharpDevelop/Workbench/CommandLines">
+		<CommandLine id     = "RegisterFileDriver"
+		             class  = "SoftVelocity.Common.CommandLine.RegisterFileDriver"
+		             switch = "fr"
+		             parameters = "1"
+		             description = "${res:SoftVelocity.Common.FileDrivers.CommandLine.RegisterFileDriver.Description}"/>
+		<CommandLine id     = "SetRedirectionSection"
+		             class  = "SoftVelocity.Common.CommandLine.SetRedirectionSection"
+		             switch = "rs"
+		             parameters = "1"
+		             multi = "false"
+		             description = "${res:SoftVelocity.Common.CommandLine.SetRedirectionSection.Description}"/>
+		<CommandLine id     = "FindFileViaRedirection"
+		             class  = "SoftVelocity.Common.CommandLine.FindFileViaRedirection"
+		             switch = "rf"
+		             parameters = "1"
+		             multi = "false"
+		             runafter ="SetRedirectionSection"
+		             description = "${res:SoftVelocity.Common.CommandLine.FindFileViaRedirection.Description}"/>
+		<CommandLine id     = "TraceFileViaRedirection"
+		             class  = "SoftVelocity.Common.CommandLine.TraceFileViaRedirection"
+		             switch = "rt"
+		             parameters = "1"
+		             multi = "false"
+		             runafter ="SetRedirectionSection"
+		             description = "${res:SoftVelocity.Common.CommandLine.TraceFileViaRedirection.Description}"/>
+	</Path>
+
+	<Path name = "/SharpDevelop/Pads/ClassBrowser/Toolbar/SelectFilter">
+		<MenuItem id = "IncludeSeparator" type = "Separator"  />
+		<MenuItem id    = "ShowIncludedEntities"
+		          type  = "CheckBox"
+		          label = "${res:MainWindow.Windows.ClassBrowser.ClassViewSettings.ShowIncludedEntities.Label}"
+		          class = "SoftVelocity.Common.ClassBrowser.Commands.ShowIncludedEntities"/>
+	</Path>
+	<Path name = "/AddIns/DefaultTextEditor/Search/Engine">
+		<SearchEngine id = "Redirection"
+		              class = "SoftVelocity.Common.RedirectionSearchBinding"
+		              insertafter  = "WholeSolution"
+		              insertbefore = "Directory"/>
+	</Path>
+</AddIn>

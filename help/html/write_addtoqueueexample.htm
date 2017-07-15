@@ -1,0 +1,302 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Write - AddFromQueue Example</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Write - AddFromQueue Example</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>The following code will create an XML document from the contents of MyQueue. &nbsp;Group Fields will create child records. &nbsp;The dimensioned Invoice Group will create a record for each dimension. &nbsp; The local program can easily fill MyQueue wil
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="48" style="width:48px;"><p style="margin: 0px 0px 0px 13px;"><span style="font-size: 24pt; font-family: 'Wingdings'; font-weight: bold;">I</span></p>
+</td>
+<td valign="top" width="517" style="width:517px;"><p style="margin: 0px 0px 0px 13px;"><span class="f_ImageCaption">It is HIGHLY RECOMMENDED to only use STRING fields in your Queue structure, especially when processing child records.  </span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;">The system has to determine when to create the next Queue entry properly, and comparing a <span style="font-style: italic;">BLANK</span> value in an XML file is different than comparing a &quot;0&quot; in the Queue str
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 1 (Groups inside of Groups):</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">QUEUE,PRE() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Lastname</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Firstname</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Address</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">GROUP,PRE() </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Streets</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">GROUP,PRE() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">StreetName</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(35),DIM(3) &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">City</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">State</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Zipcode</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Country</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Invoices</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">GROUP,PRE() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Invoice</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">GROUP,PRE() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">InvoiceAmt</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(15),DIM(100) &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">InvoiceDate</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(10),DIM(100) &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">InvoiceNo</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(10),DIM(100) &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~XML:CreateXMLFile('MyFile','1.0')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CreateParent('XMLData');XML:AddParent())</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:AddFromQueue(MyQueue,'Customer',True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CloseParent()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CloseXMLFile()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #008080;">&lt;?xml Version=&quot;1.0&quot;?&gt;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">XMLData</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 27px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">ADDRESS</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">STREETS</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">CITY</span><span style="font-size: 9pt; font-family: 'Tre
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">ADDRESS</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICES</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICE</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICEAMT</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICEDATE</span><span style="font-size: 9pt; font-famil
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICENO</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICE</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICE</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICEAMT</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICEDATE</span><span style="font-size: 9pt; font-famil
+<p style="margin: 0px 0px 0px 67px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICENO</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 53px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICE</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">INVOICES</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 27px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">XMLData</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 192px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 192px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_ImageCaption">Example 2 (Auto Close Attribute Tag):</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">MyQueue</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">QUEUE,PRE() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Lastname</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Firstname</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Street</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">City</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">State</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Zipcode</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20),NAME('PostalCode')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed">Country</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><p><span class="f_CourierFixed">STRING(20) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="108" style="width:108px;"><p><span class="f_CourierFixed"> END</span></p>
+</td>
+<td valign="top" width="272" style="width:272px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~XML:CreateXMLFile('MyFile','1.0')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CreateParent('XMLData');XML:AddParent())</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:AddFromQueue(MyQueue,'Customer',True,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CloseParent()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">XML:CloseXMLFile()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #008080;">&lt;?xml Version=&quot;1.0&quot;?&gt;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">XMLData</span><span style="font-size: 9pt; font-family: '
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 40px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customer</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">XMLData</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

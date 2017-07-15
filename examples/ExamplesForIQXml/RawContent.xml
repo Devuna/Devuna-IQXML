@@ -1,0 +1,5 @@
+<TopLevel>
+ <AnotherLevel>
+  <Amount Currency="EUR">000000000123.45</Amount>
+  </AnotherLevel>
+</TopLevel>

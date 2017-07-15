@@ -1,0 +1,101 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>SA:StripAllButNumbers</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">SA:StripAllButNumbers</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#fdb5ac" border="0" style="background-color: #fdb5ac; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>STRING</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>String to look at for stripping</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>&lt;BYTE False&gt;</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>True to also allow minus sign (-) and period/decimal (.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="96" style="width:96px;"><br>
+</td>
+<td valign="top" width="520" style="width:520px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="96" style="width:96px;"><p>STRING(10K)</p>
+</td>
+<td valign="top" width="520" style="width:520px;"><p>Return result string</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Looks at entire string and strips all non numeric characters. &nbsp;This leaves only characters 0 through 9. &nbsp;If the parm is true, then it also allows periods and negative signs.</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! returns 12000.12</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TheDollarValue = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:StripAllButNumbers</span><span class="f_CourierFixed">('$12,000.12',True)</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! returns -12000.12</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TheDollarValue = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:StripAllButNumbers</span><span class="f_CourierFixed">('$-12,000.12',True)</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed" style="color: #008000;">! returns 1200012</span></p>
+<p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">TheDollarValue = </span><span class="f_CourierFixed" style="color: #0000ff;">SA:StripAllButNumbers</span><span class="f_CourierFixed">('$12,000.12',False)</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:Extract</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:Extract</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffd7" border="0" style="background-color: #ffffd7; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Left Search Value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Right Search Value (If not supplied, only Left Search used and will be searched)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>String to Search</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">*CSTRING</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>The End Result of what was found</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;*CSTRING&gt;</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>What was to the left of the search string - optional if you don't need it</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;*CSTRING&gt;</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>What was to the right of the search string - optional if you don't need it</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">LONG</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Starting Position (MUST be a 1 or greater)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">BYTE</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>Clean Result --- Set to <span style="font-weight: bold;">True</span> to Return End Result without including left/right indicators</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="513" style="width:513px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="100" style="width:100px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">LONG</span></p>
+</td>
+<td valign="top" width="513" style="width:513px;"><p>0 &nbsp;= Not Found</p>
+<p>-1 = Invalid Data or Search Parameter</p>
+<p>any positive number is the location the data was found</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Extracts a string from another string using a left and right search string.</p>
+<p>&nbsp;</p>
+<p>The string text to parse is limited to 4MB.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example:</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_CourierFixed">StrLeft &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CSTRING(21)</span></p>
+<p><span class="f_CourierFixed">StrRight &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CSTRING(21)</span></p>
+<p><span class="f_CourierFixed">FullString &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CSTRING(100)</span></p>
+<p><span class="f_CourierFixed">ExtractedValue &nbsp; &nbsp; &nbsp; CSTRING(100)</span></p>
+<p><span class="f_CourierFixed">ExtractLeftSide &nbsp; &nbsp; &nbsp;CSTRING(100)</span></p>
+<p><span class="f_CourierFixed">ExtractRightSide &nbsp; &nbsp; CSTRING(100)</span></p>
+<p><span class="f_CourierFixed">ExtractedPosition &nbsp; &nbsp;SHORT</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">CODE</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">FullString='This is the full string with \\My Full Variable\\a variable in the middle of it.'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; StrLeft='\\'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; StrRight='\\'</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; </span><span class="f_CourierFixed" style="color: #0000ff;">if XML:Extract(Strleft,StrRight,FullString,ExtractedValue,ExtractLeftSide,ExtractRightSide,1,True) = 0</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message('Warning - The Extract Function Failed!!','Failed',icon:exclamation)</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; else</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message('Your variable is ' &amp; ExtractedValue &amp; '||New Sentence: ' &amp; ExtractLeftSide &amp; ExtractRightSide,'End Result' )</span></p>
+<p><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; end </span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! extracted leftside is &quot;This is the full string with &quot;</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! extracted rightside is &quot;a variable in the middle of it.&quot;</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! extracted Value is &quot;My Full Variable&quot;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>The &quot;InBetween&quot; flag will indicate which to include or not include the left/right strings.<span style="font-size: 9pt; font-family: 'Consolas'; font-weight: bold; color: #0000ff;"> &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">if XML:Extract('*','*','This is *The* value',ExtractedValue,ExtractLeftSide,ExtractRightSide,1,True) = 0</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed" style="color: #008000;">! This returns </span><span class="f_CourierFixed" style="font-weight: bold; color: #008000;">The</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">if XML:Extract('*','*','This is *The* value',ExtractedValue,ExtractLeftSide,ExtractRightSide,1,False) = 0</span></p>
+<p style="margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed" style="color: #008000;">! This returns </span><span class="f_CourierFixed" style="font-weight: bold; color: #008000;">*The*</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><span style="font-weight: bold;">Example on only using Left Side Search (Simply Break Apart a string such as John|Mary)</span></p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">if XML:Extract('*','','Hello*There',ExtractedValue,ExtractLeftSide,ExtractRightSide,1,False) = 0</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! ExtractLeftSide = 'Hello' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! ExtractRightSide = 'There'</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed" style="color: #008000;">! ExtractValue = '*'</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

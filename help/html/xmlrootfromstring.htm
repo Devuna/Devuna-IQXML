@@ -1,0 +1,101 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:RootFromString</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:RootFromString</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="99" style="width:99px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>String of XML Data</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p>&nbsp;</p>
+</td>
+<td valign="top" width="99" style="width:99px;"><br>
+</td>
+<td valign="top" width="515" style="width:515px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="99" style="width:99px;"><p><span style="font-style: italic;">STRING</span></p>
+</td>
+<td valign="top" width="515" style="width:515px;"><p>Root Name (Blank if not found)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Used to return the Root Tag (Beginning/First Tag) in the document.</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span><br>
+<span class="f_CourierFixed">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">If HTTPGetData('127.0.0.1',80,'/xml/datarequest.php?user=1234&amp;pw=1234',ReturnData,ReturnError) = NO_ERROR</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;if not xml:LoadFromString(ReturnData)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">case </span><span class="f_CourierFixed" style="color: #0000ff;">xml:RootFromString</span><span
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">of 'Customers' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">RunCustomerProcess()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">of 'Invoices' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">RunInvoiceProcess()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">end</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

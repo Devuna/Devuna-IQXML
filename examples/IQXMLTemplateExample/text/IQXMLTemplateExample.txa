@@ -1,0 +1,1498 @@
+[APPLICATION]
+VERSION 34
+TODO Clarion ToDo
+PROCEDURE Main
+[COMMON]
+FROM Clarion
+MODIFIED '2015/05/01' ' 0:49:29'
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('ClientSideTriggers:')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ProgramAuthor DEFAULT  ('InnQuest Software')
+%Repository DEFAULT  ('')
+%ProgramIcon DEFAULT  ('')
+%MessageDescription LONG  (0)
+%GlobalExternal LONG  (0)
+%ExternalSource DEFAULT  ('Statically Linked Library (LIB)')
+%GenerateEmbedComments LONG  (0)
+%INIType DEFAULT  ('NVD_INI')
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%INIProgramIniLocation DEFAULT  ('APPDIR')
+%INICSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%CSIDLCompanyDir DEFAULT  ('')
+%CSIDLProductDir DEFAULT  ('')
+%CSIDLCreate LONG  (0)
+%INIInAppDirectory LONG  (0)
+%REGRoot DEFAULT  ('REG_CLASSES_ROOT')
+%DisableINISaveWindow LONG  (0)
+%PreserveVars MULTI LONG  ()
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 0
+
+%EnableRunTimeTranslator LONG  (0)
+%FuzzyMatchingEnabled LONG  (1)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%ButtonMarginsCompatibility LONG  (0)
+%UseDefaultXPManifest LONG  (1)
+%GenerateXPManifest LONG  (0)
+%LinkGenerateXPManifest LONG  (0)
+%AddVistaXPManifest LONG  (0)
+%VistaManifestExecutionLevel DEFAULT  ('asInvoker')
+%VistaManifestUIAccess LONG  (0)
+%NoThemedControlsDependency LONG  (0)
+%VistaManifestdpiAware LONG  (1)
+%VistaManifestDependentAssembly MULTI LONG  ()
+%VistaManifestDependentAssemblyName DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyVersion DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyType DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyPublicKeyToken DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyLanguage DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyProcessorArchitecture DEPEND %VistaManifestDependentAssembly LONG TIMES 0
+
+%W7ManifestVista LONG  (1)
+%W7ManifestW7 LONG  (1)
+%W7ManifestW8 LONG  (1)
+%W7ManifestW81 LONG  (1)
+%W7ManifestW10 LONG  (1)
+%ForceMakeTransparentXPManifest LONG  (0)
+%ForceMakeColorXPManifest LONG  (0)
+%ForceSHEETNoTheme LONG  (0)
+%ExtUIXPMenuEnableGlobal LONG  (0)
+%ExtUIXPMenuColorTypeGlobal DEFAULT  ('XPLunaSilver')
+%ExtUIXPMenuDisableImageBar LONG  (1)
+%ExtUIXPMenuEnableRuntime LONG  (0)
+%ExtUIXPMenuRuntimeVar DEFAULT  ('Glo:IQErrorMessageText')
+%ExtUIXPMenuColorLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorRightGlobal LONG  (12560039)
+%ExtUIXPMenuColorSelectionBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectionBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuSelVertical LONG  (1)
+%ExtUIXPMenuColorSelectionBorderGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorItemBackgroundGlobal LONG  (-2147483644)
+%ExtUIXPMenuColorNormalText LONG  (0)
+%ExtUIXPMenuColorSelectedText LONG  (0)
+%ExtUIXPMenuColorHotText LONG  (0)
+%ExtUIXPMenuFlat LONG  (1)
+%ExtUIXPMenuShowImageBar LONG  (0)
+%ExtUIXPMenuSeparator3D LONG  (1)
+%ExtUIXPMenuSeparatorFull LONG  (0)
+%ExtUIXPMenuVerticalLine LONG  (1)
+%ExtUIMDITabGlobal DEFAULT  ('DISABLE')
+%ExtUIMDITabStyleGlobal DEFAULT  ('Default')
+%ExtUITabStyleGlobal DEFAULT  ('Default')
+%WindowEnableEnhanceFocus LONG  (0)
+%SelectedText LONG  (1)
+%SelectedRadio LONG  (1)
+%SelectedSpin LONG  (1)
+%SelectedCheck LONG  (1)
+%SelectedDropList LONG  (1)
+%SelectedList LONG  (1)
+%SelectedDisplayChangeColor LONG  (1)
+%SelectedColor LONG  (65535)
+%SelectedStyle LONG  (1)
+%SelectedRequired LONG  (0)
+%SelectedRequiredColor LONG  (65535)
+%SelectedDisplayBox LONG  (1)
+%SelectedDisplayBoxFillColor LONG  (65535)
+%SelectedDisplayBoxBorderColor LONG  (0)
+%SelectedDisplayBoxBorderSize DEFAULT  ('2')
+%SelectedRequiredBox LONG  (0)
+%SelectedRequiredDisplayBoxFillColor LONG  (255)
+%SelectedRequiredDisplayBoxBorderColor LONG  (0)
+%SelectedCaret LONG  (1)
+%SelectedCaretColor LONG  (8421504)
+%SelectedCaretCharacter DEFAULT  ('»')
+%SelectedCaretCharacterSeparation DEFAULT  ('8')
+%ExcludeSelectedDropList LONG  (1)
+%EnableOSK DEFAULT  ('OFF')
+%GlobalUseEnterInsteadTab LONG  (0)
+%GlobalUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalUseEnterInsteadTabEnable DEFAULT  ('Enable')
+%GlobalUseEnterInsteadTabEnableValue DEFAULT  ('True')
+%GlobalInterLine DEFAULT  ('0')
+%GlobalEnableAutoSizeColumn LONG  (0)
+%GlobalEnableListFormatManager LONG  (0)
+%GlobalUserFieldListFormatManager DEFAULT  ('1')
+%TableOrigin DEFAULT  ('Application')
+%FileEquate DEFAULT  ('LFM_CFile')
+%ConfigFilePRE DEFAULT  ('CFG')
+%ConfigFileOEM LONG  (0)
+%ConfigFileTHREAD LONG  (1)
+%ConfigFileENCRYPT LONG  (0)
+%ConfigFilePASSWORD DEFAULT  ('')
+%FormatNameSize DEFAULT  ('30')
+%FormatBufferSize DEFAULT  ('5120')
+%VariableBufferSize DEFAULT  ('2048')
+%ConfigFilePath DEFAULT  ('')
+%UseConfigFileName DEFAULT  ('Default')
+%ConfigFileNAME DEFAULT  ('Formats.FDB')
+%ColonCounter DEFAULT  ('')
+%WrongSymbol DEFAULT  ('')
+%DictionaryTableOrigin FILE  ()
+%GlobalLFMSortOrderMenuText DEFAULT  ('SortOrder')
+%GlobalEnableRebase LONG  (0)
+%RBDMethod DEFAULT  ('Specify manually')
+%RBDImageBase DEFAULT  ('10000000')
+%DefaultGenerate LONG  (0)
+%DefaultRILogout LONG  (1)
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('None External')
+%DefaultLocalExternal LONG  (0)
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (1)
+%GeneratePropDataPath LONG  (0)
+%PropDataPathLocation DEFAULT  ('CSIDLLIKEINI')
+%DataPathCSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%DataPathCSIDLCompanyDir DEFAULT  ('')
+%DataPathCSIDLProductDir DEFAULT  ('')
+%DataPathCSIDLCreate LONG  (0)
+%DataPathOtherDirectory DEFAULT  ('')
+%DataPathOtherDirectoryCreate LONG  (0)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 0
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('ClientSideTriggers:') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('ClientSideTriggers:')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLocalExternal DEPEND %File LONG TIMES 0
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationType DEPEND %File LONG TIMES 0
+
+%FileDeclarationThread DEPEND %File LONG TIMES 0
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 0
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 0
+
+%OverrideDoNotAssertOnCloseMisuse DEPEND %File LONG TIMES 0
+
+%StandardExternalModule DEPEND %Module LONG TIMES 1
+WHEN  ('IQXMLTemplateExample.clw') (1)
+
+%NoGenerateGlobals LONG  (0)
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%AutoRefresh LONG  (1)
+%ImageClass DEFAULT  ('ImageManager')
+%ErrorStatusManagerType DEFAULT  ('ErrorStatusClass')
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%AllowSelectCopy LONG  (0)
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (1)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%CalendarManagerType DEFAULT  ('CalendarClass')
+%GlobalChangeColor LONG  (0)
+%GlobalColorSunday LONG  (255)
+%GlobalColorSaturday LONG  (255)
+%GlobalColorHoliday LONG  (32768)
+%GlobalColorOther LONG  (0)
+%GlobalSelectOnClose DEFAULT  ('Select and Close')
+%GlobalUseABCClasess LONG  (0)
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%FormVCRManagerType DEFAULT  ('FormVCRClass')
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%EditInPlaceInterface DEFAULT  ('Detailed')
+%EditInPlaceType DEFAULT  ('EditEntryClass')
+%EditInPlaceEntryType DEFAULT  ('EditEntryClass')
+%EditInPlaceTextType DEFAULT  ('EditTextClass')
+%EditInPlaceCheckType DEFAULT  ('EditCheckClass')
+%EditInPlaceSpinType DEFAULT  ('EditSpinClass')
+%EditInPlaceDropListType DEFAULT  ('EditDropListClass')
+%EditInPlaceDropComboType DEFAULT  ('EditDropComboClass')
+%EditInPlaceColorType DEFAULT  ('EditColorClass')
+%EditInPlaceFileType DEFAULT  ('EditFileClass')
+%EditInPlaceFontType DEFAULT  ('EditFontClass')
+%EditInPlaceMultiSelectType DEFAULT  ('EditMultiSelectClass')
+%EditInPlaceCalendarType DEFAULT  ('EditCalendarClass')
+%EditInPlaceLookupType DEFAULT  ('EditLookupClass')
+%EditInPlaceOtherType DEFAULT  ('EditEntryClass')
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%ReportTargetSelectorManagerType DEFAULT  ('ReportTargetSelectorClass')
+%BreakManagerType DEFAULT  ('BreakManagerClass')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%ToolbarFormVCRType DEFAULT  ('ToolbarFormVCRClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%AppTemplateFamily DEFAULT  ('CLARION')
+%CWTemplateVersion DEFAULT  ('v10.0')
+%ABCVersion DEFAULT  ('10000')
+%INIActive LONG  (0)
+%WindowFrameDragging LONG  (0)
+%GlobalReportPreviewMode DEFAULT  ('Procedure')
+%GlobalReportPreview DEFAULT  ('ReportPreview')
+%GlobalBrowseActiveInvisible LONG  (0)
+%DefaultCloseFile DEFAULT  ('Close the File')
+%WarnOnLogoutError LONG  (1)
+%OverrideCloseFile DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%CWBrowseEIPManagerType DEFAULT  ('CWEIPManager')
+%TriggersSupportEnableGlobal LONG  (0)
+%TriggersManagerType DEFAULT  ('TriggerManager')
+%ExtUIXPMenuEnable LONG  (0)
+%ExtUIXPMenuColorType DEFAULT  ('XPLunaSilver')
+%ExtUIXPMenuColorLeft LONG  (15920364)
+%ExtUIXPMenuColorRight LONG  (12560039)
+%ExtUIMDITab DEFAULT  ('DISABLE')
+%ExtUIMDITabStyle DEFAULT  ('Default')
+%ConfigFileVariable DEFAULT  ('')
+%EnableExceptionMessage LONG  (0)
+[ADDITION]
+NAME iQXML_Parser_Writer iQXML_Global
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%iQNoGlobals LONG  (0)
+%iQIncludeError LONG  (1)
+%iQErrorCheckOptions DEFAULT  ('1')
+%IOErrorMessageText DEFAULT  ('Opps!  Some silly error just occurred!')
+%IOErrorMessageTitle DEFAULT  ('Oh Crud!')
+%IQDLL LONG  (0)
+%IQDLLNoExternal LONG  (0)
+[PERSIST]
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 2
+WHEN  ('IQXMLTemplateExample.clw') ('1')
+WHEN  ('IQXMLTemplateExample001.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('EXE')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('')
+[PROJECT]
+#system win32 exe
+#model clarion dll
+#set RELEASE = on
+#compile "IQXMLTemplateExample.clw" -- GENERATED
+#compile "IQXMLTemplateExample001.clw" -- GENERATED
+#compile "IQXML_RD.CLW" -- GENERATED
+#compile "IQXML_RU.CLW" -- GENERATED
+#compile "IQXML_SF.CLW" -- GENERATED
+#link "IQXMLTemplateExample.EXE"
+[PROGRAM]
+[COMMON]
+FROM Clarion Clarion
+MODIFIED '2010/11/26' '20:29:39'
+[EMBED]
+EMBED %BeforeGlobalIncludes
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3500
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+MODIFIED '2017/07/15' '11:45:22'
+[EMBED]
+EMBED %StartOfModule
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 1300
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+[END]
+[PROCEDURE]
+NAME Main
+[COMMON]
+FROM Clarion Window
+MODIFIED '2017/07/15' '11:45:31'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('File Name:'),USE(?FileName:Prompt)
+! ENTRY(@s128),USE(FileName)
+[REPORTCONTROLS]
+! STRING(@s128),USE(FileName)
+FileName                 STRING(128)
+!!> GUID('ced1cb87-dbef-40ba-97f7-e62d27db6d12'),PROMPT('File Name:'),HEADER('File Name'),PICTURE(@s128)
+[SCREENCONTROLS]
+! PROMPT('My Queue:'),USE(?MyQueue:Prompt)
+! ENTRY(@s1),USE(MyQueue)
+[REPORTCONTROLS]
+! STRING(@s1),USE(MyQueue)
+MyQueue                  QUEUE,PRE()
+!!> GUID('41ba1171-9673-4d45-b36b-01e24870086e'),PROMPT('My Queue:'),HEADER('My Queue'),PICTURE(@s115)
+[SCREENCONTROLS]
+! PROMPT('Customer Name:'),USE(?CustomerName:Prompt)
+! ENTRY(@s35),USE(CustomerName)
+[REPORTCONTROLS]
+! STRING(@s35),USE(CustomerName)
+CustomerName               STRING(35),NAME('CustomerName')
+!!> GUID('8eca7bad-a1d2-4127-b8e2-18208bc4b92b'),PROMPT('Customer Name:'),HEADER('Customer Name'),PICTURE(@s35)
+[SCREENCONTROLS]
+! PROMPT('Customer ID:'),USE(?CustomerID:Prompt)
+! ENTRY(@s20),USE(CustomerID)
+[REPORTCONTROLS]
+! STRING(@s20),USE(CustomerID)
+CustomerID                 STRING(20),NAME('CustomerID')
+!!> GUID('11849b46-d69e-4438-8ce3-8b3cb268f73d'),PROMPT('Customer ID:'),HEADER('Customer ID'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Invoice No:'),USE(?InvoiceNo:Prompt)
+! ENTRY(@s20),USE(InvoiceNo)
+[REPORTCONTROLS]
+! STRING(@s20),USE(InvoiceNo)
+InvoiceNo                  STRING(20),NAME('InvoiceNo')
+!!> GUID('cef29bac-a308-4ab1-b5c8-fd8def997881'),PROMPT('Invoice No:'),HEADER('Invoice No'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Invoice Date:'),USE(?InvoiceDate:Prompt)
+! ENTRY(@s20),USE(InvoiceDate)
+[REPORTCONTROLS]
+! STRING(@s20),USE(InvoiceDate)
+InvoiceDate                STRING(20),NAME('InvoiceDate')
+!!> GUID('3fbf9e2d-048f-41c5-82cb-34988dcfa668'),PROMPT('Invoice Date:'),HEADER('Invoice Date'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Invoice Amt:'),USE(?InvoiceAmt:Prompt)
+! ENTRY(@s20),USE(InvoiceAmt)
+[REPORTCONTROLS]
+! STRING(@s20),USE(InvoiceAmt)
+InvoiceAmt                 STRING(20),NAME('InvoiceAmt')
+!!> GUID('c6318a81-b88d-4ba1-bbe8-df8fdcb7619d'),PROMPT('Invoice Amt:'),HEADER('Invoice Amt'),PICTURE(@s20)
+                         END
+!!> GUID('9b1f2bfa-e947-4b73-b0ea-64576303aa31')
+[SCREENCONTROLS]
+! PROMPT('No Records:'),USE(?NoRecords:Prompt)
+! ENTRY(@n-14),USE(NoRecords),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(NoRecords),RIGHT(1)
+NoRecords                LONG
+!!> GUID('765fb9a6-aca2-4054-828b-4101db4e1121'),PROMPT('No Records:'),HEADER('No Records'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Show The Result:'),USE(?ShowTheResult:Prompt)
+! ENTRY(@s254),USE(ShowTheResult)
+[REPORTCONTROLS]
+! STRING(@s254),USE(ShowTheResult)
+ShowTheResult            CSTRING(255)
+!!> GUID('344471e1-6eb3-4358-81e0-71c14a7a7fe0'),PROMPT('Show The Result:'),HEADER('Show The Result'),PICTURE(@s254),TYPEMODE(INS)
+LocalRequest             LONG
+!!> GUID('991a878d-a586-4a71-a977-00b48659c606')
+OriginalRequest          LONG
+!!> GUID('dff3ffb6-7782-481e-ba87-c9278f72bca8')
+LocalResponse            LONG
+!!> GUID('c4681f24-949d-40da-bfaf-afefb11b8042')
+FilesOpened              LONG
+!!> GUID('3aab79e2-0bb9-4a1c-8008-75a5771af94b')
+WindowOpened             LONG
+!!> GUID('94a06e5f-4013-4249-b2f6-55759dfc31f3')
+WindowInitialized        LONG
+!!> GUID('19db2c47-23de-45d6-9c09-31c00acd9e01')
+ForceRefresh             LONG
+!!> GUID('57a9f243-fe49-484e-a4e0-4523e562d9cb')
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (0)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ButtonAction DEPEND %Control DEFAULT TIMES 5
+WHEN  ('') ('No Special Action')
+WHEN  ('?Close') ('No Special Action')
+WHEN  ('?Export') ('No Special Action')
+WHEN  ('?Export:3') ('No Special Action')
+WHEN  ('?Import') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 0
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 5
+WHEN  ('') ('25000')
+WHEN  ('?Close') ('25000')
+WHEN  ('?Export') ('25000')
+WHEN  ('?Export:3') ('25000')
+WHEN  ('?Import') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 0
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 5
+WHEN  ('') ('None')
+WHEN  ('?Close') ('None')
+WHEN  ('?Export') ('None')
+WHEN  ('?Export:3') ('None')
+WHEN  ('?Import') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 2
+WHEN  ('') (1)
+WHEN  ('?Close') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?Close')TIMES 0
+
+%CheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedDisableControl DEPEND %CheckedDisables DEFAULT TIMES 0
+
+%CheckedDisableControlAction DEPEND %CheckedDisables DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?Close')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?Close')TIMES 0
+
+%UnCheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedDisableControl DEPEND %UnCheckedDisables DEFAULT TIMES 0
+
+%UnCheckedDisableControlAction DEPEND %UnCheckedDisables DEFAULT TIMES 2
+WHEN  ('')TIMES 0
+WHEN  ('?Close')TIMES 0
+
+%ExtUITabIcon DEPEND %Control DEFAULT TIMES 0
+
+%ExtUITabStyleOverrideGlobal DEPEND %Control LONG TIMES 0
+
+%ExtUITabStyle DEPEND %Control DEFAULT TIMES 2
+WHEN  ('') ('Default')
+WHEN  ('?Close') ('Default')
+
+%FieldGradientColorType DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('Off')
+
+%FieldGradientColorTypeVariable DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('')
+
+%FieldGradientColorTypeIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%FieldGradientColorFrom DEPEND %Control LONG TIMES 1
+WHEN  ('') (-1)
+
+%FieldGradientColorFromVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorFromIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%FieldGradientColorTo DEPEND %Control LONG TIMES 1
+WHEN  ('') (-1)
+
+%FieldGradientColorToVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorToIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%ActiveImageEnable DEPEND %Control LONG TIMES 0
+
+%AIObjectName DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('AIBtn0')
+
+%AIEnableMimicControl DEPEND %Control LONG TIMES 1
+WHEN  ('') (1)
+
+%AIMimicControl DEPEND %Control DEFAULT TIMES 1
+WHEN  ('') ('?Import')
+
+%AIImgRound DEPEND %Control LONG TIMES 0
+
+%AIOverrideImg DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIDisableImg DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIHotImg DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+%AIPressedImg DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgIsVariable DEPEND %Control LONG TIMES 1
+WHEN  ('') (0)
+
+[EMBED]
+EMBED %DataSection
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 50
+PROPERTY:END
+!region Notices
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+!endregion Notices
+[END]
+EMBED %ControlPreEventHandling
+[INSTANCES]
+WHEN '?Import'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+    FileName = 'InvoiceExample.xml'
+[GROUP]
+PRIORITY 3600
+INSTANCE 11
+[GROUP]
+PRIORITY 3600
+INSTANCE 12
+[GROUP]
+PRIORITY 3600
+INSTANCE 20
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Export'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+    Filename='OutputExample.xml'
+[GROUP]
+PRIORITY 4000
+INSTANCE 13
+[GROUP]
+PRIORITY 4000
+INSTANCE 14
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Export:3'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 4000
+INSTANCE 15
+[GROUP]
+PRIORITY 4000
+INSTANCE 16
+[GROUP]
+PRIORITY 4000
+INSTANCE 19
+[GROUP]
+PRIORITY 4000
+INSTANCE 18
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+   Message(ShowTheResult,'XMLResult',ICON:ASTERISK)
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  END
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Close'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+[END]
+EMBED %DeclarationSection
+[DEFINITION]
+[END]
+EMBED %DataSectionBeforeWindow
+[DEFINITION]
+[END]
+EMBED %DataSectionEndWindow
+[DEFINITION]
+[END]
+EMBED %DataSectionAfterWindow
+[DEFINITION]
+[END]
+EMBED %ProcedureRoutines
+[DEFINITION]
+[END]
+EMBED %LocalProcedures
+[DEFINITION]
+[END]
+EMBED %ProcedureInitialize
+[DEFINITION]
+[END]
+EMBED %ProcedureSetup
+[DEFINITION]
+[END]
+EMBED %BeforeAccept
+[DEFINITION]
+[END]
+EMBED %AcceptLoopBeforeEventHandling
+[DEFINITION]
+[END]
+EMBED %EventCaseBeforeGenerated
+[DEFINITION]
+[END]
+EMBED %WindowEventHandling
+[INSTANCES]
+WHEN 'AlertKey'
+[DEFINITION]
+[END]
+WHEN 'CloseDown'
+[DEFINITION]
+[END]
+WHEN 'CloseWindow'
+[DEFINITION]
+[END]
+WHEN 'Completed'
+[DEFINITION]
+[END]
+WHEN 'DoResize'
+[DEFINITION]
+[END]
+WHEN 'GainFocus'
+[DEFINITION]
+[END]
+WHEN 'LoseFocus'
+[DEFINITION]
+[END]
+WHEN 'Notify'
+[DEFINITION]
+[END]
+WHEN 'OpenWindow'
+[DEFINITION]
+[END]
+WHEN 'PreAlertKey'
+[DEFINITION]
+[END]
+WHEN 'Sized'
+[DEFINITION]
+[END]
+[END]
+EMBED %PostWindowEventHandling
+[INSTANCES]
+WHEN 'AlertKey'
+[DEFINITION]
+[END]
+WHEN 'CloseDown'
+[DEFINITION]
+[END]
+WHEN 'CloseWindow'
+[DEFINITION]
+[END]
+WHEN 'Completed'
+[DEFINITION]
+[END]
+WHEN 'DoResize'
+[DEFINITION]
+[END]
+WHEN 'GainFocus'
+[DEFINITION]
+[END]
+WHEN 'LoseFocus'
+[DEFINITION]
+[END]
+WHEN 'Notify'
+[DEFINITION]
+[END]
+WHEN 'OpenWindow'
+[DEFINITION]
+[END]
+WHEN 'PreAlertKey'
+[DEFINITION]
+[END]
+WHEN 'Sized'
+[DEFINITION]
+[END]
+[END]
+EMBED %WindowEventHandlingBeforeFirstFieldSelect
+[INSTANCES]
+WHEN 'OpenWindow'
+[DEFINITION]
+[END]
+[END]
+EMBED %WindowEventHandlingBeforeRejected
+[DEFINITION]
+[END]
+EMBED %WindowEventHandlingAfterRejected
+[DEFINITION]
+[END]
+EMBED %WindowOtherEventHandling
+[DEFINITION]
+[END]
+EMBED %EventCaseAfterGenerated
+[DEFINITION]
+[END]
+EMBED %AcceptLoopAfterEventHandling
+[DEFINITION]
+[END]
+EMBED %AcceptLoopBeforeFieldHandling
+[DEFINITION]
+[END]
+EMBED %FieldCaseBeforeGenerated
+[DEFINITION]
+[END]
+EMBED %ControlPreEventCaseHandling
+[INSTANCES]
+WHEN '?Import'
+[DEFINITION]
+[END]
+WHEN '?Export'
+[DEFINITION]
+[END]
+WHEN '?Export:3'
+[DEFINITION]
+[END]
+WHEN '?Close'
+[DEFINITION]
+[END]
+[END]
+EMBED %ControlPostEventHandling
+[INSTANCES]
+WHEN '?Import'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Export'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Export:3'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+WHEN '?Close'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[END]
+WHEN 'Selected'
+[DEFINITION]
+[END]
+WHEN 'Selecting'
+[DEFINITION]
+[END]
+[END]
+[END]
+EMBED %ControlOtherEventHandling
+[INSTANCES]
+WHEN '?Import'
+[DEFINITION]
+[END]
+WHEN '?Export'
+[DEFINITION]
+[END]
+WHEN '?Export:3'
+[DEFINITION]
+[END]
+WHEN '?Close'
+[DEFINITION]
+[END]
+[END]
+EMBED %ControlPostEventCaseHandling
+[INSTANCES]
+WHEN '?Import'
+[DEFINITION]
+[END]
+WHEN '?Export'
+[DEFINITION]
+[END]
+WHEN '?Export:3'
+[DEFINITION]
+[END]
+WHEN '?Close'
+[DEFINITION]
+[END]
+[END]
+EMBED %FieldCaseAfterGenerated
+[DEFINITION]
+[END]
+EMBED %AcceptLoopAfterFieldHandling
+[DEFINITION]
+[END]
+EMBED %BeforeFileOpen
+[DEFINITION]
+[END]
+EMBED %AfterFileOpen
+[DEFINITION]
+[END]
+EMBED %BeforeWindowOpening
+[DEFINITION]
+[END]
+EMBED %AfterWindowOpening
+[DEFINITION]
+[END]
+EMBED %BeforeWindowIniResize
+[DEFINITION]
+[END]
+EMBED %BeforeControlsSetup
+[DEFINITION]
+[END]
+EMBED %AfterControlsSetup
+[DEFINITION]
+[END]
+EMBED %PrepareAlerts
+[DEFINITION]
+[END]
+EMBED %BeforeBind
+[DEFINITION]
+[END]
+EMBED %AfterBind
+[DEFINITION]
+[END]
+EMBED %BeforeUnBind
+[DEFINITION]
+[END]
+EMBED %AfterUnBind
+[DEFINITION]
+[END]
+EMBED %BeforeFileClose
+[DEFINITION]
+[END]
+EMBED %AfterFileClose
+[DEFINITION]
+[END]
+EMBED %BeforeWindowClosing
+[DEFINITION]
+[END]
+EMBED %AfterWindowClosing
+[DEFINITION]
+[END]
+EMBED %EndOfProcedure
+[DEFINITION]
+[END]
+EMBED %WindowInitializationCode
+[DEFINITION]
+[END]
+EMBED %RefreshWindowBeforeLookup
+[DEFINITION]
+[END]
+EMBED %RefreshWindowAfterLookup
+[DEFINITION]
+[END]
+EMBED %RefreshWindowBeforeDisplay
+[DEFINITION]
+[END]
+EMBED %SyncWindowBeforeLookup
+[DEFINITION]
+[END]
+EMBED %SyncWindowAfterLookup
+[DEFINITION]
+[END]
+EMBED %LookupRelated
+[DEFINITION]
+[END]
+EMBED %ListboxStyleBeforeDefine
+[DEFINITION]
+[END]
+EMBED %ListboxStyleAfterDefine
+[DEFINITION]
+[END]
+EMBED %ProcRoutines
+[DEFINITION]
+[END]
+[END]
+[ADDITION]
+NAME iQXML_Parser_Writer ImportFromXML
+[INSTANCE]
+INSTANCE 11
+[PROMPTS]
+%iQXMLFileName FIELD  (FileName)
+%iQQueuename FIELD  (MyQueue)
+%iQNoRecords FIELD  (NoRecords)
+%iQElementTag1 DEFAULT  ('Customer')
+%iQElementTag2 DEFAULT  ('')
+%iQElementTag3 DEFAULT  ('')
+%iQElementTag4 DEFAULT  ('')
+%iQElementTag5 DEFAULT  ('')
+%iQIncludeChild LONG  (1)
+%iQCascade1 DEFAULT  ('CustomerID')
+%iQCascade2 DEFAULT  ('CustomerName')
+%iQCascade3 DEFAULT  ('')
+%iQCascade4 DEFAULT  ('')
+%IQQualLinkFields MULTI LONG  ()
+%IQQualField DEPEND %IQQualLinkFields DEFAULT TIMES 0
+
+%IQCascLinkFields MULTI LONG  (1, 2)
+%IQCascField DEPEND %IQCascLinkFields DEFAULT TIMES 2
+WHEN  (1) ('CustomerName')
+WHEN  (2) ('CustomerId')
+
+%iQShowProgress LONG  (1)
+%IQAttrLinkFields MULTI LONG  (3)
+%IQAttrField DEPEND %IQAttrLinkFields FIELD TIMES 1
+WHEN  (3) (InvoiceAmt)
+
+%IQAttrOption DEPEND %IQAttrLinkFields DEFAULT TIMES 1
+WHEN  (3) ('1')
+
+%IQAttrPicture DEPEND %IQAttrLinkFields DEFAULT TIMES 1
+WHEN  (3) ('@n-11.2')
+
+%iQQualFieldP DEPEND %IQQualLinkFields DEFAULT TIMES 0
+
+%iQCascFieldP DEPEND %IQCascLinkFields DEFAULT TIMES 2
+WHEN  (1) ('0')
+WHEN  (2) ('0')
+
+%iQQuietMode LONG  (0)
+%iQASUTF8 LONG  (1)
+[ADDITION]
+NAME iQXML_Parser_Writer XML_DebugMyQueue
+[INSTANCE]
+INSTANCE 12
+[PROMPTS]
+%iQDebugMyQueueVar FIELD  (MyQueue)
+%iQDebugMyQueueTitleVar DEFAULT  ('Invoice Example')
+[ADDITION]
+NAME iQXML_Parser_Writer ExportQueueToXML
+[INSTANCE]
+INSTANCE 13
+[PROMPTS]
+%iQQueuename FIELD  (MyQueue)
+%iQXMLFileName FIELD  (FileName)
+%iQXMLVersion DEFAULT  ('1.0')
+%iQXMLEncoding DEFAULT  ('')
+%iQDateStamp LONG  (1)
+%iQAsAttribute LONG  (1)
+%iQAutoCloseTag LONG  (1)
+%iQRootTag DEFAULT  ('Root')
+%iQRowTag DEFAULT  ('Customer')
+%iQXMLPrefix DEFAULT  ('')
+%iQAddComment DEFAULT  ('This is a comment added to the XML document to tell you that it was generated by the Template.')
+%iQRootTagN1 DEFAULT  ('')
+%iQRootTagV2 DEFAULT  ('')
+%IQAttribLinkFields MULTI LONG  (1, 2, 3)
+%IQRootAttribute DEPEND %IQAttribLinkFields DEFAULT TIMES 3
+WHEN  (1) ('Company')
+WHEN  (2) ('Phone')
+WHEN  (3) ('CreatedBy')
+
+%IQRootValue DEPEND %IQAttribLinkFields DEFAULT TIMES 3
+WHEN  (1) ('ABC Company')
+WHEN  (2) ('813-555-1212')
+WHEN  (3) ('Fred Flintstone')
+
+%iQAsLower LONG  (1)
+[ADDITION]
+NAME iQXML_Parser_Writer XML_CreateParent
+[INSTANCE]
+INSTANCE 16
+[PROMPTS]
+%iQCreateParent DEFAULT  ('RootTag')
+%iQA1 DEFAULT  ('')
+%iQB1 DEFAULT  ('')
+%IQC1 LONG  (0)
+%iQA2 DEFAULT  ('')
+%iQB2 DEFAULT  ('')
+%IQC2 LONG  (0)
+%iQA3 DEFAULT  ('')
+%iQB3 DEFAULT  ('')
+%IQC3 LONG  (0)
+%iQA4 DEFAULT  ('')
+%iQB4 DEFAULT  ('')
+%IQC4 LONG  (0)
+%iQA5 DEFAULT  ('')
+%iQB5 DEFAULT  ('')
+%IQC5 LONG  (0)
+%iQIncludeAddParent LONG  (1)
+%iQIncludeAddParent2 LONG  (0)
+[INSTANCE]
+INSTANCE 19
+[PROMPTS]
+%iQCreateParent DEFAULT  ('Address')
+%iQA1 DEFAULT  ('FirstName')
+%iQB1 DEFAULT  ('Robert')
+%IQC1 LONG  (0)
+%iQA2 DEFAULT  ('LastName')
+%iQB2 DEFAULT  ('Jones')
+%IQC2 LONG  (0)
+%iQA3 DEFAULT  ('Street')
+%iQB3 DEFAULT  ('123 Main Street')
+%IQC3 LONG  (0)
+%iQA4 DEFAULT  ('City')
+%iQB4 DEFAULT  ('Tampa')
+%IQC4 LONG  (0)
+%iQA5 DEFAULT  ('State')
+%iQB5 DEFAULT  ('FL')
+%IQC5 LONG  (0)
+%iQIncludeAddParent LONG  (1)
+%iQIncludeAddParent2 LONG  (1)
+[ADDITION]
+NAME iQXML_Parser_Writer XML_CloseXMLString
+[INSTANCE]
+INSTANCE 18
+[PROMPTS]
+%iQCloseXmlStringVarName FIELD  (ShowTheResult)
+%iQCloseXMLStringComment DEFAULT  ('')
+%iQCloseTags LONG  (1)
+[ADDITION]
+NAME iQXML_Parser_Writer XML_FREE
+[INSTANCE]
+INSTANCE 20
+[ADDITION]
+NAME iQXML_Parser_Writer XML_CreateXMLString
+[INSTANCE]
+INSTANCE 15
+[PROMPTS]
+%iQCreateXMLStringAddThis DEFAULT  ('2')
+%iQCreateXMLstringOptions DEFAULT  ('2')
+%iQXMLCreatestringVersionVar FIELD  ()
+%iQXMLCreatestringEncodingVar FIELD  ()
+%iQXMLCreatestringVersion DEFAULT  ('1.0')
+%iQXMLCreatestringEncoding DEFAULT  ('UTF')
+%iQXMLCreatestringDateTime LONG  (0)
+%iQXMLIgnoreIndent LONG  (0)
+%iQXMLIgnoreBlanks LONG  (0)
+[ADDITION]
+NAME iQXML_Parser_Writer XML_ViewFile
+[INSTANCE]
+INSTANCE 14
+[PROMPTS]
+%iQOpenFile DEFAULT  ('1')
+%iQFileVariable FIELD  (FileName)
+%iQFileVariableName DEFAULT  ('')
+[WINDOW]
+Window  WINDOW('iQ-Xml Template Example'),AT(,,243,146),FONT('Tahoma',8),DOUBLE,CENTER,GRAY
+          BUTTON('Import Example'),AT(25,16,192,14),USE(?Import),DEFAULT,#ORDINAL(1)
+          BUTTON('Export Example'),AT(25,44,192,14),USE(?Export),#ORDINAL(2)
+          BUTTON('Create an XML String'),AT(25,74,192,14),USE(?Export:3),#ORDINAL(3)
+          BUTTON('Close Template Example'),AT(25,105,192,14),USE(?Close),STD(STD:Close),#ORDINAL(4)
+        END
+
+[END]

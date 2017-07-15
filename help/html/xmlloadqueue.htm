@@ -1,0 +1,529 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:LoadQueue</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:LoadQueue</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">*QUEUE</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>Local queue to catch values</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;BYTE False&gt;</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>True to process all Child nodes </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;BYTE False&gt;</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>True to process all Sibling nodes</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;BYTE False&gt;</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>Include field prefixes when matching field names such as QUE:fieldname. &nbsp;Only the first prefix is ignored if there are multiple prefixes such as <span style="font-weight: bold;">PRE:</span>PRE:Actu
+&nbsp;<br>
+0 = Ignore prefixes in Clarion local queue</p>
+<p>1 = Include any prefixes in Clarion local queue</p>
+<p>2 = Ignore prefixes in Clarion local queue and any prefix/namespaces in XML document<br>
+&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;LONG&gt;</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>Maximum number of records to write to Queue before Aborting.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">&lt;BYTE&gt;</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>True to Ignore Queue Field usage checking and only write during IQXML:FORCEWRITE </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="511" style="width:511px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="102" style="width:102px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="103" style="width:103px;"><p><span style="font-style: italic;">LONG</span></p>
+</td>
+<td valign="top" width="511" style="width:511px;"><p>Records added to the Queue</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Used to retrieve values from the loaded XML file and store them in the Clarion queue with matching field names.</p>
+<p>&nbsp;</p>
+<p>For each group within the set node at the current cursor location, a record will be added to the queue. &nbsp;A queue can contain dimensional array fields. &nbsp;If a field in the queue is found more than once (when looking in child nodes and/or proces
+<p>&nbsp;</p>
+<p>Once you are finished using a queue, you should issue XML:Free() to clear the memory. &nbsp;Failure to call XML:Free() can cause memory corruption.</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">** It is HIGHLY RECOMMENDED to only use STRING fields in your Queue structure, especially when processing child records. &nbsp;The system has to determine when to create the next Queue entry properly, and comparing a </span
+<p>&nbsp;</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 9pt; font-weight: bold; color: #7f0000;">NOTE: DIMMED Field and Multi-Group Processing is not valid with Clarion 5.5 Version of iQ-XML</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">When this function completes:</span><br>
+<span style="font-weight: bold;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 24px;">The node pointer is changed when executing this function which will be the end of file or start of next section. &nbsp;To keep the node pointer at the same location before it executed, use <a href="xmlautorootset.htm">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">When Queue Entries get added to the Queue:</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 23px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="27"><span
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Ignore Queue Field Usage and only write during IQXML:FORCEWRITE</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">iQ-XML figures out when to add a field to the queue based on the above four reasons. &nbsp;However, if you are using non-string fields (LONG, BYTE, DATE, DECIMAL, etc.), then item #1 above would always come into place
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">To avoid the auto checking of field usage (ie: non blank adding of a queue record), designate the field you wish to trigger the queue add using the XML:AttributeFieldSet() function with the IQXML:FORCEWRITE indicator a
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">For example, you would use the following when working with the following data:</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">XML:AttributeFieldSet('InvoiceAmt',IQXML:FORCEWRITE)</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">Recs = XML:LoadQueue(MyQueue,True,True,false,,</span><span class="f_CourierFixed" style="color: #0000ff;">True</span><span class="f_CourierFixed">)</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">In the above example, regardless of whether other fields have values, when the XML Reader hits the &quot;InvoiceAmt&quot; element in the XML document, the record is written to the MyQueue queue. &nbsp;Please note that
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-style: italic;">See the bottom of this help text for a full example.</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">Child/Sibling Processing Example:</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">root</span><span st
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt;
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">/root2</span><span
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt;
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">/root2</span><span
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">/root</span><span s
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">Say the pointer is on the first &lt;root2&gt; ...</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:LoadQueue(queue,True,False)  &nbsp; &nbsp; &nbsp; &nbsp;! will process root2,root3,root4</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:LoadQueue(queue,True,True)  &nbsp; &nbsp; &nbsp; &nbsp;! will process root2,root3,root4,root2,root3,root4</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:LoadQueue(queue,False,True)  &nbsp; &nbsp; &nbsp; &nbsp;! will process root2,root2</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:LoadQueue(queue,False,False)  &nbsp; &nbsp; &nbsp; &nbsp;! will process root2</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>See also <a href="xmlattributefieldset.htm">XML:AttributeFieldSet</a>, <a href="xmlautorootset.htm">XML:AutoRootSet</a>, <a href="xmlprimarykeycascade.htm">XML:PrimaryKeyCascade</a>, <a href="xmlprimaryfieldcascade.htm">XML:PrimaryFieldCascade</a>, <a
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'T
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Customers</span><span style="font-size: 9pt; font-family
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>The following program will demonstrate three different ways of processing the above file. &nbsp;All examples will load the above file from disk, set the Node Pointer to the &lt;customer&gt; tag, process it in some way and then free the memory. It is im
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">MyQueue </span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">GivenName</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Surname</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">AddressLine</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20),DIM(3)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">CityName</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">PostalCode</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">StateProv</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed"> &nbsp;END</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Recs</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="133" style="width:133px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If NOT xml:LoadFromFile('myfile.xml') </span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">If NOT xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Loop</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">Recs = Xml:loadQueue(MyQueue,True,False)</span></p
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Xml:GotoSibling() then break.</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:DebugMyQueue(MyQueue,'MyQueue Contents')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:Free() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_ImageCaption">Which can also be programmed the same way as the following … however, all records will be added to the QUEUE at the same time. &nbsp;It would be up to the programmer to determine if this me
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If NOT xml:LoadFromFile('myfile.xml') </span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">If NOT xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">Recs = Xml:loadQueue(MyQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:DebugMyQueue(MyQueue,'MyQueue Contents')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:Free() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_ImageCaption">The following example would work the same as above, however, the address line fields in the queue would not be filled because they are actually child descendants of &lt;Address&gt;.</span><
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If NOT xml:LoadFromFile('myfile.xml')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">If NOT xml:FindNextNode('Customers','Customer')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">Recs = Xml:loadQueue(MyQueue,False,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:DebugMyQueue(MyQueue,'MyQueue Contents')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:Free() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Mapping from an XML file with different field names:</span></p>
+<p>&nbsp;</p>
+<p>Use the NAME attribute in Clarion to map element field names from the XML file that are declared one way, but you wish to declare another way in your program's queue. &nbsp;For example, this is needed when field names in an XML document are reserved wo
+<p>&nbsp;</p>
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">root</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&gt;<
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Data Member=</spa
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Data Member=</spa
+<p><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">root</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&gt;
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">MyQueue </span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">XMember</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">,NAME('Member')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">XCode</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">,NAME('Code')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Field1</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">,NAME('Actual-Name')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Field2</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">,NAME('Invalid:name')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Field3</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Field4</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">,NAME('ActualField')</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed"> &nbsp;END</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Recs</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Mapping with non-string fields in a queue:</span></p>
+<p>&nbsp;</p>
+<p>If you use numeric fields in your queue, you must use the XML:SetFieldAttribute() function and indicate non-automatic checking of field usage and that you will be controlling the write operation yourself with the IQXML:FORCEWRITE indicator.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">MyQueue </span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">QUEUE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">CustNumber</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span style="font-size: 9pt; font-family: 'Courier New';">LONG</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Firstname</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(25)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Lastname</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(25)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">AGE</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">BYTE</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">SEX</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(1)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">PHONENUMBER</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed"> &nbsp;END</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="99" style="width:99px;"><p><span class="f_CourierFixed">Recs</span></p>
+</td>
+<td valign="top" width="8" style="width:8px;"><br>
+</td>
+<td valign="top" width="263" style="width:263px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! First, write the queue out to an XML file</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! -----------------------------------------</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">IF NOT XML:CreateXMLFile('MyFile.xml')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;XML:CreateParent('Customers');XML:AddParent()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span class="f_CourierFixed">   &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;XML:AddFromQueue('Data',True,True)</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:CloseParent()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:CloseXMLFile()</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">! Empty the Queue</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">! ---------------</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">FREE(MyQueue)</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">! Now, read it back</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">! -----------------</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">if NOT XML:LoadXMLFile('MyFile.Xml')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp;IF NOT XML:FindNextNode('Data')</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:AttributeFieldSet('PHONENUMBER',IQXML:FORCEWRITE)</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="color: #0000ff;">Recs = XML:LoadQueue(MyQueue,True,True,Fals
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! Without the above parameter, and because numeric fields</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! exist (AGE and CustNumber) you are indicating to only write</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! the Queue entry when the PHONENUMBER field is encountered</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">! which is always the last field for each data record.</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

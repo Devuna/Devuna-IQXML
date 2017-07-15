@@ -1,0 +1,134 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:SetBoundry</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:SetBoundry</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="100" style="width:100px;"><p>STRING</p>
+</td>
+<td valign="top" width="519" style="width:519px;"><p>Field not to include or read past</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="519" style="width:519px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="100" style="width:100px;"><p><span style="font-style: italic;">NONE</span></p>
+</td>
+<td valign="top" width="519" style="width:519px;"><br>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Ability to call this function once to indicate not to continue if this field is encountered. &nbsp;(first time being encountered)</p>
+<p>&nbsp;</p>
+<p>Calling this function as blank or calling XML:FREE() will clear this value.</p>
+<p>&nbsp;</p>
+<p>Setting a boundary affects the following functions:</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">The purpose of this function is to set a boundry to make the above functions more efficient is very large documents. &nbsp;For example, if you are reading an XML document where the top half may have a configuration of
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">If it important to know that XML:LoadQueue is already efficient in terms of only reading within a Child group that you have found. &nbsp;But, for example, let's say you do not know if the document contains a group call
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">xml:SetBoundry('Invoices')</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">if&nbsp;not&nbsp;xml:FindNextNode('Taxes')</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CodeExample">do&nbsp;LoadTaxes</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">end</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">xml:SetBoundry('') &nbsp; &nbsp; &nbsp; &nbsp;!&nbsp;clear&nbsp;the&nbsp;boundry</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">xml:gotoTop()</span></p>
+<p class="p_CodeExample" style="margin: 0px 0px 0px 24px;"><span class="f_CodeExample">Do&nbsp;LoadInvoices</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">This example would at least make sure that if it found invoices, it wouldn't look anymore for Taxes. &nbsp; If the document were under 100K, it would not make a difference, but if the document were say 100MB, it would
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">ie:</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;InvoiceFeed&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;Taxes&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;!-- these are the agreed tax settings --&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;/Taxes&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;Invoices&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;!-- These are the many invoices --&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;/Invoices&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">&lt;/InvoiceFeed&gt;</span></p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="24"><span
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span class="f_CourierFixed">   &nbsp; &nbsp; &nbsp; &nbsp;xml:SetBoundry('Address')</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">if not xml:FindNextNode('AddressLine')</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">! this will never happen</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">else</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">message('The node was not found because a boundary was set')</span></p>
+<p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">end</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">or the following will not make the LoadQueue function read anything past Invoices.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">xml:SetBoundry('Invoices')</span></p>
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">XML:GotoTop()</span></p>
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">Recs&nbsp;=&nbsp;xml:LoadQueue(Customers,True,True)</span></p>
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">xml:SetBoundry('')</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

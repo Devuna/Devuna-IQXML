@@ -1,0 +1,471 @@
+#!region Copyright and License
+#! ================================================================================
+#!                                       IQXML
+#! ================================================================================
+#! Notice : Copyright (C) 2017, Paresi
+#!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+#!
+#!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+#!
+#!    Devuna-IQXML is free software: you can redistribute it and/or modify
+#!    it under the terms of the GNU General Public License as published by
+#!    the Free Software Foundation, either version 3 of the License, or
+#!    (at your option) any later version.
+#!
+#!    Devuna-IQXML is distributed in the hope that it will be useful,
+#!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#!    GNU General Public License for more details.
+#!
+#!    You should have received a copy of the GNU General Public License
+#!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+#! ================================================================================
+#!endRegion
+#!-----------------------------------------------------------------------------------
+#!XML WRITE FUNCTIONS
+#!-----------------------------------------------------------------------------------
+#!-----------------------------------------------------------------------------------
+#CODE(XML_ADDComment,'iQ-XML - AddComment')
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+#BOXED('Help')
+#DISPLAY('Writes out a comment properly to the XML document.')
+#ENDBOXED
+#PROMPT('Comment to Add',text),%iQAddComment
+#INSERT(%iQSourceComment)
+  XML:AddComment('%iQAddComment')
+#!-----------------------------------------------------------------------------------
+#CODE(XML_AddElement,'iQ-XML - Add Element')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+#BOXED('Help')
+#DISPLAY('Writes out an <ElementTag>A Value</EndElementTag>')
+#DISPLAY('to the XML file.')
+#ENDBOXED
+#PROMPT('Add Element Options',OPTION),%iQAddElementOptions,CHOICE
+#PROMPT('Variable',RADIO)                   
+#PROMPT('Manual Entry',RADIO)                   
+#BOXED('Variable Names'),where(%iQAddElementOptions=1)
+#PROMPT('Attribute Name',Field),%iQAddElementNameVar,req
+#PROMPT('Attribute Value',Field),%iQAddElementValueVar,req
+#ENDBOXED
+#BOXED('Descriptions '),where(%iQAddElementOptions=2)
+#PROMPT('Attribute Name',@s128),%iQAddElementName,req
+#PROMPT('Attribute Value',@s128),%iQAddElementValue,req
+#ENDBOXED
+#INSERT(%iQSourceComment)
+ #IF(%iQAddElementOptions=1) 
+  XML:AddElement ('%iQAddElementNameVar','%iQAddElementValueVar')
+ #ELSIF (%iQAddElementOptions=2)
+  XML:AddElement ('%iQAddElementName','%iQAddElementValue')
+ #ENDIF
+#!-----------------------------------------------------------------------------------
+#CODE(XML_AddFromGroup,'iQ-XML - Add from Group')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Reads a passed GROUP of fields and writes out to an XML ')
+  #DISPLAY('document all fields. Field prefixes are ignored and ')
+  #DISPLAY('stripped in field names. This function supports both ')
+  #DISPLAY('Groups inside of Groups (for child entries) and Dimmed ')
+  #DISPLAY('Fields to write out an XML document using multiple sibling')
+  #DISPLAY('and child records with different parent tags.')
+ #ENDBOXED
+ #PROMPT('Local Group to write out to XML file',from(%localdata)),%iQAddFromGroupName,req
+ #PROMPT('Based tag for each record',@s128),%iQAddFromGroupBaseTag,req
+ #PROMPT('Write out as Attribute Based',check),%iQAddFromGroupAttBase,req
+  #INSERT(%iQSourceComment)
+  XML:AddfromGroup(%iQAddFromGroupName,'%iQAddFromGroupBaseTag',%iQAddFromGroupAttBase)
+#!-----------------------------------------------------------------------------------
+#CODE(XML_AddFromQueue,'iQ-XML - Add from Queue')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Reads a queue and writes out to an XML document all')
+  #DISPLAY('fields. Field prefixes are ignored and stripped in ')
+  #DISPLAY('field names. This function supports both Groups and')
+  #DISPLAY('Dimmed Fields to write out an XML document using')
+  #DISPLAY('multiple sibling and child records with different')
+  #DISPLAY('parent tags. If DIM fields are used, the same amount')
+  #DISPLAY('of dimensions must exist within the group, otherwise,')
+  #DISPLAY('only the firstvalue will be written out.')
+ #ENDBOXED
+#BOXED('Output Options')
+ #PROMPT('Local Queue to write out to XML file',Field),%iQAddFromQueueName,req
+ #PROMPT('Based tag for each record',@s128),%iQAddFromQueueBaseTag,req
+#ENDBOXED
+  #INSERT(%iQSourceComment)
+  XML:AddfromQueue(%iQAddFromQueueName,'%iQAddFromQueueBaseTag',AsAttrib)
+#!-----------------------------------------------------------------------------------
+#CODE(XML_AddParent,'iQ-XML - Add Parent')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Writes out Parent and Attributes. If the function is called')
+  #DISPLAY('with the "True" parameter, the parent will be closed')
+  #DISPLAY('with /> instead of >.')
+ #ENDBOXED
+#PROMPT('Close Parent ',check),%iQCloseAddParent,default(0),at(10)
+#INSERT(%iQSourceComment)
+ #IF(%iQCloseAddParent)
+  XML:AddParent(%iQCloseAddParent)
+ #ELSE
+  XML:AddParent()
+ #END
+#!-----------------------------------------------------------------------------------
+#CODE(XML_AddStringText,'iQ-XML - Add String Text')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Adds a string to the current XML document being')
+  #DISPLAY('processed.')
+ #ENDBOXED
+  #PROMPT('Add String Options',OPTION),%iQAddStringOptions,CHOICE
+  #PROMPT('Variable',RADIO)                   
+  #PROMPT('Manual Entry',RADIO)               
+ #BOXED('Variable Names'),where(%iQAddStringOptions=1)
+  #PROMPT('Add String Variable',Field),%iQAddStringVar,req
+ #ENDBOXED
+ #BOXED('Descriptions '),where(%iQAddStringOptions=2)
+  #PROMPT('Add String Description',@s128),%iQAddString,req
+ #ENDBOXED
+ #INSERT(%iQSourceComment)
+  #IF (%iQAddStringOptions=1)
+  XML:AddStringText(%iQAddStringVar)
+  #ELSIF(%iQAddStringOptions=2)
+  XML:AddStringText('%iQAddString')
+  #ENDIF
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CloseParent,'iQ-XML - Close Parent')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Closes the last parent tag in the stack.')
+ #ENDBOXED
+#BOXED('Options')
+#PROMPT('Tag Integrity Check (Optional):',@s128),%IQCloseIntegrity
+#PROMPT('!Comment (Optional):',@s128),%iQCloseParentComment
+#ENDBOXED
+#INSERT(%iQSourceComment)
+  #IF(%IQCloseIntegrity)
+   XML:CloseParent('%IQCloseIntegrity')  !%iQCloseParentComment
+  #ELSE
+   XML:CloseParent() !%iQCloseParentComment
+  #ENDIF
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CloseXMLFile,'iQ-XML - Close XML File')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Closes the current XML document file and flushes')
+  #DISPLAY('the contents to disk.')
+ #ENDBOXED
+#PROMPT('Close all unclosed tags',CHECK),%iQCloseTags,at(10)
+#DISPLAY(' ')
+#PROMPT('Comment to Add',@s128),%iQCloseXMLFileComment
+#INSERT(%iQSourceComment)
+  XML:CLoseXMLFILE(%iQCloseTags)    !%iQCloseXMLFileComment
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CloseXMLString,'iQ-XML - Close XML String')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Closes the current XML string and returns the contents.')
+ #ENDBOXED
+#PROMPT('Close all unclosed tags',CHECK),%iQCloseTags,at(10)
+#DISPLAY(' ')
+#PROMPT('Return Variable Name',field),%iQCloseXmlStringVarName,req
+#PROMPT('Comment to Add',@s128),%iQCloseXMLStringComment
+#INSERT(%iQSourceComment)
+  %iQCloseXmlStringVarName = XML:CLoseXMLString(%iQCloseTags)       !%iQCloseXMLStringComment
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CreateAttribute,'iQ-XML - Create Attribute')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Added an attribute and value to the last created parent')
+  #DISPLAY('tag. You must create a parent before creating an')
+  #DISPLAY('attribute. You can call the XML:CreateAttribute function')
+  #DISPLAY('as many times as needed. Once you call the')
+  #DISPLAY('XML:AddParent function, all attributes are flushed.')
+ #ENDBOXED
+#PROMPT('Create Attribute Options',OPTION),%iQCreateAttribOptions,CHOICE
+#PROMPT('Variable',RADIO)                   
+#PROMPT('Manual Entry',RADIO)                   
+ #BOXED('Variable Names'),where(%iQCreateAttribOptions=1)
+  #PROMPT('Attribute Name',Field),%iQCreateAttribNameVar,req
+  #PROMPT('Attribute Value',Field),%iQCreateAttribValueVar,req
+ #ENDBOXED
+ #BOXED('Descriptions '),where(%iQCreateAttribOptions=2)
+  #PROMPT('Attribute Name',@s128),%iQCreateAttribName,req
+  #PROMPT('Attribute Value',@s128),%iQCreateAttribValue,req
+ #ENDBOXED
+ #INSERT(%iQSourceComment)
+ #IF(%iQCreateAttribOptions=1)
+  XML:CreateAttribute ('%iQCreateAttribNameVar','%iQCreateAttribValueVar')
+ #ELSIF (%iQCreateAttribOptions=2)
+  XML:CreateAttribute ('%iQCreateAttribName','%iQCreateAttribValue')
+ #ENDIF
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CreateParent,'iQ-XML - Create Parent')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Creates a parent tag such as <root> but does not actually ')
+  #DISPLAY('write it out. You must call the XML:AddParent function')
+  #DISPLAY('to actually write the tag.')
+ #ENDBOXED
+#BOXED('Options')
+#PROMPT('Tag Name',@s50),%iQCreateParent,REQ
+#ENDBOXED
+#BOXED('Attributes')
+#PROMPT('Attribute Name (Optional)',@s50),%iQA1
+#PROMPT('Attribute Value (Optional)',@s50),%iQB1
+#PROMPT(' Value is DataField',CHECK),%IQC1
+#DISPLAY(' ')
+#PROMPT('Attribute Name (Optional)',@s50),%iQA2
+#PROMPT('Attribute Value (Optional)',@s50),%iQB2
+#PROMPT(' Value is DataField',CHECK),%IQC2
+#DISPLAY(' ')
+#PROMPT('Attribute Name (Optional)',@s50),%iQA3
+#PROMPT('Attribute Value (Optional)',@s50),%iQB3
+#PROMPT(' Value is DataField',CHECK),%IQC3
+#DISPLAY(' ')
+#PROMPT('Attribute Name (Optional)',@s50),%iQA4
+#PROMPT('Attribute Value (Optional)',@s50),%iQB4
+#PROMPT(' Value is DataField',CHECK),%IQC4
+#DISPLAY(' ')
+#PROMPT('Attribute Name (Optional)',@s50),%iQA5
+#PROMPT('Attribute Value (Optional)',@s50),%iQB5
+#PROMPT(' Value is DataField',CHECK),%IQC5
+#ENDBOXED
+#PROMPT('Include XML:AddParent()',CHECK),%iQIncludeAddParent,default(0),AT(5)
+#PROMPT('Auto-Close Parent Tag',CHECK),%iQIncludeAddParent2,default(0),AT(9)
+ #INSERT(%iQSourceComment)
+   XML:CreateParent('%iQCreateParent')
+ #IF(%iQA1)
+  #IF(%iQC1)
+   XML:CreateAttribute('%IQA1',%IQB1)
+  #ELSE
+   XML:CreateAttribute('%IQA1','%IQB1')
+  #ENDIF
+ #ENDIF
+ #IF(%iQA2)
+  #IF(%iQC2)
+   XML:CreateAttribute('%IQA2',%IQB2)
+  #ELSE
+   XML:CreateAttribute('%IQA2','%IQB2')
+  #ENDIF
+ #ENDIF
+ #IF(%iQA3)
+  #IF(%iQC3)
+   XML:CreateAttribute('%IQA3',%IQB3)
+  #ELSE
+   XML:CreateAttribute('%IQA3','%IQB3')
+  #ENDIF
+ #ENDIF
+ #IF(%iQA4)
+  #IF(%iQC4)
+   XML:CreateAttribute('%IQA4',%IQB4)
+  #ELSE
+   XML:CreateAttribute('%IQA4','%IQB4')
+  #ENDIF
+ #ENDIF
+ #IF(%iQA5)
+  #IF(%iQC5)
+   XML:CreateAttribute('%IQA5',%IQB5)
+  #ELSE
+   XML:CreateAttribute('%IQA5','%IQB5')
+  #ENDIF
+ #ENDIF
+ #IF(%iQIncludeAddParent=1)
+ #IF(%iQIncludeAddParent=2)
+   XML:AddParent(True)
+ #ELSE
+   XML:AddParent(False) 
+ #ENDIF
+ #ENDIF
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CreateXMLFile,'iQ-XML - Create XML File')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Creates an XML file ready for processing.')
+  #DISPLAY('Only one XMLFile or XMLString can be in use at one time.')
+  #DISPLAY('If a previous XML:CreateXMLFile or XML:CreateXMLString')
+  #DISPLAY('has been called without a close, an errorcode 5 ')
+  #DISPLAY('(Access Denied) will be returned.')
+ #ENDBOXED
+#PROMPT('Add This before CreateXMLFile',OPTION),%iQCreateXMLFILEAddThis,CHOICE,default(3)
+#PROMPT('IF... (Error Occurred)',RADIO)                   
+#PROMPT('IF NOT... (Successful)',RADIO)                   
+#PROMPT('No Code...',RADIO)                   
+ #BOXED('WARNING!!!'),where(%iQCreateXMLFileAddThis <> 3)
+  #INSERT(%ElseEndWarning)
+ #ENDBOXED
+#PROMPT('Create XML File Options',OPTION),%iQCreateXMLFILEOptions,CHOICE
+#PROMPT('Variables',RADIO)                   
+#PROMPT('Manual Entry',RADIO)                   
+ #BOXED('Variable Names'),where(%iQCreateXMLFileOptions=1)
+  #PROMPT('Filename Variable',Field),%iQXMLCreateFileNameVar,req
+  #PROMPT('XML Version Variable',Field),%iQXMLCreateVersionVar
+  #PROMPT('XML Encoding Variable ',Field),%iQXMLCreateEncodingVar
+  #PROMPT('Add Version/Date/Time Stamp comment',Field),%iQXMLCreateDateTimeVar
+ #ENDBOXED
+#BOXED('Descriptions '),where(%iQCreateXMLFileOptions=2)
+#PROMPT('File name ',@s128),%iQXMLCreateFileName,req
+#PROMPT('XML Version',@s30),%iQXMLCreateVersion
+#PROMPT('XML Encoding',@s20),%iQXMLCreateEncoding
+#PROMPT('Add Version/Date/Time Stamp comment',check),%iQXMLCreateDateTime,default(1),at(10)
+#ENDBOXED
+#BOXED('Other Options ')
+#PROMPT('Do not Indent XML',check),%iQXMLIgnoreIndent,at(10)
+#PROMPT('Ignore Blank Attributes and Elements',check),%iQXMLIgnoreBlanks,at(10)
+#ENDBOXED
+#INSERT(%iQSourceComment)
+ #IF(%iQCreateXMLFileOptions=1)
+   #IF(%iQCreateXMLFILEAddThis=1)
+   if XML:CreateXMLFile(%iQXMLCreateFileNameVar,%iQXMLCreateVersionVar,%iQXMLCreateEncodingVar,%iQXMLCreateDateTimeVar)
+   #ELSIF (%iQCreateXMLFILEAddThis=2)
+   if NOT XML:CreateXMLFile(%iQXMLCreateFileNameVar,%iQXMLCreateVersionVar,%iQXMLCreateEncodingVar,%iQXMLCreateDateTimeVar)
+   #ELSIF(%iQCreateXMLFILEAddThis=3)
+   XML:CreateXMLFile(%iQXMLCreateFileNameVar,%iQXMLCreateVersionVar,%iQXMLCreateEncodingVar,%iQXMLCreateDateTimeVar)
+   #ENDIF
+ #ELSIF (%iQCreateXMLFileOptions=2)
+   #IF(%iQCreateXMLFILEAddThis=1)
+   IF XML:CreateXMLFile('%iQXMLCreateFileName','%iQXMLCreateVersion','%iQXMLCreateEncoding',%iQXMLCreateDateTime)
+   #ELSIF (%iQCreateXMLFILEAddThis=2)
+   IF NOT XML:CreateXMLFile('%iQXMLCreateFileName','%iQXMLCreateVersion','%iQXMLCreateEncoding',%iQXMLCreateDateTime)
+   #ELSIF (%iQCreateXMLFILEAddThis=3)
+   XML:CreateXMLFile('%iQXMLCreateFileName','%iQXMLCreateVersion','%iQXMLCreateEncoding',%iQXMLCreateDateTime)
+   #ENDIF
+ #ENDIF
+ #IF(%iQXMLIgnoreIndent)
+ XML:SetNoIndent(True)
+ #ENDIF
+ #IF(%iQXMLIgnoreBlanks)
+ XML:SetIgnoreEmpty(True,True)
+ #ENDIF
+
+#!-----------------------------------------------------------------------------------
+#CODE(XML_CreateXMLString,'iQ-XML - Create XML String')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')
+  #DISPLAY('Creates an XML string ready for processing.')
+  #DISPLAY('Only one XMLFile or XMLString can be in use at one time.')
+  #DISPLAY('If a previous XML:CreateXMLFile or XML:CreateXMLString')
+  #DISPLAY('has been called without a close, an Errorcode 5 ')
+  #DISPLAY('(Access Denied) will be returned.')
+ #ENDBOXED
+#PROMPT('Add This before CreateXMLString',OPTION),%iQCreateXMLStringAddThis,CHOICE,default(3)
+#PROMPT('IF... (Error Occurred)',RADIO)                   
+#PROMPT('IF NOT... (Successful)',RADIO)                   
+#PROMPT('No Code...',RADIO)
+ #BOXED('WARNING!!!'),where(%iQCreateXMLStringAddThis <> 3)
+  #INSERT(%ElseEndWarning)
+ #ENDBOXED
+#PROMPT('Create XML String Options',OPTION),%iQCreateXMLstringOptions,CHOICE
+#PROMPT('Variables',RADIO)                   
+#PROMPT('Manual Entry',RADIO)                   
+ #BOXED('Variable Names'),where(%iQCreateXMLstringOptions=1)
+  #PROMPT('XML Version Variable',Field),%iQXMLCreatestringVersionVar,req
+  #PROMPT('XML Encoding Variable ',Field),%iQXMLCreatestringEncodingVar,req
+  #PROMPT('Add Version/Date/Time Stamp comment',Field),%iQXMLCreatestringEncodingVar,req
+ #ENDBOXED
+ #BOXED('Descriptions '),where(%iQCreateXMLStringOptions=2)
+  #PROMPT('XML Version',@s30),%iQXMLCreatestringVersion
+  #PROMPT('XML Encoding',@s20),%iQXMLCreatestringEncoding
+  #PROMPT('Add Version/Date/Time Stamp comment',check),%iQXMLCreatestringDateTime,default(1),at(10)
+ #ENDBOXED
+#BOXED('Other Options ')
+#PROMPT('Do not Indent XML',check),%iQXMLIgnoreIndent,at(10)
+#PROMPT('Ignore Blank Attributes and Elements',check),%iQXMLIgnoreBlanks,at(10)
+#ENDBOXED 
+#INSERT(%iQSourceComment)
+ #IF(%iQCreateXMLstringOptions=1)
+   #IF(%iQCreateXMLStringAddThis=1)
+  IF XML:CreateXMLString(%iQXMLCreatestringVersionVar,%iQXMLCreatestringEncodingVar,%iQXMLCreatestringEncodingVar)
+   #ELSIF (%iQCreateXMLStringAddThis=2)
+  IF NOT XML:CreateXMLString(%iQXMLCreatestringVersionVar,%iQXMLCreatestringEncodingVar,%iQXMLCreatestringEncodingVar)
+   #ELSIF (%iQCreateXMLStringAddThis=3)
+  XML:CreateXMLString(%iQXMLCreatestringVersionVar,%iQXMLCreatestringEncodingVar,%iQXMLCreatestringEncodingVar)
+   #ENDIF
+ #ELSIF (%iQCreateXMLstringOptions=2)
+   #IF(%iQCreateXMLStringAddThis=1)
+  IF XML:CreateXMLString('%iQXMLCreatestringVersion','%iQXMLCreatestringEncoding',%iQXMLCreatestringDateTime)
+   #ELSIF (%iQCreateXMLStringAddThis=2)
+  IF NOT XML:CreateXMLString('%iQXMLCreatestringVersion','%iQXMLCreatestringEncoding',%iQXMLCreatestringDateTime)
+   #ELSIF (%iQCreateXMLStringAddThis=3)
+  XML:CreateXMLString('%iQXMLCreatestringVersion','%iQXMLCreatestringEncoding',%iQXMLCreatestringDateTime)
+   #ENDIF
+ #ENDIF      
+ #IF(%iQXMLIgnoreIndent)
+ XML:SetNoIndent(True)
+ #ENDIF
+ #IF(%iQXMLIgnoreBlanks)
+ XML:SetIgnoreEmpty(True,True)
+ #ENDIF 
+#!-----------------------------------------------------------------------------------
+#CODE(XML_SetElementPrefix,'iQ-XML - Set Element Prefix')  
+#!-----------------------------------------------------------------------------------
+#INSERT(%iQWelcomeShort)
+ #BOXED('Help')  
+  #DISPLAY('Instructs to writer to prefix all elements with the ')
+  #DISPLAY('following prefix. A colon is not needed, as the writer')
+  #DISPLAY('will automatically provide it when a prefix is set. ')
+  #DISPLAY('To turn off this value, simply call the function with')
+  #DISPLAY('a blank parameter.')
+ #ENDBOXED
+#PROMPT('Element Prefix',@s128),%iQSetElementPrefix
+#INSERT(%iQSourceComment)
+  XML:SetElementPrefix('%iQSetElementPrefix')
+#!----------------------------------------------------------------
+#CONTROL(CalendarButton,'Calendar Button Control'),DESCRIPTION('iQ-XML Calendar Lookup Button'),WINDOW,MULTI
+   CONTROLS
+     BUTTON,AT(,,15,15),SKIP,FLAT,ICON('RtfDateTime.ico'),USE(?CallLookup)
+   END
+#BOXED(' Field Lookup Button Prompts')
+  #PROMPT('Control with Date Field:',FIELD),%IQXMLDateToLookup
+  #PROMPT('Calendar Text', @s50), %IQXMLDateDefault
+  #PROMPT('Show as Small Calendar',CHECK),%iQXMLDateSmall
+#ENDBOXED
+#ATSTART
+  #DECLARE(%LookupControl)
+  #FOR(%Control),WHERE(%ControlInstance=%ActiveTemplateInstance)
+    #SET(%LookupControl,%Control)
+  #ENDFOR
+  #FIX(%Control,%IQXMLDateToLookup)
+#ENDAT
+#! -------------------------------------------------------------------------
+#AT(%ControlEventHandling,%LookupControl,'Accepted')
+#! -------------------------------------------------------------------------
+CalReturn# = SA:CalendarPicker(%IQXMLDateToLookup,'%IQXMLDateDefault',%iQXMLDateSmall)
+IF CalReturn#
+   CHANGE(?%IQXMLDateToLookup,CalReturn#)
+END
+#ENDAT  
+#CONTROL(DateRangeButton,'Pick Date Range Button Control'),DESCRIPTION('iQ-XML Pick Date Range'),WINDOW,MULTI
+   CONTROLS
+     BUTTON,AT(,,15,15),SKIP,FLAT,ICON('cal16.ico'),USE(?PickDateRange)
+   END
+#BOXED(' Field Range Prompts')
+  #PROMPT('Lower Date:',FIELD),%IQXMLControl1
+  #PROMPT('Higher Date:', FIELD), %IQXMLControl2
+  #PROMPT('Only Past Dates Available', CHECK), %IQXMLControl3
+#ENDBOXED
+#ATSTART
+  #DECLARE(%LookupControl)
+  #FOR(%Control),WHERE(%ControlInstance=%ActiveTemplateInstance)
+    #SET(%LookupControl,%Control)
+  #ENDFOR
+  #FIX(%Control,%IQXMLControl1)
+#ENDAT
+#! -------------------------------------------------------------------------
+#AT(%ControlEventHandling,%LookupControl,'Accepted')
+#! -------------------------------------------------------------------------
+SA:RangePicker(%IQXMLControl1,%IQXMLControl2,%IQXMLControl3)
+DISPLAY(?%IQXMLControl1)
+DISPLAY(?%IQXMLControl2)
+#ENDAT
+

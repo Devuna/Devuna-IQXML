@@ -1,0 +1,310 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Parser - Using PrimaryFieldCascade</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Parser - Using PrimaryFieldCascade</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>If you are processing an XML document with both Child and Sibling parameters and/or you need to attach records from one queue to another using some kind of primary key, you can set the value in the queue before calling the XML:LoadQueue() function.</p>
+<p>&nbsp;</p>
+<p>Take for instance the following xml data:</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; &nbsp;  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuch
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> &nbsp; </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS';
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">xmlmessage</span><span style="font-size: 9pt; font-famil
+<p>&nbsp;</p>
+<p>The following code will allow you to process this XML document process the data in to two queues, but link the two sets of data together with a primary key, using field &quot;CustomerID&quot;.</p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">CustomerQueue </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">QUEUE,PRE(CUS)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">CustomerName </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">CustomerID </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">End</span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">InvoicesQueue </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">QUEUE,PRE(INV)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">CustomerID</span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">InvoiceNo </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">InvoiceDate </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">InvoiceAmt </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed"> End</span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">IRecs </span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="119" style="width:119px;"><p><span class="f_CourierFixed">SaveState</span></p>
+</td>
+<td valign="top" width="180" style="width:180px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">CODE</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If NOT Xml:LoadFromFile('testing.xml')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp;If NOT xml:FindNextNode('Customers','Customer') </span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed">LOOP</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:AutoRootSet()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IRecs = XML:LoadQueue(CustomerQueue,False,False)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Irecs &lt;&gt; 0</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Get(CustomerQueue,records(CustomerQueue))</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Xml:PrimaryFieldCascade('CustomerID',cus:CustomerID) </span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If NOT xml:FindNextNode('Invoices','Invoice')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IRecs = XML:LoadQueue(InvoicesQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:PrimaryFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">IF XML:GotoSibling() THEN BREAK.</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:78px">&nbsp;</span><span class="f_CourierFixed"> END</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp;End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">End</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="f_ImageCaption">Example 2:</span></p>
+<p>&nbsp;</p>
+<p>Here is another example of filling two queues of information. &nbsp;Notice the parent stay information contains header (summary) information, and the child records contain the detail. &nbsp;You can use the XML:PrimaryFieldCascade to attach both records
+<p style="text-indent: -32px; margin: 0px 0px 0px 42px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Reservation</span><span style="font-size: 9pt; font-famil
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">StayInformation</span><span style="font-size: 9pt; font-f
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Stay</span><span style="font-size: 9pt; font-family: 'Tre
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">StayDetail</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">Stay</span><span style="font-size: 9pt; font-family: 'Tre
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #800000;">StayDetail</span><span style="font-size: 9pt; font-family
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';">  &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;</span><span style="font-size: 9pt; font-fam
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 9pt; font-family: 'Trebuchet MS';"> </span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color: #0000ff;">&lt;/</span><span style="font-size: 9pt; font-family: 'Trebuchet MS'; color:
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 10px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">HRateQueue</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">QUEUE,PRE(H1)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">Sysid</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">StartDate</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">EndDate</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">Total</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">End</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">DRateQueue</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">QUEUE,PRE(D1)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">Sysid</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">STRING(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">StartDate</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">EndDate</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">Rate</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">string(20)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">End</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><br>
+</td>
+<td valign="top" width="186" style="width:186px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">NDX</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="103" style="width:103px;"><p><span class="f_CourierFixed">I</span></p>
+</td>
+<td valign="top" width="186" style="width:186px;"><p><span class="f_CourierFixed">SHORT</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 10px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> IF ~XML:FindNextNode('StayInformation','Stay')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp;LOOP I = 1 TO 255</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; XML:PrimaryFieldCascade('SysId',format(I,@n03))</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NDX = XML:LoadQueue(HRateQueue,False,False)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IF NDX</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SaveState = XML:SaveState()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If ~XML:FindNextNode('StayDetail','RoomRate')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(DRateQueue,True,True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if ~XML:RestoreState(SaveState)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; XML:FreeState(SaveState)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;END</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;END</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;XML:PrimaryFieldClear()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if XML:GotoSibling() then break. &nbsp;! &lt;StayInformation&gt;&lt;Stay&gt;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;END</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp; &nbsp; &nbsp; end</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">xml:free()</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">end</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

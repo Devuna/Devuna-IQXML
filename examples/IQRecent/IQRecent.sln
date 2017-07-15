@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "IQRecent", "IQRecent.cwproj", "{909C321F-C28E-43D7-8A0D-2C7E7C2BF9D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		IQRecent.app = IQRecent.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{909C321F-C28E-43D7-8A0D-2C7E7C2BF9D0}.Debug|Win32.Build.0 = Debug|Win32
+		{909C321F-C28E-43D7-8A0D-2C7E7C2BF9D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{909C321F-C28E-43D7-8A0D-2C7E7C2BF9D0}.Release|Win32.Build.0 = Release|Win32
+		{909C321F-C28E-43D7-8A0D-2C7E7C2BF9D0}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

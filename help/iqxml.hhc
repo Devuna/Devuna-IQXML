@@ -1,0 +1,646 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name=Name" value="Introduction">
+	<param name="Local" value="html\introduction.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="General Use">
+	<param name="Local" value="html\secondtopic.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Glossary">
+	<param name="Local" value="html\glossary.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Functionality and Limitations">
+	<param name="Local" value="html\functionsandlimitations.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Including in your Application">
+	<param name="Local" value="html\includinginyourapplication.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Support and Help">
+	<param name="Local" value="html\supportandhelp.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Template Support">
+	<param name="Local" value="html\templatesupport.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Functions">
+	<param name="Local" value="html\functions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="DebugQueue Overview">
+	<param name="Local" value="html\overview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser Functions">
+	<param name="Local" value="html\parserfunctions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddReplaceEntry">
+	<param name="Local" value="html\xmladdreplaceentry.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AttributeFieldClear">
+	<param name="Local" value="html\xmlattributefieldclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AttributeFieldSet">
+	<param name="Local" value="html\xmlattributefieldset.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AutoRootClear">
+	<param name="Local" value="html\xmlautorootclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AutoRootSet">
+	<param name="Local" value="html\xmlautorootset.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:BinaryFieldClear">
+	<param name="Local" value="html\xmlbinaryfieldclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:BinaryFieldSet">
+	<param name="Local" value="html\xmlbinaryfieldset.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:DebugMyQueue">
+	<param name="Local" value="html\xmldebugmyqueue.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:DebugQueue">
+	<param name="Local" value="html\xmldebugqueue.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:DebugTrace">
+	<param name="Local" value="html\xmldebugtrace.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:DumpMemory">
+	<param name="Local" value="html\xmldumpmemory.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:FindAnyNode">
+	<param name="Local" value="html\xmlfindanynode.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:FindNextContent">
+	<param name="Local" value="html\xmlfindnextcontent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:FindNextNode">
+	<param name="Local" value="html\xmlfindnextnode.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:Free">
+	<param name="Local" value="html\xmlfree.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:FreeState">
+	<param name="Local" value="html\xmlfreestate.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetError">
+	<param name="Local" value="html\xmlgeterror.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetPointer">
+	<param name="Local" value="html\xmlgetpointer.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetRawContent">
+	<param name="Local" value="html\xmlgetsoapcontent_2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetSoapContent">
+	<param name="Local" value="html\xmlgetsoapcontent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GotoChild">
+	<param name="Local" value="html\xmlgotochild.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GotoParent">
+	<param name="Local" value="html\xmlgotoparent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GotoSibling">
+	<param name="Local" value="html\xmlgotosibling.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GotoTop">
+	<param name="Local" value="html\xmlgototop.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:IsValid">
+	<param name="Local" value="html\xmlisvalid.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:LoadFromFile">
+	<param name="Local" value="html\xmlloadfromfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:LoadFromString">
+	<param name="Local" value="html\xmlloadfromstring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:LoadQueue">
+	<param name="Local" value="html\xmlloadqueue.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:PrimaryFieldCascade">
+	<param name="Local" value="html\xmlprimaryfieldcascade.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:PrimaryFieldClear">
+	<param name="Local" value="html\xmlprimaryfieldclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:PrimaryKeyCascade">
+	<param name="Local" value="html\xmlprimarykeycascade.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:PrimaryKeyClear">
+	<param name="Local" value="html\xmlprimarykeyclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:QualifyFieldClear">
+	<param name="Local" value="html\xmlqualifyfieldclear.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:QualifyFieldSet">
+	<param name="Local" value="html\xmlqualifyfieldset.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadComment">
+	<param name="Local" value="html\xmlreadcomment.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadCurrentData">
+	<param name="Local" value="html\xmlreadcurrentdata.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadCurrentNode">
+	<param name="Local" value="html\xmlreadcurrentnode.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadCurrentRecord">
+	<param name="Local" value="html\xmlreadcurrentrecord.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadNextRecord">
+	<param name="Local" value="html\xmlreadnextrecord.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ReadPreviousRecord">
+	<param name="Local" value="html\xmlreadpreviousrecord.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:RestoreState">
+	<param name="Local" value="html\xmlrestorestate.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:RootFromFile">
+	<param name="Local" value="html\xmlrootfromfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:RootFromString">
+	<param name="Local" value="html\xmlrootfromstring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SaveState">
+	<param name="Local" value="html\xmlsavestate.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetBoundry">
+	<param name="Local" value="html\xmlsetboundry.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetEncoding">
+	<param name="Local" value="html\xmlsetencoding.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetPointer">
+	<param name="Local" value="html\xmlsetpointer.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetProgressWindow">
+	<param name="Local" value="html\xmlsetprogresswindow.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SkipDebug">
+	<param name="Local" value="html\xmlskipdebug.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Write Functions">
+	<param name="Local" value="html\writefunctions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddChild">
+	<param name="Local" value="html\xmladdchild.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddComment">
+	<param name="Local" value="html\xmladdcomment.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddElement">
+	<param name="Local" value="html\xmladdelement.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddFromFile">
+	<param name="Local" value="html\xmladdfromfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddFromGroup">
+	<param name="Local" value="html\xmladdfromgroup.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddFromQueue">
+	<param name="Local" value="html\xmladdfromqueue.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddParent">
+	<param name="Local" value="html\xmladdparent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddParentBinary">
+	<param name="Local" value="html\xmladdparentbinary.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:AddStringText">
+	<param name="Local" value="html\xmladdstringtext.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CloseParent">
+	<param name="Local" value="html\xmlcloseparent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CloseXMLFile">
+	<param name="Local" value="html\xmlclosexmlfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CloseXMLString">
+	<param name="Local" value="html\xmlclosexmlstring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CreateAttribute">
+	<param name="Local" value="html\xmlcreateattribute.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CreateEchoToken">
+	<param name="Local" value="html\xmlcreateechotoken.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CreateParent">
+	<param name="Local" value="html\xmlcreateparent.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CreateXMLFile">
+	<param name="Local" value="html\xmlcreatexmlfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:CreateXMLString">
+	<param name="Local" value="html\xmlcreatexmlstring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetLastString">
+	<param name="Local" value="html\xmlgetlaststring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetTime">
+	<param name="Local" value="html\xmlgettime.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:GetSize">
+	<param name="Local" value="html\xmlgetsize.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetElementPrefix">
+	<param name="Local" value="html\xmlsetelementprefix.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetEncoding">
+	<param name="Local" value="html\xmlsetencoding_2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetIgnoreEmpty">
+	<param name="Local" value="html\xmlsetignoreblanks.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetFieldPicture">
+	<param name="Local" value="html\xmlsetfieldpicture.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetNoComments">
+	<param name="Local" value="html\xmlsetnocomments.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:SetNoIndent">
+	<param name="Local" value="html\xmlcreateechotoken_2.htm">
+</OBJECT>
+</UL>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Other XML Helpful Functions">
+	<param name="ImageNumber" value="1">
+	<param name="Local" value="html\other_functions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ConvertToGMT">
+	<param name="Local" value="html\xmlconverttogmt.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ConvertTimeStamptoLocal">
+	<param name="Local" value="html\new_topic.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:HTMLtoPlainText">
+	<param name="Local" value="html\xmlhtmltoplaintext.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:PickFileToDebug">
+	<param name="Local" value="html\xmlpickfiletodebug.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Swiss Army Knife">
+	<param name="Local" value="html\swiss_army_knife.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Date/Time Functions">
+	<param name="Local" value="html\date_time_functions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:CalendarPicker">
+	<param name="Local" value="html\sacalendarpicker.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:FullTimeSinceNow">
+	<param name="Local" value="html\safulltimesincenow.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:FormatSQLDate">
+	<param name="Local" value="html\saformatsqldate.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetDateTimeSimple">
+	<param name="Local" value="html\sagetdatetimesimple.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetDateTimeString">
+	<param name="Local" value="html\sagetdatetimestring.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetDaysInMonth">
+	<param name="Local" value="html\sagetdaysinmonth.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetDOW">
+	<param name="Local" value="html\getdow.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetMonthName">
+	<param name="Local" value="html\sagetmonthname.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetSecondsString">
+	<param name="Local" value="html\saformattime.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:RangePicker">
+	<param name="Local" value="html\sarangepicker.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:MinutesSinceNow">
+	<param name="Local" value="html\saminutessincenow.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:TimeSinceNow">
+	<param name="Local" value="html\satimesincenow.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="File Functions">
+	<param name="Local" value="html\file_functions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:FixAsFileName">
+	<param name="Local" value="html\safixasfilename.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:FormatFileSize">
+	<param name="Local" value="html\saformatfilesize.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetFileInfo">
+	<param name="Local" value="html\other_functions2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ReadFromFile">
+	<param name="Local" value="html\sawritetofile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:WriteToFile">
+	<param name="Local" value="html\sawritetofile_2.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="String Manipulation">
+	<param name="Local" value="html\string_minipulation.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:Extract">
+	<param name="Local" value="html\xmlreplace_2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ExtractPortion">
+	<param name="Local" value="html\xmlextractportion.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:Parse">
+	<param name="Local" value="html\xmlreplace_2_2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ParseBreak">
+	<param name="Local" value="html\xmlparsebreak.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:Replace">
+	<param name="Local" value="html\xmlreplace.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:AppendCharacter">
+	<param name="Local" value="html\saappendcharacter.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ClipAndJustify">
+	<param name="Local" value="html\saclipandjustify.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetCRC">
+	<param name="Local" value="html\sagetcrc.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ConvertToDecimal">
+	<param name="Local" value="html\saconverttodecimal.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ExtractCharacters">
+	<param name="Local" value="html\saextractcharacters.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ExtractInside">
+	<param name="Local" value="html\saextractinside.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ExtractOutside">
+	<param name="Local" value="html\saextractbetween.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ExtractParm">
+	<param name="Local" value="html\saextractparm.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:DoesItContain">
+	<param name="Local" value="html\sadoesitcontain.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:DoesItContainAny">
+	<param name="Local" value="html\sadoesitcontainany.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:MixedCase">
+	<param name="Local" value="html\samixedcase.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:RemoveLeadingChars">
+	<param name="Local" value="html\saremoveleadingzeros.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:RemoveTrailingChars">
+	<param name="Local" value="html\saremovetrailingchars.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:SeparateWith">
+	<param name="Local" value="html\saseparatewith.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:StringCount">
+	<param name="Local" value="html\sastringcount.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:StripAllButNumbers">
+	<param name="Local" value="html\sastripallbutnumbers.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:StripACharacter">
+	<param name="Local" value="html\sastripacharacter.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Special Functions">
+	<param name="Local" value="html\special_functions.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:ChangeColorTint">
+	<param name="Local" value="html\sachangecolortint.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetOpSystem">
+	<param name="Local" value="html\sagetopsystem.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:GetVideoSize">
+	<param name="Local" value="html\sagetvideosize.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:RGBToDecimal">
+	<param name="Local" value="html\sargbtodecimal.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="SA:WriteToSysDebugger">
+	<param name="Local" value="html\sawritetosysopdebugger.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="XML:ViewFile">
+	<param name="Local" value="html\xmlviewfile.htm">
+</OBJECT>
+</UL>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Sample Applications">
+	<param name="Local" value="html\sampleapplications.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Why iQ-XML Is So Powerful">
+	<param name="Local" value="html\parser_whyiq_xmlissopowe.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Sub Node Processing">
+	<param name="Local" value="html\parserexample_subnodeproc.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Loading Queue at Once">
+	<param name="Local" value="html\parser_loadingqueueatonce.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Using PrimaryKeyCascade">
+	<param name="Local" value="html\parser_usingprimarykeycasca.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Using PrimaryFieldCascade">
+	<param name="Local" value="html\parser_usingprimaryfieldcas.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Parser - Real OTA/XML Example">
+	<param name="Local" value="html\parser_realotaxmlexample.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Write - AddFromQueue Example">
+	<param name="Local" value="html\write_addtoqueueexample.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Write - Clarion Process Chain">
+	<param name="Local" value="html\write_clarionprocesschain.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Write - Export to write TPS file contents">
+	<param name="Local" value="html\write_out_contents_of_a_file.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Version Information">
+	<param name="Local" value="html\versioninformation.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Versions">
+	<param name="Local" value="html\version_2_00.htm">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

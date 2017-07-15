@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+ <Customers>
+  <Demo When="Today!">
+   <Customer Code="Prior" FirstName="Maddy">
+    <Address>
+    <StreetName>123 Main Street</StreetName>
+    <City>Wethersfield</City>
+    <State>CT</State>
+    <Zipcode>06109</Zipcode>
+    <Country>USA</Country>
+    </Address>
+    <Invoices>
+     <Invoice>
+     <InvoiceAmt>      100.00</InvoiceAmt>
+     <InvoiceDate>2009-04-01</InvoiceDate>
+     <InvoiceNo>1</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      200.00</InvoiceAmt>
+     <InvoiceDate>2009-04-02</InvoiceDate>
+     <InvoiceNo>2</InvoiceNo>
+     </Invoice>
+    </Invoices>
+   </Customer>
+   <Customer Code="Paresi" FirstName="Robert">
+    <Address>
+    <StreetName>55 Bedlam Born</StreetName>
+    <City>Newington</City>
+    <State>CT</State>
+    <Zipcode>06111</Zipcode>
+    <Country>USA</Country>
+    </Address>
+    <Invoices>
+     <Invoice>
+     <InvoiceAmt>      267.00</InvoiceAmt>
+     <InvoiceDate>2005-04-07</InvoiceDate>
+     <InvoiceNo>1028</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      198.00</InvoiceAmt>
+     <InvoiceDate>2005-04-22</InvoiceDate>
+     <InvoiceNo>2618</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      128.00</InvoiceAmt>
+     <InvoiceDate>2005-04-08</InvoiceDate>
+     <InvoiceNo>1160</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      132.00</InvoiceAmt>
+     <InvoiceDate>2005-04-07</InvoiceDate>
+     <InvoiceNo>218</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      188.00</InvoiceAmt>
+     <InvoiceDate>2005-04-19</InvoiceDate>
+     <InvoiceNo>2237</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      181.00</InvoiceAmt>
+     <InvoiceDate>2005-04-01</InvoiceDate>
+     <InvoiceNo>1733</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      292.00</InvoiceAmt>
+     <InvoiceDate>2005-04-28</InvoiceDate>
+     <InvoiceNo>1513</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      150.00</InvoiceAmt>
+     <InvoiceDate>2005-04-11</InvoiceDate>
+     <InvoiceNo>884</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      163.00</InvoiceAmt>
+     <InvoiceDate>2005-04-02</InvoiceDate>
+     <InvoiceNo>2244</InvoiceNo>
+     </Invoice>
+     <Invoice>
+     <InvoiceAmt>      269.00</InvoiceAmt>
+     <InvoiceDate>2005-04-14</InvoiceDate>
+     <InvoiceNo>1071</InvoiceNo>
+     </Invoice>
+    </Invoices>
+   </Customer>
+  </Demo>
+ </Customers>

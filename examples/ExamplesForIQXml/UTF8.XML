@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <Examples Type="UTF8 Writer Demo">
+ <!--Press View in Browser to see the field show differently.-->
+  <Example UTFField="TestingüTesting" Cost="€100.00">
+   <AsElements>
+   <Danish>The Double-Byte Danish Character is: ü (One character shown in Web Browser)</Danish>
+   <Euro>The Triple-Byte Euro Symbol is: € (One character shown in Web Browser)</Euro>
+   </AsElements>
+  </Example>
+ </Examples>

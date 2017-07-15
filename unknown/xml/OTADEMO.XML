@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Packet Delivery: Group from PARESIR  RM Version: 14.51-->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Header>
+        <HTNGHeader xmlns="http://htng.org/1.1/Header/">
+            <From>
+                <systemId>InnQuest</systemId>
+                <address>PARESIR/rm14.51</address>
+                <Credential>
+                    <userName>TEST</userName>
+                    <password>TEST</password>
+                </Credential>
+            </From>
+            <To>
+                <systemID>IQCRS</systemID>
+            </To>
+            <timeStamp>2012-03-22T16:19:51-07:00</timeStamp>
+            <echoToken>fd09a66f-913d-e837-db52-f23fdc7eec0b</echoToken>
+            <transactionId>771515879199</transactionId>
+            <action>Request</action>
+        </HTNGHeader>
+    </soap:Header>
+    <soap:Body>
+        <OTA_HotelInvBlockNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelInvBlockNotifRQ.xsd" Target="Production" Version="2.000">
+            <InvBlocks>
+                <InvBlock BookingStatus="Open" InvBlockCode="CLIVE" InvBlockName="Clarion Live Group" InvBlockLongName="Clarion Live Group" InvBlockStatusCode="2" PMS_InvBlockID="CLIVE" TransactionAction="Book">
+                    <HotelRef HotelCode="TEST" />
+                    <InvBlockDates Start="2012-11-18" End="2012-11-21" AbsoluteCutoff="2012-10-31" />
+                    <RoomTypes>
+                        <RoomType RoomTypeCode="DBL">
+                            <RoomTypeAllocations>
+                                <RoomTypeAllocation Start="2012-11-18" Duration="P1D" NumberOfUnits="50" SellLimit="50" />
+                                <RoomTypeAllocation Start="2012-11-19" Duration="P1D" NumberOfUnits="50" SellLimit="50" />
+                                <RoomTypeAllocation Start="2012-11-20" Duration="P1D" NumberOfUnits="50" SellLimit="50" />
+                                <RoomTypeAllocation Start="2012-11-21" Duration="P1D" NumberOfUnits="50" SellLimit="50" />
+                            </RoomTypeAllocations>
+                            <RatePlans>
+                                <RatePlan RatePlanCode="BAR" />
+                            </RatePlans>
+                        </RoomType>
+                        <RoomType RoomTypeCode="MDBL">
+                            <RoomTypeAllocations>
+                                <RoomTypeAllocation Start="2012-11-18" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                                <RoomTypeAllocation Start="2012-11-19" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                                <RoomTypeAllocation Start="2012-11-20" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                                <RoomTypeAllocation Start="2012-11-21" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                            </RoomTypeAllocations>
+                            <RatePlans>
+                                <RatePlan RatePlanCode="BAR" />
+                            </RatePlans>
+                        </RoomType>
+                    </RoomTypes>
+                    <MethodInfo BillingType="EachPaysOwn" SignFoodAndBev="false" />
+                    <BlockDescriptions>
+                        <BlockDescription Name="Clarion Live Group" Start="2012-11-18" End="2012-11-21" CreateDateTime="2012-03-22T00:00:00" CreatorID="RJP" LastModifyDateTime="2012-03-22T00:00:00" LastModifierID="RJP">
+                        </BlockDescription>
+                    </BlockDescriptions>
+                    <Contacts>
+                        <Contact ContactType="Group Contact">
+                            <PersonName>
+                                <NamePrefix>Mr</NamePrefix>
+                                <GivenName>Arnold</GivenName>
+                                <Surname>Young</Surname>
+                            </PersonName>
+                            <Telephone PhoneNumber="912-555-1212" />
+                            <Telephone PhoneNumber="912-666-7777" />
+                            <Address>
+                                <AddressLine>1 Main Street</AddressLine>
+                                <CityName>Richmond</CityName>
+                                <PostalCode>94001</PostalCode>
+                                <StateProv>CA</StateProv>
+                                <CountryName>USA</CountryName>
+                            </Address>
+                            <Email>arnold@clarionlive.com</Email>
+                        </Contact>
+                        <Contact ContactType="Hotel Contact">
+                            <PersonName>
+                                <GivenName>Paris Hilton</GivenName>
+                            </PersonName>
+                            <CompanyName CompanyShortName="Hilton Hotels" Department="Main Sales Office" />
+                        </Contact>
+                    </Contacts>
+                </InvBlock>
+                <InvBlock BookingStatus="Open" InvBlockCode="INNQ" InvBlockName="InnQuest Users Conference" InvBlockLongName="InnQuest Users Conference" InvBlockStatusCode="2" PMS_InvBlockID="INNQ" TransactionAction="Book">
+                    <HotelRef HotelCode="TEST" />
+                    <InvBlockDates Start="2012-11-26" End="2012-11-26" AbsoluteCutoff="2012-10-31" />
+                    <RoomTypes>
+                        <RoomType RoomTypeCode="DBL">
+                            <RoomTypeAllocations>
+                                <RoomTypeAllocation Start="2012-11-26" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                            </RoomTypeAllocations>
+                            <RatePlans>
+                                <RatePlan RatePlanCode="BAR" />
+                            </RatePlans>
+                        </RoomType>
+                        <RoomType RoomTypeCode="MDBL">
+                            <RoomTypeAllocations>
+                                <RoomTypeAllocation Start="2012-11-26" Duration="P1D" NumberOfUnits="25" SellLimit="25" />
+                            </RoomTypeAllocations>
+                            <RatePlans>
+                                <RatePlan RatePlanCode="BAR" />
+                            </RatePlans>
+                        </RoomType>
+                    </RoomTypes>
+                    <MethodInfo BillingType="SignRoomAndTax" SignFoodAndBev="true" />
+                    <BlockDescriptions>
+                        <BlockDescription Name="InnQuest Users Conference" Start="2012-11-26" End="2012-11-26" CreateDateTime="2012-03-22T00:00:00" CreatorID="RJP">
+                        </BlockDescription>
+                    </BlockDescriptions>
+                    <Contacts>
+                        <Contact ContactType="Group Contact">
+                            <PersonName>
+                                <NamePrefix>Mr</NamePrefix>
+                                <GivenName>Steeleye</GivenName>
+                                <Surname>Span</Surname>
+                            </PersonName>
+                            <Telephone PhoneNumber="813-555-1212" />
+                            <Telephone PhoneNumber="813-555-1212" />
+                            <Address>
+                                <AddressLine>123 Montrose Blvd</AddressLine>
+                                <CityName>Darby</CityName>
+                                <PostalCode>90404</PostalCode>
+                                <StateProv>CA</StateProv>
+                            </Address>
+                            <Email>steeleyespan@parkrecords.com</Email>
+                        </Contact>
+                        <Contact ContactType="Hotel Contact">
+                            <PersonName>
+                                <GivenName>Paris Hilton</GivenName>
+                            </PersonName>
+                            <CompanyName CompanyShortName="Hilton Hotels" Department="Main Sales Office" />
+                        </Contact>
+                    </Contacts>
+                </InvBlock>
+            </InvBlocks>
+        </OTA_HotelInvBlockNotifRQ>
+    </soap:Body>
+</soap:Envelope>

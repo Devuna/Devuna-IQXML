@@ -1,0 +1,110 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:SetEncoding</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:SetEncoding</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="100" style="width:100px;"><p>STRING</p>
+</td>
+<td valign="top" width="519" style="width:519px;"><p>Encoding type such as UTF-8</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="100" style="width:100px;"><p>&lt;BYTE&gt;</p>
+</td>
+<td valign="top" width="519" style="width:519px;"><p>True = Prefix XMLCreateFile with needed header </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><br>
+</td>
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="519" style="width:519px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="97" style="width:97px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="100" style="width:100px;"><br>
+</td>
+<td valign="top" width="519" style="width:519px;"><p>Does not return value</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>If no Encoding value is located in the header of the XML file, then iQ-XML assumes <span style="font-weight: bold;">ISO-8859-1 (Default),</span> which <span style="font-weight: bold;"> </span>accepts all ASCII characters (Latin and extended ASCII) - Al
+<p>&nbsp;</p>
+<p>Before issuing the <span style="font-weight: bold;">XML:LoadFromFile</span> or <span style="font-weight: bold;">XML:LoadFromString</span> function, you can force the encoding type. &nbsp;If you force the encoding type, if the XML file has an encoding v
+<p>&nbsp;</p>
+<p>You must call XML:SetEncoding prior to every XML:LoadFromFile or XML:LoadFromString function. &nbsp;This value is cleared after each load.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:SetEncoding('UTF-8')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~Xml:LoadFromFile('testing.xml',False)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:SetEncoding('UTF-8',True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New';">IF NOT XML:CreateXMLFile('c:\outbound\myfile.xml','1.0','UTF-8',True)</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New';">Note: Most/All XML Parsers will not read the first three bytes or use them (Web Service) so it would not be needed...but some standalone notepads/browsers would
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: 'Arial';">For writing a file with an Encoding override, the file must be created first and then the encoding being overridden.</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If ~Xml:CreateXMLFile('testing.xml','1.0','UTF-8')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:SetEncoding('Windows-1251')</span></p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

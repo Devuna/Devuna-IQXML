@@ -1,0 +1,128 @@
+<!--
+! ================================================================================
+! Notice : Copyright (C) 2017, Paresi
+!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!
+!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
+!
+!    Devuna-IQXML is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    Devuna-IQXML is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! ================================================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>XML:GotoParent</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#004800">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">XML:GotoParent</span></p>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffcc99" border="0" style="background-color: #ffcc99; border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><p><span class="f_ImageCaption">Parameters:</span></p>
+</td>
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="514" style="width:514px;"><p>No parameters</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><br>
+</td>
+<td valign="top" width="102" style="width:102px;"><br>
+</td>
+<td valign="top" width="514" style="width:514px;"><br>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="98" style="width:98px;"><p><span class="f_ImageCaption">Return Type:</span></p>
+</td>
+<td valign="top" width="102" style="width:102px;"><p><span style="font-style: italic;">SHORT</span></p>
+</td>
+<td valign="top" width="514" style="width:514px;"><p>XML Error Code (see end of document)</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>Advances the cursor location to the parent node. &nbsp;If the parent is not found, the cursor location is not changed and an error is returned indicating top of XML file. </p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p>If you are have already been on a &quot;parent record&quot;, and you wish to return back to it after sub-level processing, <a href="xmlsavestate.htm">XML:SaveState</a> and <a href="xmlrestorestate.htm">XML:RestoreState</a> is more efficient than using
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="24"><span
+<p><span class="f_ImageCaption">Example 1:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="288" style="width:288px;"><p><span class="f_CourierFixed">If ~xml:FindNextNode('PersonName')</span></p>
+</td>
+<td valign="top" width="208" style="width:208px;"><p><span class="f_CourierFixed">! positions to line 4</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="288" style="width:288px;"><p><span class="f_CourierFixed">If ~xml:GotoParent()</span></p>
+</td>
+<td valign="top" width="208" style="width:208px;"><p><span class="f_CourierFixed">! positions to line 3 </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="288" style="width:288px;"><p><span class="f_CourierFixed">If ~xml:GotoParent()</span></p>
+</td>
+<td valign="top" width="208" style="width:208px;"><p><span class="f_CourierFixed">! positions to line 2</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="288" style="width:288px;"><p><span class="f_CourierFixed">If ~xml:GotoParent()</span></p>
+</td>
+<td valign="top" width="208" style="width:208px;"><p><span class="f_CourierFixed">! positions to line 1</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="288" style="width:288px;"><p><span class="f_CourierFixed">If ~xml:GotoParent()</span></p>
+</td>
+<td valign="top" width="208" style="width:208px;"><p><span class="f_CourierFixed">! returns error</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+<p><span style="width:230px">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

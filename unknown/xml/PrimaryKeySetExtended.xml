@@ -1,0 +1,75 @@
+<xmlmessage>
+	<Customers>
+	 <Customer id="123">
+	  <Header name="Burlington" >
+	  	  <address>
+	    <Line1>123 Main Street</Line1>
+	    <Line2>Newtown, Florida 33612</Line2>
+	  </address>
+	  <Trucking Transport="UPS" Method="FOB"/>
+	  </Header>
+	  <Invoices>
+	   <Invoice Number="100"  date="2006-01-01"  Amount="123.00">
+	   <Notes>
+	     <note ID="1000">
+	     <Line1>This is the first note</Line1>
+	     <Line2>This is the first note</Line2>
+	     <Line3>This is the first note</Line3>
+	     </note>
+	     <note ID="1001">
+	     <Line1>This is the second note</Line1>
+	     <Line2>This is the second note</Line2>
+	     <Line3>This is the second note</Line3>
+	     </note>
+	     <note ID="1002">
+	     <Line1>This is the third note</Line1>
+	     <Line2>This is the third note</Line2>
+	     <Line3>This is the third note</Line3>
+	     </note>
+	   </Notes>
+	   </Invoice>
+	   <Invoice Number="101"  date="2006-01-02"  Amount="1000.00">
+	   <Notes>
+	     <note>This is another first note</note>
+	     <note>This is another second note</note>
+	   </Notes>
+	   </Invoice>
+	   </Invoices>
+	 </Customer>
+	 	 <Customer id="1234">
+	  <Header name="Burlington Sister Company" >
+	  	  <address>
+	    <Line1>124 Main Street </Line1>
+	    <Line2>Newtown, Florida 33612</Line2>
+	  </address>
+	  </Header>
+	  <Invoices>
+	   <Invoice Number="1000"  date="2006-01-01"  Amount="123.00">
+	   <Notes>
+	     <note ID="1003">
+	     <Line1>This is the first note</Line1>
+	     <Line2>This is the first note</Line2>
+	     <Line3>This is the first note</Line3>
+	     </note>
+	     <note ID="1004">
+	     <Line1>This is the second note</Line1>
+	     <Line2>This is the second note</Line2>
+	     <Line3>This is the second note</Line3>
+	     </note>
+	     <note ID="1005">
+	     <Line1>This is the third note</Line1>
+	     <Line2>This is the third note</Line2>
+	     <Line3>This is the third note</Line3>
+	     </note>
+	   </Notes>
+	   </Invoice>
+	   <Invoice Number="1001"  date="2006-01-02"  Amount="1000.00">
+	   <Notes>
+	     <note>This is another first note</note>
+	     <note>This is another second note</note>
+	   </Notes>
+	   </Invoice>
+	   </Invoices>
+	 </Customer>
+</Customers>	   
+</xmlmessage>

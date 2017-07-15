@@ -1,0 +1,104 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{B1E051A1-8990-4F96-9ECB-7AEFF0CFD53E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>iqxml</AssemblyName>
+    <OutputName>iqxml</OutputName>
+    <Model>Dll</Model>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <stack_size>16384</stack_size>
+    <CopyCore>False</CopyCore>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>full</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+    <warnings>err</warnings>
+    <GenerateMap>True</GenerateMap>
+    <line_numbers>True</line_numbers>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="iqxml.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="iqxml_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <Library Include="iqxml.Version" />
+    <Library Include="version.lib" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

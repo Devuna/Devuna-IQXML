@@ -1,0 +1,79 @@
+<xmlmessage>
+	<Customers>
+		<Customer ID="1">
+			<PersonName>
+				<GivenName>Robert</GivenName>
+				<Surname>Paresi</Surname>
+			</PersonName>
+			<Address>
+				<AddressLine>111 Main Street</AddressLine>
+				<AddressLine>PO Box 12</AddressLine>
+			</Address>
+			<CityName>Hartford</CityName>
+			<PostalCode>06331</PostalCode>
+			<StateProv>this is it&lt;Hello&gt; </StateProv>
+			<Invoices>
+				<Invoice Invoiceno="1-1" InvoiceDate="2005-01-01" InvoiceAmt="1.00"/>
+				<Invoice Invoiceno="1-2" InvoiceDate="2005-03-02" InvoiceAmt="2.00"/>
+				<Invoice Invoiceno="1-3" InvoiceDate="2005-04-02" InvoiceAmt="3.00"/>
+			</Invoices>
+		</Customer>
+		
+		<Customer ID="2">
+			<PersonName>
+				<GivenName>Robert</GivenName>
+				<Surname>Jones</Surname>
+			</PersonName>
+			<Address>
+				<AddressLine>1 Dunninghurst Ave</AddressLine>
+			</Address>
+			<CityName>Elmhurst</CityName>
+			<PostalCode>12122</PostalCode>
+			<StateProv>NY</StateProv>
+			<Invoices>
+				<Invoice Invoiceno="2-1" InvoiceDate="2005-01-01" InvoiceAmt="10.00"/>
+				<Invoice Invoiceno="2-2" InvoiceDate="2005-02-01" InvoiceAmt="11.00"/>
+				<Invoice Invoiceno="2-3" InvoiceDate="2005-03-01" InvoiceAmt="12.00"/>
+				<Invoice Invoiceno="2-4" InvoiceDate="2005-04-01" InvoiceAmt="13.00"/>
+			</Invoices>
+		</Customer>
+<Customer ID="3">
+			<PersonName>
+				<GivenName>Tyler</GivenName>
+				<Surname>White</Surname>
+			</PersonName>
+			<Address>
+				<AddressLine>Line 1 Address</AddressLine>
+				<AddressLine>Line 2 Address</AddressLine>
+				<AddressLine>Line 3 Address</AddressLine>
+			</Address>
+			<CityName>Wethersfield</CityName>
+			<PostalCode>06109</PostalCode>
+			<StateProv>CT</StateProv>
+			<Invoices>
+				<Invoice Invoiceno="3-1" InvoiceDate="2014-01-01" InvoiceAmt="100.00"/>
+				<Invoice Invoiceno="3-2" InvoiceDate="2014-03-02" InvoiceAmt="101.00"/>
+				<Invoice Invoiceno="3-3" InvoiceDate="2014-04-02" InvoiceAmt="102.00"/>
+			</Invoices>
+		</Customer>
+		<Customer ID="4">
+			<PersonName>
+				<GivenName>Francis Scott</GivenName>
+				<Surname>Key</Surname>
+			</PersonName>
+			<Address>
+				<AddressLine>101 - 102 Alley Way's</AddressLine>
+				<AddressLine>Apt #124</AddressLine>
+			</Address>
+			<CityName>Bubblestrong</CityName>
+			<PostalCode>12122</PostalCode>
+			<StateProv>NY</StateProv>
+			<Invoices>
+				<Invoice Invoiceno="4-1" InvoiceDate="2005-01-01" InvoiceAmt="1000.00"/>
+				<Invoice Invoiceno="4-2" InvoiceDate="2005-02-01" InvoiceAmt="1001.00"/>
+				<Invoice Invoiceno="4-3" InvoiceDate="2005-03-01" InvoiceAmt="1002.00"/>
+				<Invoice Invoiceno="4-4" InvoiceDate="2005-04-01" InvoiceAmt="1003.00"/>
+			</Invoices>
+		</Customer>		
+	</Customers>
+</xmlmessage>

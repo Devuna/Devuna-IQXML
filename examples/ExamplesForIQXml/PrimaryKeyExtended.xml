@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlmessage>
+	<Customers>
+	 <Customer id="123">
+	  <Header name="Burlington" >
+	  	  <address>
+	    <Line1>123 Main Street</Line1>
+	    <Line2>Newtown, Florida 33612</Line2>
+	  </address>
+	  <Trucking Transport="UPS" Method="FOB"/>
+	  </Header>
+	  <Invoices>
+	   <Invoice Number="100"  date="2006-01-01"  Amt="123.00">
+	   <Notes>
+	     <note ID="1000">
+	     <Line>This is the package note.</Line>
+	     <Line>Made by Sam</Line>
+	     </note>
+	     <note ID="1001">
+	     <Line>This is the staging note.</Line>
+	     <Line>Done by Jan</Line>
+	     </note>
+	     <note ID="1002">
+	     <Line>This is the boxing note.</Line>
+	     <Line>Made by Dan</Line>
+	     </note>
+	   </Notes>
+	   </Invoice>
+	   <Invoice Number="101"  date="2006-01-02"  Amt="1000.00">
+	   </Invoice>
+	   </Invoices>
+	 </Customer>
+	 	 <Customer id="1234">
+	  <Header name="Burlington Sister Company" >
+	  	  <address>
+	    <Line1>124 Main Street </Line1>
+	    <Line2>Newtown, Florida 33612</Line2>
+	  </address>
+	  </Header>
+	  <Invoices>
+	   <Invoice Number="1000"  date="2006-01-01"  Amt="123.00">
+	   <Notes>
+	     <note ID="1003">
+	     <Line>This is the packaging note.</Line>
+	     <Line>Made by Fred</Line>
+	     </note>
+	     <note ID="1004">
+	     <Line>This is the shipping note.</Line>
+	     <Line>Made by Ted</Line>
+	     <Line>(Box broke when moving)</Line>
+	     </note>
+	     <note ID="1005">
+	     <Line>This is a delivery note.</Line>
+	     <Line>Made by Ed</Line>
+	     </note>
+	   </Notes>
+	   </Invoice>
+	   <Invoice Number="1006"  date="2006-01-02"  Amt="1000.00">
+	   <Notes>
+	     <note ID="1006">
+	     <Line>This is a delivery note.</Line>
+	     <Line>Made by Allison</Line>
+	     </note>
+	   </Notes>
+	   </Invoice>
+	   </Invoices>
+	 </Customer>
+</Customers>	   
+</xmlmessage>
