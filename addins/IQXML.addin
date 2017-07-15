@@ -11,9 +11,13 @@
 	<Path name = "/SharpDevelop/Workbench/MainMenu/Help/Accessory">
 		<MenuItem id = "IQXML" label = "IQ-XML" type = "Menu">
       <MenuItem id = "iQ-XML Help"
-				  label = "iQ-XML"
+				  label = "iQ-XML Help"
 				  icon = "Icons.16x16.HelpIcon"
 				  link = "home://accessory/Documents/iQXML/iqxml.chm"/>
+      <MenuItem id = "iQ-XML Examples"
+           label = "iQ-XML Examples"
+       icon = "Icons.16x16.Folder"
+           link = "home://Accessory\Vendor\iQXML\iQXML Examples.lnk"/>
 			</MenuItem>
 	</Path>
 </AddIn>
