@@ -82,9 +82,9 @@
 </table>
 </div>
 <p>&nbsp;</p>
-<p>If no Encoding value is located in the header of the XML file, then iQ-XML assumes <span style="font-weight: bold;">ISO-8859-1 (Default),</span> which <span style="font-weight: bold;"> </span>accepts all ASCII characters (Latin and extended ASCII) - Al
+<p>If no Encoding value is located in the header of the XML file, then iQ-XML assumes <span style="font-weight: bold;">ISO-8859-1 (Default),</span> which <span style="font-weight: bold;"> </span>accepts all ASCII characters (Latin and extended ASCII) - All characters are coded in single eight-bit code and unconverted. &nbsp;There may be times when you want to force UTF-8 or some other encoding when the party who created the XML file did not set the encoding properly.</p>
 <p>&nbsp;</p>
-<p>Before issuing the <span style="font-weight: bold;">XML:LoadFromFile</span> or <span style="font-weight: bold;">XML:LoadFromString</span> function, you can force the encoding type. &nbsp;If you force the encoding type, if the XML file has an encoding v
+<p>Before issuing the <span style="font-weight: bold;">XML:LoadFromFile</span> or <span style="font-weight: bold;">XML:LoadFromString</span> function, you can force the encoding type. &nbsp;If you force the encoding type, if the XML file has an encoding value, it will be ignored.</p>
 <p>&nbsp;</p>
 <p>You must call XML:SetEncoding prior to every XML:LoadFromFile or XML:LoadFromString function. &nbsp;This value is cleared after each load.</p>
 <p>&nbsp;</p>
@@ -94,7 +94,7 @@
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">xml:SetEncoding('UTF-8',True)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New';">IF NOT XML:CreateXMLFile('c:\outbound\myfile.xml','1.0','UTF-8',True)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New';">Note: Most/All XML Parsers will not read the first three bytes or use them (Web Service) so it would not be needed...but some standalone notepads/browsers would
+<p style="margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-family: 'Courier New';">Note: Most/All XML Parsers will not read the first three bytes or use them (Web Service) so it would not be needed...but some standalone notepads/browsers would require this as it doesn't use the XML specification to know UTF but the actual header bytes. &nbsp;(EF BB BF) &nbsp; It all depends on if you are going to be opening the created XML file in a browser/notepad, or are you actually sending it to XML parser who will read the &quot;encoding=&quot; portion rather than the header file bytes.</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>

@@ -100,7 +100,7 @@
 <p>&nbsp;</p>
 <p>Takes a ISO8601 Date/Time stamp and returns the Date/Time (Clarion Format) in either Local Workstation Date/Time or in GMT/Zulu time.</p>
 <p>&nbsp;</p>
-<p>NOTE: The Date is just used for return and does not actually take into consideration the actual date and how it was in or out of DST (Daylight Savings Time). &nbsp; It is used simply to take a UTC date/time stamp coming into a web service at the presen
+<p>NOTE: The Date is just used for return and does not actually take into consideration the actual date and how it was in or out of DST (Daylight Savings Time). &nbsp; It is used simply to take a UTC date/time stamp coming into a web service at the present time and knowing what the actual date/time is if needed. &nbsp; Additional DST adjustments must be made if the date is in a different period.</p>
 <p>&nbsp;</p>
 <p><span style="width:48px">&nbsp;</span>YYYY-MM-DDTHH:MM:SS(zone adjustment from GMT)</p>
 <p>&nbsp;</p>
@@ -117,7 +117,7 @@
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="color: #0000ff;">XML:ConvertTimeStampToLocal('2011-01-01T08:09:30+08:00',ClarionDate,ClarionTime,False)</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">message('The&nbsp;workstation&nbsp;time&nbsp;is&nbsp;'&nbsp;&amp;&nbsp;format(ClarionDate,@d017)&nbsp;&amp;&nbsp;'&nbsp;at&nbsp;'&nbsp;&amp;&nbsp;Format(ClarionTime
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">message('The&nbsp;workstation&nbsp;time&nbsp;is&nbsp;'&nbsp;&amp;&nbsp;format(ClarionDate,@d017)&nbsp;&amp;&nbsp;'&nbsp;at&nbsp;'&nbsp;&amp;&nbsp;Format(ClarionTime,@t07))</span></p>
 
 </td></tr></table>
 

@@ -128,7 +128,7 @@
 <p style="margin: 0px 0px 0px 24px;">11 = Write text but prefix with Date (@d017), Time such as <span style="font-weight: bold;">01/15/14 &nbsp;12:12:09.09 &nbsp;Debug Point</span></p>
 <p style="margin: 0px 0px 0px 24px;">12 = Write text but prefix with Date (@d017), Time and Thread such as  <span style="font-weight: bold;">01/15/14 &nbsp;12:12:09.09 &nbsp;002 &nbsp;Debug Point</span></p>
 <p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
-<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">SA:WriteToFile</span><span style="font-size: 9pt; font-family: 'Courier New';">(glo:DebugFile,'Write&nbsp;20&nb
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">SA:WriteToFile</span><span style="font-size: 9pt; font-family: 'Courier New';">(glo:DebugFile,'Write&nbsp;20&nbsp;Records',1,2)</span></p>
 <p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p>&nbsp;</p>
 <p> If you use option 20 (Write data using an ASCII Dump, it would look like this: (16 bytes per line)</p>
@@ -152,7 +152,7 @@
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_ImageCaption"><span class="f_ImageCaption">SA:WriteToFileA</span></p>
 <p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
-<p>Writes/dumps raw data to disk from a Memory <span style="font-weight: bold;">Address</span> (*CSTRING) rather than a passed STRING parameter. &nbsp;This is faster and more memory efficient if you are dumping a large string to disk. &nbsp; Make sure it
+<p>Writes/dumps raw data to disk from a Memory <span style="font-weight: bold;">Address</span> (*CSTRING) rather than a passed STRING parameter. &nbsp;This is faster and more memory efficient if you are dumping a large string to disk. &nbsp; Make sure it is a CSTRING and then pass the CSTRING. &nbsp;(Date/Time stamps not supported)</p>
 <p>&nbsp;</p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:WriteToFileA</span><span class="f_CodeExample" style="font-size: 9pt;">('c:\debug.log',CStringVariable,False)</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>

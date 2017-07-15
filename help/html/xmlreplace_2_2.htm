@@ -123,7 +123,7 @@
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">FullString='Robert,John,Mary,Tyler,Lynn,Chuck,David,Mark,Christy'</span></p>
 <p>&nbsp;</p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">LOOP </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSE(FullString,',','')</span><span class="f_CourierFixed"> TIMES</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span></p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
 <p>&nbsp;</p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">MESSAGE(endstring,'List of Names',icon:asterisk)</span></p>
@@ -132,13 +132,13 @@
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">ENDSTRING = ''</span></p>
 <p>&nbsp;</p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">LOOP </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSE(FullString,',','&quot;')</span><span class="f_CourierFixed"> TIMES</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">ENDSTRING = ENDSTRING &amp; </span><span class="f_CourierFixed" style="color: #0000ff;">XML:PARSEREAD()</span><span class="f_CourierFixed"> &amp; '||'</span></p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">END</span></p>
 <p>&nbsp;</p>
 <p><span style="width:48px">&nbsp;</span><span class="f_CourierFixed">MESSAGE(endstring,'CSV Values',icon:asterisk)</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span class="f_CourierFixed">Note: It is a programmers responsibility to make sure they do not read more than the parse values being returned. &nbsp;Otherwise, check for ERRORCODE(). &nbsp;You can optionally empty the parse results by calling </span><s
+<p><span class="f_CourierFixed">Note: It is a programmers responsibility to make sure they do not read more than the parse values being returned. &nbsp;Otherwise, check for ERRORCODE(). &nbsp;You can optionally empty the parse results by calling </span><span class="f_CourierFixed" style="font-weight: bold;">XML:ParseEmpty()</span><span class="f_CourierFixed"> - however, the results are always emptied when a new PARSE is executed.</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

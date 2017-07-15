@@ -84,11 +84,11 @@
 <p>&nbsp;</p>
 <p><span style="font-weight: bold;">Important Note: &nbsp;Unlike other Set functions, this must be called prior to XML:LoadFromFile or XML:LoadFromString.</span></p>
 <p>&nbsp;</p>
-<p><span class="f_ImageCaption" style="font-weight: normal;">Defines that this field is an encoded BASE64 field and should be decoded. &nbsp; Once the field is decoded, it is placed in a temporary object in the current directory or the directory specified
+<p><span class="f_ImageCaption" style="font-weight: normal;">Defines that this field is an encoded BASE64 field and should be decoded. &nbsp; Once the field is decoded, it is placed in a temporary object in the current directory or the directory specified in the second parameter. &nbsp;Currently, the only supported encoding is Base64.</span></p>
 <p>&nbsp;</p>
-<p><span class="f_ImageCaption" style="font-weight: normal;">You retrieve the pointer/name of the object, the field in the XML:LoadFromQueue, XML:ReadNextRecord, XML:ReadPreviousRecord will contain the pointer/name of the object rather than the value.  </
+<p><span class="f_ImageCaption" style="font-weight: normal;">You retrieve the pointer/name of the object, the field in the XML:LoadFromQueue, XML:ReadNextRecord, XML:ReadPreviousRecord will contain the pointer/name of the object rather than the value.  </span></p>
 <p>&nbsp;</p>
-<p><span class="f_ImageCaption" style="font-weight: normal;">You must move the object or process the object before XML:Free is called, otherwise the temporary object is removed. &nbsp;XML:Free will remove all objects created. If the object no longer exist
+<p><span class="f_ImageCaption" style="font-weight: normal;">You must move the object or process the object before XML:Free is called, otherwise the temporary object is removed. &nbsp;XML:Free will remove all objects created. If the object no longer exists during XML:Free, no error will be displayed so it is fine to simply move the object or rename it should you need to and it.</span></p>
 <p>&nbsp;</p>
 <p><span class="f_ImageCaption" style="font-weight: normal;">See also <a href="xmlbinaryfieldclear.htm">XML:BinaryFieldClear</a></span></p>
 <p>&nbsp;</p>

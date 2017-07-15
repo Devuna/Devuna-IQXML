@@ -85,7 +85,7 @@
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed">If HTTPGetData('127.0.0.1',80,'/xml/datarequest.php?user=1234&amp;pw=1234',ReturnData,ReturnError) = NO_ERROR</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed"> &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;if not xml:LoadFromString(ReturnData)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">case </span><span class="f_CourierFixed" style="color: #0000ff;">xml:RootFromString</span><span
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">case </span><span class="f_CourierFixed" style="color: #0000ff;">xml:RootFromString</span><span class="f_CourierFixed">(ReturnData)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">of 'Customers' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">RunCustomerProcess()</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">of 'Invoices' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>

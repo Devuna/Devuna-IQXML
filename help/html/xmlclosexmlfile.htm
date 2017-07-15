@@ -80,7 +80,7 @@
 <p>&nbsp;</p>
 <p><span style="font-weight: bold;">Close Options</span></p>
 <p>&nbsp;</p>
-<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 8pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">Close Option 1 &nbsp;- </span>Close all unclosed tags that have not been closed before closing the file.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 8pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span style="font-weight: bold;">Close Option 2 </span> - Discard (remove) the XML file. &nbsp;This is if you change your mind and you want the system to delete what it has created rather than keeping it.</td></tr></table></div><p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p><span style="width:48px">&nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">IF NOT XML:CreateXMLFile('MyXML.XML')</span></p>
 <p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">XML:CreateParent('root');XML:AddParent()</span></p>
@@ -93,14 +93,14 @@
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">IF NOT XML:CreateXMLFile('MyXML.XML')</span></p>
 <p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">XML:CreateParent('root');XML:AddParent()</span></p>
 <p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">XML:AddFromGroup(MyGroup,'Detail',True,True)</span></p>
-<p style="margin: 0px 0px 0px 72px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:CloseXMLFile(1) &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #008000;">! close root ta
+<p style="margin: 0px 0px 0px 72px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:CloseXMLFile(1) &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #008000;">! close root tag because it was never closed</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">END</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">IF NOT XML:CreateXMLFile('MyXML.XML')</span></p>
 <p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">XML:CreateParent('root');XML:AddParent()</span></p>
 <p style="margin: 0px 0px 0px 72px;"><span class="f_CourierFixed">XML:AddFromGroup(MyGroup,'Detail',True,True)</span></p>
-<p style="margin: 0px 0px 0px 72px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:CloseXMLFile(2) &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #008000;">! delete the fi
+<p style="margin: 0px 0px 0px 72px;"><span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:CloseXMLFile(2) &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #008000;">! delete the file / nothing is created</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">END</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

@@ -102,14 +102,14 @@
 <p>Looks at a string and returns if the Search value exists as well as returns the search string with the value removed.</p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;look&nbsp;to&nbsp;see&nbsp;if&nbsp;-PASV&nbsp;exists&nbsp;in&nbsp;the&nbsp;string,&nbsp;and&nbsp;if&nbsp;so,&nbsp;rem
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;look&nbsp;to&nbsp;see&nbsp;if&nbsp;-PASV&nbsp;exists&nbsp;in&nbsp;the&nbsp;string,&nbsp;and&nbsp;if&nbsp;so,&nbsp;remove&nbsp;it</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;!&nbsp;g_strHostName&nbsp;=&nbsp;'www.mywebsite.com\directory&nbsp;-PASV'</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">OverridePassive &nbsp; &nbsp; &nbsp; &nbsp;BYTE</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">g_strHostName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;STRING(384)</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample" style="font-size: 9pt;">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">g_StrHostName&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ExtractParm</span><span class="f_Cod
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">g_StrHostName&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ExtractParm</span><span class="f_CodeExample" style="font-size: 9pt;">(g_strHostName,'&nbsp;-PASV',False,OverridePassive)</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;Returns:</span><br>
 <span class="f_CodeExample" style="font-size: 9pt; color: #008000;">&nbsp;</span></p>

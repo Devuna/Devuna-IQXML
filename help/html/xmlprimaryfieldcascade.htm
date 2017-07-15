@@ -86,7 +86,7 @@
 <p>&nbsp;</p>
 <p>There are two functions which Prime fields in your queue and this is one of them. &nbsp;The other is &quot;<a href="xmlprimarykeycascade.htm">XML:PrimaryKeyCascade</a>&quot;</p>
 <p>&nbsp;</p>
-<p>Primary<span style="font-weight: bold;">Field</span>Cascade is used to push the value in to the field while Primary<span style="font-weight: bold;">Key</span>Cascade is used to retain the value after the previous inserted record. &nbsp;Usually, if you
+<p>Primary<span style="font-weight: bold;">Field</span>Cascade is used to push the value in to the field while Primary<span style="font-weight: bold;">Key</span>Cascade is used to retain the value after the previous inserted record. &nbsp;Usually, if you are manually processing an XML section, you'll use PrimaryFieldCascade where-as if you are processing the entire document, you'd use the PrimaryKeyCascade.</p>
 <p>&nbsp;</p>
 <p>See also <a href="xmlprimaryfieldclear.htm">XML:PrimaryFieldClear</a> <a href="xmlprimarykeycascade.htm">XML:PrimaryKeyCascade</a></p>
 <p>&nbsp;</p>
@@ -101,7 +101,7 @@
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AddedRecords = XML:LoadQueue(HeaderQueue,False,False)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If AddedRecords</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Get(HeaderQueue,records(HeaderQueue))</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">Xml:PrimaryFieldCascade('CustomerID',H1:CustomerID
+<p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">Xml:PrimaryFieldCascade('CustomerID',H1:CustomerID)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed"> AddedRecords = XML:LoadQueue(DetailQueue,True,True)</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:PrimaryFieldClear()</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">END</span></p>

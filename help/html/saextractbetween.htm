@@ -76,7 +76,7 @@
 </td>
 <td valign="top" width="96" style="width:96px;"><p>&lt;STRING&gt;</p>
 </td>
-<td valign="top" width="520" style="width:520px;"><p><span style="font-weight: bold;">L</span>=Keep/Include Left Search Portion &nbsp; <span style="font-weight: bold;">R</span>=Keep/Include Right Search Portion &nbsp; <span style="font-weight: bold;">B</s
+<td valign="top" width="520" style="width:520px;"><p><span style="font-weight: bold;">L</span>=Keep/Include Left Search Portion &nbsp; <span style="font-weight: bold;">R</span>=Keep/Include Right Search Portion &nbsp; <span style="font-weight: bold;">B</span>=Keep Both Search</p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -114,7 +114,7 @@
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">FullString&nbsp;=&nbsp;'&lt;028&gt;001ThisIsRecordOne&lt;028&gt;002ThisIsRecordTwo&lt;028&gt;003ThisIsRecordThree'</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;returns&nbsp;&lt;028&gt;001ThisIsRecordOne&lt;028&gt;ThisIsRecordThree</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">Result&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ExtractOutside</span><span class="f_CodeExa
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">Result&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ExtractOutside</span><span class="f_CodeExample" style="font-size: 9pt;">(FullString,&lt;028&gt;002&quot;,'&lt;028&gt;','R')</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>

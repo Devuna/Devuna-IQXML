@@ -86,8 +86,8 @@
 <p>Looks at the end of a string (string is automatically clipped for you) and sees if the last character is the Character to Append. &nbsp;If it is not there, then it puts it there.</p>
 <p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;look&nbsp;at&nbsp;a&nbsp;UNC&nbsp;path&nbsp;and&nbsp;make&nbsp;sure&nbsp;there&nbsp;is&nbsp;a&nbsp;trailing&nbsp;slas
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">NewPath</span><span class="f_CodeExample" style="font-size: 9pt;">&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:AppendC
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;look&nbsp;at&nbsp;a&nbsp;UNC&nbsp;path&nbsp;and&nbsp;make&nbsp;sure&nbsp;there&nbsp;is&nbsp;a&nbsp;trailing&nbsp;slash&nbsp;if&nbsp;needed</span></p>
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">NewPath</span><span class="f_CodeExample" style="font-size: 9pt;">&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:AppendCharacter(LONGPATH(),'\')&nbsp;&amp;&nbsp;'myFileName.txt'</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 
 </td></tr></table>

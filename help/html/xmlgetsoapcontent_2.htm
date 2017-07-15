@@ -82,9 +82,9 @@
 </table>
 </div>
 <p>&nbsp;</p>
-<p>Used to quickly retrieve <span style="font-weight: bold;">the first </span>value of an element which matches the requested full node. &nbsp;This allows quick access to the first occurrence of a particular node without having to use the <span style="fon
+<p>Used to quickly retrieve <span style="font-weight: bold;">the first </span>value of an element which matches the requested full node. &nbsp;This allows quick access to the first occurrence of a particular node without having to use the <span style="font-weight: bold;">FindNextNode</span> or <span style="font-weight: bold;">LoadQueue</span> functions.  </p>
 <p>&nbsp;</p>
-<p>The Node must be in the form of <span style="font-style: italic;">Node[.Node.Node]</span> starting with the root. &nbsp; &nbsp;If you are trying to extract the contents of a soap header/envelope, it is best to use the XML:GetSoapContent as it is more e
+<p>The Node must be in the form of <span style="font-style: italic;">Node[.Node.Node]</span> starting with the root. &nbsp; &nbsp;If you are trying to extract the contents of a soap header/envelope, it is best to use the XML:GetSoapContent as it is more efficient.</p>
 <p>&nbsp;</p>
 <p>See also <a href="xmlgetsoapcontent.htm">XML:GetSoapContent</a></p>
 <p>&nbsp;</p>
@@ -111,15 +111,15 @@
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">if not xml:LoadXMLFile('FileAbove.XML')</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span></p>
-<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed" style="font-weight: bold;">if </span><span class="f_CourierFixed" style="font-weight: bold; color: #0000ff;">xml:GetRawContent</span><span class="f_Cou
-<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed" style="font-weight: bold;">if </span><span class="f_CourierFixed" style="font-weight: bold; color: #0000ff;">xml:GetRawContent</span><span class="f_Cou
+<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed" style="font-weight: bold;">if </span><span class="f_CourierFixed" style="font-weight: bold; color: #0000ff;">xml:GetRawContent</span><span class="f_CourierFixed" style="font-weight: bold;">('catalog.book.id',BookID).</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed" style="font-weight: bold;">if </span><span class="f_CourierFixed" style="font-weight: bold; color: #0000ff;">xml:GetRawContent</span><span class="f_CourierFixed" style="font-weight: bold;">('catalog.book.author',BookAuthor).</span></p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">message('The book id is ' &amp; BOOKID &amp; ' and the author is ' &amp; BookAuthor,'XML Information',icon:asterisk)</span></p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
-<p style="margin: 0px 0px 0px 24px;">The <span style="font-weight: bold;">XML:GetRawContent</span> is good for reading single or maybe two bits of information. &nbsp; The following would produce the same result and is definitely better for getting 2 or mo
+<p style="margin: 0px 0px 0px 24px;">The <span style="font-weight: bold;">XML:GetRawContent</span> is good for reading single or maybe two bits of information. &nbsp; The following would produce the same result and is definitely better for getting 2 or more bits of information:</p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed" style="font-weight: bold; color: #c0504d;">BookQueue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;QUEUE,PRE(BK)</span></p>
@@ -131,7 +131,7 @@
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="font-family: 'Courier New';">If not XML:FindNextNode('book')</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">if xml:LoadQueue(BookQueue,True,False)</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">get(BookQueue,1)</span></p>
-<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">message('The book id is ' &amp; BK:ID &amp; ' and the author is ' &amp; BK:Author,'XML Informat
+<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">message('The book id is ' &amp; BK:ID &amp; ' and the author is ' &amp; BK:Author,'XML Information',icon:asterisk)</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">end</span></p>

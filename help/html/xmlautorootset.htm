@@ -70,11 +70,11 @@
 <p>&nbsp;</p>
 <p>Instructs the system to mark the current node pointer as the 'pivot' location to always return to after a XML:LoadQueue function.</p>
 <p>&nbsp;</p>
-<p>This is usually used when processing structures with multiple XML:FindNextNode and XML:LoadQueue functions. The system will always return the current record pointer and node pointers to the set location after all XML:LoadQueue functions and will do so
+<p>This is usually used when processing structures with multiple XML:FindNextNode and XML:LoadQueue functions. The system will always return the current record pointer and node pointers to the set location after all XML:LoadQueue functions and will do so until it has been cleared with XML:AutoRootClear or has been cleared by XML:Free.</p>
 <p>&nbsp;</p>
 <p>You can call XML:AutoRootSet if it is already &quot;in-use&quot;, and it will simply just set to the new pointer value.</p>
 <p>&nbsp;</p>
-<p><span class="f_ImageCaption">Important Note: </span>Only one XML:AutoRootSet() function can be in-use at one time. &nbsp;If you need multiple pivot locations, you must use the <a href="xmlsavestate.htm">XML:SaveState</a> and <a href="xmlrestorestate.ht
+<p><span class="f_ImageCaption">Important Note: </span>Only one XML:AutoRootSet() function can be in-use at one time. &nbsp;If you need multiple pivot locations, you must use the <a href="xmlsavestate.htm">XML:SaveState</a> and <a href="xmlrestorestate.htm">XML:RestoreState</a> functions.</p>
 <p>&nbsp;</p>
 <p>See also <a href="xmlautorootclear.htm">XML:AutoRootClear</a></p>
 <p>&nbsp;</p>
@@ -89,19 +89,19 @@
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">If NOT XML:FindNext('Customer')</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span class="f_CourierFixed">   &nbsp; &nbsp; &nbsp; &nbsp;LOOP</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt; font-family: 'Courier New'; color: #0000ff;">XML:AutoRootSet()</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(HeaderQueue,false,false) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;!
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">XML:LoadQueue(HeaderQueue,false,false) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;! name info</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Not XML:FindNext('Address')</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(AddressQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! addresses</spa
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(AddressQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! addresses</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Not XML:FindNext('Comments')</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(CommentQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! comments</span
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(CommentQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! comments</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Not XML:FindNext('Invoices')</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(InvoiceQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! invoices</span
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(InvoiceQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! invoices</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">end</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">If Not XML:FindNext('Totals')</span></p>
-<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(TotalsQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! totals</span></
+<p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span><span class="f_CourierFixed"> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NDX = XML:LoadQueue(TotalsQueue,True,True) &nbsp; &nbsp; &nbsp; &nbsp;! totals</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">End</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
 <p style="margin: 0px 0px 0px 48px;"><span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed" style="font-style: italic;">Do CustomerProcessingRoutine</span></p>

@@ -76,7 +76,7 @@
 <p>&nbsp;</p>
 <p>Sets the cursor location within the XML document. &nbsp;If there is an existing node pointer, it is cleared and set to an unset state. </p>
 <p><span style="font-size: 10pt; font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
-<p><span style="font-weight: bold;">NOTE: &nbsp;This function (XML:SetPointer) will not set the current node state for subsequent XML:GotoParent, XML:GotoChild and XML:GotoSibling processing.  </span>For full restoration of node state and pointer, it is h
+<p><span style="font-weight: bold;">NOTE: &nbsp;This function (XML:SetPointer) will not set the current node state for subsequent XML:GotoParent, XML:GotoChild and XML:GotoSibling processing.  </span>For full restoration of node state and pointer, it is highly recommend to see and use XML:SaveState() and XML:RestoreState() when moving around the XML document if you wish for the Node Pointer to be retained. </p>
 <p>&nbsp;</p>
 <p>See also <a href="xmlgetpointer.htm">XML:GetPointer</a></p>
 <p>&nbsp;</p>

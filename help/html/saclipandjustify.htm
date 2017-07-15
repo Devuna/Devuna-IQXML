@@ -82,23 +82,23 @@
 </table>
 </div>
 <p>&nbsp;</p>
-<p>Looks at a string, formats it, and the left justifies it and then clip it. &nbsp; Used to quickly get a good result for a numeric or date picture, without having to left justify or clip the result. &nbsp;Also, you can set your Static Picture using SA:C
+<p>Looks at a string, formats it, and the left justifies it and then clip it. &nbsp; Used to quickly get a good result for a numeric or date picture, without having to left justify or clip the result. &nbsp;Also, you can set your Static Picture using SA:ClipAndJustifySet(<span style="font-style: italic;">your picture</span>) and then call this parameter easily, good when using a local currency picture.</p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">CODE</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;returns&nbsp;LEFT/CLIPPED&nbsp;string&nbsp;of&nbsp;-123.21</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">ResultString&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustify(-123.21,'@n-12.2') &nbsp; &nbsp; &nbsp; &nbsp;
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">ResultString&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustify(-123.21,'@n-12.2') &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample">-&nbsp;or&nbsp;-</p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">SA:ClipAndJustifySet('@n$-13.2')</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #008000;">!&nbsp;returns&nbsp;LEFT/CLIPPED&nbsp;string&nbsp;of&nbsp;$-123.21</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">ResultString&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustify(-123.21) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample">ResultString&nbsp;=&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustify(-123.21) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span style="width:48px">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">message('You&nbsp;have&nbsp;to&nbsp;pay&nbsp;us&nbsp;'&nbsp;&amp;&nbsp;SA:ClipAndJustify(ThisAmount)&nbsp;&amp;&nbsp;'&nbsp;or&nbsp;we&nbsp;
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">message('You&nbsp;have&nbsp;to&nbsp;pay&nbsp;us&nbsp;'&nbsp;&amp;&nbsp;SA:ClipAndJustify(ThisAmount)&nbsp;&amp;&nbsp;'&nbsp;or&nbsp;we&nbsp;will&nbsp;send&nbsp;to&nbsp;collections'</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
 <p><span style="width:48px">&nbsp;</span>The <span style="font-weight: bold;">SA:ClipandJustifySet( )</span> picture is set GLOBALLY for the ENTIRE application, and all threads until changed.</p>
@@ -133,7 +133,7 @@
 </div>
 <p>&nbsp;</p>
 <p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
-<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustifySet</span><span class="f_CodeExample" styl
+<p class="p_CodeExample"><span style="width:48px">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt;">&nbsp;</span><span class="f_CodeExample" style="font-size: 9pt; color: #0000ff;">SA:ClipandJustifySet</span><span class="f_CodeExample" style="font-size: 9pt;">('@n$-13.2')</span></p>
 
 </td></tr></table>
 

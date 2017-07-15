@@ -82,7 +82,7 @@
 </table>
 </div>
 <p>&nbsp;</p>
-<p>Used to quickly retrieve the value of an element within the Soap Header. &nbsp;The first node must begin with &quot;Soap&quot; in order for this command to retrieve a value. &nbsp;This allows quick access to a Soap header value without having to use th
+<p>Used to quickly retrieve the value of an element within the Soap Header. &nbsp;The first node must begin with &quot;Soap&quot; in order for this command to retrieve a value. &nbsp;This allows quick access to a Soap header value without having to use the <span style="font-weight: bold;">FindNextNode</span> or <span style="font-weight: bold;">LoadQueue</span> functions. &nbsp;It is very efficient to quickly read the contents of a single node, to make a decision for later parsing.</p>
 <p>&nbsp;</p>
 <p>The Node must be in the form of <span style="font-style: italic;">Node[.Node.Node]</span> excluding any SOAP portion.  </p>
 <p>&nbsp;</p>
@@ -111,7 +111,7 @@
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">if not xml:LoadXMLFile('FileAbove.XML')</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span></p>
-<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">if </span><span class="f_CourierFixed" style="color: #0000ff;">xml:GetSoapContent</span><span class="f_CourierFixed">('m:GetStockPrice.m:StockName',Sto
+<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">if </span><span class="f_CourierFixed" style="color: #0000ff;">xml:GetSoapContent</span><span class="f_CourierFixed">('m:GetStockPrice.m:StockName',StockName)</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">Do GetStockPrice</span></p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
@@ -139,7 +139,7 @@
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span class="f_CourierFixed">if not xml:LoadXMLFile('FileAbove.XML')</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span></p>
-<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">if </span><span class="f_CourierFixed" style="color: #0000ff;">xml:GetSoapContent</span><span class="f_CourierFixed">('RequestType',RequestType)</span>
+<p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_CourierFixed">if </span><span class="f_CourierFixed" style="color: #0000ff;">xml:GetSoapContent</span><span class="f_CourierFixed">('RequestType',RequestType)</span></p>
 <p style="margin: 0px 0px 0px 24px;">&nbsp;</p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">case RequestType</span></p>
 <p style="margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CourierFixed">of 'CheckRate' &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
