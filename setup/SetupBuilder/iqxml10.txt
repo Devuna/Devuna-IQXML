@@ -125,6 +125,8 @@ Create Installation App & Log ("[UNINSTALL_LOG]")
 ::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQRecent" [Feature:Always Install]
 ::Create Folder "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample" [Feature:Always Install]
 ::Create Folder "%_SB_INSTALLDIR%\accessory\addins" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\vendor" [Feature:Always Install]
+::Create Folder "%_SB_INSTALLDIR%\accessory\vendor\iQXML" [Feature:Always Install]
 ::Create Folder "%_SB_INSTALLDIR%\accessory\documents" [Feature:Always Install]
 ::Create Folder "%_SB_INSTALLDIR%\accessory\documents\iQXML" [Feature:Always Install]
   
@@ -166,6 +168,7 @@ Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\IQXMLTempl
 Install File(s) "C:\GitHub\Devuna-IQXML\examples\IQXMLTemplateExample\OutputExample.xml" to "%_CSIDL_COMMON_DOCUMENTS%\Softvelocity\Clarion10\Accessory\iQXML\Examples\IQXMLTemplateExample\OutputExample.xml" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\addins\IQXML.addin" to "%_SB_INSTALLDIR%\accessory\addins\IQXML.addin" [Feature:Always Install]
 Install File(s) "C:\GitHub\Devuna-IQXML\help\iqxml.chm" to "%_SB_INSTALLDIR%\accessory\documents\iQXML\iqxml.chm" [Feature:Always Install]
+Install File(s) "C:\GitHub\Devuna-IQXML\vendor\iQXML Examples.lnk" to "%_SB_INSTALLDIR%\accessory\vendor\iQXML\iQXML Examples.lnk" [Feature:Always Install]
   
 [ Create Shortcuts ]
   
