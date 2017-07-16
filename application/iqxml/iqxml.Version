@@ -1,8 +1,8 @@
 LANGUAGE 0x0409
 
 1 VERSIONINFO
- FILEVERSION 4,4,1,0
- PRODUCTVERSION 4,4,1,0
+ FILEVERSION 4,4,2,0
+ PRODUCTVERSION 4,4,2,0
  FILEFLAGSMASK 0x3FL
  FILEFLAGS 0
  FILEOS VOS__WINDOWS32
@@ -15,13 +15,13 @@ BEGIN
       BEGIN
         VALUE "CompanyName", "iQ-XML\0"
         VALUE "FileDescription", "iQ-XML\0"
-        VALUE "FileVersion", "4.4.1.0\0"
+        VALUE "FileVersion", "4.4.2.0\0"
         VALUE "InternalName", "iQ-XML\0"
         VALUE "LegalCopyright", "iQ-XML\0"
         VALUE "LegalTrademarks", "iQ-XML\0"
         VALUE "OriginalFilename", "iqxml.DLL\0"
         VALUE "ProductName", "iQ-XML\0"
-        VALUE "ProductVersion", "4.4.1.0\0"
+        VALUE "ProductVersion", "4.4.2.0\0"
         VALUE "Clarion Version", "10000\0"
         VALUE "Template Family", "CLARION\0"
         VALUE "Template Version", "v10.0\0"

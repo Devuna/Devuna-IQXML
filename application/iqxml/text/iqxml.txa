@@ -225,7 +225,8 @@ MODIFIED '2014/01/19' '13:40:41'
 %OverrideRILogout DEPEND %File DEFAULT TIMES 1
 WHEN  ('') ('Use Default')
 
-%GlobalObject DEPEND %ClassItem DEFAULT TIMES 147
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 148
+WHEN  ('ClientSideTriggers:') ('YES')
 WHEN  ('ClientSideTriggers:ACCEXPT') ('YES')
 WHEN  ('ClientSideTriggers:ACCGROUP') ('YES')
 WHEN  ('ClientSideTriggers:ACCGRP') ('YES')
@@ -376,7 +377,8 @@ WHEN  ('Translator') ('YES')
 
 %ThisObjectName DEPEND %ClassItem DEFAULT TIMES 0
 
-%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 147
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 148
+WHEN  ('ClientSideTriggers:') (1)
 WHEN  ('ClientSideTriggers:ACCEXPT') (1)
 WHEN  ('ClientSideTriggers:ACCGROUP') (1)
 WHEN  ('ClientSideTriggers:ACCGRP') (1)
@@ -525,7 +527,8 @@ WHEN  ('FuzzyMatcher') (1)
 WHEN  ('INIManager') (1)
 WHEN  ('Translator') (1)
 
-%UseABCBaseClass DEPEND %ClassItem LONG TIMES 147
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 148
+WHEN  ('ClientSideTriggers:') (1)
 WHEN  ('ClientSideTriggers:ACCEXPT') (1)
 WHEN  ('ClientSideTriggers:ACCGROUP') (1)
 WHEN  ('ClientSideTriggers:ACCGRP') (1)
@@ -674,7 +677,8 @@ WHEN  ('FuzzyMatcher') (1)
 WHEN  ('INIManager') (1)
 WHEN  ('Translator') (1)
 
-%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 147
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 148
+WHEN  ('ClientSideTriggers:') ('')
 WHEN  ('ClientSideTriggers:ACCEXPT') ('')
 WHEN  ('ClientSideTriggers:ACCGROUP') ('')
 WHEN  ('ClientSideTriggers:ACCGRP') ('')
@@ -827,7 +831,8 @@ WHEN  ('Translator') ('')
 
 %BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
 
-%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 147
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 148
+WHEN  ('ClientSideTriggers:') (0)
 WHEN  ('ClientSideTriggers:ACCEXPT') (0)
 WHEN  ('ClientSideTriggers:ACCGROUP') (0)
 WHEN  ('ClientSideTriggers:ACCGRP') (0)
@@ -986,7 +991,8 @@ WHEN  ('Translator') (0)
 
 %NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
 
-%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
+WHEN  ('ClientSideTriggers:')TIMES 0
 WHEN  ('Translator')TIMES 0
 
 %NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
@@ -1013,7 +1019,8 @@ WHEN  ('Translator')TIMES 0
 
 %ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
 
-%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
+WHEN  ('ClientSideTriggers:')TIMES 0
 WHEN  ('Translator')TIMES 0
 
 %ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
@@ -1257,7 +1264,7 @@ INSTANCE 1
 %verProdName DEFAULT  ('iQ-XML')
 %verProdMajVer DEFAULT  ('4')
 %verProdMinVer DEFAULT  ('4')
-%verProdSubVer DEFAULT  ('1')
+%verProdSubVer DEFAULT  ('2')
 %verProdGenBuildNo LONG  (0)
 %verProdBuildNo DEFAULT  ('0')
 %verDesc DEFAULT  ('iQ-XML')
@@ -1265,7 +1272,7 @@ INSTANCE 1
 %verIntName DEFAULT  ('iQ-XML')
 %verFileMajVer DEFAULT  ('4')
 %verFileMinVer DEFAULT  ('4')
-%verFileSubVer DEFAULT  ('1')
+%verFileSubVer DEFAULT  ('2')
 %verFileGenBuildNo LONG  (1)
 %verFileBuildNo DEFAULT  ('0')
 %verFilePreRelease LONG  (0)
@@ -1334,6 +1341,7 @@ WHEN  ('iqxml017.clw') ('1')
 #compile "iqxml_RD.CLW" -- GENERATED
 #compile "iqxml_RU.CLW" -- GENERATED
 #compile "iqxml_SF.CLW" -- GENERATED
+#pragma link("iqxml.Version") -- GENERATED
 #link "iqxml.DLL"
 [PROGRAM]
 [COMMON]
