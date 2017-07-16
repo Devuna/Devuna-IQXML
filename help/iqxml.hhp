@@ -1,6 +1,12 @@
 [OPTIONS]
-Contents file=C:\GitHub\Devuna-IQXML\help\iqxml.hhc
-Index file=C:\GitHub\Devuna-IQXML\help\iqxml.hhk
+Compatibility=1.1 or later
+Compiled file=iqxml.chm
+Contents file=iqxml.hhc
+Default topic=html\introduction.htm
+Display compile progress=No
+Index file=iqxml.hhk
+Language=0x1009 English (Canada)
+
 
 [FILES]
 html\date_time_functions.htm
@@ -156,3 +162,6 @@ html\xmlsetpointer.htm
 html\xmlsetprogresswindow.htm
 html\xmlskipdebug.htm
 html\xmlviewfile.htm
+
+[INFOTYPES]
+

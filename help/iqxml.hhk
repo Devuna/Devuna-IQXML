@@ -8,59 +8,59 @@
 <UL>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Date/Time Zone">
-    <param name="Local" value="xmlconverttogmt.htm">
+    <param name="Local" value="html\xmlconverttogmt.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="DebugQueue">
-    <param name="Local" value="overview.htm">
+    <param name="Local" value="html\overview.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="DLLs">
-    <param name="Local" value="includinginyourapplication.htm">
+    <param name="Local" value="html\includinginyourapplication.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Glossary">
-    <param name="Local" value="glossary.htm">
+    <param name="Local" value="html\glossary.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="GMT">
-    <param name="Local" value="xmlconverttogmt.htm">
+    <param name="Local" value="html\xmlconverttogmt.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Limitations">
-    <param name="Local" value="functionsandlimitations.htm">
+    <param name="Local" value="html\functionsandlimitations.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Parser Functions">
-    <param name="Local" value="parserfunctions.htm">
+    <param name="Local" value="html\parserfunctions.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="RunTimes">
-    <param name="Local" value="includinginyourapplication.htm">
+    <param name="Local" value="html\includinginyourapplication.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Sample Applications">
-    <param name="Local" value="sampleapplications.htm">
+    <param name="Local" value="html\sampleapplications.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Support">
-    <param name="Local" value="supportandhelp.htm">
+    <param name="Local" value="html\supportandhelp.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Templates">
-    <param name="Local" value="templatesupport.htm">
+    <param name="Local" value="html\templatesupport.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Time">
-    <param name="Local" value="xmlconverttogmt.htm">
+    <param name="Local" value="html\xmlconverttogmt.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Version Information">
-    <param name="Local" value="versioninformation.htm">
+    <param name="Local" value="html\versioninformation.htm">
     </OBJECT></LI>
 <LI><OBJECT type="text/sitemap">
     <param name="Name" value="Write Functions">
-    <param name="Local" value="writefunctions.htm">
+    <param name="Local" value="html\writefunctions.htm">
     </OBJECT></LI>
 </UL>
 </BODY></HTML>
