@@ -2,22 +2,21 @@
 !                                       IQXML
 ! ================================================================================
 ! Notice : Copyright (C) 2017, Paresi
-!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+!          Distributed under the MIT License (https://opensource.org/licenses/MIT)
 !
 !    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
 !
 !    Devuna-IQXML is free software: you can redistribute it and/or modify
-!    it under the terms of the GNU General Public License as published by
-!    the Free Software Foundation, either version 3 of the License, or
-!    (at your option) any later version.
+!    it under the terms of the MIT License as published by
+!    the Open Source Initiative.
 !
 !    Devuna-IQXML is distributed in the hope that it will be useful,
 !    but WITHOUT ANY WARRANTY; without even the implied warranty of
 !    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-!    GNU General Public License for more details.
+!    MIT License for more details.
 !
-!    You should have received a copy of the GNU General Public License
-!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+!    You should have received a copy of the MIT License
+!    along with Devuna-IQXML.  If not, see <https://opensource.org/licenses/MIT>.
 ! ================================================================================
 
  SECTION('Modules')
@@ -118,14 +117,14 @@
        XML:ConvertToGMT(<LONG>,<LONG>),STRING,DLL(DLL_MODE)
        XML:ConvertTimeStampToLocal(STRING,*LONG,*LONG,BYTE),DLL(DLL_MODE)
     END
-    
+
     MODULE('iQ-XML Parse Functions')
        XML:Parse(STRING,STRING,STRING),LONG,DLL(DLL_MODE)
        XML:ParseRead(),STRING,DLL(DLL_MODE)
        XML:ParseEmpty(),DLL(DLL_MODE)
        XML:ExtractPortion(STRING,STRING,STRING),STRING,DLL(DLL_MODE)
        XML:ParseBreak(STRING,STRING,*STRING,*STRING),DLL(DLL_MODE)
-    END   
+    END
 
     MODULE('iQ-XML Swiss Army Knife - Date/Time')
        SA:GetDOW(LONG,<BYTE>),STRING,DLL(DLL_MODE)
@@ -178,7 +177,7 @@
        SA:DoesFileContain(STRING InFileName,STRING InText),BYTE,DLL(DLL_MODE)
        SA:GetRandomString(SHORT InLength,BYTE InType),STRING,DLL(DLL_MODE)
      END
-    
+
     SECTION('Equates')
 
 IQXML:None            EQUATE(0)

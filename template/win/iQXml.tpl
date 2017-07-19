@@ -3,22 +3,21 @@
 #!                                       IQXML
 #! ================================================================================
 #! Notice : Copyright (C) 2017, Paresi
-#!          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+#!          Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #!
 #!    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
 #!
 #!    Devuna-IQXML is free software: you can redistribute it and/or modify
-#!    it under the terms of the GNU General Public License as published by
-#!    the Free Software Foundation, either version 3 of the License, or
-#!    (at your option) any later version.
+#!    it under the terms of the MIT License as published by
+#!    the Open Source Initiative.
 #!
 #!    Devuna-IQXML is distributed in the hope that it will be useful,
 #!    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#!    GNU General Public License for more details.
+#!    MIT License for more details.
 #!
-#!    You should have received a copy of the GNU General Public License
-#!    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+#!    You should have received a copy of the MIT License
+#!    along with Devuna-IQXML.  If not, see <https://opensource.org/licenses/MIT>.
 #! ================================================================================
 #!endRegion
 #!-----------------------------------------------------------------------------------
@@ -35,7 +34,7 @@
 #INSERT(%iQWelcome)
   #BOXED('')
    #DISPLAY('This template supports the following functions:')
-    #BUTTON('Parser Functions') 
+    #BUTTON('Parser Functions')
      #INSERT(%ParserGroup)
     #ENDBUTTON
     #BUTTON('Write Functions')
@@ -53,8 +52,8 @@
   #ENDBOXED
   #BOXED(' Error Options '),where(%iQIncludeError=1)
    #PROMPT('Error Checking Options',OPTION),%iQErrorCheckOptions,CHOICE
-   #PROMPT('Use Standard Clarion Message Box',RADIO)                   
-   #PROMPT('Put Error Text in Global Variable',RADIO)                   
+   #PROMPT('Use Standard Clarion Message Box',RADIO)
+   #PROMPT('Put Error Text in Global Variable',RADIO)
   #ENDBOXED
   #BOXED(' Variable '),where(%iQErrorCheckOptions=2 and %iQIncludeError=1)
    #DISPLAY('The Following Global Variable can be used to')
@@ -74,8 +73,8 @@ Glo:iQErrorMessageText              STRING(128),EXTERNAL,DLL
   #ELSE
 Glo:iQErrorMessageText              STRING(128)
   #ENDIF
-#ENDIF  
-#ENDAT  
+#ENDIF
+#ENDAT
 #AT(%CustomGlobalDeclarations)
      #IF(%iQNoGlobals=0)
 #IF(%ApplicationLocalLibrary)
@@ -86,10 +85,10 @@ Glo:iQErrorMessageText              STRING(128)
    #PROJECT('IQXML.LIB')
 #ENDIF
     #ENDIF
-#IF(%ApplicationLocalLibrary = 0)    
+#IF(%ApplicationLocalLibrary = 0)
      #FIX(%Driver,'DOS')
      #PROJECT(%DriverLIB)
-#ENDIF     
+#ENDIF
 #ENDAT
 #AT(%GlobalMap)
  #IF(%iQNoGlobals=0)

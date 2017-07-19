@@ -1,22 +1,21 @@
 ! //////////////////////////////////////////////////////////////////////////////////////////////////
 ! //
-! // Notice : Copyright (C) 2017, Paresi
-! //          Distributed under LGPLv3 (http://www.gnu.org/licenses/lgpl.html)
+! // Notice : Copyright (C) 2017, Devuna
+! //          Distributed under the MIT License (https://opensource.org/licenses/MIT)
 ! //
 ! //    This file is part of Devuna-IQXML (https://github.com/Devuna/Devuna-IQXML)
 ! //
 ! //    Devuna-IQXML is free software: you can redistribute it and/or modify
-! //    it under the terms of the GNU General Public License as published by
-! //    the Free Software Foundation, either version 3 of the License, or
-! //    (at your option) any later version.
+! //    it under the terms of the the MIT License as published by
+! //    the Open Source Initiative.
 ! //
-! //    Devuna-IQXML is distributed in the hope that it will be useful,
+! //    Devuna-IQXMLr is distributed in the hope that it will be useful,
 ! //    but WITHOUT ANY WARRANTY; without even the implied warranty of
 ! //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ! //    GNU General Public License for more details.
 ! //
-! //    You should have received a copy of the GNU General Public License
-! //    along with Devuna-IQXML.  If not, see <http://www.gnu.org/licenses/>.
+! //    You should have received a copy of the the MIT License
+! //    along with Devuna-IQXML.  If not, see <https://opensource.org/licenses/MIT>.
 ! //
 ! //////////////////////////////////////////////////////////////////////////////////////////////////
 ! //
